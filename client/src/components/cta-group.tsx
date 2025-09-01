@@ -26,7 +26,7 @@ export default function CTAGroup({ size = "md", variant = "default", className =
         data-testid="cta-button-ios"
       >
         <SiApple className="w-4 h-4 mr-2" />
-        {size === "sm" ? "iOS" : "Download on iOS"}
+        {size === "sm" ? "iOS" : size === "lg" ? "Download" : "Download on iOS"}
       </a>
       <a
         href="#android-placeholder"
@@ -34,7 +34,7 @@ export default function CTAGroup({ size = "md", variant = "default", className =
         data-testid="cta-button-android"
       >
         <SiGoogleplay className="w-4 h-4 mr-2" />
-        {size === "sm" ? "Android" : "Get it on Android"}
+        {size === "sm" ? "Android" : size === "lg" ? "Download" : "Get it on Android"}
       </a>
     </div>
   );

@@ -40,7 +40,7 @@ export default function Header() {
             src={logoImage} 
             alt="Goobii" 
             className={`transition-all duration-300 ${
-              isScrolled ? 'h-8 w-auto' : 'h-12 w-auto'
+              isScrolled ? 'h-12 w-auto' : 'h-20 w-auto'
             }`}
           />
         </Link>
