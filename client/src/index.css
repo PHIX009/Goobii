@@ -137,6 +137,14 @@
     border-bottom: 1px solid hsl(var(--brand-primary) / 0.1);
   }
 
+  /* Logo optimization */
+  img[alt="Goobii"] {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    background: transparent;
+  }
+
   .service-card:hover {
     transform: translateY(-4px);
     transition: transform 0.2s ease;

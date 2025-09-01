@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <img src={logoImage} alt="Goobii" className="h-48 w-auto mb-4" />
+            <img src={logoImage} alt="Goobii" className="h-20 w-auto mb-4 object-contain" style={{ filter: 'none', imageRendering: 'crisp-edges' }} />
             <p className="text-brand-bg/80 mb-4">
               Eco-friendly car cleaning that saves water without compromising quality. Making sustainability accessible and effective for everyone in Dubai.
             </p>
