@@ -1,5 +1,5 @@
-import { Apple, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SiApple, SiGoogleplay } from "react-icons/si";
 
 interface CTAGroupProps {
   size?: "sm" | "md" | "lg";
@@ -25,7 +25,7 @@ export default function CTAGroup({ size = "md", variant = "default", className =
         className={`cta-button ${variant === "footer" ? footerClasses : "bg-brand-primary text-brand-bg hover:bg-brand-secondary"} ${sizeClasses[size]} rounded-xl font-grandview-bold transition-colors flex items-center justify-center`}
         data-testid="cta-button-ios"
       >
-        <Apple className="w-4 h-4 mr-2" />
+        <SiApple className="w-4 h-4 mr-2" />
         {size === "sm" ? "iOS" : "Download on iOS"}
       </a>
       <a
@@ -33,7 +33,7 @@ export default function CTAGroup({ size = "md", variant = "default", className =
         className={`cta-button ${variant === "footer" ? footerClasses : "bg-brand-secondary text-brand-bg hover:bg-brand-primary"} ${sizeClasses[size]} rounded-xl font-grandview-bold transition-colors flex items-center justify-center`}
         data-testid="cta-button-android"
       >
-        <Smartphone className="w-4 h-4 mr-2" />
+        <SiGoogleplay className="w-4 h-4 mr-2" />
         {size === "sm" ? "Android" : "Get it on Android"}
       </a>
     </div>

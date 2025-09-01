@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Smartphone, Download } from "lucide-react";
 import CTAGroup from "@/components/cta-group";
+import logoImage from "@assets/Logo-01_1756735001869.png";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -19,13 +20,29 @@ const navigation = [
 export default function Header() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <header className="header-sticky fixed top-0 left-0 right-0 z-50 px-4 py-3 border-b border-border" data-testid="header">
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center" data-testid="logo-link">
-          <h1 className="text-2xl font-ghost font-bold text-brand-primary">Goobii</h1>
+          <img 
+            src={logoImage} 
+            alt="Goobii" 
+            className={`transition-all duration-300 ${
+              isScrolled ? 'h-8 w-auto' : 'h-12 w-auto'
+            }`}
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -34,8 +51,8 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className={`nav-link text-foreground hover:text-brand-primary transition-colors ${
-                location === item.href ? "font-bold text-brand-primary" : ""
+              className={`nav-link text-brand-secondary hover:text-brand-primary transition-colors ${
+                location === item.href ? "font-bold text-brand-pop" : ""
               }`}
               data-testid={`nav-link-${item.name.toLowerCase()}`}
             >
@@ -75,8 +92,8 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`text-lg py-2 text-foreground hover:text-brand-primary transition-colors ${
-                      location === item.href ? "font-bold text-brand-primary" : ""
+                    className={`text-lg py-2 text-brand-secondary hover:text-brand-primary transition-colors ${
+                      location === item.href ? "font-bold text-brand-pop" : ""
                     }`}
                     onClick={() => setIsOpen(false)}
                     data-testid={`mobile-nav-link-${item.name.toLowerCase()}`}

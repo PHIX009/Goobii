@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { MessageCircle, Mail } from "lucide-react";
 import CTAGroup from "@/components/cta-group";
+import logoImage from "@assets/Logo-01_1756735001869.png";
 
 export default function Footer() {
   return (
@@ -9,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-ghost font-bold mb-4">Goobii</h3>
+            <img src={logoImage} alt="Goobii" className="h-12 w-auto mb-4" />
             <p className="text-brand-bg/80 mb-4">
               Eco-friendly car cleaning that saves water without compromising quality. Making sustainability accessible and effective for everyone in Dubai.
             </p>
