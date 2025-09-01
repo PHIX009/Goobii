@@ -1,0 +1,295 @@
+Got it—here’s your **updated, copy-ready Replit prompt** with all your changes baked in (CTAs, pages, colors, fonts, copy focus, and separations). Paste this whole thing into Replit AI (or Ghostwriter Agent) as your single instruction.
+
+---
+
+# Build the Goobii Website (Informative • App-First CTA • Brand-Accurate)
+
+## Goal
+
+Create an **informative** marketing website for **Goobii** (eco-friendly, water-saving car-cleaning in Dubai) with a **primary CTA to download the app**. Use **placeholder links** for iOS and Android. The site must match Goobii brand **colors** and **fonts** exactly (see “Design System”).
+
+### Tech Stack (preferred)
+
+* **Next.js (App Router) + React + TypeScript**
+* **Tailwind CSS**
+* Vercel-ready, but must run on Replit
+* If Next.js isn’t available, ship a clean static HTML/CSS/JS version with the same structure, styles, and content
+
+---
+
+## Information Architecture (Pages)
+
+### 1) Home (Landing)
+
+**Purpose:** Informative overview with strong app-download CTA.
+
+**Hero**
+
+* H1 (informative, not salesy): “Eco-friendly car cleaning, made simple.”
+* Sub: “Sooftwash™ uses just 2–4 L per wash vs 100–150 L with pressure washes—without compromising results.”
+* **Primary CTA group (two buttons, always visible above the fold):**
+
+  * **Download on iOS** → `#ios-placeholder`
+  * **Get it on Android** → `#android-placeholder`
+
+**Value Cards** (4)
+
+* **Save Water** — succinct note on 2–4 L vs 100–150 L
+* **Safe, Biodegradable Chemistry** — vehicle-safe & worker-safe
+* **User-Friendly App** — book in minutes; store vehicles/addresses; request before/after images; all washes recorded
+* **Pro Liinks** — trained Goobii Liinks deliver consistent quality
+
+**How It Works** (3 steps with simple SVG icons)
+
+1. Book in the app → 2) We arrive → 3) Clean & done
+
+**Trust/Partners Strip** (SVG placeholders)
+
+**Secondary CTA band** (restate the two app buttons)
+
+---
+
+### 2) Services
+
+**Intro to Sooftwash™**
+
+* Short, informative description of the water-saving process and why it’s effective and safe.
+
+**Our Services** (cards with brief copy; no prices)
+
+* **Aura (Exterior):** Quick weekly upkeep for a fresh exterior. Focused clean that removes dust, light road film, and everyday grime to keep your car consistently presentable in less time.
+* **Aura Absolute (Exterior + Basic Interior):** Adds a light interior refresh (quick vacuum, wipe-downs, glass). Ideal for routine maintenance inside and out.
+* **Glow (Premium Exterior):** A thorough, more detailed exterior service. Deeper attention to tricky areas (badges, crevices, wheels/tyres). **Recommended experience**; requires slightly longer time.
+* **Glow Absolute (Full Premium):** Glow level exterior + more complete interior attention (more surfaces addressed, glass in/out, tighter nooks).
+
+**Inline CTA group:** iOS / Android download buttons (same placeholders)
+
+---
+
+### 3) Subscriptions  *(separate page—do not list prices)*
+
+**Intro:** Subscriptions built around Aura and Aura Absolute for predictable upkeep and convenience.
+
+**Tiers** (example names; adjust copy only, no prices)
+
+* **Spark 4** — 4 washes/month: choose Aura or Aura Absolute mix; includes standard inclusions per chosen service.
+* **Spark 8** — 8 washes/month: for multi-car households or increased frequency; standard inclusions.
+* **Flow 12** — 12 washes/month: highest frequency plan; standard inclusions; ideal for buildings/families.
+
+Show **what’s included** per tier (bullet list referencing the underlying Aura/Aura Absolute inclusions and number of washes), **no prices**.
+
+**Inline CTA group:** iOS / Android download buttons
+
+---
+
+### 4) For Buildings & Communities (Goobii Local)
+
+* Brief informative overview of fixed-location operations for buildings/communities.
+* Benefits for residents, landlords, and onboarding of janitors into Goobii systems/SOPs.
+* CTA: **Enquire** (contact form anchor) + app download buttons.
+
+---
+
+### 5) Fleet & Business
+
+* Short informative paragraph on B2B (on-site or facility options).
+* CTA: **Request a Proposal** (contact form anchor) + app download buttons.
+
+---
+
+### 6) About
+
+* Mission: eco-responsibility without cost/quality trade-offs.
+* Operations: electric bikes + power station; exploring solar.
+* Community initiatives (future): impact report, eco-pledge, NGO partnerships, clean-ups.
+
+---
+
+### 7) FAQs
+
+Cover: water use, chemical safety, booking flow, payments, before/after images, cancellations, recorded washes.
+
+---
+
+### 8) Contact
+
+* **Contact Form** (Name, Email, Phone, Topic, Message) → API route that `console.log`s payload
+* **WhatsApp** & **Email** links as placeholders
+* Note: fully digital; open daily; hours TBD
+
+---
+
+## Global CTA Rules
+
+* **Primary CTA everywhere:** two side-by-side buttons for **iOS** and **Android** app downloads
+
+  * iOS placeholder: `#ios-placeholder`
+  * Android placeholder: `#android-placeholder`
+* Keep this CTA in the header (right side), hero sections, mid-page bands, and page footers.
+
+---
+
+## Design System (Use EXACT Values)
+
+### Colors (CSS Variables)
+
+```
+--brand-primary: #006980;  /* main color for all text and buttons */
+--brand-secondary: #003B5C;/* secondary color to create contrast */
+--brand-bg: #FAFCFE;       /* background + text inside buttons */
+--brand-pop: #FF8200;      /* special contrast / time-related elements */
+--brand-contrast-2: #DCC57F; /* secondary contrast for selections */
+```
+
+* Apply a light theme on `--brand-bg`.
+* **Primary buttons:** background `--brand-primary`, text `--brand-bg`.
+* **Secondary buttons or accents:** use `--brand-secondary` as needed.
+* Use `--brand-pop` sparingly for time-sensitive badges, notices, or limited offers.
+* Use `--brand-contrast-2` primarily for **selection states** (e.g., selected tab/card borders or highlights).
+
+### Fonts (Exact)
+
+* **Main titles:** **Ghost**
+* **Subtitles:** **Grandview Bold**
+* **Body & other text:** **Grandview**
+* Implement via `@font-face` with local `fonts/` placeholders and robust fallbacks (e.g., Inter, system-ui) until the real font files are provided.
+* Tailwind config: set font families to match the above usage.
+
+### Components & Style
+
+* Clean, informative layout; grid-based sections; rounded-2xl cards; soft shadows; generous padding.
+* Simple inline SVG icon set for consistency.
+* Motion: minimal hover/active states only.
+
+---
+
+## Header / Footer
+
+* **Header:** Goobii wordmark placeholder (text), nav (Home, Services, Subscriptions, Buildings, Fleet, About, FAQs, Contact), **persistent iOS/Android CTA buttons**, sticky on scroll.
+* **Footer:** short eco message, WhatsApp & Email placeholders, copyright.
+
+---
+
+## Functionality
+
+* Fully responsive (mobile-first).
+* Contact form → POST `/api/contact` → `console.log` JSON payload.
+* “Download” buttons link to placeholders above.
+* Basic a11y: semantic HTML, alt text, focus states, color contrast.
+
+---
+
+## SEO & Perf
+
+* Per-page meta title/description.
+* OG & Twitter cards.
+* `robots.txt`, `sitemap.xml`.
+* JSON-LD on Home (`LocalBusiness`, areaServed: Dubai).
+* Lighthouse desktop scores (P/SEO/BP/A11y) ≥ 90.
+
+---
+
+## Suggested File Structure
+
+```
+/app
+  /layout.tsx
+  /globals.css
+  /page.tsx                  (Home)
+  /services/page.tsx
+  /subscriptions/page.tsx
+  /buildings/page.tsx
+  /fleet/page.tsx
+  /about/page.tsx
+  /faqs/page.tsx
+  /contact/page.tsx
+  /api/contact/route.ts
+/components
+  Button.tsx
+  Card.tsx
+  CTAGroup.tsx     // iOS + Android buttons together
+  FAQ.tsx
+  Modal.tsx
+  Section.tsx
+  ServiceCard.tsx
+  SubscriptionCard.tsx
+/public/images/placeholders/*.svg
+/public/fonts/*  // Ghost/Grandview placeholders
+/sitemap.ts
+/robots.txt
+/README.md
+```
+
+---
+
+## Acceptance Criteria
+
+1. Primary CTA (iOS + Android) visible in header, hero, mid-page bands, and footers on all pages.
+2. Services page lists **Aura, Aura Absolute, Glow, Glow Absolute** with brief, informative blurbs (no prices).
+3. Subscriptions are on their **own page** with inclusions only—**no prices**.
+4. Colors and fonts match **exact values** above.
+5. Contact form posts to `/api/contact` and logs payload.
+6. Renders correctly on mobile and desktop; accessibly styled focus states; no contrast failures.
+
+---
+
+## Tasks
+
+1. Scaffold Next.js + Tailwind and configure brand tokens & fonts.
+2. Build all pages and components with informative copy.
+3. Wire contact API route and test.
+4. Add SEO, OG/Twitter, robots, sitemap, JSON-LD.
+5. Validate a11y & responsive behavior.
+6. Document where to replace placeholder links, fonts, and copy in `README.md`.
+
+---
+
+### Copy Snippets (use now; keep editable)
+
+* **Hero H1:** Eco-friendly car cleaning, made simple.
+* **Hero sub:** Sooftwash™ uses just **2–4 L** per wash vs **100–150 L** with pressure washes—without compromising results.
+* **CTA buttons:** Download on iOS / Get it on Android
+* **Aura:** Quick weekly upkeep for a fresh exterior—removes dust, light road film, and everyday grime so your car always looks presentable.
+* **Aura Absolute:** Aura exterior plus a light interior refresh (quick vacuum, wipe-downs, glass) for routine maintenance inside and out.
+* **Glow:** Our more thorough, detailed exterior clean that spends longer on tricky areas (badges, crevices, wheels/tyres). **Recommended experience.**
+* **Glow Absolute:** Glow exterior results plus a more complete interior attention for a crisp, all-round finish.
+
+---
+
+## References
+
+* Use the **latest company profile** and **brand book** logic for tone and structure; ensure color/typographic usage exactly matches the values provided above.
+
+---
+
+### Hand-off Notes
+
+Leave obvious placeholders for:
+
+* iOS & Android store links, WhatsApp, email, operating hours, exact subscription naming conventions (if they change), and any image assets.
+
+---
+
+## If Next.js is not available
+
+Deliver a static HTML/CSS/JS site with the same pages, components, copy, colors, fonts, and CTA behavior. Organize into `/pages` with separate HTML files; keep a shared CSS with the same CSS variables.
+
+---
+
+## How you (the developer) should test
+
+* Verify CTA buttons appear in all required locations.
+* Confirm Services vs Subscriptions live on separate routes.
+* Check color hexes and font stacks match exactly.
+* Validate form POST logging and basic a11y.
+
+---
+
+## How do I share this prompt in Replit?
+
+1. Open your Replit project (or start a new one).
+2. Click the **AI** (Ghostwriter) panel or the **Agent** icon.
+3. **Paste** the entire prompt above into the input.
+4. Run the generated project. If anything is missing, paste the prompt again with “update the code to…” instructions, or ask it to regenerate specific files (e.g., Tailwind config, fonts folder, CTA component).
+
+If you want, I can also give you a **one-file static HTML** seed that already includes the exact colors, font stacks (with placeholders), and section scaffolding—just say the word.
