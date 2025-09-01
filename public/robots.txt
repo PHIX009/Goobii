@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /services
+Allow: /subscriptions
+Allow: /buildings
+Allow: /fleet
+Allow: /about
+Allow: /faqs
+Allow: /contact
+
+# Sitemap
+Sitemap: https://goobii.com/sitemap.xml

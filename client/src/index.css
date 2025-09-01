@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Goobii Brand Colors - Exact Values */
+  --brand-primary: hsl(195, 100%, 26%); /* #006980 */
+  --brand-secondary: hsl(210, 60%, 18%); /* #003B5C */
+  --brand-bg: hsl(210, 40%, 98%); /* #FAFCFE */
+  --brand-pop: hsl(30, 100%, 50%); /* #FF8200 */
+  --brand-contrast-2: hsl(48, 56%, 66%); /* #DCC57F */
+
+  /* Theme Variables using brand colors */
+  --background: hsl(210, 40%, 98%);
+  --foreground: hsl(210, 25%, 7.8%);
+  --card: hsl(210, 40%, 99%);
+  --card-foreground: hsl(210, 25%, 7.8%);
+  --popover: hsl(210, 40%, 98%);
+  --popover-foreground: hsl(210, 25%, 7.8%);
+  --primary: hsl(195, 100%, 26%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(210, 60%, 18%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --muted: hsl(210, 40%, 96%);
+  --muted-foreground: hsl(210, 15%, 45%);
+  --accent: hsl(30, 100%, 50%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(210, 40%, 90%);
+  --input: hsl(210, 40%, 94%);
+  --ring: hsl(195, 100%, 26%);
+  --radius: 1rem;
+
+  /* Font families */
+  --font-ghost: "Ghost", "Inter", system-ui, -apple-system, sans-serif;
+  --font-grandview: "Grandview", "Inter", system-ui, -apple-system, sans-serif;
+  --font-grandview-bold: "Grandview Bold", "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+
+  /* Custom shadows */
+  --shadow-2xs: 0px 2px 0px 0px hsl(195, 100%, 26% / 0.00);
+  --shadow-xs: 0px 2px 0px 0px hsl(195, 100%, 26% / 0.00);
+  --shadow-sm: 0px 2px 0px 0px hsl(195, 100%, 26% / 0.00), 0px 1px 2px -1px hsl(195, 100%, 26% / 0.00);
+  --shadow: 0px 2px 0px 0px hsl(195, 100%, 26% / 0.00), 0px 1px 2px -1px hsl(195, 100%, 26% / 0.00);
+  --shadow-md: 0px 2px 0px 0px hsl(195, 100%, 26% / 0.00), 0px 2px 4px -1px hsl(195, 100%, 26% / 0.00);
+  --shadow-lg: 0px 2px 0px 0px hsl(195, 100%, 26% / 0.00), 0px 4px 6px -1px hsl(195, 100%, 26% / 0.00);
+  --shadow-xl: 0px 2px 0px 0px hsl(195, 100%, 26% / 0.00), 0px 8px 10px -1px hsl(195, 100%, 26% / 0.00);
+  --shadow-2xl: 0px 2px 0px 0px hsl(195, 100%, 26% / 0.00);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+}
+
+.dark {
+  --background: hsl(0, 0%, 0%);
+  --foreground: hsl(200, 6.67%, 91.18%);
+  --card: hsl(228, 9.8%, 10%);
+  --card-foreground: hsl(0, 0%, 85.1%);
+  --popover: hsl(0, 0%, 0%);
+  --popover-foreground: hsl(200, 6.67%, 91.18%);
+  --primary: hsl(195, 100%, 26%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(195, 15.38%, 94.9%);
+  --secondary-foreground: hsl(210, 25%, 7.8%);
+  --muted: hsl(0, 0%, 9.41%);
+  --muted-foreground: hsl(210, 3.39%, 46.27%);
+  --accent: hsl(30, 100%, 50%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(210, 5.26%, 14.9%);
+  --input: hsl(207.69%, 27.66%, 18.43%);
+  --ring: hsl(195, 100%, 26%);
+}
+
+/* Font face declarations for placeholder fonts */
+@font-face {
+  font-family: "Ghost";
+  src: local("Inter"), local("system-ui");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Grandview";
+  src: local("Inter"), local("system-ui");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Grandview Bold";
+  src: local("Inter"), local("system-ui");
+  font-weight: bold;
+  font-display: swap;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-ghost);
+  }
+}
+
+@layer components {
+  .font-ghost {
+    font-family: var(--font-ghost);
+  }
+
+  .font-grandview {
+    font-family: var(--font-grandview);
+  }
+
+  .font-grandview-bold {
+    font-family: var(--font-grandview-bold);
+    font-weight: bold;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, var(--brand-bg) 0%, hsl(195, 40%, 96%) 100%);
+  }
+
+  .header-sticky {
+    backdrop-filter: blur(8px);
+    background-color: hsl(var(--background) / 0.9);
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    transition: transform 0.2s ease;
+  }
+
+  .cta-button {
+    transition: all 0.2s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px hsl(var(--primary) / 0.3);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 3px;
+}
