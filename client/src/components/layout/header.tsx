@@ -39,10 +39,10 @@ export default function Header() {
           <img 
             src={logoImage} 
             alt="Goobii" 
-            className={`transition-all duration-300 object-contain ${
-              isScrolled ? 'h-16 w-auto' : 'h-24 w-auto'
+            className={`transition-all duration-300 ${
+              isScrolled ? 'h-8 w-auto max-w-[120px]' : 'h-12 w-auto max-w-[180px]'
             }`}
-            style={{ filter: 'none', imageRendering: 'crisp-edges' }}
+            style={{ objectFit: 'contain' }}
           />
         </Link>
 
