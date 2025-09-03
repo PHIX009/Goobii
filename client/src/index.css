@@ -13,17 +13,17 @@
 
   /* Theme Variables using brand colors */
   --background: hsl(200, 17%, 95%);
-  --foreground: hsl(210, 25%, 7.8%);
+  --foreground: hsl(195, 100%, 26%);
   --card: hsl(200, 17%, 97%);
-  --card-foreground: hsl(210, 25%, 7.8%);
+  --card-foreground: hsl(195, 100%, 26%);
   --popover: hsl(200, 17%, 95%);
-  --popover-foreground: hsl(210, 25%, 7.8%);
+  --popover-foreground: hsl(195, 100%, 26%);
   --primary: hsl(195, 100%, 26%);
   --primary-foreground: hsl(210, 40%, 98%);
   --secondary: hsl(210, 60%, 18%);
   --secondary-foreground: hsl(210, 40%, 98%);
   --muted: hsl(210, 40%, 96%);
-  --muted-foreground: hsl(210, 15%, 45%);
+  --muted-foreground: hsl(195, 100%, 26%);
   --accent: hsl(30, 100%, 50%);
   --accent-foreground: hsl(210, 40%, 98%);
   --destructive: hsl(0, 84%, 60%);
@@ -142,6 +142,16 @@
     object-fit: contain;
     background: transparent;
     display: block;
+  }
+
+  /* Force all icons and text to use teal color */
+  .cta-button svg {
+    color: inherit !important;
+  }
+  
+  /* Ensure all text uses teal color */
+  body, p, h1, h2, h3, h4, h5, h6, span, div {
+    color: hsl(195, 100%, 26%) !important;
   }
 
   .service-card:hover {
