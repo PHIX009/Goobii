@@ -40,7 +40,7 @@ export default function Header() {
             src={logoImage} 
             alt="Goobii" 
             className={`transition-all duration-300 ${
-              isScrolled ? 'h-12 w-auto max-w-[180px]' : 'h-18 w-auto max-w-[270px]'
+              isScrolled ? 'h-10 w-auto max-w-[150px]' : 'h-14 w-auto max-w-[210px]'
             }`}
             style={{ objectFit: 'contain' }}
           />
