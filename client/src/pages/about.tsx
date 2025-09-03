@@ -22,11 +22,14 @@ export default function About() {
             {/* Mission Section */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
               <div>
-                <img 
-                  src="https://images.unsplash.com/photo-1617854818583-09e7f077a156?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-                  alt="Environmental sustainability and clean technology" 
-                  className="rounded-2xl shadow-lg w-full h-auto mb-6" 
-                />
+                <div className="w-full h-96 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 rounded-2xl shadow-lg mb-6 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-brand-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Heart className="w-8 h-8 text-brand-primary" />
+                    </div>
+                    <p className="text-brand-primary font-grandview-bold">Sustainable Technology</p>
+                  </div>
+                </div>
               </div>
               
               <div className="space-y-8">

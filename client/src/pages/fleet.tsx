@@ -24,11 +24,14 @@ export default function Fleet() {
             {/* Main Content */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
               <div>
-                <img 
-                  src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-                  alt="Corporate fleet vehicles at business facility" 
-                  className="rounded-2xl shadow-lg w-full h-auto mb-6" 
-                />
+                <div className="w-full h-96 bg-gradient-to-br from-brand-primary/20 to-brand-pop/20 rounded-2xl shadow-lg mb-6 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-brand-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Truck className="w-8 h-8 text-brand-primary" />
+                    </div>
+                    <p className="text-brand-primary font-grandview-bold">Fleet & Enterprise Solutions</p>
+                  </div>
+                </div>
               </div>
               
               <div className="space-y-8">

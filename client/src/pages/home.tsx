@@ -29,11 +29,14 @@ export default function Home() {
               
               {/* Hero Image */}
               <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600" 
-                  alt="Professional car cleaning service" 
-                  className="rounded-2xl shadow-2xl w-full h-auto max-w-4xl mx-auto" 
-                />
+                <div className="w-full h-96 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 rounded-2xl shadow-2xl max-w-4xl mx-auto flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-brand-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Droplets className="w-10 h-10 text-brand-primary" />
+                    </div>
+                    <p className="text-brand-primary font-grandview-bold">Eco-friendly Car Cleaning</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

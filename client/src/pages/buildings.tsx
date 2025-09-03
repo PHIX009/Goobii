@@ -24,11 +24,14 @@ export default function Buildings() {
             {/* Main Content */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
               <div>
-                <img 
-                  src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-                  alt="Modern residential building complex" 
-                  className="rounded-2xl shadow-lg w-full h-auto mb-6" 
-                />
+                <div className="w-full h-96 bg-gradient-to-br from-brand-secondary/20 to-brand-primary/20 rounded-2xl shadow-lg mb-6 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-brand-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Building className="w-8 h-8 text-brand-secondary" />
+                    </div>
+                    <p className="text-brand-secondary font-grandview-bold">Building & Community Services</p>
+                  </div>
+                </div>
               </div>
               
               <div className="space-y-8">
