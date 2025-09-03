@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { MessageCircle, Mail } from "lucide-react";
 import CTAGroup from "@/components/cta-group";
-import logoImage from "@assets/Logo-01_1756735001869.png";
+import logoImage from "@assets/Goobii Vertical Logo_1756905830399.png";
 
 export default function Footer() {
   return (

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Smartphone, Download } from "lucide-react";
 import CTAGroup from "@/components/cta-group";
-import logoImage from "@assets/Logo-01_1756735001869.png";
+import logoImage from "@assets/Goobii Vertical Logo_1756905830399.png";
 
 const navigation = [
   { name: "Home", href: "/" },
