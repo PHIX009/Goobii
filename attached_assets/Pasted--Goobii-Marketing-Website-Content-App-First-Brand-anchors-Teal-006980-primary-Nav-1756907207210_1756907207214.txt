@@ -1,0 +1,338 @@
+# Goobii Marketing Website – Content (App‑First)
+
+> **Brand anchors**: Teal #006980 (primary), Navy #003B5C (secondary), Orange #FF8200 (pop/time), Background #ecf1f4, Contrast #DCC57F (selections). Fonts: Ghost (H1), Grandview Bold (H2/H3), Grandview (body).
+> **Primary CTA (every page):** `Download on iOS` · `Get it on Android` (placeholder links)
+> **Mascot usage:** Replace stock photos with **Jamal** placeholders (see bracketed prompts). Provide alt-text for accessibility.
+
+---
+
+## Global Content
+
+**Top Nav (order):** Home · Services · Subscriptions · Buildings · Fleet · About · FAQs · Contact
+
+**Header CTA (right side, persistent):** Download on iOS · Get it on Android
+
+**Footer short line:** “Every wash saves water. Every choice matters.”
+
+**Store CTA microcopy:**
+
+* iOS button: **Download on iOS**
+* Android button: **Get it on Android**
+
+**Jamal placeholders (file names + suggested pose):**
+
+* `jamal-hero-celebrate.svg` — full‑body, arms raised, small water droplets (joy about conservation). *Alt:* “Jamal celebrating water savings.”
+* `jamal-steps-guide.svg` — pointing to 3 steps. *Alt:* “Jamal guiding through booking steps.”
+* `jamal-value-cards.svg` — four small poses (save water, safe chemistry, friendly app, pro Liinks). *Alt:* “Jamal illustrating Goobii benefits.”
+* `jamal-sustainability.svg` — holding a small sapling/water droplet. *Alt:* “Jamal showing eco commitment.”
+* `jamal-faq.svg` — thinking pose with question mark. *Alt:* “Jamal answering common questions.”
+* `jamal-contact-wave.svg` — waving by a chat bubble. *Alt:* “Jamal inviting contact.”
+* `jamal-404-lost.svg` — playfully confused with map. *Alt:* “Jamal can’t find this page.”
+
+**Tone & Voice:** Professional, eco‑conscious, friendly, plain language; benefit‑first; Dubai‑aware (heat, dust, city driving).
+
+---
+
+## HOME (Landing)
+
+**Hero**
+**H1:** Eco‑friendly car cleaning, made simple.
+**Subhead:** Sooftwash™ uses just **2–4 L** per wash vs **100–150 L** with pressure washes—without compromising results.
+**Primary CTA:** Download on iOS · Get it on Android
+\[Jamal: `jamal-hero-celebrate.svg`]
+
+**Key Value (4 cards)**
+
+1. **Save Water** — Cut water use dramatically: 2–4 L per wash instead of 100–150 L.
+2. **Safe & Biodegradable** — Worker‑safe, vehicle‑safe chemistry engineered for Dubai’s climate.
+3. **User‑Friendly App** — Book in minutes, store vehicles and addresses, request before/after images, all washes recorded.
+4. **Pro Liinks** — Trained Goobii Liinks deliver consistent, reliable quality.
+
+**How It Works (3 steps)**
+
+1. **Book in the app** — Pick service, time, and location.
+2. **We arrive** — Electric‑powered operations with minimal noise.
+3. **Shine & done** — Your car, clean and ready.
+   \[Jamal: `jamal-steps-guide.svg`]
+
+**Sustainability Impact**
+Every Sooftwash™ service saves tens of liters compared to traditional pressure washes. Less water used, less runoff—better for Dubai.
+\[Jamal: `jamal-sustainability.svg`]
+
+**Testimonial Strip (placeholders)**
+
+* “Smooth booking and spotless results.” — *Resident, Dubai Marina*
+* “Easy for our family’s cars—consistent every week.” — *Al Barsha*
+* “Finally, eco‑friendly without the hassle.” — *Business Bay*
+
+**Secondary CTA band:** Download on iOS · Get it on Android
+
+**Home – SEO**
+**Title:** Goobii • Eco‑Friendly Car Cleaning in Dubai | Sooftwash™ App
+**Meta Description (≤155):** Eco‑friendly car cleaning in Dubai. Sooftwash™ uses 2–4 L per wash vs 100–150 L. Book with the Goobii app—fast, friendly, water‑saving.
+
+---
+
+## SERVICES
+
+**Intro (Sooftwash™)**
+Sooftwash™ is our water‑saving method tailored for Dubai. Using just **2–4 L** of water and biodegradable, vehicle‑safe chemistry, we lift dust, sand, and road film effectively—protecting finishes and the environment.
+
+**Service Cards (no prices)**
+
+**Aura (Exterior)**
+*Weekly upkeep made easy.* A focused exterior clean that removes dust, light road film, and everyday grime so your car stays consistently presentable between deeper washes. *Ideal cadence: weekly.*
+
+**Aura Absolute (Exterior + Basic Interior)**
+Everything in Aura plus a light interior refresh—quick vacuum, wipe‑downs, and glass—so the cabin feels as tidy as the exterior. *Great for routine maintenance.*
+
+**Glow (Premium Exterior)**
+Our more thorough exterior service. Extra attention to trims, badges, crevices, wheels and tyres for a sharper finish. **Recommended experience** if you haven’t cleaned in a while or want that extra care. *Takes a bit longer.*
+
+**Glow Absolute (Full Premium)**
+Glow exterior detail plus a more complete interior treatment: more surfaces addressed, in/out glass, and tighter nooks. *For an elevated, all‑round result.*
+
+> **Time note:** Duration varies by vehicle size and condition. Your Liink will confirm on arrival.
+
+**Inline CTA:** Download on iOS · Get it on Android
+
+**Services – SEO**
+**Title:** Services | Goobii Sooftwash™ in Dubai
+**Meta Description:** Explore Aura, Aura Absolute, Glow, and Glow Absolute—Sooftwash™ services that save water while delivering a clean, confident finish.
+
+---
+
+## SUBSCRIPTIONS (separate page)
+
+**Intro**
+Keep your car consistently clean with predictable visits built on Aura and Aura Absolute—less planning, more convenience.
+
+**Plans (no prices)**
+
+**Spark 4**
+4 washes per month. Choose Aura or Aura Absolute per visit. Ideal for regular upkeep.
+
+**Spark 8**
+8 washes per month. Great for multi‑car households or higher frequency needs.
+
+**Flow 12**
+12 washes per month. Maximum convenience and consistency for busy schedules.
+
+**What’s Included (per plan)**
+
+* The selected service (Aura or Aura Absolute) per wash
+* Flexible scheduling via the app
+* Optional before/after images
+* All washes recorded in your app history
+
+**Notes**
+Pause or adjust inside the app (T\&Cs apply). Availability may vary by area.
+
+**Inline CTA:** Download on iOS · Get it on Android
+
+**Subscriptions – SEO**
+**Title:** Subscriptions | Goobii Spark & Flow Plans
+**Meta Description:** Choose Spark 4, Spark 8, or Flow 12. Flexible Sooftwash™ subscriptions built on Aura/Aura Absolute. Manage everything in the Goobii app.
+
+---
+
+## BUILDINGS (Goobii Local)
+
+**Audience:** Residential/Commercial Property Managers
+
+**Hero blurb**
+Bring convenient, water‑saving car care to your property. Goobii Local sets up fixed‑location operations that keep residents happy and drive measurable water savings.
+
+**Benefits for Managers**
+
+* **Value for tenants:** Easy app booking, minimal disruption, steady quality.
+* **Sustainability:** Significant water savings per property; support ESG goals.
+* **Operational fit:** Onboarding of janitors into Goobii SOPs for compliant delivery.
+* **Visibility:** Clear schedules, resident comms templates, performance summaries.
+
+**How Partnership Works (4 steps)**
+
+1. Site review  2) SOP alignment  3) Launch comms  4) Operate & report
+
+**Impact Placeholder**
+“We saved \[X] liters over \[Y] months across \[Z] cars.” *(Insert once data is available.)*
+
+**CTA:** Enquire · Download on iOS · Get it on Android
+
+**Buildings – SEO**
+**Title:** Buildings & Communities | Goobii Local
+**Meta Description:** Add eco‑friendly car cleaning to your property. Goobii Local brings fixed‑location operations, resident convenience, and real water savings.
+
+---
+
+## FLEET (Enterprise)
+
+**Audience:** Limo/chauffeur, rentals, service fleets, corporate vehicles
+
+**Hero blurb**
+High‑uptime, on‑site Sooftwash™ for fleets. Reduce water use, standardize quality, and simplify scheduling with our enterprise workflow.
+
+**Enterprise Benefits**
+
+* **On‑site or facility service** to suit your logistics
+* **Consistent standards** via trained Liinks and checklists
+* **Digital records**: all washes recorded, optional photos
+* **Scheduling windows** to minimize downtime
+* **Sustainability**: drastically lower water consumption
+
+**Custom Options**
+Tailored cadence, reporting, and service scope. Pricing by proposal.
+
+**CTA:** Request a proposal · Download on iOS · Get it on Android
+
+**Fleet – SEO**
+**Title:** Fleet & Enterprise | Goobii
+**Meta Description:** On‑site Sooftwash™ for fleets in Dubai. Consistent quality, digital records, and major water savings. Request a custom proposal.
+
+---
+
+## ABOUT
+
+**Mission**
+Make environmental responsibility accessible—without sacrificing quality or cost.
+
+**What We Do**
+We deliver eco‑friendly car cleaning through Sooftwash™, efficient operations powered by electric bikes and a mobile power station, and a user‑friendly app.
+
+**Sooftwash™ Explained**
+A targeted clean using just **2–4 L** of water and biodegradable chemistry designed for local conditions. Effective on dust, sand, and road film while respecting finishes.
+
+**Community & Future**
+Yearly impact reports, eco‑pledges, NGO partnerships, and community clean‑ups are in our roadmap as we grow.
+
+**Awards/Certs (placeholders):**
+
+* \[Insert recognition/certification here]
+
+**About – SEO**
+**Title:** About Goobii | Eco‑Friendly Car Cleaning in Dubai
+**Meta Description:** Goobii blends Sooftwash™ tech with efficient, app‑based operations to make eco‑friendly car cleaning simple for Dubai.
+
+---
+
+## FAQs
+
+**Service & Booking**
+**Q:** How do I book a wash?
+**A:** Download the app, choose a service (Aura/Aura Absolute/Glow/Glow Absolute), pick a time and location, and confirm.
+
+**Q:** How long does a wash take?
+**A:** It varies by vehicle size and condition. Your Liink will confirm on arrival.
+
+**Q:** Do I need to be present?
+**A:** Not always. Provide access instructions in the app and ensure the car is unlocked if interior work is included.
+
+**Pricing & Payments**
+**Q:** Where can I see prices?
+**A:** Pricing is shown in the app before you confirm. Subscriptions are on a separate page without prices.
+
+**Q:** What payment methods are accepted?
+**A:** Major cards and digital payments (details shown in app at checkout).
+
+**Environmental Impact**
+**Q:** How much water do you save?
+**A:** Sooftwash™ uses **2–4 L** per wash compared to **100–150 L** for pressure washes—saving tens of liters each time.
+
+**Q:** Are your products safe?
+**A:** Yes—biodegradable formulas chosen to be worker‑safe and vehicle‑safe.
+
+**Quality & Guarantees**
+**Q:** What if I’m not satisfied?
+**A:** Tell us via the app within 24 hours; we’ll review and make it right.
+
+**Q:** Are you insured?
+**A:** We operate to professional standards and handle issues transparently. Coverage details are available upon request.
+
+**App & Subscriptions**
+**Q:** Can I request before/after photos?
+**A:** Yes—toggle the option during booking.
+
+**Q:** How do subscriptions work?
+**A:** Choose Spark 4/8 or Flow 12 in the app, select Aura/Aura Absolute per visit, schedule, and manage. Pause or adjust anytime (T\&Cs apply).
+
+**Service Areas**
+**Q:** Where do you operate?
+**A:** Dubai to start. Check the app for your specific area.
+
+**FAQs – SEO**
+**Title:** FAQs | Goobii
+**Meta Description:** Answers about booking, services, pricing visibility in‑app, environmental impact, and subscriptions.
+
+---
+
+## CONTACT
+
+**Intro**
+We’re fully digital and open daily. Reach out with questions or partnership ideas.
+
+**Contact Methods**
+
+* **Form** (preferred)
+* WhatsApp (placeholder link)
+* Email (placeholder)
+
+**Service Area**
+Dubai citywide; check the app for coverage.
+
+**Response Time**
+We aim to reply within one business day.
+
+**Form Labels**
+
+* Name\*
+* Email\*
+* Phone
+* Topic\* (General, Booking Help, Subscriptions, Buildings, Fleet, Other)
+* Message\*
+
+**Validation Messages**
+
+* Name: “Please enter your name.”
+* Email: “Enter a valid email address.”
+* Topic: “Select a topic.”
+* Message: “Tell us a bit more so we can help.”
+* Success: “Thanks—your message was sent. We’ll get back to you soon.”
+* Error: “Something went wrong. Please try again.”
+
+**Contact – SEO**
+**Title:** Contact Goobii
+**Meta Description:** Contact Goobii for eco‑friendly car cleaning in Dubai—questions, partnerships, or fleet requests. We’re here to help.
+
+---
+
+## CTA Variations (for testing)
+
+* **Primary:** Download on iOS · Get it on Android
+* **Alt A:** Get the Goobii App · Start with iOS / Start with Android
+* **Alt B:** Save Water—Get the App · Book with iOS / Book with Android
+* **Alt C:** Try Goobii · iOS · Android
+
+---
+
+## Microcopy & System Text
+
+**Modal: Coming soon**
+“Thanks for your interest! App links are on the way—check back soon or follow us on social.”
+
+**Empty state (Bookings):**
+“No washes yet. Book your first Sooftwash™ and see the difference.”
+
+**404:**
+“Looks like Jamal took a wrong turn. Let’s get you back home.”
+
+---
+
+## Developer Notes (content handoff)
+
+* Replace all images with **Jamal** illustrations as listed. No stock photos. Use meaningful alt text.
+* Keep primary CTA buttons visible in header, hero, mid‑page bands, and footers across pages.
+* Colors and fonts must match exact values above.
+* Do not display prices on Services or Subscriptions pages. Prices surface in the app only.
+* Include JSON‑LD (`LocalBusiness`, areaServed: Dubai), robots.txt, and sitemap.xml.
+* Meta titles/descriptions listed per page above.
+* Ensure a11y: focus states, ARIA labels for accordions (FAQ), and descriptive alt text.

@@ -6,36 +6,52 @@ import CTAGroup from "@/components/cta-group";
 export default function FAQs() {
   const faqs = [
     {
-      question: "How much water does Goobii actually use?",
-      answer: "Our Sooftwash™ technology uses just 2-4 liters of water per wash, compared to traditional pressure washing methods that typically consume 100-150 liters. This represents a water savings of over 95% while delivering the same high-quality results."
+      question: "How do I book a wash?",
+      answer: "Download the app, choose a service (Aura/Aura Absolute/Glow/Glow Absolute), pick a time and location, and confirm."
     },
     {
-      question: "Are your cleaning chemicals safe for my car and the environment?",
-      answer: "Absolutely. All our cleaning products are biodegradable, non-toxic, and specifically formulated to be both vehicle-safe and worker-safe. They're designed to protect your car's paint, interior surfaces, and materials while being completely safe for the environment."
+      question: "How long does a wash take?",
+      answer: "It varies by vehicle size and condition. Your Liink will confirm on arrival."
     },
     {
-      question: "How do I book a service through the app?",
-      answer: "Booking is simple: download the Goobii app, create your account, add your vehicle details and location, choose your preferred service type, select a convenient time slot, and confirm your booking. The entire process takes just a few minutes."
+      question: "Do I need to be present?",
+      answer: "Not always. Provide access instructions in the app and ensure the car is unlocked if interior work is included."
     },
     {
-      question: "What payment methods do you accept?",
-      answer: "We accept all major credit and debit cards, digital wallets, and bank transfers through our secure payment system integrated into the app. Payment is processed automatically after each service completion."
+      question: "Where can I see prices?",
+      answer: "Pricing is shown in the app before you confirm. Subscriptions are on a separate page without prices."
     },
     {
-      question: "Can I request before and after photos of my car?",
-      answer: "Yes! You can request before and after photos when booking your service. Our Liinks will take high-quality photos and upload them to your app account, giving you a clear record of the work completed and the transformation of your vehicle."
+      question: "What payment methods are accepted?",
+      answer: "Major cards and digital payments (details shown in app at checkout)."
     },
     {
-      question: "What if I need to cancel or reschedule my appointment?",
-      answer: "You can cancel or reschedule your appointment through the app up to 2 hours before your scheduled time without any penalty. For cancellations within 2 hours, a small fee may apply. Rescheduling is always free and can be done instantly through the app."
+      question: "How much water do you save?",
+      answer: "Sooftwash™ uses 2–4 L per wash compared to 100–150 L for pressure washes—saving tens of liters each time."
     },
     {
-      question: "How are all my washes recorded and tracked?",
-      answer: "Every service is automatically recorded in your app account with details including date, time, service type, Liink who performed the service, and any photos taken. You can view your complete wash history, track subscription usage, and download service reports at any time."
+      question: "Are your products safe?",
+      answer: "Yes—biodegradable formulas chosen to be worker‑safe and vehicle‑safe."
     },
     {
-      question: "What areas in Dubai do you service?",
-      answer: "We currently service most residential and commercial areas across Dubai. When you enter your location in the app, it will automatically confirm if we service your area. We're continuously expanding our coverage to reach more communities throughout the emirate."
+      question: "What if I'm not satisfied?",
+      answer: "Tell us via the app within 24 hours; we'll review and make it right."
+    },
+    {
+      question: "Are you insured?",
+      answer: "We operate to professional standards and handle issues transparently. Coverage details are available upon request."
+    },
+    {
+      question: "Can I request before/after photos?",
+      answer: "Yes—toggle the option during booking."
+    },
+    {
+      question: "How do subscriptions work?",
+      answer: "Choose Spark 4/8 or Flow 12 in the app, select Aura/Aura Absolute per visit, schedule, and manage. Pause or adjust anytime (T&Cs apply)."
+    },
+    {
+      question: "Where do you operate?",
+      answer: "Dubai to start. Check the app for your specific area."
     }
   ];
 

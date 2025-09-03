@@ -7,36 +7,36 @@ export default function Subscriptions() {
   const subscriptions = [
     {
       title: "Spark 4",
-      description: "Perfect for regular maintenance",
+      description: "4 washes per month. Choose Aura or Aura Absolute per visit. Ideal for regular upkeep.",
       washCount: 4,
       features: [
-        "Choose Aura or Aura Absolute mix",
-        "Standard inclusions per chosen service",
-        "Flexible scheduling",
-        "Before/after photos available"
+        "4 washes per month",
+        "Choose Aura or Aura Absolute per visit", 
+        "Flexible scheduling via the app",
+        "Optional before/after images"
       ]
     },
     {
       title: "Spark 8",
-      description: "Great for multi-car households",
+      description: "8 washes per month. Great for multi‑car households or higher frequency needs.",
       washCount: 8,
       features: [
-        "All Spark 4 benefits",
-        "Increased frequency options",
-        "Multiple vehicle support",
-        "Priority booking"
+        "8 washes per month",
+        "Choose Aura or Aura Absolute per visit",
+        "Great for multiple cars",
+        "All washes recorded in app history"
       ],
       isPopular: true
     },
     {
       title: "Flow 12",
-      description: "Ultimate convenience plan",
+      description: "12 washes per month. Maximum convenience and consistency for busy schedules.",
       washCount: 12,
       features: [
-        "All Spark 8 benefits",
-        "Highest frequency plan",
-        "Ideal for buildings/families",
-        "Premium support"
+        "12 washes per month",
+        "Choose Aura or Aura Absolute per visit",
+        "Maximum convenience",
+        "Perfect for busy schedules"
       ]
     }
   ];
@@ -44,17 +44,17 @@ export default function Subscriptions() {
   return (
     <>
       <Helmet>
-        <title>Subscription Plans - Goobii</title>
-        <meta name="description" content="Choose from our flexible subscription plans built around Aura and Aura Absolute services for predictable upkeep and convenience." />
+        <title>Subscriptions | Goobii Spark & Flow Plans</title>
+        <meta name="description" content="Choose Spark 4, Spark 8, or Flow 12. Flexible Sooftwash™ subscriptions built on Aura/Aura Absolute. Manage everything in the Goobii app." />
       </Helmet>
 
       <div className="pt-20">
         <section className="py-16 lg:py-24">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Subscription Plans</h1>
+              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Subscriptions</h1>
               <p className="text-xl text-muted-foreground">
-                Subscriptions built around Aura and Aura Absolute for predictable upkeep and convenience. Choose the plan that fits your lifestyle.
+                Keep your car consistently clean with predictable visits built on Aura and Aura Absolute—less planning, more convenience.
               </p>
             </div>
 
@@ -74,31 +74,31 @@ export default function Subscriptions() {
 
             {/* Benefits Section */}
             <div className="bg-muted/30 rounded-2xl p-8 lg:p-12 mb-16" data-testid="subscription-benefits">
-              <h2 className="text-2xl lg:text-3xl font-grandview-bold text-center text-brand-primary mb-8">Subscription Benefits</h2>
+              <h2 className="text-2xl lg:text-3xl font-grandview-bold text-center text-brand-primary mb-8">What's Included</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
                 <div className="text-center">
                   <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <DollarSign className="w-8 h-8 text-brand-primary" />
                   </div>
-                  <h3 className="font-grandview-bold text-lg text-brand-primary mb-2">Cost Savings</h3>
-                  <p className="text-muted-foreground">Better value compared to individual bookings</p>
+                  <h3 className="font-grandview-bold text-lg text-brand-primary mb-2">Flexible Service Choice</h3>
+                  <p className="text-muted-foreground">The selected service (Aura or Aura Absolute) per wash</p>
                 </div>
                 
                 <div className="text-center">
                   <div className="w-16 h-16 bg-brand-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Calendar className="w-8 h-8 text-brand-secondary" />
                   </div>
-                  <h3 className="font-grandview-bold text-lg text-brand-primary mb-2">Flexible Scheduling</h3>
-                  <p className="text-muted-foreground">Book when convenient for you</p>
+                  <h3 className="font-grandview-bold text-lg text-brand-primary mb-2">App Management</h3>
+                  <p className="text-muted-foreground">Pause or adjust inside the app (T&Cs apply)</p>
                 </div>
                 
                 <div className="text-center">
                   <div className="w-16 h-16 bg-brand-pop/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Shield className="w-8 h-8 text-brand-pop" />
                   </div>
-                  <h3 className="font-grandview-bold text-lg text-brand-primary mb-2">Consistent Care</h3>
-                  <p className="text-muted-foreground">Keep your car always looking its best</p>
+                  <h3 className="font-grandview-bold text-lg text-brand-primary mb-2">Complete Records</h3>
+                  <p className="text-muted-foreground">All washes recorded in your app history</p>
                 </div>
               </div>
             </div>

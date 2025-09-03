@@ -7,17 +7,17 @@ export default function Buildings() {
   return (
     <>
       <Helmet>
-        <title>For Buildings & Communities - Goobii Local</title>
-        <meta name="description" content="Goobii Local brings convenient, eco-friendly car cleaning directly to residential and commercial buildings across Dubai." />
+        <title>Buildings & Communities | Goobii Local</title>
+        <meta name="description" content="Add eco‑friendly car cleaning to your property. Goobii Local brings fixed‑location operations, resident convenience, and real water savings." />
       </Helmet>
 
       <div className="pt-20">
         <section className="py-16 lg:py-24">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">For Buildings & Communities</h1>
+              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Buildings & Communities</h1>
               <p className="text-xl text-muted-foreground">
-                Goobii Local brings our eco-friendly car cleaning services directly to residential and commercial buildings across Dubai.
+                Bring convenient, water‑saving car care to your property. Goobii Local sets up fixed‑location operations that keep residents happy and drive measurable water savings.
               </p>
             </div>
 
@@ -33,13 +33,13 @@ export default function Buildings() {
               
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-3xl font-grandview-bold text-brand-primary mb-4">Fixed-Location Operations</h2>
-                  <p className="text-muted-foreground mb-6">
-                    We establish dedicated service points within building complexes, providing residents with convenient access to our eco-friendly car cleaning services without leaving their property.
-                  </p>
-                  <p className="text-muted-foreground">
-                    Our trained professionals operate on-site using our water-saving Sooftwash™ technology, ensuring minimal environmental impact while delivering exceptional results.
-                  </p>
+                  <h2 className="text-3xl font-grandview-bold text-brand-primary mb-4">Benefits for Managers</h2>
+                  <ul className="text-muted-foreground space-y-3 mb-6">
+                    <li>• <strong className="text-brand-primary">Value for tenants:</strong> Easy app booking, minimal disruption, steady quality.</li>
+                    <li>• <strong className="text-brand-primary">Sustainability:</strong> Significant water savings per property; support ESG goals.</li>
+                    <li>• <strong className="text-brand-primary">Operational fit:</strong> Onboarding of janitors into Goobii SOPs for compliant delivery.</li>
+                    <li>• <strong className="text-brand-primary">Visibility:</strong> Clear schedules, resident comms templates, performance summaries.</li>
+                  </ul>
                 </div>
 
                 {/* Benefits Cards */}

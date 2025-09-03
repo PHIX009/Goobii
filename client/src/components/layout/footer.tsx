@@ -93,7 +93,8 @@ export default function Footer() {
         <div className="border-t border-brand-bg/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-brand-bg/60 text-sm mb-4 md:mb-0">
-              © 2024 Goobii. All rights reserved. Making car care sustainable.
+              <p className="mb-1 font-grandview-bold text-brand-bg">Every wash saves water. Every choice matters.</p>
+              <p>© 2024 Goobii. All rights reserved.</p>
             </div>
             
             {/* Footer CTA */}

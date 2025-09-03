@@ -5,8 +5,8 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About Goobii - Our Mission & Values</title>
-        <meta name="description" content="Learn about Goobii's mission to provide eco-friendly car cleaning without compromising cost or quality. Discover our sustainable operations and community impact." />
+        <title>About Goobii | Eco‑Friendly Car Cleaning in Dubai</title>
+        <meta name="description" content="Goobii blends Sooftwash™ tech with efficient, app‑based operations to make eco‑friendly car cleaning simple for Dubai." />
       </Helmet>
 
       <div className="pt-20">
@@ -15,7 +15,7 @@ export default function About() {
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">About Goobii</h1>
               <p className="text-xl text-muted-foreground">
-                We're revolutionizing car cleaning in Dubai with eco-friendly technology that doesn't compromise on quality or cost.
+                Make environmental responsibility accessible—without sacrificing quality or cost.
               </p>
             </div>
 
@@ -31,12 +31,13 @@ export default function About() {
               
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-3xl font-grandview-bold text-brand-primary mb-4">Our Mission</h2>
+                  <h2 className="text-3xl font-grandview-bold text-brand-primary mb-4">What We Do</h2>
                   <p className="text-muted-foreground mb-6">
-                    At Goobii, we believe that environmental responsibility shouldn't come at the cost of quality or affordability. Our mission is to transform the car cleaning industry in Dubai by proving that sustainable practices can deliver superior results while being accessible to everyone.
+                    We deliver eco‑friendly car cleaning through Sooftwash™, efficient operations powered by electric bikes and a mobile power station, and a user‑friendly app.
                   </p>
+                  <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Sooftwash™ Explained</h3>
                   <p className="text-muted-foreground">
-                    Through our innovative Sooftwash™ technology, we've eliminated the traditional trade-offs between eco-friendliness, quality, and cost—creating a service that's better for your car, your wallet, and our planet.
+                    A targeted clean using just <strong className="text-brand-primary">2–4 L</strong> of water and biodegradable chemistry designed for local conditions. Effective on dust, sand, and road film while respecting finishes.
                   </p>
                 </div>
 

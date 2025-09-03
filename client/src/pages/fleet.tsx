@@ -7,17 +7,17 @@ export default function Fleet() {
   return (
     <>
       <Helmet>
-        <title>Fleet & Business Solutions - Goobii</title>
-        <meta name="description" content="Comprehensive car cleaning services tailored for businesses, fleet operators, and commercial organizations across Dubai." />
+        <title>Fleet & Enterprise | Goobii</title>
+        <meta name="description" content="On‑site Sooftwash™ for fleets in Dubai. Consistent quality, digital records, and major water savings. Request a custom proposal." />
       </Helmet>
 
       <div className="pt-20">
         <section className="py-16 lg:py-24">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Fleet & Business Solutions</h1>
+              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Fleet & Enterprise</h1>
               <p className="text-xl text-muted-foreground">
-                Comprehensive car cleaning services tailored for businesses, fleet operators, and commercial organizations across Dubai.
+                High‑uptime, on‑site Sooftwash™ for fleets. Reduce water use, standardize quality, and simplify scheduling with our enterprise workflow.
               </p>
             </div>
 
@@ -33,10 +33,14 @@ export default function Fleet() {
               
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-3xl font-grandview-bold text-brand-primary mb-4">B2B Cleaning Solutions</h2>
-                  <p className="text-muted-foreground mb-6">
-                    We offer flexible business-to-business car cleaning services with both on-site and facility-based options designed to meet the unique needs of commercial vehicle fleets.
-                  </p>
+                  <h2 className="text-3xl font-grandview-bold text-brand-primary mb-4">Enterprise Benefits</h2>
+                  <ul className="text-muted-foreground space-y-3 mb-6">
+                    <li>• <strong className="text-brand-primary">On‑site or facility service</strong> to suit your logistics</li>
+                    <li>• <strong className="text-brand-primary">Consistent standards</strong> via trained Liinks and checklists</li>
+                    <li>• <strong className="text-brand-primary">Digital records:</strong> all washes recorded, optional photos</li>
+                    <li>• <strong className="text-brand-primary">Scheduling windows</strong> to minimize downtime</li>
+                    <li>• <strong className="text-brand-primary">Sustainability:</strong> drastically lower water consumption</li>
+                  </ul>
                 </div>
 
                 {/* Service Options */}

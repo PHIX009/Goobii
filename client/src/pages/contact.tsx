@@ -83,17 +83,17 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact Us - Goobii</title>
-        <meta name="description" content="Get in touch with Goobii for questions, support, or partnership opportunities. Contact us via WhatsApp, email, or our contact form." />
+        <title>Contact Goobii</title>
+        <meta name="description" content="Contact Goobii for eco‑friendly car cleaning in Dubai—questions, partnerships, or fleet requests. We're here to help." />
       </Helmet>
 
       <div className="pt-20">
         <section className="py-16 lg:py-24">
           <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Get in Touch</h1>
+              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Contact</h1>
               <p className="text-xl text-muted-foreground">
-                Have questions or need assistance? We're here to help make your car cleaning experience seamless.
+                We're fully digital and open daily. Reach out with questions or partnership ideas.
               </p>
             </div>
 
@@ -101,7 +101,7 @@ export default function Contact() {
               {/* Contact Information */}
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-3xl font-grandview-bold text-brand-primary mb-6">Contact Information</h2>
+                  <h2 className="text-3xl font-grandview-bold text-brand-primary mb-6">Contact Methods</h2>
                   
                   <div className="space-y-6">
                     <div className="flex items-start space-x-4" data-testid="whatsapp-contact">
@@ -135,9 +135,9 @@ export default function Contact() {
                         <Clock className="w-6 h-6 text-brand-primary" />
                       </div>
                       <div>
-                        <h3 className="font-grandview-bold text-brand-primary mb-1">Operating Hours</h3>
-                        <p className="text-muted-foreground mb-1">Fully digital service</p>
-                        <p className="text-muted-foreground">Open daily - Hours TBD</p>
+                        <h3 className="font-grandview-bold text-brand-primary mb-1">Service Area</h3>
+                        <p className="text-muted-foreground mb-1">Dubai citywide</p>
+                        <p className="text-muted-foreground">Check the app for coverage</p>
                       </div>
                     </div>
                   </div>

@@ -8,23 +8,23 @@ export default function Services() {
     {
       title: "Aura",
       category: "Exterior",
-      description: "Quick weekly upkeep for a fresh exterior—removes dust, light road film, and everyday grime so your car always looks presentable.",
+      description: "Weekly upkeep made easy. A focused exterior clean that removes dust, light road film, and everyday grime so your car stays consistently presentable between deeper washes. Ideal cadence: weekly.",
       features: [
         "Exterior wash and dry",
-        "Window cleaning",
+        "Window cleaning", 
         "Tire cleaning",
-        "Basic surface protection"
+        "Light road film removal"
       ],
       icon: <Zap className="w-8 h-8 text-brand-primary" />
     },
     {
       title: "Aura Absolute",
       category: "Exterior + Basic Interior",
-      description: "Aura exterior plus a light interior refresh (quick vacuum, wipe-downs, glass) for routine maintenance inside and out.",
+      description: "Everything in Aura plus a light interior refresh—quick vacuum, wipe‑downs, and glass—so the cabin feels as tidy as the exterior. Great for routine maintenance.",
       features: [
         "Everything in Aura",
         "Interior vacuum",
-        "Dashboard and surface wipe-down",
+        "Dashboard wipe‑downs",
         "Interior glass cleaning"
       ],
       icon: <Star className="w-8 h-8 text-brand-primary" />
@@ -32,24 +32,24 @@ export default function Services() {
     {
       title: "Glow",
       category: "Premium Exterior",
-      description: "Our more thorough, detailed exterior clean that spends longer on tricky areas (badges, crevices, wheels/tyres). Recommended experience.",
+      description: "Our more thorough exterior service. Extra attention to trims, badges, crevices, wheels and tyres for a sharper finish. Recommended experience if you haven't cleaned in a while or want that extra care. Takes a bit longer.",
       features: [
-        "Deep exterior cleaning",
-        "Detailed wheel and tire care",
-        "Badge and crevice cleaning",
-        "Premium window treatment"
+        "Thorough exterior cleaning",
+        "Detailed wheel and tyre care",
+        "Badge and crevice attention",
+        "Premium trim treatment"
       ],
       isRecommended: true,
       icon: <Sparkles className="w-8 h-8 text-brand-pop" />
     },
     {
       title: "Glow Absolute",
-      category: "Full Premium",
-      description: "Glow exterior results plus a more complete interior attention for a crisp, all-round finish.",
+      category: "Full Premium", 
+      description: "Glow exterior detail plus a more complete interior treatment: more surfaces addressed, in/out glass, and tighter nooks. For an elevated, all‑round result.",
       features: [
         "Everything in Glow",
-        "Comprehensive interior cleaning",
-        "Detailed surface treatment",
+        "Complete interior treatment",
+        "All surfaces addressed",
         "Interior and exterior glass"
       ],
       icon: <Award className="w-8 h-8 text-brand-primary" />
@@ -59,26 +59,27 @@ export default function Services() {
   return (
     <>
       <Helmet>
-        <title>Our Services - Goobii</title>
-        <meta name="description" content="Discover our eco-friendly car cleaning services using Sooftwash™ technology. From quick Aura washes to premium Glow treatments." />
+        <title>Services | Goobii Sooftwash™ in Dubai</title>
+        <meta name="description" content="Explore Aura, Aura Absolute, Glow, and Glow Absolute—Sooftwash™ services that save water while delivering a clean, confident finish." />
       </Helmet>
 
       <div className="pt-20">
         <section className="py-16 lg:py-24">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Our Services</h1>
+              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Services</h1>
               <p className="text-xl text-muted-foreground mb-8">
-                All services use our revolutionary Sooftwash™ technology - an eco-friendly cleaning process that uses biodegradable chemicals and minimal water without compromising on results.
+                Sooftwash™ is our water‑saving method tailored for Dubai. Using just <strong className="text-brand-primary">2–4 L</strong> of water and biodegradable, vehicle‑safe chemistry, we lift dust, sand, and road film effectively—protecting finishes and the environment.
               </p>
             </div>
 
             {/* Intro to Sooftwash */}
             <div className="bg-muted/30 rounded-2xl p-8 lg:p-12 mb-16" data-testid="sooftwash-intro">
-              <h2 className="text-2xl lg:text-3xl font-grandview-bold text-brand-primary mb-6">What is Sooftwash™?</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Sooftwash™ is our revolutionary water-saving cleaning process that uses advanced biodegradable chemistry and specialized techniques to clean your vehicle with just 2-4 liters of water. This innovative approach is not only environmentally responsible but also gentle on your car's surfaces, ensuring a thorough clean without the high water consumption of traditional pressure washing methods.
-              </p>
+              <div className="bg-brand-primary/5 border border-brand-primary/20 rounded-xl p-6">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  <strong className="text-brand-primary">Time note:</strong> Duration varies by vehicle size and condition. Your Liink will confirm on arrival.
+                </p>
+              </div>
             </div>
 
             {/* Service Cards */}

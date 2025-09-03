@@ -52,23 +52,23 @@ export default function Home() {
                   <Droplets className="w-8 h-8 text-brand-primary" />
                 </div>
                 <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Save Water</h3>
-                <p className="text-muted-foreground">Just 2–4 L per wash vs 100–150 L with traditional pressure washing methods.</p>
+                <p className="text-muted-foreground">Cut water use dramatically: 2–4 L per wash instead of 100–150 L.</p>
               </div>
               
               <div className="bg-card p-6 rounded-2xl shadow-lg text-center" data-testid="value-card-chemistry">
                 <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Shield className="w-8 h-8 text-brand-primary" />
                 </div>
-                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Safe, Biodegradable Chemistry</h3>
-                <p className="text-muted-foreground">Vehicle-safe and worker-safe products that protect your car and our environment.</p>
+                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Safe & Biodegradable</h3>
+                <p className="text-muted-foreground">Worker‑safe, vehicle‑safe chemistry engineered for Dubai's climate.</p>
               </div>
               
               <div className="bg-card p-6 rounded-2xl shadow-lg text-center" data-testid="value-card-app">
                 <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Smartphone className="w-8 h-8 text-brand-primary" />
                 </div>
-                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">User-Friendly App</h3>
-                <p className="text-muted-foreground">Book in minutes, store vehicles & addresses, request before/after images, all washes recorded.</p>
+                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">User‑Friendly App</h3>
+                <p className="text-muted-foreground">Book in minutes, store vehicles and addresses, request before/after images, all washes recorded.</p>
               </div>
               
               <div className="bg-card p-6 rounded-2xl shadow-lg text-center" data-testid="value-card-liinks">
@@ -76,7 +76,7 @@ export default function Home() {
                   <Users className="w-8 h-8 text-brand-primary" />
                 </div>
                 <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Pro Liinks</h3>
-                <p className="text-muted-foreground">Trained Goobii Liinks deliver consistent quality results every time.</p>
+                <p className="text-muted-foreground">Trained Goobii Liinks deliver consistent, reliable quality.</p>
               </div>
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function Home() {
                   <Smartphone className="w-10 h-10 text-brand-primary" />
                 </div>
                 <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">1. Book in the app</h3>
-                <p className="text-muted-foreground">Schedule your cleaning service with just a few taps</p>
+                <p className="text-muted-foreground">Pick service, time, and location.</p>
               </div>
               
               <div className="text-center" data-testid="step-2">
@@ -104,32 +104,54 @@ export default function Home() {
                   <MapPin className="w-10 h-10 text-brand-primary" />
                 </div>
                 <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">2. We arrive</h3>
-                <p className="text-muted-foreground">Our trained Liinks come to your location</p>
+                <p className="text-muted-foreground">Electric‑powered operations with minimal noise.</p>
               </div>
               
               <div className="text-center" data-testid="step-3">
                 <div className="w-20 h-20 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <CheckCircle className="w-10 h-10 text-brand-primary" />
                 </div>
-                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">3. Clean & done</h3>
-                <p className="text-muted-foreground">Eco-friendly cleaning with amazing results</p>
+                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">3. Shine & done</h3>
+                <p className="text-muted-foreground">Your car, clean and ready.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Trust/Partners Strip */}
-        <section className="py-12 bg-muted/50" data-testid="partners-section">
+        {/* Sustainability Impact */}
+        <section className="py-16 bg-background/50" data-testid="sustainability-section">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-8">
-              <p className="text-muted-foreground font-grandview-bold">Trusted by Dubai residents</p>
+            <div className="text-center max-w-3xl mx-auto">
+              <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Droplets className="w-8 h-8 text-brand-primary" />
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-brand-primary mb-6">Sustainability Impact</h2>
+              <p className="text-xl text-muted-foreground">
+                Every Sooftwash™ service saves tens of liters compared to traditional pressure washes. Less water used, less runoff—better for Dubai.
+              </p>
             </div>
-            <div className="flex justify-center items-center space-x-12 opacity-60">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-24 h-12 bg-muted rounded-lg flex items-center justify-center">
-                  <span className="text-xs text-muted-foreground">Partner {i}</span>
-                </div>
-              ))}
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="py-16" data-testid="testimonials-section">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-center text-brand-primary mb-12">
+              What Dubai Says
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-card p-6 rounded-2xl shadow-lg text-center">
+                <p className="text-muted-foreground mb-4 italic">"Smooth booking and spotless results."</p>
+                <p className="text-sm text-brand-primary font-grandview-bold">— Resident, Dubai Marina</p>
+              </div>
+              <div className="bg-card p-6 rounded-2xl shadow-lg text-center">
+                <p className="text-muted-foreground mb-4 italic">"Easy for our family's cars—consistent every week."</p>
+                <p className="text-sm text-brand-primary font-grandview-bold">— Al Barsha</p>
+              </div>
+              <div className="bg-card p-6 rounded-2xl shadow-lg text-center">
+                <p className="text-muted-foreground mb-4 italic">"Finally, eco-friendly without the hassle."</p>
+                <p className="text-sm text-brand-primary font-grandview-bold">— Business Bay</p>
+              </div>
             </div>
           </div>
         </section>
