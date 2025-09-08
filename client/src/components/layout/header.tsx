@@ -49,11 +49,17 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* CTA Buttons and Menu */}
-        <div className="flex items-center gap-2">
-          <div className={`transition-all duration-300 ${isScrolled ? 'scale-75' : 'scale-100'}`}>
-            <CTAGroup size="sm" />
+        {/* CTA Buttons - slide from left to right when scrolling */}
+        <div className={`transition-all duration-500 ease-in-out ${
+          isScrolled ? 'translate-x-0' : '-translate-x-[200px]'
+        }`}>
+          <div className={`transition-all duration-300 ${isScrolled ? 'scale-90' : 'scale-100'}`}>
+            <CTAGroup size={isScrolled ? "sm" : "md"} />
           </div>
+        </div>
+
+        {/* Menu */}
+        <div className="flex items-center gap-2">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" className="p-2" data-testid="menu-toggle">
