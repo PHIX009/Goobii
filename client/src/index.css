@@ -66,6 +66,7 @@ button:hover,
 /* Specific hover effects for navigation and interactive elements */
 nav a:hover,
 footer a:hover,
+footer a:hover span,
 .menu-item:hover,
 [data-testid*="link"]:hover,
 [data-testid*="button"]:hover {

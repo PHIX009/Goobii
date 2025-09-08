@@ -66,20 +66,20 @@ export default function FooterCategories() {
             </h3>
             <ul className="mt-3 space-y-1.5">
               <li>
-                <a href="https://wa.me/XXXXXXXXXXX" className={`${linkBase} ${focusRing} inline-flex ${row} group`}>
-                  <WhatsAppIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-primary)] transition-colors" />
+                <a href="https://wa.me/XXXXXXXXXXX" className={`text-[var(--brand-primary)] ${focusRing} inline-flex ${row} group`}>
+                  <WhatsAppIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-pop)] transition-colors" />
                   <span className="group-hover:text-[var(--brand-pop)] transition-colors">WhatsApp</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@goobii.ae" className={`${linkBase} ${focusRing} inline-flex ${row} group`}>
-                  <MailIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-primary)] transition-colors" />
+                <a href="mailto:hello@goobii.ae" className={`text-[var(--brand-primary)] ${focusRing} inline-flex ${row} group`}>
+                  <MailIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-pop)] transition-colors" />
                   <span className="group-hover:text-[var(--brand-pop)] transition-colors">Email</span>
                 </a>
               </li>
               <li>
-                <a href="tel:+971XXXXXXXXX" className={`${linkBase} ${focusRing} inline-flex ${row} group`}>
-                  <PhoneIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-primary)] transition-colors" />
+                <a href="tel:+971XXXXXXXXX" className={`text-[var(--brand-primary)] ${focusRing} inline-flex ${row} group`}>
+                  <PhoneIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-pop)] transition-colors" />
                   <span className="group-hover:text-[var(--brand-pop)] transition-colors">Phone</span>
                 </a>
               </li>
