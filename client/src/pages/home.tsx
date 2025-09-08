@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import CTAGroup from "@/components/cta-group";
 import { Droplets, Shield, Smartphone, Users, Zap, MapPin, CheckCircle } from "lucide-react";
@@ -5,6 +6,17 @@ import phoneImage from "@assets/Untitled design_1757328137575.png";
 import logoImage from "@assets/Goobii Vertical Logo_1756905830399.png";
 
 export default function Home() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -18,7 +30,9 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-4xl mx-auto">
               {/* Hero Logo and Tagline */}
-              <div className="mb-20">
+              <div className={`mb-20 transition-all duration-500 ease-in-out transform ${
+                isScrolled ? 'opacity-0 -translate-y-8 pointer-events-none' : 'opacity-100 translate-y-0'
+              }`}>
                 <img 
                   src={logoImage} 
                   alt="Goobii" 
