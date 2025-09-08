@@ -8,7 +8,6 @@ import { HelmetProvider } from "react-helmet-async";
 
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import FooterCategories from "@/components/FooterCategories";
 import Home from "@/pages/home";
 import Services from "@/pages/services";
 import Subscriptions from "@/pages/subscriptions";
@@ -38,7 +37,6 @@ function Router() {
           <Route component={NotFound} />
         </Switch>
       </main>
-      <FooterCategories />
       <Footer />
     </>
   );

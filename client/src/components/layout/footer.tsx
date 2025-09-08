@@ -7,54 +7,62 @@ export default function Footer() {
   return (
     <footer className="bg-brand-secondary text-brand-bg py-12" data-testid="footer">
       <div className="max-w-7xl mx-auto px-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 justify-items-center">
-          {/* Services */}
-          <div className="justify-self-start">
-            <h4 className="text-xl text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>Services</h4>
-            <ul className="space-y-1 text-brand-bg/80">
-              <li>
-                <Link href="/services" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-services">
-                  Car Cleaning
-                </Link>
-              </li>
-              <li>
-                <Link href="/subscriptions" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-subscriptions">
-                  Subscriptions
-                </Link>
-              </li>
-              <li>
-                <Link href="/buildings" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-buildings">
-                  Buildings & Communities
-                </Link>
-              </li>
-              <li>
-                <Link href="/fleet" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-fleet">
-                  Fleet & Business
-                </Link>
-              </li>
-            </ul>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          {/* Left side - Products and Company */}
+          <div className="md:col-span-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Products */}
+              <div>
+                <h4 className="text-xl text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>Products</h4>
+                <ul className="space-y-1 text-brand-bg/80">
+                  <li>
+                    <Link href="/services" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-services">
+                      Car Cleaning
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/subscriptions" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-subscriptions">
+                      Subscriptions
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/buildings" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-buildings">
+                      Buildings & Communities
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/fleet" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-fleet">
+                      Fleet & Business
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              {/* Company */}
+              <div>
+                <h4 className="text-xl text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>Company</h4>
+                <ul className="space-y-1 text-brand-bg/80">
+                  <li>
+                    <Link href="/about" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-about">
+                      About Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/faqs" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-faqs">
+                      FAQs
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/contact" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-contact">
+                      Contact
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div className="justify-self-center">
-            <h4 className="text-xl text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>Company</h4>
-            <ul className="space-y-1 text-brand-bg/80">
-              <li>
-                <Link href="/about" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-about">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/faqs" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-faqs">
-                  FAQs
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-contact">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div className="justify-self-end">
+          
+          {/* Right side - Get in Touch */}
+          <div>
             <h4 className="text-xl text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>Get in Touch</h4>
             <div className="space-y-1 text-brand-bg/80">
               <a
