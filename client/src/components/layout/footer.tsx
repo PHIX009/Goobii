@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { MessageCircle, Mail } from "lucide-react";
 import CTAGroup from "@/components/cta-group";
-import logoImage from "@assets/Goobii Vertical Logo_1756905830399.png";
+import logoImage from "@assets/Vertical logo + Tagline_1757358400662.png";
 
 export default function Footer() {
   return (
@@ -80,9 +80,8 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-brand-bg/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center gap-4 mb-4 md:mb-0">
-              <img src={logoImage} alt="Goobii" className="h-12 w-auto" style={{ objectFit: 'contain' }} />
-              <p className="text-sm font-grandview-bold text-brand-contrast-2">Planet. People. Purpose.</p>
+            <div className="flex items-center mb-4 md:mb-0">
+              <img src={logoImage} alt="Goobii - Planet. People. Purpose." className="h-12 w-auto" style={{ objectFit: 'contain' }} />
             </div>
             
             <div className="text-brand-bg/60 text-sm">

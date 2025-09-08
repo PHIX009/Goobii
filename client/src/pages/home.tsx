@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { Link } from "wouter";
 import { Droplets, Shield, Smartphone, Users, Zap, MapPin, CheckCircle, FileText, TrendingUp, ArrowRight } from "lucide-react";
 import phoneImage from "@assets/Untitled design_1757328137575.png";
-import logoImage from "@assets/Goobii Vertical Logo_1756905830399.png";
+import logoImage from "@assets/Vertical logo + Tagline_1757358400662.png";
 
 // Pillar Chip Component
 function PillarChip({ label, description, icon, isExpanded, onToggle, delay = 0 }: {
@@ -152,19 +152,16 @@ export default function Home() {
         <section className="py-16 lg:py-24" data-testid="hero-section">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-4xl mx-auto">
-              {/* Hero Logo and Tagline */}
+              {/* Hero Logo */}
               <div className={`mb-20 transition-all duration-500 ease-in-out transform ${
                 isScrolled ? 'opacity-0 -translate-y-8 pointer-events-none' : 'opacity-100 translate-y-0'
               }`}>
                 <img 
                   src={logoImage} 
-                  alt="Goobii" 
+                  alt="Goobii - Planet. People. Purpose." 
                   className="h-40 lg:h-56 w-auto mx-auto" 
                   style={{ objectFit: 'contain' }}
                 />
-                <p className="text-2xl lg:text-3xl font-grandview-bold text-brand-secondary tracking-wider mt-2">
-                  Planet. People. Purpose.
-                </p>
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-ghost font-bold text-brand-primary mb-6">

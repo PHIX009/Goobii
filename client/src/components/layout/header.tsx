@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Smartphone, Download } from "lucide-react";
 import CTAGroup from "@/components/cta-group";
-import logoImage from "@assets/Goobii Vertical Logo_1756905830399.png";
+import logoImage from "@assets/Vertical logo + Tagline_1757358400662.png";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 const navigation = [
@@ -42,7 +42,7 @@ export default function Header() {
           <Link href="/" className="flex items-center" data-testid="logo-link">
             <img 
               src={logoImage} 
-              alt="Goobii" 
+              alt="Goobii - Planet. People. Purpose." 
               className="h-12 w-auto max-w-[180px]" 
               style={{ objectFit: 'contain' }}
             />
