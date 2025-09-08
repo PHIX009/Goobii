@@ -70,7 +70,7 @@ export default function Home() {
                   <Droplets className="w-8 h-8 text-brand-primary" />
                 </div>
                 <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Save Water</h3>
-                <p className="text-muted-foreground">Your routine, real impact. A clean that respects resources, built for Dubai. Sooftwash™ uses only a few liters, by design.</p>
+                <p className="text-muted-foreground">Your routine creates real impact. Sooftwash™ delivers a clean that respects resources, built for Dubai, using only a few liters by design.</p>
               </div>
               
               <div className="bg-card p-6 rounded-2xl shadow-lg text-center" data-testid="value-card-chemistry">
@@ -78,7 +78,7 @@ export default function Home() {
                   <Shield className="w-8 h-8 text-brand-primary" />
                 </div>
                 <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Safe & Biodegradable</h3>
-                <p className="text-muted-foreground">Formulas chosen to be kind to people, surfaces, and surroundings, engineered for heat, dust, and daily city driving.</p>
+                <p className="text-muted-foreground">Our formulas are kind to people, surfaces, and surroundings. They are engineered for heat, dust, and the pace of daily city driving.</p>
               </div>
               
               <div className="bg-card p-6 rounded-2xl shadow-lg text-center" data-testid="value-card-app">
@@ -86,7 +86,7 @@ export default function Home() {
                   <Smartphone className="w-8 h-8 text-brand-primary" />
                 </div>
                 <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">User-Friendly App</h3>
-                <p className="text-muted-foreground">One tap, clear choices, zero fuss. Book, track, and keep your history in one place. Join the people with purpose.</p>
+                <p className="text-muted-foreground">One tap, clear choices, zero fuss. Book, track, and keep your history in one place, then join the people with purpose today.</p>
               </div>
               
               <div className="bg-card p-6 rounded-2xl shadow-lg text-center" data-testid="value-card-liinks">
@@ -94,7 +94,7 @@ export default function Home() {
                   <Users className="w-8 h-8 text-brand-primary" />
                 </div>
                 <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Pro Liinks</h3>
-                <p className="text-muted-foreground">Trained teams, clear checklists, and consistent results, every time. The people you meet are the face of our movement.</p>
+                <p className="text-muted-foreground">Trained teams follow clear checklists for consistent results. The people you meet are professional, always reliable, and the face of our movement.</p>
               </div>
             </div>
           </div>
