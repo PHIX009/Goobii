@@ -181,7 +181,7 @@ export default function Home() {
               
               {/* Hero Image */}
               <div className="relative">
-                <div className="w-full h-96 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 rounded-2xl shadow-2xl max-w-4xl mx-auto flex items-center justify-center">
+                <div className="w-full h-96 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 shadow-2xl max-w-4xl mx-auto flex items-center justify-center" style={{ borderRadius: '12px 4px 12px 12px' }}>
                   <div className="text-center">
                     <div className="w-20 h-20 bg-brand-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Droplets className="w-10 h-10 text-brand-primary" />
