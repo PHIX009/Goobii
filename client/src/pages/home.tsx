@@ -126,7 +126,7 @@ export default function Home() {
               {/* Title and Description */}
               <div className="text-center">
                 <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-brand-primary mb-4">How It Works</h2>
-                <p className="text-xl text-muted-foreground">Simple steps to a cleaner, greener car</p>
+                <p className="text-xl text-muted-foreground">Simple steps. Real impact.</p>
               </div>
             </div>
             
@@ -135,24 +135,24 @@ export default function Home() {
                 <div className="w-20 h-20 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <Smartphone className="w-10 h-10 text-brand-primary" />
                 </div>
-                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">1. Book in the app</h3>
-                <p className="text-muted-foreground">Pick service, time, and location.</p>
+                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">1) You book</h3>
+                <p className="text-muted-foreground">Choose service, location, and time.</p>
               </div>
               
               <div className="text-center" data-testid="step-2">
                 <div className="w-20 h-20 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <MapPin className="w-10 h-10 text-brand-primary" />
                 </div>
-                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">2. We arrive</h3>
-                <p className="text-muted-foreground">Electric‑powered operations with minimal noise.</p>
+                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">2) We arrive</h3>
+                <p className="text-muted-foreground">Your Liink arrives prepared, professional, and on time.</p>
               </div>
               
               <div className="text-center" data-testid="step-3">
                 <div className="w-20 h-20 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <CheckCircle className="w-10 h-10 text-brand-primary" />
                 </div>
-                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">3. Shine & done</h3>
-                <p className="text-muted-foreground">Your car, clean and ready.</p>
+                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">3) Clean & Ready</h3>
+                <p className="text-muted-foreground">Sooftwash™ clean, ready for what's next.</p>
               </div>
             </div>
           </div>
