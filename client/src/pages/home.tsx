@@ -23,13 +23,14 @@ function PillarChip({ label, description, icon, isExpanded, onToggle, delay = 0 
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.6 }}
       className={`
-        w-full text-left p-6 rounded-2xl border-2 transition-all duration-300
+        w-full text-left p-6 border-2 transition-all duration-300
         focus:outline-none focus:ring-2 focus:ring-brand-pop focus:ring-offset-2
         ${isExpanded 
           ? 'border-brand-contrast-2 bg-white shadow-lg transform translate-y-[-2px]' 
           : 'border-brand-secondary/25 bg-card hover:border-brand-contrast-2 hover:bg-white hover:shadow-md'
         }
       `}
+      style={{ borderRadius: '12px 4px 12px 12px' }}
       onClick={onToggle}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
