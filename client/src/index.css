@@ -75,36 +75,46 @@ footer a:hover span,
 }
 
 /* Animated glowing border effect for service cards */
-@keyframes glow-border {
+@keyframes glow-pulse {
   0% {
-    background-position: 0% 50%;
+    box-shadow: 
+      0 0 5px var(--brand-pop),
+      0 0 10px var(--brand-pop),
+      0 0 15px var(--brand-pop),
+      0 0 20px var(--brand-pop);
+  }
+  25% {
+    box-shadow: 
+      0 0 10px var(--brand-pop),
+      0 0 20px var(--brand-pop),
+      0 0 30px var(--brand-pop),
+      0 0 40px var(--brand-pop);
   }
   50% {
-    background-position: 100% 50%;
+    box-shadow: 
+      0 0 15px var(--brand-pop),
+      0 0 25px var(--brand-pop),
+      0 0 35px var(--brand-pop),
+      0 0 45px var(--brand-pop);
+  }
+  75% {
+    box-shadow: 
+      0 0 10px var(--brand-pop),
+      0 0 20px var(--brand-pop),
+      0 0 30px var(--brand-pop),
+      0 0 40px var(--brand-pop);
   }
   100% {
-    background-position: 0% 50%;
+    box-shadow: 
+      0 0 5px var(--brand-pop),
+      0 0 10px var(--brand-pop),
+      0 0 15px var(--brand-pop),
+      0 0 20px var(--brand-pop);
   }
 }
 
-.service-card:hover::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, 
-    transparent, 
-    var(--brand-pop), 
-    transparent, 
-    var(--brand-pop), 
-    transparent);
-  background-size: 300% 300%;
-  border-radius: 14px 6px 14px 14px;
-  z-index: -1;
-  animation: glow-border 2s ease-in-out infinite;
-  opacity: 0.7;
+.service-card:hover {
+  animation: glow-pulse 2s ease-in-out infinite;
 }
 
 /* CTA button hover effects - text and icons */
