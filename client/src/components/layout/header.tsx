@@ -47,8 +47,9 @@ export default function Header() {
           />
         </Link>
 
-        {/* Menu Button - Always visible */}
-        <div className="flex items-center">
+        {/* CTA Buttons and Menu */}
+        <div className="flex items-center gap-2">
+          <CTAGroup size="sm" />
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" className="p-2" data-testid="menu-toggle">
@@ -87,10 +88,6 @@ export default function Header() {
                   </Link>
                 ))}
                 
-                {/* Menu CTA */}
-                <div className="pt-2 mt-2 border-t border-brand-primary/20 px-1">
-                  <CTAGroup size="sm" />
-                </div>
               </div>
             </SheetContent>
           </Sheet>
