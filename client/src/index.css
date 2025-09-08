@@ -167,6 +167,23 @@
     transform: translateY(-1px);
     box-shadow: 0 4px 12px hsl(var(--primary) / 0.3);
   }
+
+  /* Menu Styles */
+  .menu-backdrop-blur {
+    backdrop-filter: blur(4px);
+  }
+
+  /* Override default Sheet overlay to prevent darkening */
+  [data-radix-dialog-overlay] {
+    display: none !important;
+  }
+
+  /* Custom Sheet positioning */
+  [data-radix-dialog-content] {
+    position: fixed !important;
+    top: 80px !important;
+    right: 16px !important;
+  }
 }
 
 /* Custom scrollbar */

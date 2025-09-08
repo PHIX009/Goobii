@@ -5,6 +5,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Smartphone, Download } from "lucide-react";
 import CTAGroup from "@/components/cta-group";
 import logoImage from "@assets/Goobii Vertical Logo_1756905830399.png";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -54,14 +55,30 @@ export default function Header() {
                 <Menu className="w-6 h-6 text-brand-primary" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background/95 backdrop-blur-sm border-l border-brand-primary/20">
-              <div className="flex flex-col space-y-6 mt-8">
+            {/* Custom backdrop with full page blur */}
+            {isOpen && (
+              <div 
+                className="fixed inset-0 z-40 backdrop-blur-sm" 
+                onClick={() => setIsOpen(false)}
+              />
+            )}
+            <SheetContent 
+              side="right" 
+              className="w-[180px] h-fit max-h-[350px] bg-background border-l border-brand-primary/20 shadow-xl z-50 top-20 right-4 rounded-lg overflow-visible"
+              style={{ position: 'fixed' }}
+            >
+              <VisuallyHidden>
+                <h2>Navigation Menu</h2>
+              </VisuallyHidden>
+              <div className="flex flex-col py-3">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`text-xl py-3 text-brand-secondary hover:text-brand-primary transition-colors border-b border-brand-primary/10 ${
-                      location === item.href ? "font-bold text-brand-pop" : ""
+                    className={`text-xs py-1.5 px-2 transition-all duration-200 rounded-md mx-1 ${
+                      location === item.href 
+                        ? "font-bold text-brand-pop bg-brand-pop/10" 
+                        : "text-brand-secondary hover:text-brand-secondary hover:bg-brand-secondary/10 hover:font-bold"
                     }`}
                     onClick={() => setIsOpen(false)}
                     data-testid={`nav-link-${item.name.toLowerCase()}`}
@@ -71,8 +88,8 @@ export default function Header() {
                 ))}
                 
                 {/* Menu CTA */}
-                <div className="pt-6 border-t border-brand-primary/20">
-                  <CTAGroup />
+                <div className="pt-2 mt-2 border-t border-brand-primary/20 px-1">
+                  <CTAGroup size="sm" />
                 </div>
               </div>
             </SheetContent>
