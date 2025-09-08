@@ -5,7 +5,7 @@ import { PhoneIcon } from '@/components/icons/PhoneIcon';
 import logoImage from "@assets/Horizontal Logo + Tagline_1757358585705.png";
 
 export default function FooterCategories() {
-  const linkBase = "text-[var(--brand-primary)] hover:text-[var(--brand-secondary)] transition-colors";
+  const linkBase = "text-[var(--brand-primary)] hover:text-[var(--brand-pop)] transition-colors";
   const focusRing = "focus:outline-none focus:ring-2 focus:ring-[var(--brand-pop)] focus:ring-offset-2 focus:ring-offset-[var(--brand-bg)]";
   const row = "flex items-center gap-3 py-1.5";
 
