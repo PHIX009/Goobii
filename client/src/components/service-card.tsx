@@ -20,8 +20,8 @@ export default function ServiceCard({
 }: ServiceCardProps) {
   return (
     <div 
-      className={`service-card bg-card p-8 shadow-lg relative hover:shadow-xl hover:shadow-brand-pop/30 transition-all duration-300 border border-brand-primary/10 hover:border-brand-pop/30 ${
-        isRecommended ? "border-2 border-brand-pop/20" : ""
+      className={`service-card bg-card p-8 shadow-lg relative hover:shadow-xl hover:shadow-brand-pop/30 transition-all duration-300 border border-brand-primary/10 hover:border-brand-pop/30 overflow-hidden ${
+        isRecommended ? "ring-2 ring-brand-pop/20" : ""
       }`}
       style={{ borderRadius: '12px 4px 12px 12px' }}
       data-testid={`service-card-${title.toLowerCase().replace(/\s+/g, '-')}`}
