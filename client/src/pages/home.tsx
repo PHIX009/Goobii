@@ -184,7 +184,7 @@ export default function Home() {
               </p>
               
               {/* Primary CTA Group */}
-              <div className="mb-12">
+              <div className="mb-12 flex justify-center">
                 <CTAGroup size="lg" className="flex-col sm:flex-row" />
               </div>
             </div>
