@@ -148,22 +148,11 @@ export default function Home() {
         {/* Testimonials */}
         <section className="py-16" data-testid="testimonials-section">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-center text-brand-primary mb-12">
-              What Dubai Says
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-card p-6 rounded-2xl shadow-lg text-center">
-                <p className="text-muted-foreground mb-4 italic">"Smooth booking and spotless results."</p>
-                <p className="text-sm text-brand-primary font-grandview-bold">— Resident, Dubai Marina</p>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Users className="w-10 h-10 text-brand-primary" />
               </div>
-              <div className="bg-card p-6 rounded-2xl shadow-lg text-center">
-                <p className="text-muted-foreground mb-4 italic">"Easy for our family's cars—consistent every week."</p>
-                <p className="text-sm text-brand-primary font-grandview-bold">— Al Barsha</p>
-              </div>
-              <div className="bg-card p-6 rounded-2xl shadow-lg text-center">
-                <p className="text-muted-foreground mb-4 italic">"Finally, eco-friendly without the hassle."</p>
-                <p className="text-sm text-brand-primary font-grandview-bold">— Business Bay</p>
-              </div>
+              <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-brand-primary">Testimonials</h2>
             </div>
           </div>
         </section>
