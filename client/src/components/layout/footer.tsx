@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { MessageCircle, Mail } from "lucide-react";
 import CTAGroup from "@/components/cta-group";
-import logoImage from "@assets/Vertical logo + Tagline_1757358400662.png";
+import logoImage from "@assets/Horizontal Logo + Tagline_1757358585705.png";
 
 export default function Footer() {
   return (

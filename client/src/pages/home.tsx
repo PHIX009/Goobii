@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { Link } from "wouter";
 import { Droplets, Shield, Smartphone, Users, Zap, MapPin, CheckCircle, FileText, TrendingUp, ArrowRight } from "lucide-react";
 import phoneImage from "@assets/Untitled design_1757328137575.png";
-import logoImage from "@assets/Vertical logo + Tagline_1757358400662.png";
+import logoImage from "@assets/Horizontal Logo + Tagline_1757358585705.png";
 
 // Pillar Chip Component
 function PillarChip({ label, description, icon, isExpanded, onToggle, delay = 0 }: {
