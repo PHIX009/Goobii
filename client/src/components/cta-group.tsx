@@ -15,44 +15,41 @@ export default function CTAGroup({ size = "md", variant = "default", className =
   };
 
   const footerClasses = variant === "footer" 
-    ? "bg-brand-bg text-brand-primary hover:bg-brand-bg/90 border-brand-bg/20" 
+    ? "bg-brand-bg text-brand-primary hover:bg-brand-bg/90 border-brand-bg/20 shadow-md" 
     : "";
 
   if (size === "lg") {
     return (
-      <div className={`flex gap-3 ${className}`} data-testid="cta-group">
-        <div className={`cta-button bg-brand-primary text-brand-bg hover:bg-brand-secondary ${sizeClasses[size]} rounded-xl font-grandview-bold transition-colors flex items-center justify-center gap-4`}>
-          <span>Download</span>
-          <div className="flex gap-2">
-            <a href="#ios-placeholder" className="hover:opacity-80" data-testid="cta-button-ios">
-              <SiApple className="w-6 h-6" />
-            </a>
-            <a href="#android-placeholder" className="hover:opacity-80" data-testid="cta-button-android">
-              <SiGoogleplay className="w-6 h-6" />
-            </a>
-          </div>
-        </div>
+      <div className={`flex gap-2 ${className}`} data-testid="cta-group">
+        <a href="#ios-placeholder" className="cta-button bg-brand-primary text-brand-bg hover:bg-brand-secondary px-6 py-4 rounded-xl font-grandview-bold transition-colors flex items-center justify-center gap-2 border-2 border-brand-primary/20 shadow-lg" data-testid="cta-button-ios">
+          <SiApple className="w-6 h-6" />
+          <span className="font-bold">iOS</span>
+        </a>
+        <a href="#android-placeholder" className="cta-button bg-brand-secondary text-brand-bg hover:bg-brand-primary px-6 py-4 rounded-xl font-grandview-bold transition-colors flex items-center justify-center gap-2 border-2 border-brand-secondary/20 shadow-lg" data-testid="cta-button-android">
+          <SiGoogleplay className="w-6 h-6" />
+          <span className="font-bold">Android</span>
+        </a>
       </div>
     );
   }
 
   return (
-    <div className={`flex gap-3 ${className}`} data-testid="cta-group">
+    <div className={`flex gap-2 ${className}`} data-testid="cta-group">
       <a
         href="#ios-placeholder"
-        className={`cta-button ${variant === "footer" ? footerClasses : "bg-brand-primary text-brand-bg hover:bg-brand-secondary"} ${sizeClasses[size]} rounded-xl font-grandview-bold transition-colors flex items-center justify-center`}
+        className={`cta-button ${variant === "footer" ? footerClasses : "bg-brand-primary text-brand-bg hover:bg-brand-secondary"} ${sizeClasses[size]} rounded-xl font-grandview-bold transition-colors flex items-center justify-center gap-1 border-2 border-brand-primary/20 shadow-md`}
         data-testid="cta-button-ios"
       >
-        <SiApple className="w-4 h-4 mr-2" />
-        {size === "sm" ? "iOS" : "Download on iOS"}
+        <SiApple className="w-4 h-4" />
+        <span className="font-bold">{size === "sm" ? "iOS" : "Download on iOS"}</span>
       </a>
       <a
         href="#android-placeholder"
-        className={`cta-button ${variant === "footer" ? footerClasses : "bg-brand-secondary text-brand-bg hover:bg-brand-primary"} ${sizeClasses[size]} rounded-xl font-grandview-bold transition-colors flex items-center justify-center`}
+        className={`cta-button ${variant === "footer" ? footerClasses : "bg-brand-secondary text-brand-bg hover:bg-brand-primary"} ${sizeClasses[size]} rounded-xl font-grandview-bold transition-colors flex items-center justify-center gap-1 border-2 border-brand-secondary/20 shadow-md`}
         data-testid="cta-button-android"
       >
-        <SiGoogleplay className="w-4 h-4 mr-2" />
-        {size === "sm" ? "Android" : "Get it on Android"}
+        <SiGoogleplay className="w-4 h-4" />
+        <span className="font-bold">{size === "sm" ? "Android" : "Get it on Android"}</span>
       </a>
     </div>
   );
