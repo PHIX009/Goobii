@@ -2,6 +2,7 @@ import { Link } from 'wouter';
 import { WhatsAppIcon } from '@/components/icons/WhatsAppIcon';
 import { MailIcon } from '@/components/icons/MailIcon';
 import { PhoneIcon } from '@/components/icons/PhoneIcon';
+import logoImage from "@assets/Horizontal Logo + Tagline_1757358585705.png";
 
 export default function FooterCategories() {
   const linkBase = "text-[var(--brand-primary)] hover:text-[var(--brand-secondary)] transition-colors";
@@ -80,6 +81,19 @@ export default function FooterCategories() {
                 </a>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="border-t border-[color-mix(in_oklab,var(--brand-secondary)_15%,transparent)] pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center mb-4 md:mb-0">
+              <img src={logoImage} alt="Goobii - Planet. People. Purpose." className="h-12 w-auto" style={{ objectFit: 'contain' }} />
+            </div>
+            
+            <div className="text-[var(--brand-secondary)] opacity-60 text-sm">
+              <p>© 2024 Goobii. All rights reserved.</p>
+            </div>
           </div>
         </div>
       </div>
