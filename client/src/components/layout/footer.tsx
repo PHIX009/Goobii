@@ -6,7 +6,7 @@ import logoImage from "@assets/Goobii Vertical Logo_1756905830399.png";
 export default function Footer() {
   return (
     <footer className="bg-brand-secondary text-brand-bg py-12" data-testid="footer">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 justify-items-center">
           {/* Services */}
           <div className="justify-self-start">
