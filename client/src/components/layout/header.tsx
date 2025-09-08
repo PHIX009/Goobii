@@ -52,10 +52,15 @@ export default function Header() {
         {/* Right side container */}
         <div className="flex items-center gap-2">
           {/* CTA Buttons - slide from far left to far right when scrolling */}
-          <div className={`absolute transition-all duration-500 ease-in-out ${
-            isScrolled ? 'right-16' : 'left-4'
-          }`}>
-            <div className={`transition-all duration-300 ${isScrolled ? 'scale-90' : 'scale-100'}`}>
+          <div 
+            className={`absolute transition-all duration-700 ${
+              isScrolled ? 'right-16' : 'left-4'
+            }`}
+            style={{
+              transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+            }}
+          >
+            <div className={`transition-all duration-500 ease-out ${isScrolled ? 'scale-90' : 'scale-100'}`}>
               <CTAGroup size={isScrolled ? "sm" : "md"} />
             </div>
           </div>
