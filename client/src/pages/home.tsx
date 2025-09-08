@@ -195,7 +195,7 @@ export default function Home() {
         </section>
 
         {/* Value Cards */}
-        <section className="py-16 bg-background/50" data-testid="value-cards-section">
+        <section className="py-16" data-testid="value-cards-section">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-center text-brand-primary mb-12">
               Lead the Change

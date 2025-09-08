@@ -79,7 +79,7 @@ function App() {
               })}
             </script>
           </Helmet>
-          <div className="gradient-bg min-h-screen">
+          <div className="min-h-screen" style={{ backgroundColor: 'var(--brand-bg)' }}>
             <Toaster />
             <Router />
           </div>
