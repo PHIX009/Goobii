@@ -450,7 +450,8 @@ export default function Home() {
         <section className="py-16 bg-brand-primary" data-testid="secondary-cta-section">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-3xl font-ghost font-bold text-brand-bg mb-4">Join the People with Purpose</h2>
-            <p className="text-xl text-brand-bg/80 mb-8">Make your next clean a change the city feels.</p>
+            <p className="text-xl text-brand-bg/80 mb-4">Make your next clean a change the city feels.</p>
+            <p className="text-lg text-brand-bg/90 mb-8 font-grandview-bold">Download our App now!</p>
             
             <div className="flex justify-center">
               <CTAGroup size="lg" className="flex-col sm:flex-row" />
