@@ -49,22 +49,21 @@ export default function Header() {
           </Link>
         </div>
 
+        {/* CTA Buttons - positioned on left initially, slide to right when scrolling */}
+        <div 
+          className="absolute left-4 transition-transform duration-700"
+          style={{
+            transform: isScrolled ? 'translateX(calc(100vw - 280px))' : 'translateX(0)',
+            transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+          }}
+        >
+          <div className={`transition-all duration-500 ease-out ${isScrolled ? 'scale-90' : 'scale-100'}`}>
+            <CTAGroup size={isScrolled ? "sm" : "md"} />
+          </div>
+        </div>
+
         {/* Right side container */}
         <div className="flex items-center gap-2">
-          {/* CTA Buttons - slide from far left to far right when scrolling */}
-          <div 
-            className={`absolute transition-all duration-700 ${
-              isScrolled ? 'right-16' : 'left-4'
-            }`}
-            style={{
-              transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-            }}
-          >
-            <div className={`transition-all duration-500 ease-out ${isScrolled ? 'scale-90' : 'scale-100'}`}>
-              <CTAGroup size={isScrolled ? "sm" : "md"} />
-            </div>
-          </div>
-
           {/* Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
