@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import CTAGroup from "@/components/cta-group";
 import { Droplets, Shield, Smartphone, Users, Zap, MapPin, CheckCircle } from "lucide-react";
 import phoneImage from "@assets/Untitled design_1757328137575.png";
+import logoImage from "@assets/Goobii Vertical Logo_1756905830399.png";
 
 export default function Home() {
   return (
@@ -69,7 +70,7 @@ export default function Home() {
                   <Droplets className="w-8 h-8 text-brand-primary" />
                 </div>
                 <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Save Water</h3>
-                <p className="text-muted-foreground">Cut water use dramatically: 2–4 L per wash instead of 100–150 L.</p>
+                <p className="text-muted-foreground">Your routine, real impact. A clean that respects resources, built for Dubai. Sooftwash™ uses only a few liters, by design.</p>
               </div>
               
               <div className="bg-card p-6 rounded-2xl shadow-lg text-center" data-testid="value-card-chemistry">
@@ -77,15 +78,15 @@ export default function Home() {
                   <Shield className="w-8 h-8 text-brand-primary" />
                 </div>
                 <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Safe & Biodegradable</h3>
-                <p className="text-muted-foreground">Worker‑safe, vehicle‑safe chemistry engineered for Dubai's climate.</p>
+                <p className="text-muted-foreground">Formulas chosen to be kind to people, surfaces, and surroundings, engineered for heat, dust, and daily city driving.</p>
               </div>
               
               <div className="bg-card p-6 rounded-2xl shadow-lg text-center" data-testid="value-card-app">
                 <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Smartphone className="w-8 h-8 text-brand-primary" />
                 </div>
-                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">User‑Friendly App</h3>
-                <p className="text-muted-foreground">Book in minutes, store vehicles and addresses, request before/after images, all washes recorded.</p>
+                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">User-Friendly App</h3>
+                <p className="text-muted-foreground">One tap, clear choices, zero fuss. Book, track, and keep your history in one place. Join the people with purpose.</p>
               </div>
               
               <div className="bg-card p-6 rounded-2xl shadow-lg text-center" data-testid="value-card-liinks">
@@ -93,7 +94,7 @@ export default function Home() {
                   <Users className="w-8 h-8 text-brand-primary" />
                 </div>
                 <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Pro Liinks</h3>
-                <p className="text-muted-foreground">Trained Goobii Liinks deliver consistent, reliable quality.</p>
+                <p className="text-muted-foreground">Trained teams, clear checklists, and consistent results, every time. The people you meet are the face of our movement.</p>
               </div>
             </div>
           </div>
