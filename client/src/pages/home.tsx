@@ -87,23 +87,26 @@ export default function Home() {
         </section>
 
         {/* How It Works */}
-        <section className="py-16 relative" data-testid="how-it-works-section">
+        <section className="py-16" data-testid="how-it-works-section">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-brand-primary mb-4">How It Works</h2>
-              <p className="text-xl text-muted-foreground">Simple steps to a cleaner, greener car</p>
+            <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 mb-12">
+              {/* Phone Image */}
+              <div className="lg:order-first hidden lg:block">
+                <img 
+                  src={phoneImage} 
+                  alt="Goobii app interface showing map and booking features" 
+                  className="w-[600px] h-auto object-contain"
+                />
+              </div>
+              
+              {/* Title and Description */}
+              <div className="text-center lg:text-left lg:flex-1">
+                <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-brand-primary mb-4">How It Works</h2>
+                <p className="text-xl text-muted-foreground">Simple steps to a cleaner, greener car</p>
+              </div>
             </div>
             
-            {/* Background Phone Image */}
-            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-30 z-0 hidden lg:block">
-              <img 
-                src={phoneImage} 
-                alt="Goobii app interface showing map and booking features" 
-                className="w-[480px] h-auto object-contain"
-              />
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center" data-testid="step-1">
                 <div className="w-20 h-20 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <Smartphone className="w-10 h-10 text-brand-primary" />
