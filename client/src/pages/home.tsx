@@ -18,14 +18,14 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-4xl mx-auto">
               {/* Hero Logo and Tagline */}
-              <div className="mb-12">
+              <div className="mb-20">
                 <img 
                   src={logoImage} 
                   alt="Goobii" 
-                  className="h-24 lg:h-32 w-auto mx-auto mb-4" 
+                  className="h-40 lg:h-56 w-auto mx-auto mb-2" 
                   style={{ objectFit: 'contain' }}
                 />
-                <p className="text-lg lg:text-xl font-grandview-bold text-brand-secondary tracking-wider">
+                <p className="text-2xl lg:text-3xl font-grandview-bold text-brand-secondary tracking-wider font-bold">
                   Planet. People. Purpose.
                 </p>
               </div>
@@ -61,7 +61,7 @@ export default function Home() {
         <section className="py-16 bg-background/50" data-testid="value-cards-section">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-center text-brand-primary mb-12">
-              Why Choose Goobii
+              Lead the Change
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               
