@@ -39,7 +39,7 @@ export default function Home() {
                   className="h-40 lg:h-56 w-auto mx-auto" 
                   style={{ objectFit: 'contain' }}
                 />
-                <p className="text-2xl lg:text-3xl font-extrabold text-brand-secondary tracking-wider mt-2" style={{ fontWeight: 900 }}>
+                <p className="text-2xl lg:text-3xl font-grandview-bold text-brand-secondary tracking-wider mt-2">
                   Planet. People. Purpose.
                 </p>
               </div>

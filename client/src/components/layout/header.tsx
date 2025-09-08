@@ -43,7 +43,7 @@ export default function Header() {
             <img 
               src={logoImage} 
               alt="Goobii" 
-              className="h-10 w-auto max-w-[140px]" 
+              className="h-12 w-auto max-w-[180px]" 
               style={{ objectFit: 'contain' }}
             />
           </Link>
