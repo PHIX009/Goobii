@@ -117,17 +117,9 @@ export default function Home() {
         {/* How It Works */}
         <section className="py-16" data-testid="how-it-works-section">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="flex items-center justify-center gap-6 mb-12">
-              {/* Image Placeholder */}
-              <div className="w-20 h-20 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 rounded-2xl flex items-center justify-center">
-                <Smartphone className="w-10 h-10 text-brand-primary" />
-              </div>
-              
-              {/* Title and Description */}
-              <div className="text-center">
-                <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-brand-primary mb-4">How It Works</h2>
-                <p className="text-xl text-muted-foreground">Simple steps. Real impact.</p>
-              </div>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-brand-primary mb-4">How It Works</h2>
+              <p className="text-xl text-muted-foreground">Simple steps. Real impact.</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
