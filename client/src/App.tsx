@@ -16,6 +16,7 @@ import Fleet from "@/pages/fleet";
 import About from "@/pages/about";
 import FAQs from "@/pages/faqs";
 import Contact from "@/pages/contact";
+import PurposeAndImpact from "@/pages/purpose-and-impact";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -32,6 +33,7 @@ function Router() {
           <Route path="/about" component={About} />
           <Route path="/faqs" component={FAQs} />
           <Route path="/contact" component={Contact} />
+          <Route path="/purpose-and-impact" component={PurposeAndImpact} />
           <Route component={NotFound} />
         </Switch>
       </main>
