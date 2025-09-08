@@ -131,27 +131,27 @@ export default function Home() {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center" data-testid="step-1">
+              <div className="text-center bg-card p-6 shadow-lg" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="step-1">
                 <div className="w-20 h-20 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <Smartphone className="w-10 h-10 text-brand-primary" />
                 </div>
-                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">1) You book</h3>
+                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">1. You book</h3>
                 <p className="text-muted-foreground">Choose service, location, and time.</p>
               </div>
               
-              <div className="text-center" data-testid="step-2">
+              <div className="text-center bg-card p-6 shadow-lg" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="step-2">
                 <div className="w-20 h-20 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <MapPin className="w-10 h-10 text-brand-primary" />
                 </div>
-                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">2) We arrive</h3>
+                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">2. We arrive</h3>
                 <p className="text-muted-foreground">Your Liink arrives prepared, professional, and on time.</p>
               </div>
               
-              <div className="text-center" data-testid="step-3">
+              <div className="text-center bg-card p-6 shadow-lg" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="step-3">
                 <div className="w-20 h-20 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <CheckCircle className="w-10 h-10 text-brand-primary" />
                 </div>
-                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">3) Clean & Ready</h3>
+                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">3. Clean & Ready</h3>
                 <p className="text-muted-foreground">Sooftwash™ clean, ready for what's next.</p>
               </div>
             </div>
