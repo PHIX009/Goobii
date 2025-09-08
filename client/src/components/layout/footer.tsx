@@ -7,18 +7,10 @@ export default function Footer() {
   return (
     <footer className="bg-brand-secondary text-brand-bg py-12" data-testid="footer">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
-          <div>
-            <img src={logoImage} alt="Goobii" className="h-16 w-auto max-w-[200px] mb-4" style={{ objectFit: 'contain' }} />
-            <p className="text-brand-bg/80 mb-4">
-              Eco-friendly car cleaning that saves water without compromising quality. Making sustainability accessible and effective for everyone in Dubai.
-            </p>
-          </div>
-
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Services */}
           <div>
-            <h4 className="font-grandview-bold text-xl text-brand-bg mb-3">Services</h4>
+            <h4 className="font-grandview-bold text-xl font-black text-brand-bg mb-3">Services</h4>
             <ul className="space-y-1 text-brand-bg/80">
               <li>
                 <Link href="/services" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-services">
@@ -45,7 +37,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-grandview-bold text-xl text-brand-bg mb-3">Company</h4>
+            <h4 className="font-grandview-bold text-xl font-black text-brand-bg mb-3">Company</h4>
             <ul className="space-y-1 text-brand-bg/80">
               <li>
                 <Link href="/about" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-about">
@@ -67,7 +59,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-grandview-bold text-xl text-brand-bg mb-3">Get in Touch</h4>
+            <h4 className="font-grandview-bold text-xl font-black text-brand-bg mb-3">Get in Touch</h4>
             <div className="space-y-1 text-brand-bg/80">
               <a
                 href="#whatsapp-placeholder"
@@ -93,7 +85,8 @@ export default function Footer() {
         <div className="border-t border-brand-bg/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-brand-bg/60 text-sm mb-4 md:mb-0">
-              <p className="mb-1 font-grandview-bold text-brand-bg">Every wash saves water. Every choice matters.</p>
+              <img src={logoImage} alt="Goobii" className="h-12 w-auto mb-2" style={{ objectFit: 'contain' }} />
+              <p className="text-base font-grandview-bold text-brand-contrast-2 mb-2">Planet. People. Purpose.</p>
               <p>© 2024 Goobii. All rights reserved.</p>
             </div>
             

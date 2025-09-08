@@ -54,6 +54,25 @@
   --spacing: 0.25rem;
 }
 
+/* Global hover effects for selectable items */
+a:hover,
+button:hover,
+[role="button"]:hover,
+.hover\\:text-brand-bg:hover,
+.hover\\:text-brand-primary:hover {
+  color: var(--brand-pop) !important;
+}
+
+/* Specific hover effects for navigation and interactive elements */
+nav a:hover,
+footer a:hover,
+.menu-item:hover,
+[data-testid*="link"]:hover,
+[data-testid*="button"]:hover {
+  color: var(--brand-pop) !important;
+  transition: color 0.3s ease;
+}
+
 .dark {
   --background: hsl(0, 0%, 0%);
   --foreground: hsl(200, 6.67%, 91.18%);
