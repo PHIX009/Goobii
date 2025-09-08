@@ -68,19 +68,19 @@ export default function FooterCategories() {
               <li>
                 <a href="https://wa.me/XXXXXXXXXXX" className={`${linkBase} ${focusRing} inline-flex ${row} group`}>
                   <WhatsAppIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-primary)] transition-colors" />
-                  <span>WhatsApp</span>
+                  <span className="group-hover:text-[var(--brand-pop)] transition-colors">WhatsApp</span>
                 </a>
               </li>
               <li>
                 <a href="mailto:hello@goobii.ae" className={`${linkBase} ${focusRing} inline-flex ${row} group`}>
                   <MailIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-primary)] transition-colors" />
-                  <span>Email</span>
+                  <span className="group-hover:text-[var(--brand-pop)] transition-colors">Email</span>
                 </a>
               </li>
               <li>
                 <a href="tel:+971XXXXXXXXX" className={`${linkBase} ${focusRing} inline-flex ${row} group`}>
                   <PhoneIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-primary)] transition-colors" />
-                  <span>Phone</span>
+                  <span className="group-hover:text-[var(--brand-pop)] transition-colors">Phone</span>
                 </a>
               </li>
             </ul>
