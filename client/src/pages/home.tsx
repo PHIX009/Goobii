@@ -16,10 +16,10 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-4xl lg:text-6xl font-ghost font-bold text-brand-primary mb-6">
-                Eco-friendly car cleaning, made simple.
+                You lead the change. We make it effortless.
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground mb-8 font-grandview">
-                Sooftwash™ uses just <strong className="text-brand-primary">2–4 L</strong> per wash vs <strong className="text-brand-pop">100–150 L</strong> with pressure washes—without compromising results.
+                Start a habit that matters. We guide the car care—you set the example and join a community moving with purpose.
               </p>
               
               {/* Primary CTA Group */}
