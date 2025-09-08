@@ -35,9 +35,11 @@ export default function Header() {
   return (
     <header className="header-sticky fixed top-0 left-0 right-0 z-50 px-4 py-3 border-b border-border" data-testid="header">
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo - only visible when scrolled */}
+        {/* Logo - visible on all pages except home when scrolled */}
         <div className={`transition-all duration-500 ease-in-out ${
-          isScrolled ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8 pointer-events-none'
+          (location === "/" && isScrolled) || (location !== "/") 
+            ? 'opacity-100 translate-x-0' 
+            : 'opacity-0 -translate-x-8 pointer-events-none'
         }`}>
           <Link href="/" className="flex items-center" data-testid="logo-link">
             <img 
