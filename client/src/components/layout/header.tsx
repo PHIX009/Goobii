@@ -49,7 +49,9 @@ export default function Header() {
 
         {/* CTA Buttons and Menu */}
         <div className="flex items-center gap-2">
-          <CTAGroup size="sm" />
+          <div className={`transition-all duration-300 ${isScrolled ? 'scale-75' : 'scale-100'}`}>
+            <CTAGroup size="sm" />
+          </div>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" className="p-2" data-testid="menu-toggle">

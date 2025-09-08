@@ -89,18 +89,14 @@ export default function Home() {
         {/* How It Works */}
         <section className="py-16" data-testid="how-it-works-section">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 mb-12">
-              {/* Phone Image */}
-              <div className="lg:order-first hidden lg:block">
-                <img 
-                  src={phoneImage} 
-                  alt="Goobii app interface showing map and booking features" 
-                  className="w-[600px] h-auto object-contain"
-                />
+            <div className="flex items-center justify-center gap-6 mb-12">
+              {/* Image Placeholder */}
+              <div className="w-20 h-20 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 rounded-2xl flex items-center justify-center">
+                <Smartphone className="w-10 h-10 text-brand-primary" />
               </div>
               
               {/* Title and Description */}
-              <div className="text-center lg:text-left lg:flex-1">
+              <div className="text-center">
                 <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-brand-primary mb-4">How It Works</h2>
                 <p className="text-xl text-muted-foreground">Simple steps to a cleaner, greener car</p>
               </div>
