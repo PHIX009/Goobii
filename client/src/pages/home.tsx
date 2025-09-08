@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import CTAGroup from "@/components/cta-group";
 import { Droplets, Shield, Smartphone, Users, Zap, MapPin, CheckCircle } from "lucide-react";
+import phoneImage from "@assets/Untitled design_1757328137575.png";
 
 export default function Home() {
   return (
@@ -93,29 +94,47 @@ export default function Home() {
               <p className="text-xl text-muted-foreground">Simple steps to a cleaner, greener car</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center" data-testid="step-1">
-                <div className="w-20 h-20 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Smartphone className="w-10 h-10 text-brand-primary" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Steps */}
+              <div className="space-y-8">
+                <div className="flex items-start space-x-4" data-testid="step-1">
+                  <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <Smartphone className="w-8 h-8 text-brand-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-grandview-bold text-brand-primary mb-2">1. Book in the app</h3>
+                    <p className="text-muted-foreground">Pick service, time, and location.</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">1. Book in the app</h3>
-                <p className="text-muted-foreground">Pick service, time, and location.</p>
+                
+                <div className="flex items-start space-x-4" data-testid="step-2">
+                  <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-8 h-8 text-brand-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-grandview-bold text-brand-primary mb-2">2. We arrive</h3>
+                    <p className="text-muted-foreground">Electric‑powered operations with minimal noise.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4" data-testid="step-3">
+                  <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="w-8 h-8 text-brand-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-grandview-bold text-brand-primary mb-2">3. Shine & done</h3>
+                    <p className="text-muted-foreground">Your car, clean and ready.</p>
+                  </div>
+                </div>
               </div>
               
-              <div className="text-center" data-testid="step-2">
-                <div className="w-20 h-20 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <MapPin className="w-10 h-10 text-brand-primary" />
-                </div>
-                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">2. We arrive</h3>
-                <p className="text-muted-foreground">Electric‑powered operations with minimal noise.</p>
-              </div>
-              
-              <div className="text-center" data-testid="step-3">
-                <div className="w-20 h-20 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle className="w-10 h-10 text-brand-primary" />
-                </div>
-                <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">3. Shine & done</h3>
-                <p className="text-muted-foreground">Your car, clean and ready.</p>
+              {/* Phone Mockup */}
+              <div className="flex justify-center lg:justify-end">
+                <img 
+                  src={phoneImage} 
+                  alt="Goobii app interface showing map and booking features" 
+                  className="w-80 h-auto max-w-full object-contain"
+                />
               </div>
             </div>
           </div>
