@@ -51,21 +51,28 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* CTA Buttons - positioned on left initially, slide to right when scrolling on home page only */}
-        <div 
-          className={`absolute left-4 ${location === "/" ? 'transition-transform duration-700' : ''}`}
-          style={{
-            transform: (location === "/" && isScrolled) ? 'translateX(calc(100vw - 280px))' : 'translateX(0)',
-            transitionTimingFunction: location === "/" ? 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none'
-          }}
-        >
-          <div className={`transition-all duration-500 ease-out ${isScrolled ? 'scale-90' : 'scale-100'}`}>
-            <CTAGroup size={isScrolled ? "sm" : "md"} />
+        {/* CTA Buttons - different positioning based on page */}
+        {location === "/" ? (
+          /* Home page: sliding animation effect */
+          <div 
+            className="absolute left-4 transition-transform duration-700"
+            style={{
+              transform: isScrolled ? 'translateX(calc(100vw - 280px))' : 'translateX(0)',
+              transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+            }}
+          >
+            <div className={`transition-all duration-500 ease-out ${isScrolled ? 'scale-90' : 'scale-100'}`}>
+              <CTAGroup size={isScrolled ? "sm" : "md"} />
+            </div>
           </div>
-        </div>
+        ) : null}
 
         {/* Right side container */}
         <div className="flex items-center gap-2">
+          {location !== "/" && (
+            /* Other pages: small CTA buttons on the right */
+            <CTAGroup size="sm" />
+          )}
           {/* Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
