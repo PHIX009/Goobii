@@ -153,7 +153,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-4xl mx-auto">
               {/* Hero Logo */}
-              <div className={`mb-20 transition-all duration-500 ease-in-out transform ${
+              <div className={`mb-12 transition-all duration-500 ease-in-out transform ${
                 isScrolled ? 'opacity-0 -translate-y-8 pointer-events-none' : 'opacity-100 translate-y-0'
               }`}>
                 <img 
@@ -162,6 +162,18 @@ export default function Home() {
                   className="h-40 lg:h-56 w-auto mx-auto" 
                   style={{ objectFit: 'contain' }}
                 />
+              </div>
+
+              {/* Hero Image */}
+              <div className="relative mb-12">
+                <div className="w-full h-96 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 shadow-2xl max-w-4xl mx-auto flex items-center justify-center" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-brand-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Droplets className="w-10 h-10 text-brand-primary" />
+                    </div>
+                    <p className="text-brand-primary font-grandview-bold">Eco-friendly Car Cleaning</p>
+                  </div>
+                </div>
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-ghost font-bold text-brand-primary mb-6">
@@ -174,18 +186,6 @@ export default function Home() {
               {/* Primary CTA Group */}
               <div className="mb-12">
                 <CTAGroup size="lg" className="flex-col sm:flex-row" />
-              </div>
-              
-              {/* Hero Image */}
-              <div className="relative">
-                <div className="w-full h-96 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 shadow-2xl max-w-4xl mx-auto flex items-center justify-center" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-brand-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Droplets className="w-10 h-10 text-brand-primary" />
-                    </div>
-                    <p className="text-brand-primary font-grandview-bold">Eco-friendly Car Cleaning</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
