@@ -113,7 +113,8 @@ footer a:hover span,
   }
 }
 
-.service-card:hover {
+.service-card:hover,
+.subscription-card:hover {
   animation: glow-pulse 2s ease-in-out infinite;
 }
 
