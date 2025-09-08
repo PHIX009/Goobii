@@ -452,10 +452,12 @@ export default function Home() {
         {/* Secondary CTA Band */}
         <section className="py-16 bg-brand-primary" data-testid="secondary-cta-section">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-ghost font-bold text-brand-bg mb-4">Ready to get started?</h2>
-            <p className="text-xl text-brand-bg/80 mb-8">Download the Goobii app and book your first eco-friendly wash today</p>
+            <h2 className="text-3xl font-ghost font-bold text-brand-bg mb-4">Join the People with Purpose</h2>
+            <p className="text-xl text-brand-bg/80 mb-8">Make your next clean a change the city feels.</p>
             
-            <CTAGroup size="lg" variant="footer" className="flex-col sm:flex-row" />
+            <div className="flex justify-center">
+              <CTAGroup size="lg" className="flex-col sm:flex-row" />
+            </div>
           </div>
         </section>
       </div>

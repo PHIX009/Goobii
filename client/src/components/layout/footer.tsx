@@ -7,9 +7,9 @@ export default function Footer() {
   return (
     <footer className="bg-brand-secondary text-brand-bg py-12" data-testid="footer">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 justify-items-center">
           {/* Services */}
-          <div>
+          <div className="justify-self-start">
             <h4 className="text-xl text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>Services</h4>
             <ul className="space-y-1 text-brand-bg/80">
               <li>
@@ -34,9 +34,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
-          {/* Company */}
-          <div>
+          <div className="justify-self-center">
             <h4 className="text-xl text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>Company</h4>
             <ul className="space-y-1 text-brand-bg/80">
               <li>
@@ -56,9 +54,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
-          {/* Contact */}
-          <div>
+          <div className="justify-self-end">
             <h4 className="text-xl text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>Get in Touch</h4>
             <div className="space-y-1 text-brand-bg/80">
               <a
@@ -84,16 +80,14 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-brand-bg/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-brand-bg/60 text-sm mb-4 md:mb-0">
-              <div className="text-center">
-                <img src={logoImage} alt="Goobii" className="h-16 w-auto mb-2 mx-auto" style={{ objectFit: 'contain' }} />
-                <p className="text-sm font-grandview-bold text-brand-contrast-2 mb-3">Planet. People. Purpose.</p>
-              </div>
-              <p>© 2024 Goobii. All rights reserved.</p>
+            <div className="flex items-center gap-4 mb-4 md:mb-0">
+              <img src={logoImage} alt="Goobii" className="h-12 w-auto" style={{ objectFit: 'contain' }} />
+              <p className="text-sm font-grandview-bold text-brand-contrast-2">Planet. People. Purpose.</p>
             </div>
             
-            {/* Footer CTA */}
-            <CTAGroup size="sm" variant="footer" />
+            <div className="text-brand-bg/60 text-sm">
+              <p>© 2024 Goobii. All rights reserved.</p>
+            </div>
           </div>
         </div>
       </div>
