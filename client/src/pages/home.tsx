@@ -448,17 +448,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="py-16" data-testid="testimonials-section">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Users className="w-10 h-10 text-brand-primary" />
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-brand-primary">Testimonials</h2>
-            </div>
-          </div>
-        </section>
 
         {/* Secondary CTA Band */}
         <section className="py-16 bg-brand-primary" data-testid="secondary-cta-section">
