@@ -74,8 +74,8 @@ export default function Services() {
             </div>
 
             {/* Intro to Sooftwash */}
-            <div className="bg-muted/30 rounded-2xl p-8 lg:p-12 mb-16" data-testid="sooftwash-intro">
-              <div className="bg-brand-primary/5 border border-brand-primary/20 rounded-xl p-6">
+            <div className="bg-muted/30 p-8 lg:p-12 mb-16" data-testid="sooftwash-intro" style={{ borderRadius: '12px 4px 12px 12px' }}>
+              <div className="bg-brand-primary/5 border border-brand-primary/20 p-6" style={{ borderRadius: '12px 4px 12px 12px' }}>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   <strong className="text-brand-primary">Time note:</strong> Duration varies by vehicle size and condition. Your Liink will confirm on arrival.
                 </p>
@@ -99,10 +99,12 @@ export default function Services() {
 
             {/* CTA Section */}
             <div className="text-center">
-              <div className="bg-muted/50 p-8 rounded-2xl">
+              <div className="bg-muted/50 p-8" style={{ borderRadius: '12px 4px 12px 12px' }}>
                 <h3 className="text-2xl font-grandview-bold text-brand-primary mb-4">Ready to book your service?</h3>
                 <p className="text-muted-foreground mb-6">Download the Goobii app to schedule your eco-friendly car cleaning</p>
-                <CTAGroup />
+                <div className="flex justify-center">
+                  <CTAGroup />
+                </div>
               </div>
             </div>
           </div>

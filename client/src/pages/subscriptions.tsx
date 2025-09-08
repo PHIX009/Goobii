@@ -73,12 +73,12 @@ export default function Subscriptions() {
             </div>
 
             {/* Benefits Section */}
-            <div className="bg-muted/30 rounded-2xl p-8 lg:p-12 mb-16" data-testid="subscription-benefits">
+            <div className="bg-muted/30 p-8 lg:p-12 mb-16" data-testid="subscription-benefits" style={{ borderRadius: '12px 4px 12px 12px' }}>
               <h2 className="text-2xl lg:text-3xl font-grandview-bold text-center text-brand-primary mb-8">What's Included</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-brand-primary/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
                     <DollarSign className="w-8 h-8 text-brand-primary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-primary mb-2">Flexible Service Choice</h3>
@@ -86,7 +86,7 @@ export default function Subscriptions() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-brand-secondary/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
                     <Calendar className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-primary mb-2">App Management</h3>
@@ -94,7 +94,7 @@ export default function Subscriptions() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-pop/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-brand-pop/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
                     <Shield className="w-8 h-8 text-brand-pop" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-primary mb-2">Complete Records</h3>
@@ -105,10 +105,12 @@ export default function Subscriptions() {
 
             {/* CTA Section */}
             <div className="text-center">
-              <div className="bg-brand-primary p-8 rounded-2xl">
+              <div className="bg-brand-primary p-8" style={{ borderRadius: '12px 4px 12px 12px' }}>
                 <h3 className="text-2xl font-grandview-bold text-brand-bg mb-4">Start your subscription today</h3>
                 <p className="text-brand-bg/80 mb-6">Download the Goobii app to choose your perfect subscription plan</p>
-                <CTAGroup variant="footer" />
+                <div className="flex justify-center">
+                  <CTAGroup variant="footer" />
+                </div>
               </div>
             </div>
           </div>

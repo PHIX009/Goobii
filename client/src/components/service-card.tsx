@@ -20,9 +20,10 @@ export default function ServiceCard({
 }: ServiceCardProps) {
   return (
     <div 
-      className={`service-card bg-card p-8 rounded-2xl shadow-lg relative ${
+      className={`service-card bg-card p-8 shadow-lg relative hover:shadow-xl hover:shadow-brand-pop/30 transition-all duration-300 border border-brand-primary/10 hover:border-brand-pop/30 ${
         isRecommended ? "border-2 border-brand-pop/20" : ""
       }`}
+      style={{ borderRadius: '12px 4px 12px 12px' }}
       data-testid={`service-card-${title.toLowerCase().replace(/\s+/g, '-')}`}
     >
       {isRecommended && (
@@ -37,7 +38,7 @@ export default function ServiceCard({
           <Badge variant="outline" className="mt-2">{category}</Badge>
         </div>
         {icon && (
-          <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center">
+          <div className="w-16 h-16 bg-brand-primary/10 flex items-center justify-center" style={{ borderRadius: '12px 4px 12px 12px' }}>
             {icon}
           </div>
         )}

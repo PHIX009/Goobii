@@ -18,9 +18,10 @@ export default function SubscriptionCard({
 }: SubscriptionCardProps) {
   return (
     <div 
-      className={`bg-card p-8 rounded-2xl shadow-lg ${
+      className={`bg-card p-8 shadow-lg hover:shadow-xl hover:shadow-brand-pop/30 transition-all duration-300 border border-brand-primary/10 hover:border-brand-pop/30 ${
         isPopular ? "border-2 border-brand-contrast/30" : ""
       }`}
+      style={{ borderRadius: '12px 4px 12px 12px' }}
       data-testid={`subscription-card-${title.toLowerCase().replace(/\s+/g, '-')}`}
     >
       <div className="text-center mb-6">
