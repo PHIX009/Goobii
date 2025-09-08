@@ -64,7 +64,7 @@ export default function FooterCategories() {
             <h3 className="font-extrabold tracking-tight text-lg md:text-xl text-[var(--brand-secondary)]" style={{ fontFamily: 'var(--font-grandview-bold)' }}>
               Get in Touch
             </h3>
-            <ul className="mt-3 space-y-1.5">
+            <ul className="mt-3 space-y-0.5">
               <li>
                 <a href="https://wa.me/XXXXXXXXXXX" className={`${linkBase} ${focusRing} inline-flex ${row} group`}>
                   <WhatsAppIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-primary)] transition-colors" />
