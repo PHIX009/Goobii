@@ -336,7 +336,7 @@ export default function Home() {
                 Purpose at the Core
               </h2>
               <p className="text-xl lg:text-2xl font-grandview text-brand-secondary/80 max-w-4xl mx-auto leading-relaxed">
-                Goobii exists to make caring for the planet part of everyday life. Sustainability isn't a feature; it's the foundation we're building with our community.
+                Goobii's mission is to make caring for the planet part of everyday life. Sustainability isn't a feature - it's the foundation we're building with our community.
               </p>
             </motion.div>
 
