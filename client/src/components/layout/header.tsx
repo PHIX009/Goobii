@@ -35,22 +35,19 @@ export default function Header() {
   return (
     <header className="header-sticky fixed top-0 left-0 right-0 z-50 px-4 py-3 border-b border-border" data-testid="header">
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo and Tagline */}
-        <Link href="/" className="flex flex-col items-start" data-testid="logo-link">
-          <img 
-            src={logoImage} 
-            alt="Goobii" 
-            className={`transition-all duration-500 ease-in-out ${
-              isScrolled ? 'h-8 w-auto max-w-[120px]' : 'h-12 w-auto max-w-[180px]'
-            }`}
-            style={{ objectFit: 'contain' }}
-          />
-          <p className={`font-grandview-bold text-brand-secondary tracking-wider font-black transition-all duration-500 ease-in-out ${
-            isScrolled ? 'text-xs mt-0 opacity-90' : 'text-sm mt-1 opacity-100'
-          }`}>
-            Planet. People. Purpose.
-          </p>
-        </Link>
+        {/* Logo - only visible when scrolled */}
+        <div className={`transition-all duration-500 ease-in-out ${
+          isScrolled ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8 pointer-events-none'
+        }`}>
+          <Link href="/" className="flex items-center" data-testid="logo-link">
+            <img 
+              src={logoImage} 
+              alt="Goobii" 
+              className="h-10 w-auto max-w-[140px]" 
+              style={{ objectFit: 'contain' }}
+            />
+          </Link>
+        </div>
 
         {/* CTA Buttons and Menu */}
         <div className="flex items-center gap-2">

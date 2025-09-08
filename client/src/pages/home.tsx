@@ -36,10 +36,10 @@ export default function Home() {
                 <img 
                   src={logoImage} 
                   alt="Goobii" 
-                  className="h-40 lg:h-56 w-auto mx-auto mb-0" 
+                  className="h-40 lg:h-56 w-auto mx-auto" 
                   style={{ objectFit: 'contain' }}
                 />
-                <p className="text-2xl lg:text-3xl font-grandview-bold text-brand-secondary tracking-wider font-black">
+                <p className="text-2xl lg:text-3xl font-extrabold text-brand-secondary tracking-wider mt-2" style={{ fontWeight: 900 }}>
                   Planet. People. Purpose.
                 </p>
               </div>
