@@ -79,7 +79,7 @@ export default function Home() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               
-              <div className="bg-card p-6 rounded-2xl shadow-lg text-center" data-testid="value-card-water">
+              <div className="bg-card p-6 shadow-lg text-center" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="value-card-water">
                 <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Droplets className="w-8 h-8 text-brand-primary" />
                 </div>
@@ -87,7 +87,7 @@ export default function Home() {
                 <p className="text-muted-foreground">Your routine creates real impact. Sooftwash™ delivers a clean that respects resources, built for Dubai, using only a few liters by design.</p>
               </div>
               
-              <div className="bg-card p-6 rounded-2xl shadow-lg text-center" data-testid="value-card-chemistry">
+              <div className="bg-card p-6 shadow-lg text-center" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="value-card-chemistry">
                 <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Shield className="w-8 h-8 text-brand-primary" />
                 </div>
@@ -95,7 +95,7 @@ export default function Home() {
                 <p className="text-muted-foreground">Our formulas are kind to people, surfaces, and surroundings. They are engineered for heat, dust, and the pace of daily city driving.</p>
               </div>
               
-              <div className="bg-card p-6 rounded-2xl shadow-lg text-center" data-testid="value-card-app">
+              <div className="bg-card p-6 shadow-lg text-center" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="value-card-app">
                 <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Smartphone className="w-8 h-8 text-brand-primary" />
                 </div>
@@ -103,7 +103,7 @@ export default function Home() {
                 <p className="text-muted-foreground">One tap, clear choices, zero fuss. Book, track, and keep your history in one place, then join the people with purpose today.</p>
               </div>
               
-              <div className="bg-card p-6 rounded-2xl shadow-lg text-center" data-testid="value-card-liinks">
+              <div className="bg-card p-6 shadow-lg text-center" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="value-card-liinks">
                 <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-brand-primary" />
                 </div>
