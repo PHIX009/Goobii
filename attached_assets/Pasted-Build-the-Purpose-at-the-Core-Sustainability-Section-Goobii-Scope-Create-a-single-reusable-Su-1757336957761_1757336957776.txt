@@ -1,0 +1,216 @@
+Build the “Purpose at the Core” Sustainability Section (Goobii)
+Scope
+
+Create a single, reusable <SustainabilitySection /> for the landing page. It must feel alive (subtle motion, interactive chips, counters) and align exactly with Goobii’s brand system. Use placeholders for all images/illustrations (see names below).
+
+Tech
+
+Next.js (App Router) + React + TypeScript
+
+Tailwind CSS
+
+Framer Motion (respect prefers-reduced-motion)
+
+No external images; use inline SVG placeholders
+
+Brand System (exact)
+
+Colors (CSS variables):
+
+--brand-primary: #006980; /* main text & buttons */
+
+--brand-secondary: #003B5C;/* contrast accents */
+
+--brand-bg: #FAFCFE; /* section background */
+
+--brand-pop: #FF8200; /* time/special contrast */
+
+--brand-contrast-2: #DCC57F; /* selections/highlight */
+
+Fonts:
+
+Ghost (H1)
+
+Grandview Bold (H2/H3)
+
+Grandview (body)
+
+Provide @font-face placeholders and fallbacks (system-ui)
+
+Component to build
+
+Create components/SustainabilitySection.tsx and use it on the landing page. Structure:
+
+Decorative background
+
+Soft “water ripple” SVG gradient behind the section (very subtle).
+
+Slow 12–16s scale/opacity loop; pause if prefers-reduced-motion.
+
+Background color: var(--brand-bg).
+
+Header copy (centered)
+
+Title (H2, Ghost): Purpose at the Core
+
+Blurb (Grandview):
+
+Goobii exists to make caring for the planet part of everyday life. Sustainability isn’t a feature; it’s the foundation we’re building with our community.
+
+Pillar chips (interactive, expandable)
+
+Four chips in a responsive grid (2x2 on desktop, stacked on mobile).
+
+Each chip shows a label; on tap/hover/enter it expands to reveal a one-sentence description. Only one chip open at a time.
+
+Visual behavior:
+
+Default: outline uses --brand-secondary at 24% opacity.
+
+Hover/focus: outline + icon tint to --brand-contrast-2; background to #ffffff with a soft shadow.
+
+Active (expanded): thicker border (--brand-contrast-2), slight 2px “lift”.
+
+Keyboard: fully navigable; Enter/Space toggles; aria-expanded set accordingly.
+
+Content (labels + descriptions):
+
+Planet-first by design — We put environmental stewardship at the center of every choice, from methods to materials.
+
+People and places respected — Our approach considers communities, workers, and surfaces. Safe, considerate, and suited to Dubai.
+
+Transparent by default — We show what we measure and how we improve, so progress is visible and accountable.
+
+Always improving together — We learn from data and feedback and invite you to help shape what comes next.
+
+Each chip includes a small placeholder Jamal/icon at left (inline SVG).
+
+Impact counters (animated when visible)
+
+Three mini “snapshot” counters with labels:
+
+000,000 Water saved
+
+00,000 Washes recorded
+
+00 Community partners
+
+Count-up triggers once on first viewport entry; respects reduced motion (no counting, just set values).
+
+A subtle divider above; labels in Grandview Bold, numbers in Grandview with slight tracking.
+
+CTA (pill button with playful motion)
+
+Label: Discover your impact & our purpose →
+
+Behavior:
+
+Hover: left droplet icon morphs into an arrow (CSS/SMIL or swap class).
+
+Focus: high-contrast ring --brand-pop.
+
+Reduced motion: no morph; arrow appears instantly.
+
+Destination: link to /purpose-and-impact (create the route file with a simple stub page and TODO note).
+
+Section footer micro-line (optional)
+
+Small centered line: “Read the full approach, metrics, and commitments.”
+
+Placeholders (no stock images)
+
+jamal-pillars.svg — four tiny poses for the chips (single sprite; reuse with viewBox).
+
+icon-droplet.svg — simple droplet for CTA morph.
+
+bg-ripple.svg — large, faint ripple gradient for background.
+
+Alt text examples:
+
+Pillar icons: “Jamal icon: planet-first”, “Jamal icon: people and places”, etc.
+
+CTA icon: “Droplet icon”
+
+Accessibility
+
+All interactive chips are buttons with aria-expanded, aria-controls, and keyboard toggling.
+
+Respect prefers-reduced-motion for all animations.
+
+Contrast: validate against WCAG AA (use --brand-secondary text on --brand-bg where needed).
+
+Icons have aria-hidden="true" unless informative.
+
+Exact copy (use verbatim)
+
+Title: Purpose at the Core
+
+Blurb: Goobii exists to make caring for the planet part of everyday life. Sustainability isn’t a feature; it’s the foundation we’re building with our community.
+
+Pillars:
+
+Planet-first by design — We put environmental stewardship at the center of every choice, from methods to materials.
+
+People and places respected — Our approach considers communities, workers, and surfaces. Safe, considerate, and suited to Dubai.
+
+Transparent by default — We show what we measure and how we improve, so progress is visible and accountable.
+
+Always improving together — We learn from data and feedback and invite you to help shape what comes next.
+
+Counters: Water saved · Washes recorded · Community partners
+
+CTA: Discover your impact & our purpose →
+
+Files & structure
+
+components/SustainabilitySection.tsx // main component with motion
+
+components/PillarChip.tsx // reusable chip
+
+components/ImpactCounters.tsx // counters with IntersectionObserver
+
+public/svg/jamal-pillars.svg // placeholder sprite
+
+public/svg/icon-droplet.svg // CTA icon
+
+public/svg/bg-ripple.svg // subtle background
+
+Update app/page.tsx to render <SustainabilitySection />
+
+Create app/purpose-and-impact/page.tsx with a “Coming soon” stub
+
+Motion & polish (Framer Motion)
+
+Section fade + slight upward drift on enter.
+
+Chips stagger 60ms each.
+
+Counters slide-in and then count-up.
+
+CTA droplet→arrow morph on hover (or class swap), with a gentle scale 1.03.
+
+Acceptance criteria
+
+Section renders with exact copy and brand tokens; fonts wired with fallbacks.
+
+Pillar chips expand/collapse accessibly (keyboard + screen reader friendly).
+
+Counters animate once when scrolled into view; show static values when reduced motion.
+
+CTA is a pill with droplet→arrow hover treatment and --brand-pop focus.
+
+Background ripple is subtle and disabled for reduced motion.
+
+All colors meet contrast AA; tab order is logical; icons have appropriate alt/aria.
+
+QA checklist (dev notes)
+
+Test mobile first (chips stack, counters wrap).
+
+Validate prefers-reduced-motion.
+
+Verify no CLS on chip expansion.
+
+Ensure the CTA route exists (/purpose-and-impact).
+
+End of prompt
