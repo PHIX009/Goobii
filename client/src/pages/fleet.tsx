@@ -143,7 +143,7 @@ export default function Fleet() {
             </div>
 
             {/* Additional Benefits */}
-            <div className="bg-card p-8 rounded-xl shadow-sm mb-16" data-testid="additional-benefits">
+            <div className="bg-card p-8 shadow-sm mb-16" data-testid="additional-benefits" style={{ borderRadius: '12px 4px 12px 12px' }}>
               <h3 className="text-2xl font-grandview-bold text-brand-primary mb-6">Business Benefits</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <ul className="space-y-3 text-muted-foreground">
@@ -163,7 +163,7 @@ export default function Fleet() {
 
             {/* CTA Section */}
             <div className="text-center">
-              <div className="bg-brand-primary p-8 rounded-2xl max-w-3xl mx-auto">
+              <div className="bg-brand-primary p-8 max-w-3xl mx-auto" style={{ borderRadius: '12px 4px 12px 12px' }}>
                 <h3 className="text-2xl font-grandview-bold text-brand-bg mb-4">Ready to discuss your fleet cleaning needs?</h3>
                 <p className="text-brand-bg/80 mb-6">
                   Get a customized proposal for your business vehicle cleaning requirements.

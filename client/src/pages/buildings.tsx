@@ -115,7 +115,7 @@ export default function Buildings() {
             </div>
 
             {/* Professional Training */}
-            <div className="bg-card p-8 rounded-xl shadow-sm mb-16" data-testid="training-integration">
+            <div className="bg-card p-8 shadow-sm mb-16" data-testid="training-integration" style={{ borderRadius: '12px 4px 12px 12px' }}>
               <div className="flex items-center mb-4">
                 <Wrench className="w-8 h-8 text-brand-pop mr-4" />
                 <h3 className="text-2xl font-grandview-bold text-brand-primary">Professional Training & Integration</h3>
@@ -127,7 +127,7 @@ export default function Buildings() {
 
             {/* CTA Section */}
             <div className="text-center">
-              <div className="bg-muted/50 p-8 rounded-2xl max-w-3xl mx-auto">
+              <div className="bg-muted/50 p-8 max-w-3xl mx-auto" style={{ borderRadius: '12px 4px 12px 12px' }}>
                 <h3 className="text-2xl font-grandview-bold text-brand-primary mb-4">Interested in bringing Goobii to your building?</h3>
                 <p className="text-muted-foreground mb-6">
                   Contact us to learn more about implementing Goobii Local in your residential or commercial property.

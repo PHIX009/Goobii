@@ -105,7 +105,7 @@ export default function Contact() {
                   
                   <div className="space-y-6">
                     <div className="flex items-start space-x-4" data-testid="whatsapp-contact">
-                      <div className="w-12 h-12 bg-brand-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center flex-shrink-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
                         <MessageCircle className="w-6 h-6 text-brand-primary" />
                       </div>
                       <div>
@@ -118,7 +118,7 @@ export default function Contact() {
                     </div>
 
                     <div className="flex items-start space-x-4" data-testid="email-contact">
-                      <div className="w-12 h-12 bg-brand-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center flex-shrink-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
                         <Mail className="w-6 h-6 text-brand-primary" />
                       </div>
                       <div>
@@ -131,7 +131,7 @@ export default function Contact() {
                     </div>
 
                     <div className="flex items-start space-x-4" data-testid="hours-info">
-                      <div className="w-12 h-12 bg-brand-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center flex-shrink-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
                         <Clock className="w-6 h-6 text-brand-primary" />
                       </div>
                       <div>
@@ -144,7 +144,7 @@ export default function Contact() {
                 </div>
 
                 {/* Business info */}
-                <Card className="p-6" data-testid="why-choose-goobii">
+                <Card className="p-6 border-0" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="why-choose-goobii">
                   <h3 className="text-xl font-grandview-bold text-brand-primary mb-4">Why Choose Goobii?</h3>
                   <ul className="space-y-3 text-muted-foreground">
                     <li className="flex items-center">
@@ -168,7 +168,7 @@ export default function Contact() {
               </div>
 
               {/* Contact Form */}
-              <Card className="p-8" data-testid="contact-form-card">
+              <Card className="p-8 border-0" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="contact-form-card">
                 <h2 className="text-2xl font-grandview-bold text-brand-primary mb-6">Send us a Message</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6" data-testid="contact-form">
@@ -256,10 +256,12 @@ export default function Contact() {
 
             {/* App Download CTA */}
             <div className="mt-16 text-center">
-              <div className="bg-brand-primary p-8 rounded-2xl">
+              <div className="bg-brand-primary p-8" style={{ borderRadius: '12px 4px 12px 12px' }}>
                 <h3 className="text-2xl font-grandview-bold text-brand-bg mb-4">Ready to book your first wash?</h3>
                 <p className="text-brand-bg/80 mb-6">Download the Goobii app and experience eco-friendly car cleaning</p>
-                <CTAGroup variant="footer" />
+                <div className="flex justify-center">
+                  <CTAGroup variant="footer" />
+                </div>
               </div>
             </div>
           </div>
