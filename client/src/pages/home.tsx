@@ -16,6 +16,19 @@ export default function Home() {
         <section className="py-16 lg:py-24" data-testid="hero-section">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-4xl mx-auto">
+              {/* Hero Logo and Tagline */}
+              <div className="mb-12">
+                <img 
+                  src={logoImage} 
+                  alt="Goobii" 
+                  className="h-24 lg:h-32 w-auto mx-auto mb-4" 
+                  style={{ objectFit: 'contain' }}
+                />
+                <p className="text-lg lg:text-xl font-grandview-bold text-brand-secondary tracking-wider">
+                  Planet. People. Purpose.
+                </p>
+              </div>
+              
               <h1 className="text-4xl lg:text-6xl font-ghost font-bold text-brand-primary mb-6">
                 You lead the change. We make it effortless.
               </h1>
