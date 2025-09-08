@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import CTAGroup from "@/components/cta-group";
-import SustainabilitySection from "@/components/sustainability-section";
 import { Droplets, Shield, Smartphone, Users, Zap, MapPin, CheckCircle } from "lucide-react";
 import phoneImage from "@assets/Untitled design_1757328137575.png";
 import logoImage from "@assets/Goobii Vertical Logo_1756905830399.png";
@@ -151,8 +150,20 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Purpose at the Core */}
-        <SustainabilitySection />
+        {/* Sustainability Impact */}
+        <section className="py-16 bg-background/50" data-testid="sustainability-section">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center max-w-3xl mx-auto">
+              <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Droplets className="w-8 h-8 text-brand-primary" />
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-brand-primary mb-6">Sustainability Impact</h2>
+              <p className="text-xl text-muted-foreground">
+                Every Sooftwash™ service saves tens of liters compared to traditional pressure washes. Less water used, less runoff—better for Dubai.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Testimonials */}
         <section className="py-16" data-testid="testimonials-section">
