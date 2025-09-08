@@ -73,6 +73,14 @@ footer a:hover,
   transition: color 0.3s ease;
 }
 
+/* CTA button hover effects - text and icons */
+.cta-button:hover,
+.cta-button:hover span,
+.cta-button:hover svg {
+  color: var(--brand-pop) !important;
+  transition: all 0.3s ease;
+}
+
 .dark {
   --background: hsl(0, 0%, 0%);
   --foreground: hsl(200, 6.67%, 91.18%);

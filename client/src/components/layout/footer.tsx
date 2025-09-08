@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Services */}
           <div>
-            <h4 className="font-grandview-bold text-xl font-black text-brand-bg mb-3">Services</h4>
+            <h4 className="text-xl text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>Services</h4>
             <ul className="space-y-1 text-brand-bg/80">
               <li>
                 <Link href="/services" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-services">
@@ -37,7 +37,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-grandview-bold text-xl font-black text-brand-bg mb-3">Company</h4>
+            <h4 className="text-xl text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>Company</h4>
             <ul className="space-y-1 text-brand-bg/80">
               <li>
                 <Link href="/about" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-about">
@@ -59,7 +59,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-grandview-bold text-xl font-black text-brand-bg mb-3">Get in Touch</h4>
+            <h4 className="text-xl text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>Get in Touch</h4>
             <div className="space-y-1 text-brand-bg/80">
               <a
                 href="#whatsapp-placeholder"
@@ -85,8 +85,10 @@ export default function Footer() {
         <div className="border-t border-brand-bg/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-brand-bg/60 text-sm mb-4 md:mb-0">
-              <img src={logoImage} alt="Goobii" className="h-12 w-auto mb-2" style={{ objectFit: 'contain' }} />
-              <p className="text-base font-grandview-bold text-brand-contrast-2 mb-2">Planet. People. Purpose.</p>
+              <div className="text-center">
+                <img src={logoImage} alt="Goobii" className="h-16 w-auto mb-2 mx-auto" style={{ objectFit: 'contain' }} />
+                <p className="text-sm font-grandview-bold text-brand-contrast-2 mb-3">Planet. People. Purpose.</p>
+              </div>
               <p>© 2024 Goobii. All rights reserved.</p>
             </div>
             
