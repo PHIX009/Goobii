@@ -18,26 +18,26 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-grandview-bold text-lg mb-4">Services</h4>
-            <ul className="space-y-2 text-brand-bg/80">
+            <h4 className="font-grandview-bold text-xl font-black text-brand-bg mb-6">SERVICES</h4>
+            <ul className="space-y-3 text-brand-bg/80">
               <li>
-                <Link href="/services" className="hover:text-brand-bg transition-colors" data-testid="footer-link-services">
-                  Car Cleaning
+                <Link href="/services" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-services">
+                  → Car Cleaning
                 </Link>
               </li>
               <li>
-                <Link href="/subscriptions" className="hover:text-brand-bg transition-colors" data-testid="footer-link-subscriptions">
-                  Subscriptions
+                <Link href="/subscriptions" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-subscriptions">
+                  → Subscriptions
                 </Link>
               </li>
               <li>
-                <Link href="/buildings" className="hover:text-brand-bg transition-colors" data-testid="footer-link-buildings">
-                  Buildings & Communities
+                <Link href="/buildings" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-buildings">
+                  → Buildings & Communities
                 </Link>
               </li>
               <li>
-                <Link href="/fleet" className="hover:text-brand-bg transition-colors" data-testid="footer-link-fleet">
-                  Fleet & Business
+                <Link href="/fleet" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-fleet">
+                  → Fleet & Business
                 </Link>
               </li>
             </ul>
@@ -45,21 +45,21 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-grandview-bold text-lg mb-4">Company</h4>
-            <ul className="space-y-2 text-brand-bg/80">
+            <h4 className="font-grandview-bold text-xl font-black text-brand-bg mb-6">COMPANY</h4>
+            <ul className="space-y-3 text-brand-bg/80">
               <li>
-                <Link href="/about" className="hover:text-brand-bg transition-colors" data-testid="footer-link-about">
-                  About Us
+                <Link href="/about" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-about">
+                  → About Us
                 </Link>
               </li>
               <li>
-                <Link href="/faqs" className="hover:text-brand-bg transition-colors" data-testid="footer-link-faqs">
-                  FAQs
+                <Link href="/faqs" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-faqs">
+                  → FAQs
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-brand-bg transition-colors" data-testid="footer-link-contact">
-                  Contact
+                <Link href="/contact" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-contact">
+                  → Contact
                 </Link>
               </li>
             </ul>
@@ -67,23 +67,23 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-grandview-bold text-lg mb-4">Get in Touch</h4>
-            <div className="space-y-3 text-brand-bg/80">
+            <h4 className="font-grandview-bold text-xl font-black text-brand-bg mb-6">GET IN TOUCH</h4>
+            <div className="space-y-4 text-brand-bg/80">
               <a
                 href="#whatsapp-placeholder"
-                className="flex items-center hover:text-brand-bg transition-colors"
+                className="flex items-center hover:text-brand-bg transition-colors block"
                 data-testid="footer-whatsapp-link"
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
-                WhatsApp
+                → WhatsApp
               </a>
               <a
                 href="#email-placeholder"
-                className="flex items-center hover:text-brand-bg transition-colors"
+                className="flex items-center hover:text-brand-bg transition-colors block"
                 data-testid="footer-email-link"
               >
                 <Mail className="w-5 h-5 mr-2" />
-                Email Us
+                → Email Us
               </a>
             </div>
           </div>
