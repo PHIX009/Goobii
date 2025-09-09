@@ -1,60 +1,108 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import ServiceCard from "@/components/service-card";
-import CTAGroup from "@/components/cta-group";
-import { Zap, Star, Sparkles, Award } from "lucide-react";
+import ServiceModal from "@/components/ServiceModal";
 
 export default function Services() {
+  const [selectedService, setSelectedService] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const services = [
     {
       title: "Aura",
-      category: "Exterior",
-      description: "Weekly upkeep made easy. A focused exterior clean that removes dust, light road film, and everyday grime so your car stays consistently presentable between deeper washes. Ideal cadence: weekly.",
-      features: [
-        "Exterior wash and dry",
-        "Window cleaning", 
-        "Tire cleaning",
-        "Light road film removal"
+      description: "A focused exterior refresh that keeps your car looking sharper for everyday living.",
+      highlights: [
+        "Exterior Sooftwash™ clean",
+        "Wheels & tyres touch-up",
+        "Exterior glass touch-up",
+        "Final check and dry"
       ],
-      icon: <Zap className="w-8 h-8 text-brand-primary" />
+      duration: "20–30 minutes",
+      bestFor: "Everyday upkeep and dusty days",
+      process: [
+        "Visual inspection and access check",
+        "Sooftwash™ application and controlled wipe for exterior panels",
+        "Wheels and tyres freshen",
+        "Exterior glass clean and final check"
+      ],
+      products: ["Sooftwash™", "glass cleaner"],
+      tools: ["Microfibers", "soft wash pads", "wheel brush"],
+      equipment: ["Spray system", "portable power"]
     },
     {
       title: "Aura Absolute",
-      category: "Exterior + Basic Interior",
-      description: "Everything in Aura plus a light interior refresh—quick vacuum, wipe‑downs, and glass—so the cabin feels as tidy as the exterior. Great for routine maintenance.",
-      features: [
+      description: "Aura exterior plus a light interior tidy so the cabin feels fresh too.",
+      highlights: [
         "Everything in Aura",
-        "Interior vacuum",
-        "Dashboard wipe‑downs",
-        "Interior glass cleaning"
+        "Quick cabin vacuum",
+        "Interior wipe-downs",
+        "Interior glass touch-up"
       ],
-      icon: <Star className="w-8 h-8 text-brand-primary" />
+      duration: "35–50 minutes",
+      bestFor: "Weekly or bi-weekly maintenance",
+      process: [
+        "Everything in Aura",
+        "Quick cabin vacuum for floors and seats",
+        "Interior wipe-downs for high-touch areas",
+        "Interior glass clean and final check"
+      ],
+      products: ["Sooftwash™", "interior-safe cleaner", "glass cleaner"],
+      tools: ["Microfibers", "interior brush set", "handheld vacuum"],
+      equipment: ["Portable power"]
     },
     {
       title: "Glow",
-      category: "Premium Exterior",
-      description: "Our more thorough exterior service. Extra attention to trims, badges, crevices, wheels and tyres for a sharper finish. Recommended experience if you haven't cleaned in a while or want that extra care. Takes a bit longer.",
-      features: [
-        "Thorough exterior cleaning",
-        "Detailed wheel and tyre care",
-        "Badge and crevice attention",
-        "Premium trim treatment"
+      description: "Premium exterior attention and care for a crisp, stand-out finish.",
+      highlights: [
+        "Detailed exterior Sooftwash™ pass",
+        "Trims, badges & crevices carefully addressed",
+        "Wheels & tyres deep clean + sleek, long-lasting tyre dressing",
+        "Ceramic glass cleaning"
       ],
-      isRecommended: true,
-      icon: <Sparkles className="w-8 h-8 text-brand-pop" />
+      duration: "45–65 minutes",
+      bestFor: "When you want premium attention or every 4–5 washes",
+      process: [
+        "Detailed exterior pass panel by panel",
+        "Attention to trims, badges, and tight crevices",
+        "Wheels and tyres care with extra dwell where needed",
+        "Exterior glass clarity check and final inspection"
+      ],
+      products: ["Sooftwash™", "targeted exterior cleaner", "glass cleaner"],
+      tools: ["Detail brushes", "microfiber set", "wheel tools"],
+      equipment: ["Spray system", "portable power"]
     },
     {
       title: "Glow Absolute",
-      category: "Full Premium", 
-      description: "Glow exterior detail plus a more complete interior treatment: more surfaces addressed, in/out glass, and tighter nooks. For an elevated, all‑round result.",
-      features: [
-        "Everything in Glow",
-        "Complete interior treatment",
-        "All surfaces addressed",
-        "Interior and exterior glass"
+      description: "Everything in Glow plus a fuller interior treatment for an all-round reset.",
+      highlights: [
+        "Glow exterior detail",
+        "Mats removed, leg space and seats vacuumed",
+        "Ceramic glass cleaning",
+        "Finished with sleek interior dressing"
       ],
-      icon: <Award className="w-8 h-8 text-brand-primary" />
+      duration: "60–85 minutes",
+      bestFor: "Monthly reset or before special events",
+      process: [
+        "Full Glow exterior detail",
+        "Deeper interior touch-points including vents and consoles",
+        "Interior glass and finishing passes",
+        "Final inspection and handover"
+      ],
+      products: ["Sooftwash™", "interior-safe cleaner", "glass cleaner", "dressing as needed"],
+      tools: ["Detail and crevice brushes", "microfiber set", "handheld vacuum"],
+      equipment: ["Portable power"]
     }
   ];
+
+  const openModal = (service: any) => {
+    setSelectedService(service);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedService(null);
+  };
 
   return (
     <>
@@ -65,51 +113,109 @@ export default function Services() {
 
       <div className="pt-20">
         <section className="py-16 lg:py-24">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Services</h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                Sooftwash™ is our water‑saving method tailored for Dubai. Using just <strong className="text-brand-primary">2–4 L</strong> of water and biodegradable, vehicle‑safe chemistry, we lift dust, sand, and road film effectively—protecting finishes and the environment.
+          <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16">
+            
+            {/* Title + Sooftwash™ intro paragraph */}
+            <div className="text-center max-w-4xl mx-auto mb-16">
+              <h1 
+                className="text-4xl lg:text-5xl font-bold text-[var(--brand-primary)] mb-8 tracking-tight"
+                style={{ fontFamily: 'var(--font-ghost)' }}
+              >
+                Services
+              </h1>
+              <p 
+                className="text-lg text-[var(--brand-primary)] leading-relaxed mb-8"
+                style={{ fontFamily: 'var(--font-grandview)' }}
+              >
+                Sooftwash™ is our signature clean—pro finish, tiny footprint. On average, we use about 40× less water than a pressure wash. Our fleet runs electric, and a mobile power station powers full-strength equipment with minimal fuss. Fresh towels every wash. Biodegradable formulas that are kind to people, surfaces, and surroundings. And it's delivered by professionally trained Liinks who follow clear checklists for consistent results.
               </p>
             </div>
 
-            {/* Intro to Sooftwash */}
-            <div className="bg-muted/30 p-8 lg:p-12 mb-16" data-testid="sooftwash-intro" style={{ borderRadius: '12px 4px 12px 12px' }}>
-              <div className="bg-brand-primary/5 border border-brand-primary/20 p-6" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  <strong className="text-brand-primary">Time note:</strong> Duration varies by vehicle size and condition. Your Liink will confirm on arrival.
-                </p>
-              </div>
+            {/* Services intro lines */}
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <p 
+                className="text-xl text-[var(--brand-primary)] mb-4 font-medium"
+                style={{ fontFamily: 'var(--font-grandview)' }}
+              >
+                Quick refresh or full reset—the choice is simple, the results consistent.
+              </p>
+              <p 
+                className="text-lg text-[var(--brand-primary)]"
+                style={{ fontFamily: 'var(--font-grandview)' }}
+              >
+                Check out our service options below to see what's included, then press a service to get more information.
+              </p>
             </div>
 
-            {/* Service Cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            {/* Service Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 mb-16">
               {services.map((service) => (
                 <ServiceCard
                   key={service.title}
                   title={service.title}
-                  category={service.category}
                   description={service.description}
-                  features={service.features}
-                  isRecommended={service.isRecommended}
-                  icon={service.icon}
+                  highlights={service.highlights}
+                  duration={service.duration}
+                  bestFor={service.bestFor}
+                  onClick={() => openModal(service)}
                 />
               ))}
             </div>
 
-            {/* CTA Section */}
+            {/* Bottom CTA */}
             <div className="text-center">
-              <div className="bg-muted/50 p-8" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                <h3 className="text-2xl font-grandview-bold text-brand-primary mb-4">Ready to book your service?</h3>
-                <p className="text-muted-foreground mb-6">Download the Goobii app to schedule your eco-friendly car cleaning</p>
-                <div className="flex justify-center">
-                  <CTAGroup />
+              <div 
+                className="bg-[var(--brand-bg)] border border-[var(--brand-primary)]/10 p-8 md:p-12 max-w-2xl mx-auto"
+                style={{ borderRadius: '12px 4px 12px 12px' }}
+              >
+                <h3 
+                  className="text-2xl md:text-3xl font-bold text-[var(--brand-primary)] mb-4"
+                  style={{ fontFamily: 'var(--font-grandview-bold)' }}
+                >
+                  Ready to book your service?
+                </h3>
+                <p 
+                  className="text-lg text-[var(--brand-primary)] mb-8"
+                  style={{ fontFamily: 'var(--font-grandview)' }}
+                >
+                  Get the Goobii app and schedule your eco-friendly clean in seconds.
+                </p>
+                
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                  <a
+                    href="#"
+                    className="inline-flex items-center justify-center px-8 py-4 bg-[var(--brand-primary)] text-[var(--brand-bg)] hover:bg-[var(--brand-secondary)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-pop)] focus:ring-offset-2 focus:ring-offset-[var(--brand-bg)] transition-colors font-medium"
+                    style={{ borderRadius: '9999px', fontFamily: 'var(--font-grandview)' }}
+                    data-testid="ios-download"
+                  >
+                    <img src="/svg/icon-ios.svg" alt="" className="w-5 h-5 mr-3" />
+                    Download for iOS
+                  </a>
+                  <a
+                    href="#"
+                    className="inline-flex items-center justify-center px-8 py-4 bg-[var(--brand-primary)] text-[var(--brand-bg)] hover:bg-[var(--brand-secondary)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-pop)] focus:ring-offset-2 focus:ring-offset-[var(--brand-bg)] transition-colors font-medium"
+                    style={{ borderRadius: '9999px', fontFamily: 'var(--font-grandview)' }}
+                    data-testid="android-download"
+                  >
+                    <img src="/svg/icon-android.svg" alt="" className="w-5 h-5 mr-3" />
+                    Download for Android
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </section>
       </div>
+
+      {/* Service Modal */}
+      {selectedService && (
+        <ServiceModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          service={selectedService}
+        />
+      )}
     </>
   );
 }
