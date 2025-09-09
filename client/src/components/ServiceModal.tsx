@@ -88,20 +88,20 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
     }
   };
 
-  // Optimized spring settings for smooth animation
-  const spring = { type: 'spring', stiffness: 320, damping: 28, mass: 0.9 };
+  // Ultra-fast spring settings for instant response
+  const spring = { type: 'spring', stiffness: 500, damping: 35, mass: 0.8 };
   const layoutTransition = prefersReducedMotion ? { duration: 0 } : { layout: spring };
 
-  // Fast backdrop animation
+  // Instant backdrop animation
   const backdropVariants = {
     hidden: { opacity: 0 },
     visible: { 
-      opacity: 0.6,
-      transition: { duration: 0.18, ease: 'easeOut' }
+      opacity: 1,
+      transition: { duration: 0.12, ease: 'easeOut' }
     },
     exit: { 
       opacity: 0,
-      transition: { duration: 0.15, ease: 'easeIn' }
+      transition: { duration: 0.1, ease: 'easeIn' }
     }
   };
 
@@ -118,13 +118,13 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
           style={{ pointerEvents: 'auto' }}
         >
           {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/80" />
           
           {/* Modal Surface - Uses same layoutId as ServiceCard */}
           <motion.div
             ref={modalRef}
             layoutId={`service-${id}`}
-            className="relative w-full max-w-4xl bg-[var(--brand-bg)] shadow-2xl transform-gpu will-change-transform will-change-opacity backface-hidden"
+            className="relative w-full max-w-4xl bg-white shadow-2xl transform-gpu will-change-transform backface-hidden opacity-100"
             style={{ borderRadius: '12px 4px 12px 12px' }}
             transition={layoutTransition}
             role="dialog"
