@@ -1,0 +1,297 @@
+Build the Goobii Services Page
+Scope
+
+Create a complete Services page that includes:
+
+Page title and a short Sooftwash™ intro paragraph
+
+A simple intro line and a follow-up instruction line
+
+Four service boxes (use the pre-shared Goobii box shape; Replit knows this shape)
+
+Each box shows: gold title, one-line description, Highlights on the left, Estimated duration on the right, and a short “Best for” line
+
+Pressing a box opens a modal popup (covers most of the screen) with a smooth animation and shows a detailed process + placeholder illustrations/icons for products, tools, equipment
+
+Bottom CTA with centered app icons/buttons
+
+Tech
+
+Next.js (App Router) + React + TypeScript
+
+Tailwind CSS
+
+Framer Motion for smooth transitions (respect prefers-reduced-motion)
+
+Inline SVGs for icons/illustrations (placeholders)
+
+Brand system (use exact tokens)
+:root{
+  --brand-primary:#006980;      /* main text & buttons */
+  --brand-secondary:#003B5C;    /* contrast accents */
+  --brand-bg:#FAFCFE;           /* background */
+  --brand-pop:#FF8200;          /* pop/time */
+  --brand-contrast-2:#DCC57F;   /* selection highlight (GOLD) */
+}
+
+
+Fonts:
+
+Ghost for page H1
+
+Grandview Bold for section/card titles (use this for service titles)
+
+Grandview for body text
+(Add @font-face placeholders and system-ui fallbacks.)
+
+Page structure & layout
+
+Create app/services/page.tsx using a centered container with side gutters:
+
+Container: max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16
+
+Spacing: generous top/bottom padding; clear section spacing
+
+1) Title + Sooftwash™ intro paragraph
+
+H1 (Ghost): Services
+
+Paragraph (approved “Option A” copy — use verbatim):
+Sooftwash™ is our signature clean—pro finish, tiny footprint. On average, we use about 40× less water than a pressure wash. Our fleet runs electric, and a mobile power station powers full-strength equipment with minimal fuss. Fresh towels every wash. Biodegradable formulas that are kind to people, surfaces, and surroundings. And it’s delivered by professionally trained Liinks who follow clear checklists for consistent results.
+
+2) Services intro lines (simple, locked)
+
+Line 1 (Grandview): Quick refresh or full reset—the choice is simple, the results consistent.
+
+Line 2 (Grandview): Check out our service options below to see what’s included, then press a service to get more information.
+
+3) Service boxes (grid)
+
+Grid: grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10
+
+Use the pre-shared Goobii box shape for each card (apply that exact shape style).
+
+Card content layout:
+
+Title: large, gold text-[var(--brand-contrast-2)], extra bold (Grandview Bold)
+
+One-line description below title (Grandview)
+
+Highlights (left) and Estimated duration (right) in a two-column row:
+
+Left column header: Highlights
+
+Right column header: Estimated duration
+
+A small Best for line beneath
+
+Hover/press states: subtle lift + shadow; cursor pointer
+
+Keyboard: entire card is a button with aria-controls to open modal
+
+Exact copy for each box (use verbatim)
+
+Aura
+Description: A focused exterior refresh that keeps your car looking sharper for everyday living.
+Highlights:
+
+Exterior Sooftwash™ clean
+
+Wheels & tyres touch-up
+
+Exterior glass touch-up
+
+Final check and dry
+Estimated duration: 20–30 minutes
+Best for: Everyday upkeep and dusty days
+
+Aura Absolute
+Description: Aura exterior plus a light interior tidy so the cabin feels fresh too.
+Highlights:
+
+Everything in Aura
+
+Quick cabin vacuum
+
+Interior wipe-downs
+
+Interior glass touch-up
+Estimated duration: 35–50 minutes
+Best for: Weekly or bi-weekly maintenance
+
+Glow
+Description: Premium exterior attention and care for a crisp, stand-out finish.
+Highlights:
+
+Detailed exterior Sooftwash™ pass
+
+Trims, badges & crevices carefully addressed
+
+Wheels & tyres deep clean + sleek, long-lasting tyre dressing
+
+Ceramic glass cleaning
+Estimated duration: 45–65 minutes
+Best for: When you want premium attention or every 4–5 washes
+
+Glow Absolute
+Description: Everything in Glow plus a fuller interior treatment for an all-round reset.
+Highlights:
+
+Glow exterior detail
+
+Mats removed, leg space and seats vacuumed
+
+Ceramic glass cleaning
+
+Finished with sleek interior dressing
+Estimated duration: 60–85 minutes
+Best for: Monthly reset or before special events
+
+4) Modal popup on press (smooth animation)
+
+Build components/ServiceModal.tsx and components/ServiceCard.tsx
+
+On press/click or Enter/Space, open a modal that covers most of the screen (max-width ~900–1100px, responsive)
+
+Animation: fade + slight scale up (spring), backdrop fades in; respect prefers-reduced-motion (no scale, quick fade only)
+
+Accessibility:
+
+role="dialog", aria-modal="true", labeled by the service title
+
+Focus trap inside modal; ESC closes; backdrop click closes; Return focus to triggering card on close
+
+Modal content structure:
+
+Title (service name) in gold and bold
+
+Short purpose line (reuse the card description)
+
+Process (numbered 1–4)
+
+Used with three lists: Products · Tools · Equipment
+
+Right side or bottom: placeholder illustration/icons (inline SVGs) for each list item
+
+Use these details inside each modal:
+
+Aura — Process
+
+Visual inspection and access check
+
+Sooftwash™ application and controlled wipe for exterior panels
+
+Wheels and tyres freshen
+
+Exterior glass clean and final check
+Used
+Products: Sooftwash™, glass cleaner
+Tools: Microfibers, soft wash pads, wheel brush
+Equipment: Spray system, portable power
+
+Aura Absolute — Process
+
+Everything in Aura
+
+Quick cabin vacuum for floors and seats
+
+Interior wipe-downs for high-touch areas
+
+Interior glass clean and final check
+Used
+Products: Sooftwash™, interior-safe cleaner, glass cleaner
+Tools: Microfibers, interior brush set, handheld vacuum
+Equipment: Portable power
+
+Glow — Process
+
+Detailed exterior pass panel by panel
+
+Attention to trims, badges, and tight crevices
+
+Wheels and tyres care with extra dwell where needed
+
+Exterior glass clarity check and final inspection
+Used
+Products: Sooftwash™, targeted exterior cleaner, glass cleaner
+Tools: Detail brushes, microfiber set, wheel tools
+Equipment: Spray system, portable power
+
+Glow Absolute — Process
+
+Full Glow exterior detail
+
+Deeper interior touch-points including vents and consoles
+
+Interior glass and finishing passes
+
+Final inspection and handover
+Used
+Products: Sooftwash™, interior-safe cleaner, glass cleaner, dressing as needed
+Tools: Detail and crevice brushes, microfiber set, handheld vacuum
+Equipment: Portable power
+
+Placeholder media to include (no stock photos):
+
+/public/svg/icon-products.svg — bottle icon
+
+/public/svg/icon-tools.svg — brush/cloth icon
+
+/public/svg/icon-equipment.svg — power/spray icon
+Alt text: “Products used”, “Tools used”, “Equipment used”
+
+5) Bottom CTA (centered)
+
+Section spacing above: generous
+
+Headline (Grandview Bold): Ready to book your service?
+
+Line (Grandview): Get the Goobii app and schedule your eco-friendly clean in seconds.
+
+Centered CTA pair with icons: iOS and Android
+
+Buttons: pill style in var(--brand-primary) with text var(--brand-bg), hover lighten, focus ring var(--brand-pop)
+
+Icons: simple inline SVG placeholders /public/svg/icon-ios.svg, /public/svg/icon-android.svg
+
+Styles & details
+
+Service titles in gold: text-[var(--brand-contrast-2)] font-extrabold tracking-tight
+
+Body text: text-[var(--brand-primary)]
+
+Sections use --brand-bg with ample white space
+
+Ensure all states have visible focus outlines in --brand-pop
+
+Cards/Modal must honor the pre-shared Goobii service box shape
+
+Files to create
+
+app/services/page.tsx
+
+components/ServiceCard.tsx
+
+components/ServiceModal.tsx
+
+public/svg/icon-products.svg
+
+public/svg/icon-tools.svg
+
+public/svg/icon-equipment.svg
+
+public/svg/icon-ios.svg
+
+public/svg/icon-android.svg
+
+Acceptance criteria
+
+Page renders with H1 “Services,” the Sooftwash™ intro paragraph, and the two intro lines provided.
+
+Four service boxes use the shared Goobii shape, with gold titles, description, Highlights (left), Estimated duration (right), and a Best for line.
+
+Pressing a box opens an accessible modal with a smooth animation and the detailed Process + Used (Products/Tools/Equipment) plus placeholder icons/illustrations.
+
+Bottom CTA displays headline, line, and centered iOS/Android buttons with icons.
+
+All motion respects prefers-reduced-motion; keyboard/screen reader support is fully implemented.
