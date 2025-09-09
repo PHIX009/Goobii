@@ -7,8 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import CTAGroup from "@/components/cta-group";
-import { MessageCircle, Mail, Clock, Check } from "lucide-react";
+import { MessageCircle, Mail, MapPin, Check } from "lucide-react";
 
 interface ContactForm {
   name: string;
@@ -91,7 +90,7 @@ export default function Contact() {
         <section className="py-16 lg:py-24">
           <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Contact</h1>
+              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Contact Us</h1>
               <p className="text-xl text-muted-foreground">
                 We're fully digital and open daily. Reach out with questions or partnership ideas.
               </p>
@@ -101,9 +100,9 @@ export default function Contact() {
               {/* Contact Information */}
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-3xl font-grandview-bold text-brand-primary mb-6">Contact Methods</h2>
+                  <h2 className="text-3xl font-grandview-bold text-brand-primary mb-6 text-center">Contact Methods</h2>
                   
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     <div className="flex items-start space-x-4" data-testid="whatsapp-contact">
                       <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center flex-shrink-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
                         <MessageCircle className="w-6 h-6 text-brand-primary" />
@@ -132,7 +131,7 @@ export default function Contact() {
 
                     <div className="flex items-start space-x-4" data-testid="hours-info">
                       <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center flex-shrink-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                        <Clock className="w-6 h-6 text-brand-primary" />
+                        <MapPin className="w-6 h-6 text-brand-primary" />
                       </div>
                       <div>
                         <h3 className="text-xl font-extrabold text-brand-primary mb-0.5">Service Area</h3>
@@ -147,7 +146,7 @@ export default function Contact() {
 
               {/* Contact Form */}
               <Card className="p-8 border-0" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="contact-form-card">
-                <h2 className="text-2xl font-grandview-bold text-brand-primary mb-6">Send us a Message</h2>
+                <h2 className="text-2xl font-extrabold text-brand-primary mb-6">Send us a Message</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6" data-testid="contact-form">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -237,16 +236,6 @@ export default function Contact() {
               </Card>
             </div>
 
-            {/* App Download CTA */}
-            <div className="mt-16 text-center">
-              <div className="bg-brand-primary p-8" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                <h3 className="text-2xl font-grandview-bold text-brand-bg mb-4">Ready to book your first wash?</h3>
-                <p className="text-brand-bg/80 mb-6">Download the Goobii app and experience eco-friendly car cleaning</p>
-                <div className="flex justify-center">
-                  <CTAGroup variant="footer" />
-                </div>
-              </div>
-            </div>
           </div>
         </section>
       </div>
