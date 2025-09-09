@@ -103,15 +103,15 @@ export default function Contact() {
                 <div>
                   <h2 className="text-3xl font-grandview-bold text-brand-primary mb-6">Contact Methods</h2>
                   
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     <div className="flex items-start space-x-4" data-testid="whatsapp-contact">
                       <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center flex-shrink-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
                         <MessageCircle className="w-6 h-6 text-brand-primary" />
                       </div>
                       <div>
-                        <h3 className="font-grandview-bold text-brand-primary mb-1">WhatsApp</h3>
-                        <p className="text-muted-foreground mb-2">Quick support and instant messaging</p>
-                        <a href="#whatsapp-placeholder" className="text-brand-primary hover:text-brand-secondary transition-colors" data-testid="whatsapp-link">
+                        <h3 className="text-xl font-extrabold text-brand-primary mb-0.5">WhatsApp</h3>
+                        <p className="text-sm text-muted-foreground mb-1">Quick support and instant messaging</p>
+                        <a href="#whatsapp-placeholder" className="text-sm text-brand-primary hover:text-brand-secondary transition-colors" data-testid="whatsapp-link">
                           Chat with us on WhatsApp
                         </a>
                       </div>
@@ -122,9 +122,9 @@ export default function Contact() {
                         <Mail className="w-6 h-6 text-brand-primary" />
                       </div>
                       <div>
-                        <h3 className="font-grandview-bold text-brand-primary mb-1">Email</h3>
-                        <p className="text-muted-foreground mb-2">For detailed inquiries and support</p>
-                        <a href="#email-placeholder" className="text-brand-primary hover:text-brand-secondary transition-colors" data-testid="email-link">
+                        <h3 className="text-xl font-extrabold text-brand-primary mb-0.5">Email</h3>
+                        <p className="text-sm text-muted-foreground mb-1">For detailed inquiries and support</p>
+                        <a href="#email-placeholder" className="text-sm text-brand-primary hover:text-brand-secondary transition-colors" data-testid="email-link">
                           Send us an email
                         </a>
                       </div>
@@ -135,36 +135,14 @@ export default function Contact() {
                         <Clock className="w-6 h-6 text-brand-primary" />
                       </div>
                       <div>
-                        <h3 className="font-grandview-bold text-brand-primary mb-1">Service Area</h3>
-                        <p className="text-muted-foreground mb-1">Dubai citywide</p>
-                        <p className="text-muted-foreground">Check the app for coverage</p>
+                        <h3 className="text-xl font-extrabold text-brand-primary mb-0.5">Service Area</h3>
+                        <p className="text-sm text-muted-foreground mb-0.5">Dubai citywide</p>
+                        <p className="text-sm text-muted-foreground">Check the app for coverage</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Business info */}
-                <Card className="p-6 border-0" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="why-choose-goobii">
-                  <h3 className="text-xl font-grandview-bold text-brand-primary mb-4">Why Choose Goobii?</h3>
-                  <ul className="space-y-3 text-muted-foreground">
-                    <li className="flex items-center">
-                      <Check className="w-4 h-4 text-brand-primary mr-3 flex-shrink-0" />
-                      95% water savings with Sooftwash™ technology
-                    </li>
-                    <li className="flex items-center">
-                      <Check className="w-4 h-4 text-brand-primary mr-3 flex-shrink-0" />
-                      Biodegradable, vehicle-safe cleaning products
-                    </li>
-                    <li className="flex items-center">
-                      <Check className="w-4 h-4 text-brand-primary mr-3 flex-shrink-0" />
-                      Convenient app-based booking and tracking
-                    </li>
-                    <li className="flex items-center">
-                      <Check className="w-4 h-4 text-brand-primary mr-3 flex-shrink-0" />
-                      Professional, trained Liinks for consistent quality
-                    </li>
-                  </ul>
-                </Card>
               </div>
 
               {/* Contact Form */}
@@ -183,6 +161,7 @@ export default function Contact() {
                         placeholder="Your full name"
                         required
                         data-testid="input-name"
+                        style={{ borderRadius: '12px 4px 12px 12px' }}
                       />
                     </div>
                     <div>
@@ -194,6 +173,7 @@ export default function Contact() {
                         onChange={(e) => handleInputChange('phone', e.target.value)}
                         placeholder="Your phone number"
                         data-testid="input-phone"
+                        style={{ borderRadius: '12px 4px 12px 12px' }}
                       />
                     </div>
                   </div>
@@ -208,13 +188,14 @@ export default function Contact() {
                       placeholder="your.email@example.com"
                       required
                       data-testid="input-email"
+                      style={{ borderRadius: '12px 4px 12px 12px' }}
                     />
                   </div>
 
                   <div>
                     <Label htmlFor="topic" className="text-brand-primary font-grandview-bold">Topic</Label>
                     <Select value={formData.topic} onValueChange={(value) => handleInputChange('topic', value)}>
-                      <SelectTrigger data-testid="select-topic">
+                      <SelectTrigger data-testid="select-topic" style={{ borderRadius: '12px 4px 12px 12px' }}>
                         <SelectValue placeholder="Select a topic" />
                       </SelectTrigger>
                       <SelectContent>
@@ -239,6 +220,7 @@ export default function Contact() {
                       rows={5}
                       required
                       data-testid="textarea-message"
+                      style={{ borderRadius: '12px 4px 12px 12px' }}
                     />
                   </div>
 
@@ -247,6 +229,7 @@ export default function Contact() {
                     className="w-full bg-brand-primary hover:bg-brand-secondary text-brand-bg font-grandview-bold"
                     disabled={isSubmitting}
                     data-testid="submit-button"
+                    style={{ borderRadius: '12px 4px 12px 12px' }}
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
