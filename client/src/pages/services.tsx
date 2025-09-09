@@ -5,11 +5,11 @@ import ServiceModal from "@/components/ServiceModal";
 import CTAGroup from "@/components/cta-group";
 
 export default function Services() {
-  const [selectedService, setSelectedService] = useState<any>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const services = [
     {
+      id: "aura",
       title: "Aura",
       description: "A focused exterior refresh that keeps your car looking sharper for everyday living.",
       highlights: [
@@ -31,6 +31,7 @@ export default function Services() {
       equipment: ["Spray system", "portable power"]
     },
     {
+      id: "aura-absolute",
       title: "Aura Absolute",
       description: "Aura exterior plus a light interior tidy so the cabin feels fresh too.",
       highlights: [
@@ -52,6 +53,7 @@ export default function Services() {
       equipment: ["Portable power"]
     },
     {
+      id: "glow",
       title: "Glow",
       description: "Premium exterior attention and care for a crisp, stand-out finish.",
       highlights: [
@@ -73,6 +75,7 @@ export default function Services() {
       equipment: ["Spray system", "portable power"]
     },
     {
+      id: "glow-absolute",
       title: "Glow Absolute",
       description: "Everything in Glow plus a fuller interior treatment for an all-round reset.",
       highlights: [
@@ -95,15 +98,15 @@ export default function Services() {
     }
   ];
 
-  const openModal = (service: any) => {
-    setSelectedService(service);
-    setIsModalOpen(true);
+  const openModal = (id: string) => {
+    setSelectedId(id);
   };
 
   const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedService(null);
+    setSelectedId(null);
   };
+
+  const selectedService = selectedId ? services.find(s => s.id === selectedId) : null;
 
   return (
     <>
@@ -152,13 +155,14 @@ export default function Services() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 mb-16">
               {services.map((service) => (
                 <ServiceCard
-                  key={service.title}
+                  key={service.id}
+                  id={service.id}
                   title={service.title}
                   description={service.description}
                   highlights={service.highlights}
                   duration={service.duration}
                   bestFor={service.bestFor}
-                  onClick={() => openModal(service)}
+                  onClick={() => openModal(service.id)}
                 />
               ))}
             </div>
@@ -189,7 +193,7 @@ export default function Services() {
       {/* Service Modal */}
       {selectedService && (
         <ServiceModal
-          isOpen={isModalOpen}
+          id={selectedService.id}
           onClose={closeModal}
           service={selectedService}
         />
