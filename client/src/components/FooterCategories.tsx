@@ -5,8 +5,7 @@ import { PhoneIcon } from '@/components/icons/PhoneIcon';
 import logoImage from "@assets/Horizontal Logo + Tagline_1757358585705.png";
 
 export default function FooterCategories() {
-  const linkBase = "text-[var(--brand-primary)] hover:text-[var(--brand-pop)] transition-colors";
-  const focusRing = "focus:outline-none focus:ring-2 focus:ring-[var(--brand-pop)] focus:ring-offset-2 focus:ring-offset-[var(--brand-bg)]";
+  const linkBase = "text-[var(--brand-primary)] hover:text-[var(--brand-pop)] transition-all duration-300 focus:outline-none";
   const row = "flex items-center gap-3 py-1.5";
 
   return (
@@ -22,12 +21,12 @@ export default function FooterCategories() {
               </h3>
               <ul className="mt-3 space-y-1.5">
                 <li>
-                  <Link href="/services" className={`${linkBase} ${focusRing} inline-block`}>
+                  <Link href="/services" className={`${linkBase} inline-block`}>
                     Services
                   </Link>
                 </li>
                 <li>
-                  <Link href="/subscriptions" className={`${linkBase} ${focusRing} inline-block`}>
+                  <Link href="/subscriptions" className={`${linkBase} inline-block`}>
                     Subscriptions
                   </Link>
                 </li>
@@ -41,17 +40,17 @@ export default function FooterCategories() {
               </h3>
               <ul className="mt-3 space-y-1.5">
                 <li>
-                  <Link href="/about" className={`${linkBase} ${focusRing} inline-block`}>
+                  <Link href="/about" className={`${linkBase} inline-block`}>
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/purpose-and-impact" className={`${linkBase} ${focusRing} inline-block`}>
+                  <Link href="/purpose-and-impact" className={`${linkBase} inline-block`}>
                     Purpose &amp; Impact
                   </Link>
                 </li>
                 <li>
-                  <Link href="/faqs" className={`${linkBase} ${focusRing} inline-block`}>
+                  <Link href="/faqs" className={`${linkBase} inline-block`}>
                     FAQs
                   </Link>
                 </li>
@@ -66,19 +65,19 @@ export default function FooterCategories() {
             </h3>
             <ul className="mt-3 space-y-1.5">
               <li>
-                <a href="https://wa.me/XXXXXXXXXXX" className={`text-[var(--brand-primary)] ${focusRing} inline-flex ${row} group`}>
+                <a href="https://wa.me/XXXXXXXXXXX" className={`text-[var(--brand-primary)] focus:outline-none inline-flex ${row} group`}>
                   <WhatsAppIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-pop)] transition-colors" />
                   <span className="group-hover:text-[var(--brand-pop)] transition-colors">WhatsApp</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@goobii.ae" className={`text-[var(--brand-primary)] ${focusRing} inline-flex ${row} group`}>
+                <a href="mailto:hello@goobii.ae" className={`text-[var(--brand-primary)] focus:outline-none inline-flex ${row} group`}>
                   <MailIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-pop)] transition-colors" />
                   <span className="group-hover:text-[var(--brand-pop)] transition-colors">Email</span>
                 </a>
               </li>
               <li>
-                <a href="tel:+971XXXXXXXXX" className={`text-[var(--brand-primary)] ${focusRing} inline-flex ${row} group`}>
+                <a href="tel:+971XXXXXXXXX" className={`text-[var(--brand-primary)] focus:outline-none inline-flex ${row} group`}>
                   <PhoneIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-pop)] transition-colors" />
                   <span className="group-hover:text-[var(--brand-pop)] transition-colors">Phone</span>
                 </a>
