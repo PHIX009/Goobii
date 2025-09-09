@@ -124,7 +124,7 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
           <motion.div
             ref={modalRef}
             layoutId={`service-${id}`}
-            className="relative w-full max-w-4xl bg-white shadow-2xl will-change-transform force-layer"
+            className="relative w-full max-w-4xl bg-white shadow-2xl will-change-transform"
             style={{ 
               borderRadius: '12px 4px 12px 12px',
               transform: 'translateZ(0)' // Force hardware acceleration

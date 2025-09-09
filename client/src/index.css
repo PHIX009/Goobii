@@ -74,6 +74,12 @@ footer a:hover span,
   transition: color 0.3s ease;
 }
 
+/* Force hardware acceleration for smoother animations */
+.force-layer {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
 /* Service card secondary color glow effect */
 .service-card::before {
   content: '';
