@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { MessageCircle, Mail, MapPin, Check } from "lucide-react";
+import { MessageCircle, Mail, Map, Check } from "lucide-react";
 
 interface ContactForm {
   name: string;
@@ -126,7 +126,7 @@ export default function Contact() {
 
                   <div className="flex flex-col items-center text-center" data-testid="hours-info">
                     <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center flex-shrink-0 mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                      <MapPin className="w-6 h-6 text-brand-primary" />
+                      <Map className="w-6 h-6 text-brand-primary" />
                     </div>
                     <h3 className="text-xl font-extrabold text-brand-primary mb-2">Service Area</h3>
                     <p className="text-sm font-bold text-muted-foreground mb-1">Dubai citywide</p>
