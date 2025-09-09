@@ -83,7 +83,7 @@ export default function Contact() {
         <section className="py-16 lg:py-24">
           <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Contact Us</h1>
+              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Get in Touch</h1>
               <p className="text-xl text-muted-foreground">
                 We're fully digital and open daily. Reach out with questions or partnership ideas.
               </p>

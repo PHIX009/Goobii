@@ -65,6 +65,11 @@ export default function FooterCategories() {
             </h3>
             <ul className="mt-3 space-y-1.5">
               <li>
+                <Link href="/contact" className={`${linkBase} inline-block`}>
+                  Contact Us
+                </Link>
+              </li>
+              <li>
                 <a href="https://wa.me/XXXXXXXXXXX" className={`text-[var(--brand-primary)] focus:outline-none inline-flex ${row} group`}>
                   <WhatsAppIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-pop)] transition-colors" />
                   <span className="group-hover:text-[var(--brand-pop)] transition-colors">WhatsApp</span>
