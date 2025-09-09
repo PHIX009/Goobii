@@ -195,7 +195,7 @@ export default function Contact() {
                       <SelectTrigger data-testid="select-topic" style={{ borderRadius: '12px 4px 12px 12px' }}>
                         <SelectValue placeholder="Select a topic" />
                       </SelectTrigger>
-                      <SelectContent className="bg-gray-50 border border-gray-200">
+                      <SelectContent className="bg-gray-50 border-2 border-brand-primary shadow-lg shadow-brand-primary/20">
                         <SelectItem value="general">General Inquiry</SelectItem>
                         <SelectItem value="booking">Booking Support</SelectItem>
                         <SelectItem value="subscription">Subscription Questions</SelectItem>
@@ -222,16 +222,18 @@ export default function Contact() {
                   </div>
 
                   {/* Goobii Box around Send Message Button */}
-                  <div className="bg-brand-primary p-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-brand-primary hover:bg-brand-secondary text-brand-bg font-grandview-bold border-0 shadow-none"
-                      disabled={isSubmitting}
-                      data-testid="submit-button"
-                      style={{ borderRadius: '8px 2px 8px 8px', backgroundColor: 'var(--brand-primary)' }}
-                    >
-                      {isSubmitting ? "Sending..." : "Send Message"}
-                    </Button>
+                  <div className="flex justify-center">
+                    <div className="bg-brand-primary px-8 py-3" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                      <Button 
+                        type="submit" 
+                        className="bg-transparent hover:bg-transparent text-brand-bg hover:text-brand-bg font-grandview-bold border-0 shadow-none px-6 py-2"
+                        disabled={isSubmitting}
+                        data-testid="submit-button"
+                        style={{ borderRadius: '8px 2px 8px 8px' }}
+                      >
+                        {isSubmitting ? "Sending..." : "Send Message"}
+                      </Button>
+                    </div>
                   </div>
                 </form>
               </Card>
