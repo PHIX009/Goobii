@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -18,6 +18,7 @@ interface ServiceModalProps {
 export default function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const [clickedCardRect, setClickedCardRect] = useState<DOMRect | null>(null);
 
   // Focus management and keyboard handling
   useEffect(() => {
@@ -54,29 +55,48 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Get clicked card position when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      const clickedCard = document.querySelector(`[data-testid="service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}"]`);
+      if (clickedCard) {
+        setClickedCardRect(clickedCard.getBoundingClientRect());
+      }
+    }
+  }, [isOpen, service.title]);
+
   const modalVariants = {
     hidden: {
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.95,
+      scale: prefersReducedMotion ? 1 : 0.6,
+      x: clickedCardRect && !prefersReducedMotion ? clickedCardRect.left + clickedCardRect.width / 2 - window.innerWidth / 2 : 0,
+      y: clickedCardRect && !prefersReducedMotion ? clickedCardRect.top + clickedCardRect.height / 2 - window.innerHeight / 2 : 0,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.3
+        duration: prefersReducedMotion ? 0.15 : 0.4,
+        ease: [0.22, 1, 0.36, 1]
       }
     },
     visible: {
       opacity: 1,
       scale: 1,
+      x: 0,
+      y: 0,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.3,
+        duration: prefersReducedMotion ? 0.15 : 0.5,
         type: prefersReducedMotion ? 'tween' : 'spring',
-        stiffness: 300,
-        damping: 30
+        stiffness: 200,
+        damping: 25,
+        ease: [0.22, 1, 0.36, 1]
       }
     },
     exit: {
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.95,
+      scale: prefersReducedMotion ? 1 : 0.6,
+      x: clickedCardRect && !prefersReducedMotion ? clickedCardRect.left + clickedCardRect.width / 2 - window.innerWidth / 2 : 0,
+      y: clickedCardRect && !prefersReducedMotion ? clickedCardRect.top + clickedCardRect.height / 2 - window.innerHeight / 2 : 0,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.2
+        duration: prefersReducedMotion ? 0.15 : 0.4,
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   };

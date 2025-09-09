@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import ServiceCard from "@/components/service-card";
 import ServiceModal from "@/components/ServiceModal";
+import CTAGroup from "@/components/cta-group";
 
 export default function Services() {
   const [selectedService, setSelectedService] = useState<any>(null);
@@ -164,44 +165,21 @@ export default function Services() {
 
             {/* Bottom CTA */}
             <div className="text-center">
-              <div 
-                className="bg-[var(--brand-bg)] border border-[var(--brand-primary)]/10 p-8 md:p-12 max-w-2xl mx-auto"
-                style={{ borderRadius: '12px 4px 12px 12px' }}
+              <h3 
+                className="text-2xl md:text-3xl font-bold text-[var(--brand-primary)] mb-4"
+                style={{ fontFamily: 'var(--font-grandview-bold)' }}
               >
-                <h3 
-                  className="text-2xl md:text-3xl font-bold text-[var(--brand-primary)] mb-4"
-                  style={{ fontFamily: 'var(--font-grandview-bold)' }}
-                >
-                  Ready to book your service?
-                </h3>
-                <p 
-                  className="text-lg text-[var(--brand-primary)] mb-8"
-                  style={{ fontFamily: 'var(--font-grandview)' }}
-                >
-                  Get the Goobii app and schedule your eco-friendly clean in seconds.
-                </p>
-                
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row justify-center gap-4">
-                  <a
-                    href="#"
-                    className="inline-flex items-center justify-center px-8 py-4 bg-[var(--brand-primary)] text-[var(--brand-bg)] hover:bg-[var(--brand-secondary)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-pop)] focus:ring-offset-2 focus:ring-offset-[var(--brand-bg)] transition-colors font-medium"
-                    style={{ borderRadius: '9999px', fontFamily: 'var(--font-grandview)' }}
-                    data-testid="ios-download"
-                  >
-                    <img src="/svg/icon-ios.svg" alt="" className="w-5 h-5 mr-3" />
-                    Download for iOS
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-flex items-center justify-center px-8 py-4 bg-[var(--brand-primary)] text-[var(--brand-bg)] hover:bg-[var(--brand-secondary)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-pop)] focus:ring-offset-2 focus:ring-offset-[var(--brand-bg)] transition-colors font-medium"
-                    style={{ borderRadius: '9999px', fontFamily: 'var(--font-grandview)' }}
-                    data-testid="android-download"
-                  >
-                    <img src="/svg/icon-android.svg" alt="" className="w-5 h-5 mr-3" />
-                    Download for Android
-                  </a>
-                </div>
+                Ready to book your service?
+              </h3>
+              <p 
+                className="text-lg text-[var(--brand-primary)] mb-8"
+                style={{ fontFamily: 'var(--font-grandview)' }}
+              >
+                Get the Goobii app and schedule your eco-friendly clean in seconds.
+              </p>
+              
+              <div className="flex justify-center">
+                <CTAGroup size="lg" className="flex-col sm:flex-row" />
               </div>
             </div>
           </div>
