@@ -78,14 +78,15 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
       return { x: 0, y: 0 };
     }
     
+    // Start from the actual card position, not just relative to center
     const cardCenterX = clickedCardRect.left + clickedCardRect.width / 2;
     const cardCenterY = clickedCardRect.top + clickedCardRect.height / 2;
-    const screenCenterX = window.innerWidth / 2;
-    const screenCenterY = window.innerHeight / 2;
+    const modalCenterX = window.innerWidth / 2;
+    const modalCenterY = window.innerHeight / 2;
     
     return {
-      x: cardCenterX - screenCenterX,
-      y: cardCenterY - screenCenterY
+      x: cardCenterX - modalCenterX,
+      y: cardCenterY - modalCenterY
     };
   };
 
@@ -94,9 +95,9 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
   const modalVariants = {
     hidden: {
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.1,
-      x: initialPos.x,
-      y: initialPos.y,
+      scale: prefersReducedMotion ? 1 : 0.05,
+      x: prefersReducedMotion ? 0 : initialPos.x,
+      y: prefersReducedMotion ? 0 : initialPos.y,
       transition: {
         duration: 0
       }
@@ -107,24 +108,24 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
       x: 0,
       y: 0,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.8,
-        type: prefersReducedMotion ? 'tween' : 'spring',
-        stiffness: 100,
-        damping: 15,
-        ease: [0.23, 1, 0.32, 1]
+        duration: prefersReducedMotion ? 0.15 : 0.9,
+        type: 'spring',
+        stiffness: 80,
+        damping: 12,
+        mass: 0.8
       }
     },
     exit: {
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.1,
-      x: initialPos.x,
-      y: initialPos.y,
+      scale: prefersReducedMotion ? 1 : 0.05,
+      x: prefersReducedMotion ? 0 : initialPos.x,
+      y: prefersReducedMotion ? 0 : initialPos.y,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.7,
-        type: prefersReducedMotion ? 'tween' : 'spring',
-        stiffness: 120,
+        duration: prefersReducedMotion ? 0.15 : 0.8,
+        type: 'spring',
+        stiffness: 100,
         damping: 15,
-        ease: [0.76, 0, 0.24, 1]
+        mass: 0.6
       }
     }
   };
