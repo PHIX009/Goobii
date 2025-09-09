@@ -1,11 +1,16 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import SubscriptionCard from "@/components/subscription-card";
+import SubscriptionModal from "@/components/SubscriptionModal";
 import CTAGroup from "@/components/cta-group";
 import { DollarSign, Calendar, Shield } from "lucide-react";
 
 export default function Subscriptions() {
+  const [selectedSubscription, setSelectedSubscription] = useState<string | null>(null);
+
   const subscriptions = [
     {
+      id: "spark-4",
       title: "Spark 4",
       description: "4 washes per month. Choose Aura or Aura Absolute per visit. Ideal for regular upkeep.",
       washCount: 4,
@@ -13,10 +18,26 @@ export default function Subscriptions() {
         "4 washes per month",
         "Choose Aura or Aura Absolute per visit", 
         "Flexible scheduling via the app",
-        "Optional before/after images"
-      ]
+        "Optional before/after images",
+        "Service history tracking",
+        "Cancel or modify anytime"
+      ],
+      bestFor: "Single car owners who want regular maintenance with eco-friendly methods",
+      priceDetails: "Monthly billing, no long-term commitment",
+      benefits: [
+        "Consistent car care routine",
+        "Water-saving Sooftwash™ technology",
+        "App-based convenience",
+        "Professional eco-friendly products"
+      ],
+      limitations: [
+        "Service selection per visit (Aura or Aura Absolute)",
+        "Subject to availability in your area"
+      ],
+      planType: "Entry-level subscription"
     },
     {
+      id: "spark-8",
       title: "Spark 8",
       description: "8 washes per month. Great for multi‑car households or higher frequency needs.",
       washCount: 8,
@@ -24,11 +45,27 @@ export default function Subscriptions() {
         "8 washes per month",
         "Choose Aura or Aura Absolute per visit",
         "Great for multiple cars",
-        "All washes recorded in app history"
+        "All washes recorded in app history",
+        "Priority booking",
+        "Family sharing options"
       ],
-      isPopular: true
+      isPopular: true,
+      bestFor: "Multi-car households or frequent drivers who need consistent car care",
+      priceDetails: "Most popular plan with best value per wash",
+      benefits: [
+        "Perfect for 2-3 cars or high usage",
+        "Priority scheduling access",
+        "Family account management",
+        "Enhanced service tracking"
+      ],
+      limitations: [
+        "Optimized for multiple vehicles",
+        "May require service coordination for large families"
+      ],
+      planType: "Most popular subscription"
     },
     {
+      id: "flow-12",
       title: "Flow 12",
       description: "12 washes per month. Maximum convenience and consistency for busy schedules.",
       washCount: 12,
@@ -36,10 +73,35 @@ export default function Subscriptions() {
         "12 washes per month",
         "Choose Aura or Aura Absolute per visit",
         "Maximum convenience",
-        "Perfect for busy schedules"
-      ]
+        "Perfect for busy schedules",
+        "Concierge-level service",
+        "Premium support access"
+      ],
+      bestFor: "Busy professionals and large families who value maximum convenience",
+      priceDetails: "Premium tier with enhanced service and support",
+      benefits: [
+        "Maximum wash frequency",
+        "Premium customer support",
+        "Concierge booking assistance",
+        "Enhanced service customization"
+      ],
+      limitations: [
+        "Higher monthly commitment",
+        "Best suited for heavy usage patterns"
+      ],
+      planType: "Premium subscription"
     }
   ];
+
+  const handleCardClick = (subscriptionId: string) => {
+    setSelectedSubscription(subscriptionId);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedSubscription(null);
+  };
+
+  const currentSubscription = subscriptions.find(sub => sub.id === selectedSubscription);
 
   return (
     <>
@@ -62,15 +124,26 @@ export default function Subscriptions() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
               {subscriptions.map((subscription) => (
                 <SubscriptionCard
-                  key={subscription.title}
+                  key={subscription.id}
+                  id={subscription.id}
                   title={subscription.title}
                   description={subscription.description}
                   washCount={subscription.washCount}
                   features={subscription.features}
                   isPopular={subscription.isPopular}
+                  onClick={() => handleCardClick(subscription.id)}
                 />
               ))}
             </div>
+
+            {/* Subscription Modal */}
+            {currentSubscription && (
+              <SubscriptionModal
+                id={currentSubscription.id}
+                subscription={currentSubscription}
+                onClose={handleCloseModal}
+              />
+            )}
 
             {/* Benefits Section */}
             <div className="bg-muted/30 p-8 lg:p-12 mb-16" data-testid="subscription-benefits" style={{ borderRadius: '12px 4px 12px 12px' }}>
