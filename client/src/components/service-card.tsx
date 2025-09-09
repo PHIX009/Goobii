@@ -34,7 +34,16 @@ export default function ServiceCard({
       
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h3 className="text-2xl font-grandview-bold text-[#DCC57F] font-black">{title}</h3>
+          <h3 
+            className="text-2xl font-extrabold" 
+            style={{ 
+              color: '#DCC57F', 
+              fontFamily: 'var(--font-grandview-bold)', 
+              fontWeight: '900' 
+            }}
+          >
+            {title}
+          </h3>
           <Badge variant="outline" className="mt-2" style={{ borderRadius: '12px 4px 12px 12px' }}>{category}</Badge>
         </div>
         {icon && (
