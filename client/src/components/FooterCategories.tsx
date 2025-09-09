@@ -78,7 +78,7 @@ export default function FooterCategories() {
                 </a>
               </li>
               <li>
-                <a href="tel:+971XXXXXXXXX" className={`text-[var(--brand-primary)] ${focusRing} inline-flex ${row} group hover:shadow-lg hover:shadow-[var(--brand-pop)]/30 rounded-lg px-2 py-1 transition-all duration-300`}>
+                <a href="tel:+971XXXXXXXXX" className={`text-[var(--brand-primary)] ${focusRing} inline-flex ${row} group`}>
                   <PhoneIcon className="w-5 h-5 text-[var(--brand-secondary)] opacity-80 group-hover:text-[var(--brand-pop)] transition-colors" />
                   <span className="group-hover:text-[var(--brand-pop)] transition-colors">Phone</span>
                 </a>
