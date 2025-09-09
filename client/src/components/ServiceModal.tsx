@@ -88,9 +88,9 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
     }
   };
 
-  // Ultra-fast spring settings for instant response
-  const spring = { type: 'spring', stiffness: 500, damping: 35, mass: 0.8 };
-  const layoutTransition = prefersReducedMotion ? { duration: 0 } : { layout: spring };
+  // Lightning-fast spring settings for instant response
+  const spring = { type: 'spring', stiffness: 600, damping: 40, mass: 0.7 };
+  const layoutTransition = prefersReducedMotion ? { duration: 0 } : spring;
 
   // Instant backdrop animation
   const backdropVariants = {
@@ -124,8 +124,11 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
           <motion.div
             ref={modalRef}
             layoutId={`service-${id}`}
-            className="relative w-full max-w-4xl bg-white shadow-2xl transform-gpu will-change-transform backface-hidden opacity-100"
-            style={{ borderRadius: '12px 4px 12px 12px' }}
+            className="relative w-full max-w-4xl bg-white shadow-2xl will-change-transform force-layer"
+            style={{ 
+              borderRadius: '12px 4px 12px 12px',
+              transform: 'translateZ(0)' // Force hardware acceleration
+            }}
             transition={layoutTransition}
             role="dialog"
             aria-modal="true"
@@ -135,7 +138,6 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
           >
             {/* Scrollable content wrapper */}
             <div className="max-h-[90vh] overflow-y-auto">
-              <motion.div layout="position">
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-[var(--brand-primary)]/10">
                   <h2
@@ -347,7 +349,6 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
                     </div>
                   </div>
                 </div>
-              </motion.div>
             </div>
           </motion.div>
         </motion.div>
