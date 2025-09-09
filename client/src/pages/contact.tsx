@@ -90,8 +90,8 @@ export default function Contact() {
             </div>
 
             {/* Centered Contact Methods Title */}
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-grandview-bold text-brand-primary">Contact Methods</h2>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-grandview-bold font-bold text-brand-primary">Contact Methods</h2>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative">
@@ -144,7 +144,7 @@ export default function Contact() {
 
               {/* Contact Form */}
               <Card className="p-8 border-2 border-brand-primary" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="contact-form-card">
-                <h2 className="text-2xl font-extrabold text-brand-primary mb-6">Send us a Message</h2>
+                <h2 className="text-2xl font-extrabold text-brand-primary mb-10">Send us a Message</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6" data-testid="contact-form">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -195,7 +195,7 @@ export default function Contact() {
                       <SelectTrigger data-testid="select-topic" style={{ borderRadius: '12px 4px 12px 12px' }}>
                         <SelectValue placeholder="Select a topic" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-gray-50 border border-gray-200">
                         <SelectItem value="general">General Inquiry</SelectItem>
                         <SelectItem value="booking">Booking Support</SelectItem>
                         <SelectItem value="subscription">Subscription Questions</SelectItem>
@@ -221,15 +221,18 @@ export default function Contact() {
                     />
                   </div>
 
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-brand-primary hover:bg-brand-secondary text-brand-bg font-grandview-bold"
-                    disabled={isSubmitting}
-                    data-testid="submit-button"
-                    style={{ borderRadius: '12px 4px 12px 12px' }}
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
+                  {/* Goobii Box around Send Message Button */}
+                  <div className="bg-brand-primary p-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-brand-primary hover:bg-brand-secondary text-brand-bg font-grandview-bold border-0 shadow-none"
+                      disabled={isSubmitting}
+                      data-testid="submit-button"
+                      style={{ borderRadius: '8px 2px 8px 8px', backgroundColor: 'var(--brand-primary)' }}
+                    >
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
+                  </div>
                 </form>
               </Card>
             </div>
