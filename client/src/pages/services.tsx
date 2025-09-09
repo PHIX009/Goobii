@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { AnimatePresence } from "framer-motion";
 import ServiceCard from "@/components/service-card";
 import ServiceModal from "@/components/ServiceModal";
 import CTAGroup from "@/components/cta-group";
@@ -191,13 +192,15 @@ export default function Services() {
       </div>
 
       {/* Service Modal */}
-      {selectedService && (
-        <ServiceModal
-          id={selectedService.id}
-          onClose={closeModal}
-          service={selectedService}
-        />
-      )}
+      <AnimatePresence>
+        {selectedService && (
+          <ServiceModal
+            id={selectedService.id}
+            onClose={closeModal}
+            service={selectedService}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }

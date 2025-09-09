@@ -1,264 +1,345 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { X, Clock, Check } from 'lucide-react';
 
 interface ServiceModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+  id: string;
   service: {
+    id: string;
     title: string;
     description: string;
+    highlights: string[];
+    duration: string;
+    bestFor: string;
     process: string[];
     products: string[];
     tools: string[];
     equipment: string[];
   };
+  onClose: () => void;
 }
 
-export default function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
+export default function ServiceModal({ id, service, onClose }: ServiceModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const [clickedCardRect, setClickedCardRect] = useState<DOMRect | null>(null);
-
-  // Focus management and keyboard handling
-  useEffect(() => {
-    if (isOpen) {
-      // Focus the close button when modal opens
-      closeButtonRef.current?.focus();
-      
-      // Prevent body scroll
-      document.body.style.overflow = 'hidden';
-      
-      // Handle escape key
-      const handleEscape = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
-          onClose();
-        }
-      };
-      
-      document.addEventListener('keydown', handleEscape);
-      
-      return () => {
-        document.removeEventListener('keydown', handleEscape);
-        document.body.style.overflow = 'unset';
-      };
-    }
-  }, [isOpen, onClose]);
-
-  // Backdrop click handler
-  const handleBackdropClick = (event: React.MouseEvent) => {
-    if (event.target === event.currentTarget) {
-      onClose();
-    }
-  };
 
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Store the initial position for animations
-  const [initialPos, setInitialPos] = useState({ x: 0, y: 0 });
-
-  // Get card position immediately when modal is about to open
+  // Handle escape key
   useEffect(() => {
-    if (isOpen) {
-      // Capture position immediately
-      const clickedCard = document.querySelector(`[data-testid="service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}"]`);
-      if (clickedCard) {
-        const rect = clickedCard.getBoundingClientRect();
-        setClickedCardRect(rect);
-        
-        // Calculate position immediately
-        if (!prefersReducedMotion) {
-          const cardCenterX = rect.left + rect.width / 2;
-          const cardCenterY = rect.top + rect.height / 2;
-          const viewportCenterX = window.innerWidth / 2;
-          const viewportCenterY = window.innerHeight / 2;
-          
-          const pos = {
-            x: cardCenterX - viewportCenterX,
-            y: cardCenterY - viewportCenterY
-          };
-          
-          setInitialPos(pos);
-        }
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
       }
-    }
-  }, [isOpen, service.title, prefersReducedMotion]);
+    };
 
-  const modalVariants = {
-    hidden: {
-      opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.05,
-      x: prefersReducedMotion ? 0 : initialPos.x,
-      y: prefersReducedMotion ? 0 : initialPos.y,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      x: 0,
-      y: 0,
-      transition: {
-        duration: prefersReducedMotion ? 0.15 : 1.0,
-        type: 'spring',
-        stiffness: 80,
-        damping: 12,
-        mass: 0.8
+    document.addEventListener('keydown', handleEscape);
+    
+    // Prevent background scroll
+    document.body.style.overflow = 'hidden';
+    
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [onClose]);
+
+  // Focus management
+  useEffect(() => {
+    const modal = modalRef.current;
+    if (modal) {
+      // Focus the modal
+      modal.focus();
+    }
+    
+    return () => {
+      // Return focus to the triggering card
+      const triggerCard = document.querySelector(`[data-testid="service-card-${id}"]`) as HTMLButtonElement;
+      if (triggerCard) {
+        triggerCard.focus();
       }
-    },
-    exit: {
-      opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.05,
-      x: prefersReducedMotion ? 0 : initialPos.x,
-      y: prefersReducedMotion ? 0 : initialPos.y,
-      transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.8,
-        type: 'spring',
-        stiffness: 100,
-        damping: 15,
-        mass: 0.6
-      }
+    };
+  }, [id]);
+
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      onClose();
     }
   };
 
+  // Animation variants for backdrop
   const backdropVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-    exit: { opacity: 0 }
+    visible: { 
+      opacity: 1,
+      transition: { 
+        type: 'tween', 
+        duration: prefersReducedMotion ? 0.05 : 0.18, 
+        ease: 'easeOut' 
+      }
+    },
+    exit: { 
+      opacity: 0,
+      transition: { 
+        type: 'tween', 
+        duration: prefersReducedMotion ? 0.05 : 0.15, 
+        ease: 'easeOut' 
+      }
+    }
   };
 
-  return (
+  // Spring animation for the modal surface
+  const springTransition = {
+    layout: { 
+      type: 'spring', 
+      stiffness: prefersReducedMotion ? 400 : 280, 
+      damping: prefersReducedMotion ? 40 : 30, 
+      mass: prefersReducedMotion ? 0.5 : 0.9,
+      duration: prefersReducedMotion ? 0.1 : undefined
+    }
+  };
+
+  return createPortal(
     <AnimatePresence>
-      {isOpen && (
+      <motion.div
+        className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        variants={backdropVariants}
+        onClick={handleBackdropClick}
+      >
+        {/* Backdrop */}
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+        
+        {/* Modal Surface - Uses same layoutId as ServiceCard */}
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          variants={backdropVariants}
-          onClick={handleBackdropClick}
+          ref={modalRef}
+          layoutId={`service-${id}`}
+          className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[var(--brand-bg)] shadow-2xl"
+          style={{ borderRadius: '12px 4px 12px 12px' }}
+          transition={springTransition}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+          tabIndex={-1}
+          data-testid={`service-modal-${id}`}
         >
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-          
-          {/* Modal */}
-          <motion.div
-            ref={modalRef}
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[var(--brand-bg)] shadow-2xl"
-            style={{ borderRadius: '12px 4px 12px 12px' }}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={modalVariants}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-            data-testid={`service-modal-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-[var(--brand-primary)]/10">
-              <h2
-                id="modal-title"
-                className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight"
-                style={{ fontFamily: 'var(--font-grandview-bold)' }}
-              >
-                {service.title}
-              </h2>
-              <button
-                ref={closeButtonRef}
-                onClick={onClose}
-                className="p-2 text-[var(--brand-primary)] hover:text-[var(--brand-pop)] focus:outline-none transition-colors"
-                style={{ borderRadius: '12px 4px 12px 12px' }}
-                aria-label="Close modal"
-                data-testid="close-modal"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
+          {/* Header */}
+          <div className="flex items-center justify-between p-6 border-b border-[var(--brand-primary)]/10">
+            <h2
+              id="modal-title"
+              className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight"
+              style={{ fontFamily: 'var(--font-grandview-bold)' }}
+            >
+              {service.title}
+            </h2>
+            
+            <button
+              onClick={onClose}
+              className="w-8 h-8 rounded-full bg-transparent hover:bg-[var(--brand-pop)] hover:text-white transition-all duration-200 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[var(--brand-pop)] focus:ring-offset-2 focus:ring-offset-[var(--brand-bg)]"
+              aria-label="Close modal"
+              data-testid="button-close-modal"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
 
-            {/* Content */}
-            <div className="p-6 space-y-8">
-              {/* Purpose line */}
-              <p className="text-lg text-[var(--brand-primary)] leading-relaxed" style={{ fontFamily: 'var(--font-grandview)' }}>
-                {service.description}
-              </p>
+          {/* Content */}
+          <div className="p-6">
+            {/* Description */}
+            <p 
+              className="text-lg text-[var(--brand-primary)] mb-8 leading-relaxed"
+              style={{ fontFamily: 'var(--font-grandview)' }}
+            >
+              {service.description}
+            </p>
 
-              {/* Process Section */}
-              <div>
-                <h3 className="text-xl font-bold text-[var(--brand-secondary)] mb-4" style={{ fontFamily: 'var(--font-grandview-bold)' }}>
-                  Process
-                </h3>
-                <ol className="space-y-3">
-                  {service.process.map((step, index) => (
-                    <li key={index} className="flex items-start">
-                      <span 
-                        className="flex-shrink-0 w-8 h-8 bg-[var(--brand-primary)] text-[var(--brand-bg)] rounded-full flex items-center justify-center text-sm font-bold mr-4 mt-0.5"
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Left Column */}
+              <div className="space-y-8">
+                {/* Process Steps */}
+                <div>
+                  <h3 
+                    className="text-xl font-extrabold text-[var(--brand-secondary)] mb-4"
+                    style={{ fontFamily: 'var(--font-grandview-bold)' }}
+                  >
+                    Process
+                  </h3>
+                  <ol className="space-y-3">
+                    {service.process.map((step, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="w-6 h-6 bg-[var(--brand-secondary)] text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 flex-shrink-0">
+                          {index + 1}
+                        </span>
+                        <span 
+                          className="text-[var(--brand-primary)] text-sm leading-relaxed"
+                          style={{ fontFamily: 'var(--font-grandview)' }}
+                        >
+                          {step}
+                        </span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+
+                {/* Used Section */}
+                <div>
+                  <h3 
+                    className="text-xl font-extrabold text-[var(--brand-secondary)] mb-4"
+                    style={{ fontFamily: 'var(--font-grandview-bold)' }}
+                  >
+                    Used
+                  </h3>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {/* Products */}
+                    <div>
+                      <h4 
+                        className="font-bold text-[var(--brand-primary)] mb-2 text-sm"
+                        style={{ fontFamily: 'var(--font-grandview-bold)' }}
                       >
-                        {index + 1}
-                      </span>
-                      <span className="text-[var(--brand-primary)] leading-relaxed" style={{ fontFamily: 'var(--font-grandview)' }}>
-                        {step}
-                      </span>
-                    </li>
-                  ))}
-                </ol>
+                        Products
+                      </h4>
+                      <ul className="space-y-1 text-xs text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
+                        {service.products.map((product, index) => (
+                          <li key={index} className="flex items-start">
+                            <Check className="w-3 h-3 text-[var(--brand-secondary)] mr-1 flex-shrink-0 mt-0.5" />
+                            {product}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Tools */}
+                    <div>
+                      <h4 
+                        className="font-bold text-[var(--brand-primary)] mb-2 text-sm"
+                        style={{ fontFamily: 'var(--font-grandview-bold)' }}
+                      >
+                        Tools
+                      </h4>
+                      <ul className="space-y-1 text-xs text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
+                        {service.tools.map((tool, index) => (
+                          <li key={index} className="flex items-start">
+                            <Check className="w-3 h-3 text-[var(--brand-secondary)] mr-1 flex-shrink-0 mt-0.5" />
+                            {tool}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Equipment */}
+                    <div>
+                      <h4 
+                        className="font-bold text-[var(--brand-primary)] mb-2 text-sm"
+                        style={{ fontFamily: 'var(--font-grandview-bold)' }}
+                      >
+                        Equipment
+                      </h4>
+                      <ul className="space-y-1 text-xs text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
+                        {service.equipment.map((equipment, index) => (
+                          <li key={index} className="flex items-start">
+                            <Check className="w-3 h-3 text-[var(--brand-secondary)] mr-1 flex-shrink-0 mt-0.5" />
+                            {equipment}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              {/* Used Section */}
-              <div>
-                <h3 className="text-xl font-bold text-[var(--brand-secondary)] mb-6" style={{ fontFamily: 'var(--font-grandview-bold)' }}>
-                  Used
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {/* Products */}
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                      <img src="/svg/icon-products.svg" alt="Products used" className="w-12 h-12 text-[var(--brand-primary)]" />
+              {/* Right Column */}
+              <div className="space-y-8">
+                {/* Service Details */}
+                <div className="bg-[var(--brand-primary)]/5 p-6 rounded-lg">
+                  <h3 
+                    className="text-xl font-extrabold text-[var(--brand-secondary)] mb-4"
+                    style={{ fontFamily: 'var(--font-grandview-bold)' }}
+                  >
+                    Service Details
+                  </h3>
+                  
+                  <div className="space-y-4">
+                    {/* Duration */}
+                    <div>
+                      <h4 
+                        className="font-bold text-[var(--brand-secondary)] mb-2"
+                        style={{ fontFamily: 'var(--font-grandview-bold)' }}
+                      >
+                        Estimated Duration
+                      </h4>
+                      <div className="flex items-center">
+                        <Clock className="w-4 h-4 text-[var(--brand-secondary)] mr-2" />
+                        <span 
+                          className="text-[var(--brand-primary)]"
+                          style={{ fontFamily: 'var(--font-grandview)' }}
+                        >
+                          {service.duration}
+                        </span>
+                      </div>
                     </div>
-                    <h4 className="font-bold text-[var(--brand-secondary)] mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>
-                      Products
-                    </h4>
-                    <ul className="space-y-1 text-sm text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
-                      {service.products.map((product, index) => (
-                        <li key={index}>{product}</li>
-                      ))}
-                    </ul>
-                  </div>
 
-                  {/* Tools */}
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                      <img src="/svg/icon-tools.svg" alt="Tools used" className="w-12 h-12 text-[var(--brand-primary)]" />
+                    {/* Best For */}
+                    <div>
+                      <h4 
+                        className="font-bold text-[var(--brand-secondary)] mb-2"
+                        style={{ fontFamily: 'var(--font-grandview-bold)' }}
+                      >
+                        Best For
+                      </h4>
+                      <p 
+                        className="text-[var(--brand-primary)]"
+                        style={{ fontFamily: 'var(--font-grandview)' }}
+                      >
+                        {service.bestFor}
+                      </p>
                     </div>
-                    <h4 className="font-bold text-[var(--brand-secondary)] mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>
-                      Tools
-                    </h4>
-                    <ul className="space-y-1 text-sm text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
-                      {service.tools.map((tool, index) => (
-                        <li key={index}>{tool}</li>
-                      ))}
-                    </ul>
-                  </div>
 
-                  {/* Equipment */}
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                      <img src="/svg/icon-equipment.svg" alt="Equipment used" className="w-12 h-12 text-[var(--brand-primary)]" />
+                    {/* Highlights */}
+                    <div>
+                      <h4 
+                        className="font-bold text-[var(--brand-secondary)] mb-2"
+                        style={{ fontFamily: 'var(--font-grandview-bold)' }}
+                      >
+                        Highlights
+                      </h4>
+                      <ul className="space-y-1 text-sm text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
+                        {service.highlights.map((highlight, index) => (
+                          <li key={index} className="flex items-start">
+                            <Check className="w-4 h-4 text-[var(--brand-secondary)] mr-2 flex-shrink-0 mt-0.5" />
+                            {highlight}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <h4 className="font-bold text-[var(--brand-secondary)] mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>
-                      Equipment
-                    </h4>
-                    <ul className="space-y-1 text-sm text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
-                      {service.equipment.map((equipment, index) => (
-                        <li key={index}>{equipment}</li>
-                      ))}
-                    </ul>
+                  </div>
+                </div>
+
+                {/* Service Illustration Placeholder */}
+                <div className="bg-[var(--brand-primary)]/5 p-6 rounded-lg">
+                  <div className="aspect-square bg-gradient-to-br from-[var(--brand-primary)]/10 to-[var(--brand-secondary)]/10 rounded-lg flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-[var(--brand-primary)]/20 rounded-full mx-auto mb-3 flex items-center justify-center">
+                        <Check className="w-8 h-8 text-[var(--brand-primary)]" />
+                      </div>
+                      <p 
+                        className="text-sm text-[var(--brand-primary)] font-medium"
+                        style={{ fontFamily: 'var(--font-grandview)' }}
+                      >
+                        Service Illustration
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
-      )}
-    </AnimatePresence>
+      </motion.div>
+    </AnimatePresence>,
+    document.body
   );
 }
