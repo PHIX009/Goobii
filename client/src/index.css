@@ -74,7 +74,7 @@ footer a:hover span,
   transition: color 0.3s ease;
 }
 
-/* Service card orange glow effect */
+/* Service card secondary color glow effect */
 .service-card::before {
   content: '';
   position: absolute;
@@ -84,7 +84,7 @@ footer a:hover span,
   bottom: 0;
   background: radial-gradient(
     600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    hsl(30, 100%, 50% / 0.15),
+    hsl(210, 60%, 18% / 0.15),
     transparent 40%
   );
   border-radius: inherit;

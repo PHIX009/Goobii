@@ -63,6 +63,12 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
         const rect = clickedCard.getBoundingClientRect();
         setClickedCardRect(rect);
       }
+    } else {
+      // Keep the rect for exit animation
+      const timeout = setTimeout(() => {
+        setClickedCardRect(null);
+      }, 1000);
+      return () => clearTimeout(timeout);
     }
   }, [isOpen, service.title]);
 
@@ -88,12 +94,11 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
   const modalVariants = {
     hidden: {
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.2,
+      scale: prefersReducedMotion ? 1 : 0.1,
       x: initialPos.x,
       y: initialPos.y,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.0,
-        ease: "easeOut"
+        duration: 0
       }
     },
     visible: {
@@ -102,21 +107,24 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
       x: 0,
       y: 0,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.7,
+        duration: prefersReducedMotion ? 0.15 : 0.8,
         type: prefersReducedMotion ? 'tween' : 'spring',
-        stiffness: 120,
-        damping: 18,
-        ease: [0.34, 1.56, 0.64, 1]
+        stiffness: 100,
+        damping: 15,
+        ease: [0.23, 1, 0.32, 1]
       }
     },
     exit: {
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.2,
+      scale: prefersReducedMotion ? 1 : 0.1,
       x: initialPos.x,
       y: initialPos.y,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.6,
-        ease: [0.36, 0, 0.66, -0.56]
+        duration: prefersReducedMotion ? 0.15 : 0.7,
+        type: prefersReducedMotion ? 'tween' : 'spring',
+        stiffness: 120,
+        damping: 15,
+        ease: [0.76, 0, 0.24, 1]
       }
     }
   };
@@ -164,7 +172,7 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
               <button
                 ref={closeButtonRef}
                 onClick={onClose}
-                className="p-2 text-[var(--brand-primary)] hover:text-[var(--brand-pop)] focus:outline-none focus:text-[var(--brand-pop)] transition-colors"
+                className="p-2 text-[var(--brand-primary)] hover:text-[var(--brand-pop)] focus:outline-none transition-colors"
                 style={{ borderRadius: '12px 4px 12px 12px' }}
                 aria-label="Close modal"
                 data-testid="close-modal"
