@@ -80,6 +80,24 @@ footer a:hover span,
   will-change: transform, opacity;
 }
 
+/* Fix dropdown transparency - one shade darker than page background */
+[data-radix-select-content] {
+  background-color: hsl(200, 17%, 90%) !important; /* One shade darker than --brand-bg */
+  border: 1px solid hsl(195, 100%, 26% / 0.2) !important;
+}
+
+[data-radix-select-viewport] {
+  background-color: hsl(200, 17%, 90%) !important;
+}
+
+[data-radix-select-item] {
+  background-color: transparent !important;
+}
+
+[data-radix-select-item]:hover {
+  background-color: hsl(195, 100%, 26% / 0.1) !important;
+}
+
 /* Service card secondary color glow effect */
 .service-card::before {
   content: '';

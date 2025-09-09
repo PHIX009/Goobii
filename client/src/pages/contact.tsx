@@ -96,57 +96,51 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Contact Information */}
-              <div className="space-y-8">
-                <div>
-                  <h2 className="text-3xl font-grandview-bold text-brand-primary mb-6 text-center">Contact Methods</h2>
-                  
-                  <div className="space-y-6">
-                    <div className="flex items-start space-x-4" data-testid="whatsapp-contact">
-                      <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center flex-shrink-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                        <MessageCircle className="w-6 h-6 text-brand-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-extrabold text-brand-primary mb-0.5">WhatsApp</h3>
-                        <p className="text-sm text-muted-foreground mb-1">Quick support and instant messaging</p>
-                        <a href="#whatsapp-placeholder" className="text-sm text-brand-primary hover:text-brand-secondary transition-colors" data-testid="whatsapp-link">
-                          Chat with us on WhatsApp
-                        </a>
-                      </div>
+            {/* Contact Methods - Centered */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-grandview-bold text-brand-primary mb-8 text-center">Contact Methods</h2>
+              
+              <div className="max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="flex flex-col items-center text-center" data-testid="whatsapp-contact">
+                    <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center flex-shrink-0 mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                      <MessageCircle className="w-6 h-6 text-brand-primary" />
                     </div>
+                    <h3 className="text-xl font-extrabold text-brand-primary mb-2">WhatsApp</h3>
+                    <p className="text-sm font-bold text-muted-foreground mb-2">Quick support and instant messaging</p>
+                    <a href="#whatsapp-placeholder" className="text-sm font-bold text-brand-primary hover:text-brand-secondary transition-colors" data-testid="whatsapp-link">
+                      Chat with us on WhatsApp
+                    </a>
+                  </div>
 
-                    <div className="flex items-start space-x-4" data-testid="email-contact">
-                      <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center flex-shrink-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                        <Mail className="w-6 h-6 text-brand-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-extrabold text-brand-primary mb-0.5">Email</h3>
-                        <p className="text-sm text-muted-foreground mb-1">For detailed inquiries and support</p>
-                        <a href="#email-placeholder" className="text-sm text-brand-primary hover:text-brand-secondary transition-colors" data-testid="email-link">
-                          Send us an email
-                        </a>
-                      </div>
+                  <div className="flex flex-col items-center text-center" data-testid="email-contact">
+                    <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center flex-shrink-0 mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                      <Mail className="w-6 h-6 text-brand-primary" />
                     </div>
+                    <h3 className="text-xl font-extrabold text-brand-primary mb-2">Email</h3>
+                    <p className="text-sm font-bold text-muted-foreground mb-2">For detailed inquiries and support</p>
+                    <a href="#email-placeholder" className="text-sm font-bold text-brand-primary hover:text-brand-secondary transition-colors" data-testid="email-link">
+                      Send us an email
+                    </a>
+                  </div>
 
-                    <div className="flex items-start space-x-4" data-testid="hours-info">
-                      <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center flex-shrink-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                        <MapPin className="w-6 h-6 text-brand-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-extrabold text-brand-primary mb-0.5">Service Area</h3>
-                        <p className="text-sm text-muted-foreground mb-0.5">Dubai citywide</p>
-                        <p className="text-sm text-muted-foreground">Check the app for coverage</p>
-                      </div>
+                  <div className="flex flex-col items-center text-center" data-testid="hours-info">
+                    <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center flex-shrink-0 mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                      <MapPin className="w-6 h-6 text-brand-primary" />
                     </div>
+                    <h3 className="text-xl font-extrabold text-brand-primary mb-2">Service Area</h3>
+                    <p className="text-sm font-bold text-muted-foreground mb-1">Dubai citywide</p>
+                    <p className="text-sm font-bold text-muted-foreground">Check the app for coverage</p>
                   </div>
                 </div>
-
               </div>
+            </div>
 
+            {/* Two Sections Side by Side */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
               {/* Contact Form */}
-              <Card className="p-8 border-0" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="contact-form-card">
-                <h2 className="text-2xl font-extrabold text-brand-primary mb-6">Send us a Message</h2>
+              <Card className="p-8 border-2 border-brand-primary shadow-lg" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="contact-form-card">
+                <h2 className="text-3xl font-extrabold text-brand-primary mb-6 text-center">Send us a Message</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6" data-testid="contact-form">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -225,7 +219,7 @@ export default function Contact() {
 
                   <Button 
                     type="submit" 
-                    className="w-full bg-brand-primary hover:bg-brand-secondary text-brand-bg font-grandview-bold"
+                    className="w-full bg-brand-primary hover:bg-brand-secondary text-brand-bg font-grandview-bold text-lg py-3"
                     disabled={isSubmitting}
                     data-testid="submit-button"
                     style={{ borderRadius: '12px 4px 12px 12px' }}
@@ -234,6 +228,34 @@ export default function Contact() {
                   </Button>
                 </form>
               </Card>
+
+              {/* Vertical Separator */}
+              <div className="flex justify-center items-start py-8">
+                <div className="w-px bg-gradient-to-b from-transparent via-brand-primary/30 to-transparent" style={{ height: '400px' }}></div>
+              </div>
+
+              {/* Quick Contact Section */}
+              <div className="space-y-6">
+                <h2 className="text-3xl font-extrabold text-brand-primary mb-6 text-center">Quick Contact</h2>
+                
+                <div className="space-y-4">
+                  <div className="text-center p-6" style={{ borderRadius: '12px 4px 12px 12px', backgroundColor: 'var(--brand-primary)' }}>
+                    <h3 className="text-xl font-extrabold mb-2" style={{ color: 'var(--brand-bg)' }}>WhatsApp</h3>
+                    <p className="text-sm mb-3" style={{ color: 'var(--brand-bg)' }}>Quick support and instant messaging</p>
+                    <a href="#whatsapp-placeholder" className="inline-block px-4 py-2 font-bold hover:opacity-80 transition-opacity" style={{ backgroundColor: 'var(--brand-bg)', color: 'var(--brand-primary)', borderRadius: '8px 2px 8px 8px' }}>
+                      Chat with us on WhatsApp
+                    </a>
+                  </div>
+
+                  <div className="text-center p-6" style={{ borderRadius: '12px 4px 12px 12px', backgroundColor: 'var(--brand-primary)' }}>
+                    <h3 className="text-xl font-extrabold mb-2" style={{ color: 'var(--brand-bg)' }}>Email</h3>
+                    <p className="text-sm mb-3" style={{ color: 'var(--brand-bg)' }}>For detailed inquiries and support</p>
+                    <a href="#email-placeholder" className="inline-block px-4 py-2 font-bold hover:opacity-80 transition-opacity" style={{ backgroundColor: 'var(--brand-bg)', color: 'var(--brand-primary)', borderRadius: '8px 2px 8px 8px' }}>
+                      Send us an email
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
