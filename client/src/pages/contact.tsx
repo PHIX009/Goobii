@@ -236,10 +236,16 @@ export default function Contact() {
                         fontWeight: 'bold'
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = 'var(--brand-secondary)';
+                        e.currentTarget.style.color = 'var(--brand-contrast-2)';
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = 'var(--brand-primary)';
+                        e.currentTarget.style.color = 'var(--brand-bg)';
+                      }}
+                      onMouseDown={(e) => {
+                        e.currentTarget.style.color = 'var(--brand-contrast-2)';
+                      }}
+                      onMouseUp={(e) => {
+                        e.currentTarget.style.color = 'var(--brand-contrast-2)';
                       }}
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
