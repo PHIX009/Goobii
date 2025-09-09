@@ -6,33 +6,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import CTAGroup from "@/components/cta-group";
 import logoImage from "@assets/Horizontal Logo + Tagline_1757358585705.png";
 
-const menuCategories = [
-  {
-    name: "Products",
-    items: [
-      { name: "Services", href: "/services" },
-      { name: "Subscriptions", href: "/subscriptions" }
-    ]
-  },
-  {
-    name: "Company", 
-    items: [
-      { name: "About Us", href: "/about" },
-      { name: "Purpose & Impact", href: "/purpose-and-impact" },
-      { name: "FAQs", href: "/faqs" }
-    ]
-  },
-  {
-    name: "Get in Touch",
-    href: "/contact"
-  }
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "Subscriptions", href: "/subscriptions" },
+  { name: "About Us", href: "/about" },
+  { name: "Purpose & Impact", href: "/purpose-and-impact" },
+  { name: "FAQs", href: "/faqs" },
+  { name: "Get in Touch", href: "/contact" }
 ];
 
 export default function Header() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -93,11 +80,12 @@ export default function Header() {
             data-testid="menu-toggle"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? (
-              <X className="w-6 h-6 text-brand-primary" />
-            ) : (
+            <motion.div
+              animate={{ rotate: isOpen ? 90 : 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
               <Menu className="w-6 h-6 text-brand-primary" />
-            )}
+            </motion.div>
           </Button>
         </div>
       </nav>
@@ -111,7 +99,7 @@ export default function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.3 }}
               className="fixed inset-0 z-40 bg-black/30"
               onClick={() => setIsOpen(false)}
             />
@@ -120,104 +108,75 @@ export default function Header() {
             <motion.div
               initial={{ 
                 opacity: 0,
-                scale: 0.8,
+                height: 0,
+                width: 50,
                 x: menuButtonRef.current ? 
-                  menuButtonRef.current.getBoundingClientRect().right - 200 : 
-                  window.innerWidth - 220,
-                y: 20
+                  menuButtonRef.current.getBoundingClientRect().left : 
+                  window.innerWidth - 70,
+                y: 70
               }}
               animate={{ 
                 opacity: 1,
-                scale: 1,
+                height: "auto",
+                width: 200,
                 x: window.innerWidth - 220,
-                y: 80
+                y: 70
               }}
               exit={{ 
                 opacity: 0,
-                scale: 0.8,
+                height: 0,
+                width: 50,
                 x: menuButtonRef.current ? 
-                  menuButtonRef.current.getBoundingClientRect().right - 200 : 
-                  window.innerWidth - 220,
-                y: 20
+                  menuButtonRef.current.getBoundingClientRect().left : 
+                  window.innerWidth - 70,
+                y: 70
               }}
               transition={{ 
-                type: "spring",
-                damping: 25,
-                stiffness: 300,
-                duration: 0.3
+                duration: 0.4,
+                ease: "easeInOut",
+                height: { duration: 0.5, delay: isOpen ? 0.1 : 0 },
+                width: { duration: 0.4, ease: "easeInOut" }
               }}
-              className="fixed z-50 w-[200px] border-2 border-brand-primary shadow-2xl"
+              className="fixed z-50 border-2 border-brand-primary shadow-2xl overflow-hidden"
               style={{ 
                 borderRadius: '12px 4px 12px 12px',
                 backgroundColor: '#e2e8f0',
                 boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 8px 16px -8px rgba(0, 105, 128, 0.3)'
               }}
             >
-              <div className="p-4">
-                {menuCategories.map((category, index) => (
-                  <div key={category.name} className="mb-2">
-                    {category.href ? (
-                      // Direct link for "Get in Touch"
-                      <Link
-                        href={category.href}
-                        className="block py-2 px-3 font-bold text-brand-primary hover:text-[#DCC57F] transition-colors"
-                        onClick={() => setIsOpen(false)}
-                        data-testid={`nav-link-${category.name.toLowerCase().replace(/\s+/g, '-')}`}
-                      >
-                        {category.name}
-                      </Link>
-                    ) : (
-                      // Expandable category
-                      <>
-                        <button
-                          className="flex items-center justify-between w-full py-2 px-3 font-bold text-brand-secondary hover:text-brand-primary transition-colors"
-                          onClick={() => setExpandedCategory(
-                            expandedCategory === category.name ? null : category.name
-                          )}
-                          data-testid={`category-${category.name.toLowerCase()}`}
-                        >
-                          {category.name}
-                          {expandedCategory === category.name ? (
-                            <ChevronUp className="w-4 h-4" />
-                          ) : (
-                            <ChevronDown className="w-4 h-4" />
-                          )}
-                        </button>
-                        
-                        <AnimatePresence>
-                          {expandedCategory === category.name && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.2 }}
-                              className="overflow-hidden"
-                            >
-                              <div className="pl-4 pt-1">
-                                {category.items?.map((item) => (
-                                  <Link
-                                    key={item.name}
-                                    href={item.href}
-                                    className={`block py-1.5 px-3 text-sm transition-colors ${
-                                      location === item.href 
-                                        ? "font-bold text-[#DCC57F]" 
-                                        : "text-brand-secondary hover:text-brand-pop"
-                                    }`}
-                                    onClick={() => setIsOpen(false)}
-                                    data-testid={`nav-link-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
-                                  >
-                                    {item.name}
-                                  </Link>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </>
-                    )}
-                  </div>
+              <motion.div 
+                className="p-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2, delay: isOpen ? 0.3 : 0 }}
+              >
+                {navigation.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ 
+                      duration: 0.2, 
+                      delay: isOpen ? 0.1 + (index * 0.05) : 0
+                    }}
+                  >
+                    <Link
+                      href={item.href}
+                      className={`block py-2 px-3 text-sm transition-colors rounded-md mb-1 ${
+                        location === item.href 
+                          ? "font-bold text-[#DCC57F]" 
+                          : "text-brand-secondary hover:text-brand-pop hover:font-semibold"
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                      data-testid={`nav-link-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </motion.div>
           </>
         )}
