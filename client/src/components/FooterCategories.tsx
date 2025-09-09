@@ -9,7 +9,7 @@ export default function FooterCategories() {
   return (
     <footer className="bg-[var(--brand-bg)] border-t border-[color-mix(in_oklab,var(--brand-secondary)_15%,transparent)]">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16 py-12 md:py-16">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-16">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-16">
           {/* Left side - Products and Company closer together */}
           <div className="flex flex-col md:flex-row gap-8 md:gap-12">
             {/* Products */}
