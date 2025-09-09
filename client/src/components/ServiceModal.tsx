@@ -79,7 +79,6 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
             y: cardCenterY - viewportCenterY
           };
           
-          console.log('Card position:', { cardCenterX, cardCenterY, viewportCenterX, viewportCenterY, pos });
           setInitialPos(pos);
         }
       }
@@ -89,9 +88,9 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
   const modalVariants = {
     hidden: {
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.1,
-      x: initialPos.x,
-      y: initialPos.y,
+      scale: prefersReducedMotion ? 1 : 0.05,
+      x: prefersReducedMotion ? 0 : initialPos.x,
+      y: prefersReducedMotion ? 0 : initialPos.y,
     },
     visible: {
       opacity: 1,
@@ -99,22 +98,24 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
       x: 0,
       y: 0,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.8,
+        duration: prefersReducedMotion ? 0.15 : 1.0,
         type: 'spring',
-        stiffness: 100,
-        damping: 15
+        stiffness: 80,
+        damping: 12,
+        mass: 0.8
       }
     },
     exit: {
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.1,
-      x: initialPos.x,
-      y: initialPos.y,
+      scale: prefersReducedMotion ? 1 : 0.05,
+      x: prefersReducedMotion ? 0 : initialPos.x,
+      y: prefersReducedMotion ? 0 : initialPos.y,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.6,
+        duration: prefersReducedMotion ? 0.15 : 0.8,
         type: 'spring',
-        stiffness: 120,
-        damping: 18
+        stiffness: 100,
+        damping: 15,
+        mass: 0.6
       }
     }
   };
@@ -129,7 +130,7 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 p-4"
           initial="hidden"
           animate="visible"
           exit="exit"
@@ -142,8 +143,13 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
           {/* Modal */}
           <motion.div
             ref={modalRef}
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[var(--brand-bg)] shadow-2xl"
-            style={{ borderRadius: '12px 4px 12px 12px' }}
+            className="absolute w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[var(--brand-bg)] shadow-2xl"
+            style={{ 
+              borderRadius: '12px 4px 12px 12px',
+              left: '50%',
+              top: '50%',
+              transform: 'translate(-50%, -50%)'
+            }}
             initial="hidden"
             animate="visible"
             exit="exit"
