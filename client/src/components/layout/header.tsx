@@ -80,19 +80,20 @@ export default function Header() {
                 <Menu className="w-6 h-6 text-brand-primary" />
               </Button>
             </SheetTrigger>
-            {/* Custom backdrop with page blur */}
+            {/* Custom backdrop */}
             {isOpen && (
               <div 
-                className="fixed inset-0 z-40 backdrop-blur-md" 
+                className="fixed inset-0 z-40" 
                 onClick={() => setIsOpen(false)}
               />
             )}
             <SheetContent 
               side="right" 
-              className="w-[200px] h-fit max-h-[400px] bg-muted border-2 border-brand-primary shadow-2xl z-50 top-20 right-4 overflow-visible"
+              className="w-[200px] h-fit max-h-[400px] border-2 border-brand-primary shadow-2xl z-50 top-20 right-4 overflow-visible"
               style={{ 
                 position: 'fixed',
                 borderRadius: '12px 4px 12px 12px',
+                backgroundColor: '#f1f5f9',
                 boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 8px 16px -8px rgba(0, 105, 128, 0.3)'
               }}
             >
@@ -106,10 +107,9 @@ export default function Header() {
                     href={item.href}
                     className={`text-sm py-2 px-3 transition-all duration-200 mx-1 ${
                       location === item.href 
-                        ? "font-bold text-[#DCC57F] bg-[#DCC57F]/15" 
-                        : "text-brand-secondary hover:text-brand-pop hover:bg-brand-pop/10 hover:font-bold"
+                        ? "font-bold text-[#DCC57F]" 
+                        : "text-brand-secondary hover:text-brand-pop hover:font-bold"
                     }`}
-                    style={location === item.href ? { borderRadius: '8px 2px 8px 8px' } : { borderRadius: '8px 2px 8px 8px' }}
                     onClick={() => setIsOpen(false)}
                     data-testid={`nav-link-${item.name.toLowerCase()}`}
                   >
