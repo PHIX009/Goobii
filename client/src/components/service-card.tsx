@@ -1,7 +1,9 @@
 import { useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Clock, Check } from 'lucide-react';
 
 interface ServiceCardProps {
+  id: string;
   title: string;
   description: string;
   highlights: string[];
@@ -11,6 +13,7 @@ interface ServiceCardProps {
 }
 
 export default function ServiceCard({ 
+  id,
   title, 
   description, 
   highlights,
@@ -46,14 +49,18 @@ export default function ServiceCard({
   }, []);
 
   return (
-    <button 
+    <motion.button 
       ref={cardRef}
+      layoutId={`service-${id}`}
       className="service-card w-full text-left bg-[var(--brand-bg)] p-8 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-secondary)]/30 transition-all duration-300 border border-[var(--brand-primary)]/10 hover:border-[var(--brand-secondary)]/30 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[var(--brand-pop)] focus:ring-offset-2 focus:ring-offset-[var(--brand-bg)] cursor-pointer relative overflow-hidden"
       style={{ borderRadius: '12px 4px 12px 12px' }}
       onClick={onClick}
       onKeyDown={handleKeyDown}
       aria-controls={`modal-${title.toLowerCase().replace(/\s+/g, '-')}`}
       data-testid={`service-card-${title.toLowerCase().replace(/\s+/g, '-')}`}
+      whileHover={{ y: -4 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
     >
       {/* Title */}
       <h3 
@@ -121,6 +128,6 @@ export default function ServiceCard({
       >
         <span className="font-bold">Best for:</span> {bestFor}
       </p>
-    </button>
+    </motion.button>
   );
 }

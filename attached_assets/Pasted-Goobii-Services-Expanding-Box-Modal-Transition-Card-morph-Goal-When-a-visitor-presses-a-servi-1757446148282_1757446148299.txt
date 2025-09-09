@@ -1,0 +1,176 @@
+Goobii Services — Expanding Box → Modal Transition (Card morph)
+Goal
+
+When a visitor presses a service box, the same box smoothly expands (grows) into a modal that covers most of the screen. When closing, the modal shrinks and slides back into the original box position. Animation must feel natural, brand-true, and accessible.
+
+Tech
+
+Next.js (App Router) + React + TypeScript
+
+Tailwind CSS
+
+Framer Motion v7+ (use AnimatePresence + layoutId shared element transitions)
+
+No external images; use SVG placeholders for illustrations/icons
+
+Brand / UI
+
+Use existing Goobii service box shape (the pre-shared style you already know). Apply that exact shape to both the card surface and the modal surface so the morph feels seamless.
+
+Colors (variables):
+--brand-primary:#006980; --brand-secondary:#003B5C; --brand-bg:#FAFCFE; --brand-pop:#FF8200; --brand-contrast-2:#DCC57F
+
+Font weights: service titles extra bold, body regular.
+
+Files
+
+components/ServiceCard.tsx — the clickable card (uses layoutId)
+
+components/ServiceModal.tsx — the modal surface (uses the same layoutId)
+
+components/ServicesGrid.tsx — renders the 4 cards and manages selection state
+
+(Existing content for each service stays as is)
+
+Interaction & Animation (must follow exactly)
+
+Click/press card → expand to modal
+
+The card root is a motion.div with layoutId={service-${id}}.
+
+On click, set selectedId=id. Render ServiceModal in a portal with a fixed positioned overlay.
+
+The modal surface is also a motion.div with the same layoutId.
+
+Framer Motion will morph/scale/translate from the card’s on-page position to the modal’s centered layout.
+
+Border radius and shadow should animate between the card and modal (use Tailwind classes plus layout props).
+
+Backdrop: a motion.div that fades in behind the modal (opacity 0 → 0.6).
+
+Close modal → shrink and slide back into card
+
+Close on ESC, overlay click, or close button.
+
+When closing, unmount the modal; Framer Motion will reverse the shared element transition, returning the surface back into the original card spot.
+
+After unmount, return focus to the triggering card.
+
+Motion specs
+
+Use a spring for the surface: { type:'spring', stiffness: 280, damping: 30, mass: 0.9 }
+
+Backdrop: { type:'tween', duration: 0.18, ease: 'easeOut' }
+
+Respect prefers-reduced-motion: if true, disable scale/slide, use a fast fade and instant position swap.
+
+Accessibility
+
+The modal uses role="dialog" aria-modal="true" and is labeled by the service title.
+
+Focus trap inside the modal; ESC closes; Return focus to the triggering card.
+
+Cards must be buttons or have role="button" with Enter/Space activation.
+
+Ensure color contrast AA; outline/focus ring uses --brand-pop.
+
+Component details
+ServiceCard.tsx
+
+Root: motion.button (or motion.div + role/button semantics) with:
+
+layoutId={service-${id}}
+
+The Goobii card shape class
+
+Hover: soft lift/shadow; Focus: ring in --brand-pop
+
+Content (existing at-a-glance):
+
+Title in gold text-[var(--brand-contrast-2)] font-extrabold
+
+One-line description
+
+Two-column row: Highlights (left) and Estimated duration (right)
+
+Small Best for line
+
+On click: call onOpen(id)
+
+ServiceModal.tsx
+
+Rendered in a portal (document.body) within AnimatePresence.
+
+Backdrop: motion.div full-screen, fades in/out.
+
+Surface: motion.div with same layoutId as its source card, positioned fixed and centered, max-width 900–1100px, responsive.
+
+Content:
+
+Title (gold, extra bold)
+
+Short purpose line (same as card description)
+
+Process (1–4 steps)
+
+Used split into Products · Tools · Equipment, each with a small SVG icon
+
+Right side or bottom: illustration placeholder (SVG)
+
+Close button top-right (large hit area, labeled, focusable)
+
+Example motion props (apply to surface)
+<motion.div
+  layoutId={`service-${id}`}
+  transition={{ layout: { duration: 0.35 }, ...spring }}
+  className="goobii-card-shape bg-white shadow-xl"
+>
+  {/* modal content */}
+</motion.div>
+
+
+Use transition={{ layout: { type:'spring', stiffness:280, damping:30 }}} and additional spring for elements inside if needed.
+
+Reduced motion
+
+Wrap transitions with a useReducedMotion() guard: skip scale/position animation; show/hide with simple fade and immediate layout change.
+
+State & Portal wiring
+
+In ServicesGrid.tsx, keep selectedId in state.
+
+Render the modal in a portal only when selectedId is set. Pass the service data by id.
+
+On close, set selectedId to null and restore focus to the last active card (store a ref).
+
+Placeholders (no stock media)
+
+/public/svg/service-illustration.svg — generic Jamal-style panel illustration
+
+/public/svg/icon-products.svg — bottle
+
+/public/svg/icon-tools.svg — brush/cloth
+
+/public/svg/icon-equipment.svg — power/spray
+
+Alt text: “Products used”, “Tools used”, “Equipment used”, “Service illustration”.
+
+Edge cases & polish
+
+If the source card is partially off-screen, scroll it into view before playing the reverse animation on close (smooth scroll 200ms) to avoid a jarring snap.
+
+Disable background scroll while modal is open (overflow: hidden on body).
+
+Prevent double-open: ignore clicks while isAnimating true; or debounce.
+
+Acceptance criteria
+
+Pressing a service box expands the same box into a modal with a smooth grow/slide from its on-page position; the card visually becomes the modal.
+
+Closing the modal smoothly shrinks/slides back into the original card position, then returns focus to that card.
+
+The modal uses the same Goobii box shape as the card surface (shared element) and covers most of the screen.
+
+Backdrop fades in/out; motion respects prefers-reduced-motion.
+
+Keyboard and screen reader support is complete; ESC and overlay click close the modal.
