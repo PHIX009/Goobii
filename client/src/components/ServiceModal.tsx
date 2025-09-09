@@ -130,7 +130,7 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
           initial="hidden"
           animate="visible"
           exit="exit"
@@ -143,13 +143,8 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
           {/* Modal */}
           <motion.div
             ref={modalRef}
-            className="absolute w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[var(--brand-bg)] shadow-2xl"
-            style={{ 
-              borderRadius: '12px 4px 12px 12px',
-              left: '50%',
-              top: '50%',
-              transform: 'translate(-50%, -50%)'
-            }}
+            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[var(--brand-bg)] shadow-2xl"
+            style={{ borderRadius: '12px 4px 12px 12px' }}
             initial="hidden"
             animate="visible"
             exit="exit"
