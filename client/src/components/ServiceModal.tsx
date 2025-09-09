@@ -75,7 +75,7 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
       opacity: 1,
       transition: { 
         type: 'tween', 
-        duration: prefersReducedMotion ? 0.05 : 0.18, 
+        duration: prefersReducedMotion ? 0.05 : 0.15, 
         ease: 'easeOut' 
       }
     },
@@ -83,19 +83,19 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
       opacity: 0,
       transition: { 
         type: 'tween', 
-        duration: prefersReducedMotion ? 0.05 : 0.15, 
-        ease: 'easeOut' 
+        duration: prefersReducedMotion ? 0.05 : 0.12, 
+        ease: 'easeIn' 
       }
     }
   };
 
-  // Spring animation for the modal surface - smoother settings
+  // Spring animation for the modal surface - optimized for smooth open/close
   const springTransition = {
     layout: { 
       type: 'spring', 
-      stiffness: prefersReducedMotion ? 400 : 200, 
-      damping: prefersReducedMotion ? 40 : 25, 
-      mass: prefersReducedMotion ? 0.5 : 0.8,
+      stiffness: prefersReducedMotion ? 400 : 160, 
+      damping: prefersReducedMotion ? 40 : 20, 
+      mass: prefersReducedMotion ? 0.5 : 0.6,
       duration: prefersReducedMotion ? 0.1 : undefined
     }
   };
@@ -138,7 +138,12 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
             
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-full bg-transparent hover:bg-[var(--brand-pop)] hover:text-white transition-all duration-200 flex items-center justify-center focus:outline-none focus:ring-0 focus:ring-transparent"
+              className="w-8 h-8 rounded-full bg-transparent hover:bg-[var(--brand-pop)] hover:text-white transition-colors duration-200 flex items-center justify-center outline-none border-none"
+              style={{ 
+                WebkitTapHighlightColor: 'transparent',
+                WebkitAppearance: 'none',
+                MozAppearance: 'none'
+              }}
               aria-label="Close modal"
               data-testid="button-close-modal"
             >
