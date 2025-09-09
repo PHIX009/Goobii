@@ -55,79 +55,70 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Get clicked card position when modal opens
+  // Get card position immediately when modal is about to open
   useEffect(() => {
     if (isOpen) {
+      // Capture position immediately
       const clickedCard = document.querySelector(`[data-testid="service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}"]`);
       if (clickedCard) {
         const rect = clickedCard.getBoundingClientRect();
         setClickedCardRect(rect);
       }
-    } else {
-      // Keep the rect for exit animation
-      const timeout = setTimeout(() => {
-        setClickedCardRect(null);
-      }, 1000);
-      return () => clearTimeout(timeout);
     }
   }, [isOpen, service.title]);
 
-  // Calculate initial position based on card location
-  const getInitialPosition = () => {
+  // Calculate positions for animation  
+  const getCardPosition = () => {
     if (!clickedCardRect || prefersReducedMotion) {
       return { x: 0, y: 0 };
     }
-    
-    // Start from the actual card position, not just relative to center
+
     const cardCenterX = clickedCardRect.left + clickedCardRect.width / 2;
     const cardCenterY = clickedCardRect.top + clickedCardRect.height / 2;
-    const modalCenterX = window.innerWidth / 2;
-    const modalCenterY = window.innerHeight / 2;
+    const viewportCenterX = window.innerWidth / 2;
+    const viewportCenterY = window.innerHeight / 2;
     
     return {
-      x: cardCenterX - modalCenterX,
-      y: cardCenterY - modalCenterY
+      x: cardCenterX - viewportCenterX,
+      y: cardCenterY - viewportCenterY
     };
   };
 
-  const initialPos = getInitialPosition();
+  const cardPos = getCardPosition();
 
   const modalVariants = {
-    hidden: {
+    hidden: () => ({
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.05,
-      x: prefersReducedMotion ? 0 : initialPos.x,
-      y: prefersReducedMotion ? 0 : initialPos.y,
-      transition: {
-        duration: 0
-      }
-    },
+      scale: prefersReducedMotion ? 1 : 0.01,
+      x: cardPos.x,
+      y: cardPos.y,
+    }),
     visible: {
       opacity: 1,
       scale: 1,
       x: 0,
       y: 0,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.9,
+        duration: prefersReducedMotion ? 0.15 : 1.2,
         type: 'spring',
-        stiffness: 80,
-        damping: 12,
-        mass: 0.8
+        stiffness: 60,
+        damping: 15,
+        mass: 1
       }
     },
-    exit: {
+    exit: () => ({
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.05,
-      x: prefersReducedMotion ? 0 : initialPos.x,
-      y: prefersReducedMotion ? 0 : initialPos.y,
+      scale: prefersReducedMotion ? 1 : 0.01,
+      x: cardPos.x,
+      y: cardPos.y,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.8,
+        duration: prefersReducedMotion ? 0.15 : 1.0,
         type: 'spring',
-        stiffness: 100,
-        damping: 15,
-        mass: 0.6
+        stiffness: 80,
+        damping: 18,
+        mass: 0.8
       }
-    }
+    })
   };
 
   const backdropVariants = {
@@ -155,6 +146,9 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
             ref={modalRef}
             className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[var(--brand-bg)] shadow-2xl"
             style={{ borderRadius: '12px 4px 12px 12px' }}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             variants={modalVariants}
             role="dialog"
             aria-modal="true"
