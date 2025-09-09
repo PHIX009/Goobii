@@ -1,0 +1,113 @@
+1) Make the expand/close animation smoother
+
+Use shared-element with tuned springs on the surface only; avoid nested layout where possible.
+
+// Card & Modal surface (same layoutId)
+const spring = { type: 'spring', stiffness: 320, damping: 28, mass: 0.9 };
+
+<motion.div
+  layoutId={`service-${id}`}
+  transition={{ layout: spring }}
+  className="transform-gpu will-change-transform will-change-opacity"
+>
+  …
+</motion.div>
+
+
+Backdrop uses a fast tween:
+
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 0.6 }}
+  exit={{ opacity: 0 }}
+  transition={{ duration: 0.18, ease: 'easeOut' }}
+/>
+
+
+Disable heavy effects during morph (common cause of lag):
+
+Remove/reduce backdrop-blur (or keep to backdrop-blur-sm).
+
+Avoid animating shadows/filters; let radius & scale handle the feel.
+
+Keep inner content static during the morph: on the modal surface, set inner wrappers to layout="position" instead of layout.
+
+<motion.div layout="position">…modal content…</motion.div>
+
+
+Prefer GPU transforms everywhere the surface moves:
+
+Add transform-gpu and backface-hidden ([backface-visibility:hidden]).
+
+Use <LazyMotion features={domAnimation}> (or domMax) to keep bundle light.
+
+Sequence close cleanly to avoid jank:
+
+<AnimatePresence mode="wait" onExitComplete={() => restoreFocus()}>
+  {selectedId && <ServiceModal … />}
+</AnimatePresence>
+
+
+And, before reversing, scrollIntoView({ block: 'center', behavior: 'smooth' }) the source card if it’s off-screen.
+
+Respect reduced motion:
+
+const prefersReduced = useReducedMotion();
+const layoutTransition = prefersReduced ? { duration: 0 } : spring;
+
+2) Remove the orange frame that appears after closing
+
+That’s the focus ring being shown after programmatic focus. Switch to focus-visible so it only appears for keyboard users.
+
+Card focus styles:
+
+const ring = "focus-visible:ring-2 focus-visible:ring-[var(--brand-pop)] focus:ring-0 ring-offset-2 ring-offset-white";
+// remove any plain `focus:ring-*` classes
+
+
+When closing modal, restore focus only for keyboard flows:
+
+const lastWasKeyboardRef = useRef(false);
+useEffect(() => {
+  const onKey = () => (lastWasKeyboardRef.current = true);
+  const onPointer = () => (lastWasKeyboardRef.current = false);
+  window.addEventListener('keydown', onKey);
+  window.addEventListener('pointerdown', onPointer);
+  return () => { window.removeEventListener('keydown', onKey); window.removeEventListener('pointerdown', onPointer); };
+}, []);
+
+function restoreFocus() {
+  if (lastWasKeyboardRef.current) triggerRef.current?.focus();
+  else triggerRef.current?.blur(); // avoid orange ring after mouse close
+}
+
+3) Fix the close “X” styling (no orange circle on press)
+
+Ensure the icon color changes on hover/active, not the background.
+
+Button classes (remove any bg-[var(--brand-pop)] on active/pressed):
+
+<button
+  aria-label="Close"
+  className="
+    p-2 rounded-full
+    text-[var(--brand-secondary)]
+    hover:text-[var(--brand-pop)]
+    active:text-[var(--brand-pop)]
+    focus-visible:ring-2 focus-visible:ring-[var(--brand-pop)] focus:ring-0 ring-offset-2 ring-offset-white
+    transition-colors
+  "
+>
+  <CloseIcon className="w-5 h-5" aria-hidden="true" />
+</button>
+
+
+If you still see the orange disk, search for any lingering class like bg-[var(--brand-pop)], hover:bg-*, or data-[state=on]:bg-* on the close button and remove it.
+
+4) Small performance wins (optional but helpful)
+
+React.memo(ServiceCard) and keep service data in useMemo so non-selected cards don’t re-render on open/close.
+
+Avoid overflow: auto on the animating container; put scrolling on an inner wrapper.
+
+Use pointer-events-none on the backdrop during exit to prevent double clicks.

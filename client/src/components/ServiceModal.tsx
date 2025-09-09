@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, LazyMotion, domAnimation, useReducedMotion } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { X, Clock, Check } from 'lucide-react';
 
@@ -22,14 +22,30 @@ interface ServiceModalProps {
 
 export default function ServiceModal({ id, service, onClose }: ServiceModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
+  const lastWasKeyboardRef = useRef(false);
 
   // Check for reduced motion preference
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReducedMotion = useReducedMotion();
 
-  // Handle escape key
+  // Track keyboard vs mouse usage for focus management
+  useEffect(() => {
+    const onKey = () => (lastWasKeyboardRef.current = true);
+    const onPointer = () => (lastWasKeyboardRef.current = false);
+    
+    window.addEventListener('keydown', onKey);
+    window.addEventListener('pointerdown', onPointer);
+    
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('pointerdown', onPointer);
+    };
+  }, []);
+
+  // Handle escape key and setup
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
+        lastWasKeyboardRef.current = true;
         onClose();
       }
     };
@@ -45,22 +61,24 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
     };
   }, [onClose]);
 
-  // Focus management
+  // Focus management with keyboard detection
   useEffect(() => {
     const modal = modalRef.current;
     if (modal) {
-      // Focus the modal
       modal.focus();
     }
-    
-    return () => {
-      // Return focus to the triggering card
-      const triggerCard = document.querySelector(`[data-testid="service-card-${id}"]`) as HTMLButtonElement;
-      if (triggerCard) {
+  }, []);
+
+  const restoreFocus = () => {
+    const triggerCard = document.querySelector(`[data-testid="service-card-${id}"]`) as HTMLButtonElement;
+    if (triggerCard) {
+      if (lastWasKeyboardRef.current) {
         triggerCard.focus();
+      } else {
+        triggerCard.blur(); // Avoid orange ring after mouse close
       }
-    };
-  }, [id]);
+    }
+  };
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
@@ -68,64 +86,54 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
     }
   };
 
-  // Animation variants for backdrop
+  // Optimized spring settings for smooth animation
+  const spring = { type: 'spring', stiffness: 320, damping: 28, mass: 0.9 };
+  const layoutTransition = prefersReducedMotion ? { duration: 0 } : { layout: spring };
+
+  // Fast backdrop animation
   const backdropVariants = {
     hidden: { opacity: 0 },
     visible: { 
-      opacity: 1,
-      transition: { 
-        type: 'tween', 
-        duration: prefersReducedMotion ? 0.05 : 0.15, 
-        ease: 'easeOut' 
-      }
+      opacity: 0.6,
+      transition: { duration: 0.18, ease: 'easeOut' }
     },
     exit: { 
       opacity: 0,
-      transition: { 
-        type: 'tween', 
-        duration: prefersReducedMotion ? 0.05 : 0.12, 
-        ease: 'easeIn' 
-      }
-    }
-  };
-
-  // Spring animation for the modal surface - optimized for smooth open/close
-  const springTransition = {
-    layout: { 
-      type: 'spring', 
-      stiffness: prefersReducedMotion ? 400 : 160, 
-      damping: prefersReducedMotion ? 40 : 20, 
-      mass: prefersReducedMotion ? 0.5 : 0.6,
-      duration: prefersReducedMotion ? 0.1 : undefined
+      transition: { duration: 0.15, ease: 'easeIn' }
     }
   };
 
   return createPortal(
-    <AnimatePresence>
-      <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center p-4"
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-        variants={backdropVariants}
-        onClick={handleBackdropClick}
-      >
-        {/* Backdrop */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-        
-        {/* Modal Surface - Uses same layoutId as ServiceCard */}
+    <LazyMotion features={domAnimation}>
+      <AnimatePresence mode="wait" onExitComplete={restoreFocus}>
         <motion.div
-          ref={modalRef}
-          layoutId={`service-${id}`}
-          className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[var(--brand-bg)] shadow-2xl"
-          style={{ borderRadius: '12px 4px 12px 12px' }}
-          transition={springTransition}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modal-title"
-          tabIndex={-1}
-          data-testid={`service-modal-${id}`}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          variants={backdropVariants}
+          onClick={handleBackdropClick}
+          style={{ pointerEvents: 'auto' }}
         >
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/60" />
+          
+          {/* Modal Surface - Uses same layoutId as ServiceCard */}
+          <motion.div
+            ref={modalRef}
+            layoutId={`service-${id}`}
+            className="relative w-full max-w-4xl bg-[var(--brand-bg)] shadow-2xl transform-gpu will-change-transform will-change-opacity backface-hidden"
+            style={{ borderRadius: '12px 4px 12px 12px' }}
+            transition={layoutTransition}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            tabIndex={-1}
+            data-testid={`service-modal-${id}`}
+          >
+            {/* Scrollable content wrapper */}
+            <div className="max-h-[90vh] overflow-y-auto">
+              <motion.div layout="position">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-[var(--brand-primary)]/10">
             <h2
@@ -138,11 +146,11 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
             
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-full bg-transparent text-[var(--brand-primary)] hover:bg-[var(--brand-pop)] hover:text-white transition-colors duration-300 flex items-center justify-center"
+              className="p-2 rounded-full text-[var(--brand-secondary)] hover:text-[var(--brand-pop)] active:text-[var(--brand-pop)] focus-visible:ring-2 focus-visible:ring-[var(--brand-pop)] focus:ring-0 ring-offset-2 ring-offset-white transition-colors"
               aria-label="Close modal"
               data-testid="button-close-modal"
             >
-              <X className="w-5 h-5" />
+              <X className="w-5 h-5" aria-hidden="true" />
             </button>
           </div>
 
@@ -336,10 +344,12 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
                 </div>
               </div>
             </div>
-          </div>
+              </motion.div>
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
-    </AnimatePresence>,
+      </AnimatePresence>
+    </LazyMotion>,
     document.body
   );
 }
