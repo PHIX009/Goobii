@@ -89,13 +89,13 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
     }
   };
 
-  // Spring animation for the modal surface
+  // Spring animation for the modal surface - smoother settings
   const springTransition = {
     layout: { 
       type: 'spring', 
-      stiffness: prefersReducedMotion ? 400 : 280, 
-      damping: prefersReducedMotion ? 40 : 30, 
-      mass: prefersReducedMotion ? 0.5 : 0.9,
+      stiffness: prefersReducedMotion ? 400 : 200, 
+      damping: prefersReducedMotion ? 40 : 25, 
+      mass: prefersReducedMotion ? 0.5 : 0.8,
       duration: prefersReducedMotion ? 0.1 : undefined
     }
   };
@@ -138,7 +138,7 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
             
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-full bg-transparent hover:bg-[var(--brand-pop)] hover:text-white transition-all duration-200 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[var(--brand-pop)] focus:ring-offset-2 focus:ring-offset-[var(--brand-bg)]"
+              className="w-8 h-8 rounded-full bg-transparent hover:bg-[var(--brand-pop)] hover:text-white transition-all duration-200 flex items-center justify-center focus:outline-none focus:ring-0 focus:ring-transparent"
               aria-label="Close modal"
               data-testid="button-close-modal"
             >
