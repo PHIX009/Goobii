@@ -47,9 +47,10 @@ export default function Contact() {
 
       if (response.ok) {
         toast({
-          title: "Message sent successfully!",
-          description: "We'll get back to you soon.",
+          title: "Message sent!",
+          description: "We'll get back to you as soon as possible.",
         });
+        
         setFormData({
           name: "",
           email: "",
@@ -61,18 +62,10 @@ export default function Contact() {
         throw new Error('Failed to send message');
       }
     } catch (error) {
-      console.error('Contact form error:', error);
       toast({
-        title: "Message sent!",
-        description: "Thank you for your message. We'll get back to you soon.",
-      });
-      // Reset form even on error for demo purposes
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        topic: "",
-        message: ""
+        title: "Error",
+        description: "There was a problem sending your message. Please try again.",
+        variant: "destructive"
       });
     } finally {
       setIsSubmitting(false);
@@ -96,12 +89,15 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Centered Contact Methods Title */}
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-grandview-bold text-brand-primary">Contact Methods</h2>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative">
               {/* Contact Information */}
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-3xl font-grandview-bold text-brand-primary mb-6 text-center">Contact Methods</h2>
-                  
                   <div className="space-y-6">
                     <div className="flex items-start space-x-4" data-testid="whatsapp-contact">
                       <div className="w-12 h-12 bg-brand-primary/10 flex items-center justify-center flex-shrink-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
@@ -141,11 +137,13 @@ export default function Contact() {
                     </div>
                   </div>
                 </div>
-
               </div>
 
+              {/* Vertical Golden Barrier */}
+              <div className="absolute left-1/2 top-0 bottom-0 transform -translate-x-1/2 w-px bg-gradient-to-b from-transparent via-brand-contrast-2 to-transparent opacity-40 hidden lg:block"></div>
+
               {/* Contact Form */}
-              <Card className="p-8 border-0" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="contact-form-card">
+              <Card className="p-8 border-2 border-brand-primary" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="contact-form-card">
                 <h2 className="text-2xl font-extrabold text-brand-primary mb-6">Send us a Message</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6" data-testid="contact-form">
