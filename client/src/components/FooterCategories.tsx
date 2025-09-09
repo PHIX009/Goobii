@@ -8,7 +8,7 @@ export default function FooterCategories() {
 
   return (
     <footer className="bg-[var(--brand-bg)] border-t border-[color-mix(in_oklab,var(--brand-secondary)_15%,transparent)]">
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16 py-12 md:py-16">
+      <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16 pt-8 md:pt-12 pb-16 md:pb-20">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-16">
           {/* Left side - Products and Company closer together */}
           <div className="flex flex-col md:flex-row gap-8 md:gap-12">
@@ -91,7 +91,7 @@ export default function FooterCategories() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-[color-mix(in_oklab,var(--brand-secondary)_15%,transparent)] pt-8">
+        <div className="border-t border-[color-mix(in_oklab,var(--brand-secondary)_15%,transparent)] mt-12 md:mt-16 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
               <img src={logoImage} alt="Goobii - Planet. People. Purpose." className="h-12 w-auto" style={{ objectFit: 'contain' }} />
