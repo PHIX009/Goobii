@@ -225,10 +225,22 @@ export default function Contact() {
                   <div className="flex justify-center">
                     <Button 
                       type="submit" 
-                      className="bg-brand-primary hover:bg-brand-secondary text-brand-bg hover:text-brand-bg font-grandview-bold border-0 px-8 py-3 transition-colors"
+                      className="font-grandview-bold border-0 px-8 py-3 transition-colors"
                       disabled={isSubmitting}
                       data-testid="submit-button"
-                      style={{ borderRadius: '12px 4px 12px 12px' }}
+                      style={{ 
+                        borderRadius: '12px 4px 12px 12px',
+                        backgroundColor: 'var(--brand-primary)',
+                        color: 'var(--brand-bg)',
+                        fontSize: '16px',
+                        fontWeight: 'bold'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--brand-secondary)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--brand-primary)';
+                      }}
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
