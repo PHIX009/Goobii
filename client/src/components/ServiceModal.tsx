@@ -138,12 +138,7 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
             
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-full bg-transparent hover:bg-[var(--brand-pop)] hover:text-white transition-colors duration-200 flex items-center justify-center outline-none border-none"
-              style={{ 
-                WebkitTapHighlightColor: 'transparent',
-                WebkitAppearance: 'none',
-                MozAppearance: 'none'
-              }}
+              className="w-8 h-8 rounded-full bg-transparent text-[var(--brand-primary)] hover:bg-[var(--brand-pop)] hover:text-white transition-colors duration-300 flex items-center justify-center"
               aria-label="Close modal"
               data-testid="button-close-modal"
             >
