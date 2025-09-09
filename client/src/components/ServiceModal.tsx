@@ -55,6 +55,9 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Store the initial position for animations
+  const [initialPos, setInitialPos] = useState({ x: 0, y: 0 });
+
   // Get card position immediately when modal is about to open
   useEffect(() => {
     if (isOpen) {
@@ -63,62 +66,57 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
       if (clickedCard) {
         const rect = clickedCard.getBoundingClientRect();
         setClickedCardRect(rect);
+        
+        // Calculate position immediately
+        if (!prefersReducedMotion) {
+          const cardCenterX = rect.left + rect.width / 2;
+          const cardCenterY = rect.top + rect.height / 2;
+          const viewportCenterX = window.innerWidth / 2;
+          const viewportCenterY = window.innerHeight / 2;
+          
+          const pos = {
+            x: cardCenterX - viewportCenterX,
+            y: cardCenterY - viewportCenterY
+          };
+          
+          console.log('Card position:', { cardCenterX, cardCenterY, viewportCenterX, viewportCenterY, pos });
+          setInitialPos(pos);
+        }
       }
     }
-  }, [isOpen, service.title]);
-
-  // Calculate positions for animation  
-  const getCardPosition = () => {
-    if (!clickedCardRect || prefersReducedMotion) {
-      return { x: 0, y: 0 };
-    }
-
-    const cardCenterX = clickedCardRect.left + clickedCardRect.width / 2;
-    const cardCenterY = clickedCardRect.top + clickedCardRect.height / 2;
-    const viewportCenterX = window.innerWidth / 2;
-    const viewportCenterY = window.innerHeight / 2;
-    
-    return {
-      x: cardCenterX - viewportCenterX,
-      y: cardCenterY - viewportCenterY
-    };
-  };
-
-  const cardPos = getCardPosition();
+  }, [isOpen, service.title, prefersReducedMotion]);
 
   const modalVariants = {
-    hidden: () => ({
+    hidden: {
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.01,
-      x: cardPos.x,
-      y: cardPos.y,
-    }),
+      scale: prefersReducedMotion ? 1 : 0.1,
+      x: initialPos.x,
+      y: initialPos.y,
+    },
     visible: {
       opacity: 1,
       scale: 1,
       x: 0,
       y: 0,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 1.2,
+        duration: prefersReducedMotion ? 0.15 : 0.8,
         type: 'spring',
-        stiffness: 60,
-        damping: 15,
-        mass: 1
+        stiffness: 100,
+        damping: 15
       }
     },
-    exit: () => ({
+    exit: {
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.01,
-      x: cardPos.x,
-      y: cardPos.y,
+      scale: prefersReducedMotion ? 1 : 0.1,
+      x: initialPos.x,
+      y: initialPos.y,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 1.0,
+        duration: prefersReducedMotion ? 0.15 : 0.6,
         type: 'spring',
-        stiffness: 80,
-        damping: 18,
-        mass: 0.8
+        stiffness: 120,
+        damping: 18
       }
-    })
+    }
   };
 
   const backdropVariants = {
