@@ -64,7 +64,7 @@ export default function ServiceCard({
       </h3>
       
       {/* Thin barrier */}
-      <div className="w-16 h-0.5 bg-[var(--brand-contrast-2)] mb-4"></div>
+      <div className="h-0.5 bg-[var(--brand-contrast-2)] mb-4"></div>
       
       {/* Description */}
       <p 
@@ -87,7 +87,7 @@ export default function ServiceCard({
           <ul className="space-y-1.5 text-xs text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
             {highlights.map((highlight, index) => (
               <li key={index} className="flex items-start">
-                <Check className="w-3 h-3 text-[var(--brand-pop)] mr-2 flex-shrink-0 mt-0.5" />
+                <Check className="w-3 h-3 text-[var(--brand-secondary)] mr-2 flex-shrink-0 mt-0.5" />
                 {highlight}
               </li>
             ))}
@@ -103,7 +103,7 @@ export default function ServiceCard({
             Estimated duration
           </h4>
           <div className="flex items-center">
-            <Clock className="w-3 h-3 text-[var(--brand-pop)] mr-2" />
+            <Clock className="w-3 h-3 text-[var(--brand-secondary)] mr-2" />
             <p 
               className="text-xs text-[var(--brand-primary)]"
               style={{ fontFamily: 'var(--font-grandview)' }}

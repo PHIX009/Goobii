@@ -60,20 +60,40 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
     if (isOpen) {
       const clickedCard = document.querySelector(`[data-testid="service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}"]`);
       if (clickedCard) {
-        setClickedCardRect(clickedCard.getBoundingClientRect());
+        const rect = clickedCard.getBoundingClientRect();
+        setClickedCardRect(rect);
       }
     }
   }, [isOpen, service.title]);
 
+  // Calculate initial position based on card location
+  const getInitialPosition = () => {
+    if (!clickedCardRect || prefersReducedMotion) {
+      return { x: 0, y: 0 };
+    }
+    
+    const cardCenterX = clickedCardRect.left + clickedCardRect.width / 2;
+    const cardCenterY = clickedCardRect.top + clickedCardRect.height / 2;
+    const screenCenterX = window.innerWidth / 2;
+    const screenCenterY = window.innerHeight / 2;
+    
+    return {
+      x: cardCenterX - screenCenterX,
+      y: cardCenterY - screenCenterY
+    };
+  };
+
+  const initialPos = getInitialPosition();
+
   const modalVariants = {
     hidden: {
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.6,
-      x: clickedCardRect && !prefersReducedMotion ? clickedCardRect.left + clickedCardRect.width / 2 - window.innerWidth / 2 : 0,
-      y: clickedCardRect && !prefersReducedMotion ? clickedCardRect.top + clickedCardRect.height / 2 - window.innerHeight / 2 : 0,
+      scale: prefersReducedMotion ? 1 : 0.2,
+      x: initialPos.x,
+      y: initialPos.y,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.4,
-        ease: [0.22, 1, 0.36, 1]
+        duration: prefersReducedMotion ? 0.15 : 0.0,
+        ease: "easeOut"
       }
     },
     visible: {
@@ -82,21 +102,21 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
       x: 0,
       y: 0,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.5,
+        duration: prefersReducedMotion ? 0.15 : 0.7,
         type: prefersReducedMotion ? 'tween' : 'spring',
-        stiffness: 200,
-        damping: 25,
-        ease: [0.22, 1, 0.36, 1]
+        stiffness: 120,
+        damping: 18,
+        ease: [0.34, 1.56, 0.64, 1]
       }
     },
     exit: {
       opacity: 0,
-      scale: prefersReducedMotion ? 1 : 0.6,
-      x: clickedCardRect && !prefersReducedMotion ? clickedCardRect.left + clickedCardRect.width / 2 - window.innerWidth / 2 : 0,
-      y: clickedCardRect && !prefersReducedMotion ? clickedCardRect.top + clickedCardRect.height / 2 - window.innerHeight / 2 : 0,
+      scale: prefersReducedMotion ? 1 : 0.2,
+      x: initialPos.x,
+      y: initialPos.y,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.4,
-        ease: [0.22, 1, 0.36, 1]
+        duration: prefersReducedMotion ? 0.15 : 0.6,
+        ease: [0.36, 0, 0.66, -0.56]
       }
     }
   };
@@ -144,7 +164,7 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
               <button
                 ref={closeButtonRef}
                 onClick={onClose}
-                className="p-2 text-[var(--brand-primary)] hover:text-[var(--brand-pop)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-pop)] focus:ring-offset-2 focus:ring-offset-[var(--brand-bg)] transition-colors"
+                className="p-2 text-[var(--brand-primary)] hover:text-[var(--brand-pop)] focus:outline-none focus:text-[var(--brand-pop)] transition-colors"
                 style={{ borderRadius: '12px 4px 12px 12px' }}
                 aria-label="Close modal"
                 data-testid="close-modal"
