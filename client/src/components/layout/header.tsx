@@ -50,25 +50,22 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* CTA Buttons - different positioning based on page */}
-        {location === "/" ? (
-          /* Home page: sliding animation effect */
-          <div 
-            className="absolute left-4 transition-transform duration-700"
-            style={{
-              transform: isScrolled ? 'translateX(calc(100vw - 340px))' : 'translateX(0)',
-              transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-            }}
-          >
-            <div className={`transition-all duration-500 ease-out ${isScrolled ? 'scale-90' : 'scale-100'}`}>
-              <CTAGroup size={isScrolled ? "sm" : "md"} />
-            </div>
-          </div>
-        ) : null}
-
         {/* Right side container */}
         <div className="flex items-center gap-2">
-          {location !== "/" && (
+          {location === "/" ? (
+            /* Home page: sliding animation effect */
+            <div 
+              className="transition-transform duration-700"
+              style={{
+                transform: isScrolled ? 'translateX(0)' : 'translateX(calc(-100vw + 280px))',
+                transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+              }}
+            >
+              <div className={`transition-all duration-500 ease-out ${isScrolled ? 'scale-90' : 'scale-100'}`}>
+                <CTAGroup size={isScrolled ? "sm" : "md"} />
+              </div>
+            </div>
+          ) : (
             /* Other pages: small CTA buttons on the right */
             <CTAGroup size="sm" />
           )}
