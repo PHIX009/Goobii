@@ -202,20 +202,20 @@ export default function PurposeAndImpact() {
                   Sooftwash™ is engineered to lift dirt without scratching by creating a lubricating barrier between the surface and contaminants.
                 </p>
                 
-                <div className="space-y-4">
+                <div className="space-y-6">
                   {[
                     { number: 1, title: "Mist", description: "We apply the solution across the panel." },
                     { number: 2, title: "Lift & encapsulate", description: "As it settles, the solution creeps beneath the dirt, encapsulating particles and forming a thin lubricating layer between the grime and the surface." },
                     { number: 3, title: "Glide wipe", description: "A premium microfiber carries the lifted dirt away with minimal friction, preventing marring and scratches." },
                     { number: 4, title: "Finish", description: "The surface is left clean, streak-free, and glossy, and tends to stay cleaner longer." }
                   ].map((step) => (
-                    <div key={step.number} className="glow-box bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                    <div key={step.number} className="flex items-start gap-4">
                       <div className="w-12 h-12 bg-brand-primary/10 border-2 border-brand-primary/20 flex items-center justify-center flex-shrink-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
                         <span className="text-brand-primary font-grandview-bold text-lg">{step.number}</span>
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-brand-primary font-grandview-bold text-lg mb-1">{step.title}</h3>
-                        <p className="text-muted-foreground text-base">{step.description}</p>
+                      <div>
+                        <h3 className="text-brand-primary font-grandview-bold text-lg mb-2">{step.title}</h3>
+                        <p className="text-muted-foreground">{step.description}</p>
                       </div>
                     </div>
                   ))}

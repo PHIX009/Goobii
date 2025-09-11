@@ -52,20 +52,7 @@ export default function Header() {
 
         {/* Right side container */}
         <div className="flex items-center gap-2">
-          {location === "/" ? (
-            /* Home page: sliding animation effect */
-            <div 
-              className="transition-transform duration-700"
-              style={{
-                transform: isScrolled ? 'translateX(0)' : 'translateX(-280px)',
-                transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-              }}
-            >
-              <div className={`transition-all duration-500 ease-out ${isScrolled ? 'scale-90' : 'scale-100'}`}>
-                <CTAGroup size={isScrolled ? "sm" : "md"} />
-              </div>
-            </div>
-          ) : (
+          {location !== "/" && (
             /* Other pages: small CTA buttons on the right */
             <CTAGroup size="sm" />
           )}
@@ -86,6 +73,21 @@ export default function Header() {
           </Button>
         </div>
       </nav>
+
+      {/* Home page CTA that slides from left edge */}
+      {location === "/" && (
+        <div 
+          className="absolute top-3 left-0 transition-transform duration-700 z-40"
+          style={{
+            transform: isScrolled ? 'translateX(16px)' : 'translateX(-100%)',
+            transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+          }}
+        >
+          <div className={`transition-all duration-500 ease-out ${isScrolled ? 'scale-90' : 'scale-100'}`}>
+            <CTAGroup size={isScrolled ? "sm" : "md"} />
+          </div>
+        </div>
+      )}
 
       {/* Custom Mobile Menu */}
       <AnimatePresence>
