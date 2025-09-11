@@ -202,26 +202,23 @@ export default function PurposeAndImpact() {
                   Sooftwash™ is engineered to lift dirt without scratching by creating a lubricating barrier between the surface and contaminants.
                 </p>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="glow-box bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                    <strong className="text-brand-primary font-grandview-bold text-lg block mb-2">Mist</strong>
-                    <span className="text-muted-foreground">We apply the solution across the panel.</span>
-                  </div>
-                  
-                  <div className="glow-box bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                    <strong className="text-brand-primary font-grandview-bold text-lg block mb-2">Lift & encapsulate</strong>
-                    <span className="text-muted-foreground">As it settles, the solution creeps beneath the dirt, encapsulating particles and forming a thin lubricating layer between the grime and the surface.</span>
-                  </div>
-                  
-                  <div className="glow-box bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                    <strong className="text-brand-primary font-grandview-bold text-lg block mb-2">Glide wipe</strong>
-                    <span className="text-muted-foreground">A premium microfiber carries the lifted dirt away with minimal friction, preventing marring and scratches.</span>
-                  </div>
-                  
-                  <div className="glow-box bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                    <strong className="text-brand-primary font-grandview-bold text-lg block mb-2">Finish</strong>
-                    <span className="text-muted-foreground">The surface is left clean, streak-free, and glossy, and tends to stay cleaner longer.</span>
-                  </div>
+                <div className="space-y-4">
+                  {[
+                    { number: 1, title: "Mist", description: "We apply the solution across the panel." },
+                    { number: 2, title: "Lift & encapsulate", description: "As it settles, the solution creeps beneath the dirt, encapsulating particles and forming a thin lubricating layer between the grime and the surface." },
+                    { number: 3, title: "Glide wipe", description: "A premium microfiber carries the lifted dirt away with minimal friction, preventing marring and scratches." },
+                    { number: 4, title: "Finish", description: "The surface is left clean, streak-free, and glossy, and tends to stay cleaner longer." }
+                  ].map((step) => (
+                    <div key={step.number} className="glow-box bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                      <div className="w-12 h-12 bg-brand-primary/10 border-2 border-brand-primary/20 flex items-center justify-center flex-shrink-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                        <span className="text-brand-primary font-grandview-bold text-lg">{step.number}</span>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-brand-primary font-grandview-bold text-lg mb-1">{step.title}</h3>
+                        <p className="text-muted-foreground text-base">{step.description}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
 
@@ -235,7 +232,7 @@ export default function PurposeAndImpact() {
               >
                 {/* SVG Cross-section Diagram - Larger */}
                 <div className="bg-white p-8 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                  <svg viewBox="0 0 400 200" className="w-full h-auto">
+                  <svg viewBox="0 0 500 250" className="w-full h-auto">
                     {/* Paint/Clearcoat layer */}
                     <rect x="50" y="150" width="300" height="20" fill="#2D3748" />
                     <text x="60" y="145" className="text-xs" fill="#2D3748">Paint/Clearcoat</text>

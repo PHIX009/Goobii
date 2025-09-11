@@ -57,7 +57,7 @@ export default function Header() {
             <div 
               className="transition-transform duration-700"
               style={{
-                transform: isScrolled ? 'translateX(0)' : 'translateX(-120px)',
+                transform: isScrolled ? 'translateX(0)' : 'translateX(-280px)',
                 transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
               }}
             >
