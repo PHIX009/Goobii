@@ -1,0 +1,219 @@
+Replit Build Prompt — Purpose & Impact Page (copy-locked, mixed media layouts)
+
+Goal: Build a rich, varied Purpose & Impact page that mixes text and media in multiple layouts (side-by-side, stacked, wide-text + small media, mosaics). Use existing sitewide tokens, typography, hover/press effects, and motion. Do not alter global styles. Do not paraphrase the provided copy.
+
+Tech & Global Consistency
+
+Use our Tailwind setup and existing components for buttons, headings, cards, badges.
+
+Hover/press/focus must match the rest of the site (including orange hover/press behavior). No stray focus outlines.
+
+Motion: reuse site easing/timings (200–250ms UI, subtle reveals); respect prefers-reduced-motion.
+
+Images: use placeholders or generic royalty-free stand-ins; we’ll replace later.
+
+Structure (Semantic HTML with IDs)
+
+Implement as a React page PurposeImpact (or purpose-impact.html) with sections:
+
+1) Hero — section#pi-hero
+
+Full-bleed media background (placeholder), soft droplet overlay.
+
+Heading: “Purpose & Impact”
+
+Subheading: “Small choices. Big impact.”
+
+CTA buttons: Book a Wash (/book) and text link About the Method (anchor to #pi-how).
+
+Alt text: “Eco-friendly operations background”
+
+2) Intro (wide text + small media) — section#pi-intro
+
+Two paragraphs (copy-locked below).
+
+Layout: text left (2/3), small media card right (1/3). On mobile, stack with media first.
+
+Placeholder image suggestion: community/green city scene. Alt: “Community and urban green space”.
+
+COPY (use EXACTLY):
+
+We started Goobii to prove that caring for your car can be kinder to the planet — and simple for you. Our purpose goes further: we’re building a platform for sustainable everyday services beyond car care, evolving step by step as we learn and improve.
+
+Traditional pressure washes typically use 100–150 liters of water per vehicle, while Sooftwash™ uses just 2–4 liters depending on car size. That’s a measurable cut in water use, fewer harmful chemicals, and cleaner operations without compromising results. The point isn’t a slogan — it’s savings you can verify at scale.
+
+3) How it Works — section#pi-how
+
+H2: “How it Works”
+
+Split layout: text left, diagram right.
+
+Text block (copy-locked):
+
+Sooftwash™ is engineered to lift dirt without scratching by creating a lubricating barrier between the surface and contaminants.
+
+1) Mist — We apply the solution across the panel.
+2) Lift & encapsulate — As it settles, the solution creeps beneath the dirt, encapsulating particles and forming a thin lubricating layer between the grime and the surface.
+3) Glide wipe — A premium microfiber carries the lifted dirt away with minimal friction, preventing marring and scratches.
+4) Finish — The surface is left clean, streak-free, and glossy, and tends to stay cleaner longer.
+
+
+Right media: Inline SVG cross-section diagram (placeholder) showing:
+
+Layers: paint/clearcoat → solution film → dirt particles → microfiber path arrow.
+
+Below diagram: a 4-step icon row (spray, lift/encapsulate, wipe, shine). Provide simple outline SVGs (consistent stroke).
+
+Motion: diagram fades up; icons stagger in.
+
+4) Metrics Band — section#pi-metrics
+
+4 responsive tiles (grid on desktop, stack on mobile):
+
+Water saved (liters) — animated counter.
+
+Safer chemistry — % biodegradable/non-hazardous.
+
+Clean operations — % electric-powered tools.
+
+Community actions — link to activities log anchor.
+
+Counter logic (client-side placeholder):
+
+const BASELINE_PER_WASH = 100;
+
+const GOOBII_PER_WASH = 4; // conservative
+
+waterSaved = (BASELINE_PER_WASH - GOOBII_PER_WASH) * completedWashes;
+
+Pull completedWashes from a prop or mock value; animate from 0 on reveal.
+
+Icons: outline droplet/leaf/bolt/calendar.
+
+5) Pillars Mosaic — section#pi-pillars
+
+H2: “Pillars of Impact”
+
+Mosaic layout mixing tile sizes (e.g., CSS grid asymmetry). Five tiles:
+
+Water stewardship
+
+Safer chemistry
+
+Clean energy operations
+
+Circular systems & waste
+
+Community & education
+
+Each tile: short description (from copy below) + small supporting media (icon or tiny photo). Alternate tile sizes (two large, three small) to keep it visually engaging.
+
+Tile copy (exact):
+
+Water stewardship — Cutting water use without compromising results.
+
+Safer chemistry — Effective cleaning with biodegradable, non-hazardous formulations.
+
+Clean energy operations — Electrification of tools and power systems in the field.
+
+Circular systems & waste — Reduce, reuse, recycle — towels, packaging, and refills.
+
+Community & education — Practical guidance and local initiatives that scale impact.
+
+6) Near-Term Initiatives — section#pi-initiatives
+
+Stacked cards with small icons; alternate left/right media for variety.
+
+Copy (exact):
+
+Closed-loop water care — Design a towel-wash water recycling system to reclaim and reuse laundry water for non-contact tasks.
+Sustainable energy for operations — Pilot solar-assisted charging for our power stations; increase renewable share of our energy mix.
+Packaging & refills — PET is already in use for most packaging; expand bulk refills and push recyclability across the entire flow.
+Fleet & mobility — Field kit is already electric; as we add new transport modes, keep them electric by default.
+Measurement & reporting — Build reliable, auditable data pipelines for counters; publish a clear methods appendix with the first report.
+
+7) Direction of Travel — section#pi-direction
+
+Layout: small media left, wide text right.
+
+Copy (exact):
+
+We’re aiming not just for net-zero, but for net-negative (climate-positive) operations over time — first by reducing and electrifying, then by addressing remaining impacts with verified, high-quality solutions once our measurements are robust. No shortcuts, no performative claims.
+
+8) How We Measure — section#pi-methods
+
+Split layout (swap sides from #pi-how for visual rhythm): bullets left, document card right.
+
+Copy (exact):
+
+Conservative defaults: calculations use 100 L vs. 4 L to avoid inflated savings.
+Evidence on file: recorded washes, product usage logs, and operational records.
+Transparent docs: methods, assumptions, and limitations published with the numbers.
+External review (target): independent review aligned with our first annual report.
+
+
+Right media: “Methodology” doc preview card (placeholder) with download icon.
+
+9) Activities Log (optional anchor) — section#pi-activities
+
+Simple list/timeline component (date, title, one-line description). Leave sample placeholders.
+
+10) Final CTA Band — section#pi-cta
+
+Copy: “Ready to make every wash count?”
+
+Button: Book a Wash → /book
+
+Background: reuse existing CTA gradient/pattern.
+
+Media Placeholders (suggestions)
+
+/img/pi-hero.webp — abstract eco/operations background.
+
+/img/pi-intro-community.webp — community/green space.
+
+/img/pi-diagram.svg — inline SVG cross-section (generate simple lines/shapes).
+
+/img/pillar-*.svg — outline icons per pillar.
+
+/img/initiatives-*.webp — small spot images (solar, refill, battery).
+
+/img/methods-doc.svg — doc icon.
+
+All images must include descriptive alt text. Use loading="lazy" and explicit width/height (or aspect classes) to prevent CLS.
+
+Animations
+
+IntersectionObserver to reveal sections with fade/slide (match site easing).
+
+Counter: requestAnimationFrame number roll; duration 800–1200ms; ensure prefers-reduced-motion disables.
+
+Accessibility
+
+Proper landmarks, aria-labels for icon-only buttons, keyboard nav for timeline.
+
+Color contrast AA; no color-only meaning.
+
+Performance
+
+Prefer WebP/AVIF; size under control; inline only lightweight SVGs.
+
+No heavy libraries; just Tailwind + tiny JS utilities.
+
+COPY-LOCK (collective)
+
+Use the exact intro, “How it Works”, pillars one-liners, initiatives, direction, and methods text provided above; do not paraphrase or shorten.
+
+Include the sentence: “Sooftwash™ uses just 2–4 liters depending on car size.”
+
+Acceptance Criteria
+
+Mixed layouts are present: side-by-side, stacked, wide-text + small media, mosaic tiles.
+
+Counters only on this page, not elsewhere. Conservative formula used.
+
+Hover/press/focus styles match the rest of the site.
+
+Responsive, fast, accessible (AA), and respects reduced motion.
+
+No pledges section; activities log is informational only.

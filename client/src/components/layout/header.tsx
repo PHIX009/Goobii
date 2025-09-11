@@ -56,7 +56,7 @@ export default function Header() {
           <div 
             className="absolute left-4 transition-transform duration-700"
             style={{
-              transform: isScrolled ? 'translateX(calc(100vw - 280px))' : 'translateX(0)',
+              transform: isScrolled ? 'translateX(calc(100vw - 340px))' : 'translateX(0)',
               transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
             }}
           >
