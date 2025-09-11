@@ -1,0 +1,145 @@
+Replit Build Prompt — Goobii About Us Page (copy-locked)
+
+Goal: Create the Goobii “About Us” page using our existing sitewide design system, animations, and interaction styles. Do not alter global styles, colors, or motion curves. Do not paraphrase or modify the provided copy (it’s copy-locked). Implement a lean, fast page with subtle reveal animations and perfect consistency with the rest of the site.
+
+Tech & Constraints
+
+Use our existing Tailwind setup and global CSS variables/tokens.
+
+Reuse sitewide components and classes for buttons, headings, links, spacing, and hover/focus states.
+
+Motion: use the same timing & easing as the rest of the site (200–250ms ease-out for UI). Respect prefers-reduced-motion.
+
+No counters, parallax, or carousels on this page. Keep it lightweight.
+
+Page Structure (Semantic HTML)
+
+Hero (section#about-hero)
+
+Headline: “Clean cars. Cleaner planet.”
+
+Subhead: first sentence from the About text (visually excerpted).
+
+Primary CTA button: “Book a Wash” → link to /book
+
+Secondary text link: “Why we do it” → link to /purpose-and-impact
+
+Hero visual: 1 image slot (full-bleed on desktop, contained on mobile).
+
+Maintain existing hover/focus color effects for buttons/links (same orange hover/press behavior used sitewide; no persistent orange focus ring unless in active focus state per current site rules).
+
+Body (section#about-body)
+
+Drop in the copy-locked About text verbatim, with the one approved line swap (already applied below).
+
+Typeset with our heading/body scales and comfortable line-height.
+
+Add a subtle fade/slide-up on scroll reveal to the paragraph block.
+
+COPY-LOCKED TEXT (use EXACTLY, including punctuation and ™ symbols):
+
+At Goobii, we believe caring for your car should never come at the cost of our planet. With our signature Sooftwash™ technology, we achieve a spotless clean while using a fraction of the water required by traditional methods. That means every wash isn’t just good for your car — it’s a step toward protecting our shared environment.
+
+But Goobii is more than just an eco-friendly car wash. We’re building a movement. A community of people who care about the choices they make, and how those choices affect the world around them. From our all-electric fleet and biodegradable products to our safe and easy-to-use app, everything we do is designed to give you the best possible experience while helping you join something bigger.
+
+Our mission is simple: make it easy, affordable, and rewarding to choose sustainability without compromise. Whether it’s saving water, reducing harmful chemicals, or supporting future environmental initiatives, every wash with Goobii brings us closer to a cleaner, greener tomorrow.
+
+We’re here to change the way people think about car care — turning a routine service into a statement of responsibility, innovation, and trust. When you wash with Goobii, you’re not just keeping your car clean — you’re becoming part of a growing community that values the planet, the people, and the future.
+
+
+How We Work (section#about-steps)
+
+Three compact step cards in one row on desktop (stacked on mobile).
+
+Final approved microcopy (use exactly):
+
+Tap to Book — Quick, secure, all in the Goobii app.
+
+We Set Up Clean — Compact, mess-free, apartment-friendly.
+
+Sooftwash™ Finish — Premium shine, planet-first method.
+
+Each card uses our outline icon style (reuse existing icon set if available).
+
+Subtle reveal animation on scroll; gentle hover lift (translateY + shadow) matching site standard.
+
+Trust Strip (section#about-trust)
+
+Single row of three badges (icon + label), minimal styling:
+
+Biodegradable
+
+Low-water
+
+Apartment-friendly
+
+No metrics or numbers here. Maintain our existing badge/label component styles and hover/focus behavior.
+
+CTA Band (section#about-cta)
+
+Short line: “Ready to wash smarter?”
+
+Primary CTA: “Book a Wash” → /book
+
+Keep background and subtle pattern consistent with existing CTA bands on the site. Reuse the same gradient/tint and spacing tokens.
+
+Visuals & Assets
+
+Hero image: use a single placeholder slot with appropriate alt text:
+alt="Eco-friendly car wash using low-water Sooftwash™ method"
+
+Steps icons: reuse site icon library (thin/outline). If unavailable, use temporary SVGs with the same stroke weight used elsewhere.
+
+Do not introduce new colors. Use existing tokens (primary, accent, hover/press orange, neutrals).
+
+Respect our established shadow radius, corner radius, and spacing scale.
+
+Accessibility
+
+Proper landmarks: <header> (if present), <main>, <section> with aria-labelledby.
+
+Keyboard focus visible and consistent with the rest of the site.
+
+Color contrast: meet our existing AA rules.
+
+prefers-reduced-motion: disable transitions/reveals where applicable.
+
+Performance
+
+Lazy-load the hero image with width/height set to prevent CLS.
+
+Use modern formats (WebP/AVIF) if available in our pipeline.
+
+No large libraries; pure CSS transitions + tiny JS (IntersectionObserver) for reveals.
+
+Deliverables
+
+A single React (or HTML) page component named About (or about.html) following our project conventions.
+
+Slots/ids:
+
+#about-hero, #about-body, #about-steps, #about-trust, #about-cta
+
+The final page must inherit and match all existing sitewide effects and styles:
+
+Button hover = accent/orange state used across the site
+
+Link hover underline/ink color as elsewhere
+
+Identical easing/timing for transitions
+
+Identical typography scale and spacing rhythm
+
+Acceptance Criteria (must pass)
+
+The About text matches the COPY-LOCKED block exactly (line swap already applied).
+
+No numeric water stats appear on the page.
+
+The 3 steps and trust strip render exactly as specified.
+
+All hover/focus/press effects match the rest of the site (colors, shadows, transitions).
+
+Page is responsive, fast, and accessible (AA).
+
+No new global styles; only component-scoped additions if required.

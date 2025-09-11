@@ -1,171 +1,227 @@
 import { Helmet } from "react-helmet-async";
-import { Zap, Sun, Bike, FileText, Heart, Users, Target, Lightbulb, Eye, Award } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { Link } from "wouter";
+import { Smartphone, Settings, Droplets, Leaf, Home } from "lucide-react";
 
 export default function About() {
+  const bodyRef = useRef<HTMLDivElement>(null);
+  const isBodyInView = useInView(bodyRef, { once: true, amount: 0.3 });
+  
+  const stepsRef = useRef<HTMLDivElement>(null);
+  const isStepsInView = useInView(stepsRef, { once: true, amount: 0.2 });
+
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+  }, []);
+
   return (
     <>
       <Helmet>
-        <title>About Goobii | Eco‑Friendly Car Cleaning in Dubai</title>
-        <meta name="description" content="Goobii blends Sooftwash™ tech with efficient, app‑based operations to make eco‑friendly car cleaning simple for Dubai." />
+        <title>About Goobii | Clean cars. Cleaner planet.</title>
+        <meta name="description" content="At Goobii, we believe caring for your car should never come at the cost of our planet. Learn about our Sooftwash™ technology and sustainability mission." />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="About Goobii | Clean cars. Cleaner planet." />
+        <meta property="og:description" content="At Goobii, we believe caring for your car should never come at the cost of our planet. Learn about our Sooftwash™ technology and sustainability mission." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://goobii.com/about" />
       </Helmet>
 
-      <div className="pt-20">
-        <section className="py-16 lg:py-24">
+      <main className="pt-20">
+        {/* Hero Section */}
+        <section id="about-hero" className="py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50/50">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">About Goobii</h1>
-              <p className="text-xl text-muted-foreground">
-                Make environmental responsibility accessible—without sacrificing quality or cost.
-              </p>
-            </div>
-
-            {/* Mission Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-              <div>
-                <div className="w-full h-96 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 rounded-2xl shadow-lg mb-6 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-brand-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Heart className="w-8 h-8 text-brand-primary" />
-                    </div>
-                    <p className="text-brand-primary font-grandview-bold">Sustainable Technology</p>
-                  </div>
-                </div>
-              </div>
-              
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Hero Content */}
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-3xl font-grandview-bold text-brand-primary mb-4">What We Do</h2>
-                  <p className="text-muted-foreground mb-6">
-                    We deliver eco‑friendly car cleaning through Sooftwash™, efficient operations powered by electric bikes and a mobile power station, and a user‑friendly app.
+                  <h1 className="text-4xl lg:text-6xl font-ghost font-bold text-brand-primary mb-6 leading-tight">
+                    Clean cars.<br />
+                    Cleaner planet.
+                  </h1>
+                  <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
+                    At Goobii, we believe caring for your car should never come at the cost of our planet.
                   </p>
-                  <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Sooftwash™ Explained</h3>
-                  <p className="text-muted-foreground">
-                    A targeted clean using just <strong className="text-brand-primary">2–4 L</strong> of water and biodegradable chemistry designed for local conditions. Effective on dust, sand, and road film while respecting finishes.
-                  </p>
                 </div>
-
-                <div className="bg-card p-6 rounded-xl shadow-sm" data-testid="sustainable-operations">
-                  <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Sustainable Operations</h3>
-                  <div className="space-y-3 text-muted-foreground">
-                    <p>
-                      <strong className="text-brand-secondary">Electric Mobility:</strong> Our fleet operates on electric bikes paired with portable power stations, dramatically reducing our carbon footprint while maintaining operational efficiency.
-                    </p>
-                    <p>
-                      <strong className="text-brand-secondary">Solar Integration:</strong> We're actively exploring solar power solutions to make our operations completely renewable energy-powered.
-                    </p>
-                    <p>
-                      <strong className="text-brand-secondary">Water Conservation:</strong> Using just 2-4 liters per wash compared to traditional methods that consume 100-150 liters.
-                    </p>
-                  </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="#app-placeholder"
+                    className="inline-flex items-center justify-center bg-brand-primary hover:bg-brand-secondary text-brand-bg font-grandview-bold px-8 py-3 text-lg shadow-lg transition-colors duration-200"
+                    style={{ borderRadius: '12px 4px 12px 12px' }}
+                    data-testid="book-wash-cta"
+                  >
+                    Book a Wash
+                  </a>
+                  
+                  <Link 
+                    href="/purpose-and-impact"
+                    className="text-brand-primary hover:text-brand-pop transition-colors duration-200 text-lg font-grandview-bold underline-offset-4 hover:underline inline-flex items-center gap-2"
+                    data-testid="why-we-do-it-link"
+                  >
+                    Why we do it
+                  </Link>
                 </div>
               </div>
-            </div>
 
-            {/* Operations Section */}
-            <div className="bg-muted/30 rounded-2xl p-8 lg:p-12 mb-16" data-testid="operations-section">
-              <h2 className="text-2xl lg:text-3xl font-grandview-bold text-center text-brand-primary mb-8">How We Operate</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Bike className="w-10 h-10 text-brand-primary" />
-                  </div>
-                  <h3 className="font-grandview-bold text-xl text-brand-primary mb-4">Electric Bikes</h3>
-                  <p className="text-muted-foreground">Our team uses electric bikes for transportation, reducing carbon emissions and allowing efficient navigation through Dubai's urban landscape.</p>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-brand-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Zap className="w-10 h-10 text-brand-secondary" />
-                  </div>
-                  <h3 className="font-grandview-bold text-xl text-brand-primary mb-4">Portable Power Station</h3>
-                  <p className="text-muted-foreground">Advanced portable power stations provide clean energy for our equipment, ensuring consistent service quality without grid dependency.</p>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-brand-pop/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Sun className="w-10 h-10 text-brand-pop" />
-                  </div>
-                  <h3 className="font-grandview-bold text-xl text-brand-primary mb-4">Exploring Solar</h3>
-                  <p className="text-muted-foreground">We're actively exploring solar power integration to further reduce our environmental footprint and move toward 100% renewable energy operations.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Community Impact */}
-            <div className="bg-muted/50 p-8 rounded-2xl mb-16" data-testid="community-impact">
-              <div className="text-center mb-8">
-                <h2 className="text-3xl font-grandview-bold text-brand-primary mb-4">Community Impact</h2>
-                <p className="text-muted-foreground">Our commitment extends beyond car cleaning to building a more sustainable Dubai</p>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <FileText className="w-8 h-8 text-brand-primary" />
-                  </div>
-                  <h3 className="text-lg font-grandview-bold text-brand-primary mb-2">Impact Reports</h3>
-                  <p className="text-sm text-muted-foreground">Regular transparency reports on our environmental impact and community contributions</p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Heart className="w-8 h-8 text-brand-primary" />
-                  </div>
-                  <h3 className="text-lg font-grandview-bold text-brand-primary mb-2">Eco-Pledge</h3>
-                  <p className="text-sm text-muted-foreground">Customer participation in our environmental pledge program for additional impact</p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Users className="w-8 h-8 text-brand-primary" />
-                  </div>
-                  <h3 className="text-lg font-grandview-bold text-brand-primary mb-2">NGO Partnerships</h3>
-                  <p className="text-sm text-muted-foreground">Collaborations with local environmental organizations for greater community impact</p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Target className="w-8 h-8 text-brand-primary" />
-                  </div>
-                  <h3 className="text-lg font-grandview-bold text-brand-primary mb-2">Clean-ups</h3>
-                  <p className="text-sm text-muted-foreground">Community clean-up events and environmental awareness initiatives across Dubai</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Values */}
-            <div className="text-center" data-testid="values-section">
-              <h2 className="text-3xl font-grandview-bold text-brand-primary mb-8">Our Values</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-card p-6 rounded-2xl shadow-sm">
-                  <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Lightbulb className="w-8 h-8 text-brand-primary" />
-                  </div>
-                  <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Innovation</h3>
-                  <p className="text-muted-foreground">Continuously developing technologies that make sustainable practices more effective and accessible.</p>
-                </div>
-                
-                <div className="bg-card p-6 rounded-2xl shadow-sm">
-                  <div className="w-16 h-16 bg-brand-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Eye className="w-8 h-8 text-brand-secondary" />
-                  </div>
-                  <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Transparency</h3>
-                  <p className="text-muted-foreground">Open about our processes, impact, and commitment to environmental responsibility.</p>
-                </div>
-                
-                <div className="bg-card p-6 rounded-2xl shadow-sm">
-                  <div className="w-16 h-16 bg-brand-pop/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Award className="w-8 h-8 text-brand-pop" />
-                  </div>
-                  <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Excellence</h3>
-                  <p className="text-muted-foreground">Delivering consistently superior results while maintaining our environmental standards.</p>
+              {/* Hero Visual */}
+              <div className="lg:order-last">
+                <div 
+                  className="w-full h-96 lg:h-[500px] bg-gradient-to-br from-brand-primary/20 to-brand-secondary/30 flex items-center justify-center"
+                  style={{ borderRadius: '12px 4px 12px 12px' }}
+                >
+                  <img 
+                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80"
+                    alt="Eco-friendly car wash using low-water Sooftwash™ method"
+                    className="w-full h-full object-cover"
+                    style={{ borderRadius: '12px 4px 12px 12px' }}
+                    loading="lazy"
+                    width="600"
+                    height="500"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </section>
-      </div>
+
+        {/* Body Section */}
+        <section id="about-body" className="py-16 lg:py-20">
+          <div className="max-w-4xl mx-auto px-4">
+            <motion.div
+              ref={bodyRef}
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+              animate={isBodyInView ? { opacity: 1, y: 0 } : { opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 30 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="prose prose-lg max-w-none"
+            >
+              <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
+                <p>
+                  At Goobii, we believe caring for your car should never come at the cost of our planet. With our signature Sooftwash™ technology, we achieve a spotless clean while using a fraction of the water required by traditional methods. That means every wash isn't just good for your car — it's a step toward protecting our shared environment.
+                </p>
+                
+                <p>
+                  But Goobii is more than just an eco-friendly car wash. We're building a movement. A community of people who care about the choices they make, and how those choices affect the world around them. From our all-electric fleet and biodegradable products to our safe and easy-to-use app, everything we do is designed to give you the best possible experience while helping you join something bigger.
+                </p>
+                
+                <p>
+                  Our mission is simple: make it easy, affordable, and rewarding to choose sustainability without compromise. Whether it's saving water, reducing harmful chemicals, or supporting future environmental initiatives, every wash with Goobii brings us closer to a cleaner, greener tomorrow.
+                </p>
+                
+                <p>
+                  We're here to change the way people think about car care — turning a routine service into a statement of responsibility, innovation, and trust. When you wash with Goobii, you're not just keeping your car clean — you're becoming part of a growing community that values the planet, the people, and the future.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* How We Work Section */}
+        <section id="about-steps" className="py-16 lg:py-20 bg-gray-50/50">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-grandview-bold text-brand-primary mb-4">
+                How We Work
+              </h2>
+            </div>
+            
+            <motion.div
+              ref={stepsRef}
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            >
+              {[
+                {
+                  icon: <Smartphone className="w-8 h-8" />,
+                  title: "Tap to Book",
+                  description: "Quick, secure, all in the Goobii app."
+                },
+                {
+                  icon: <Settings className="w-8 h-8" />,
+                  title: "We Set Up Clean",
+                  description: "Compact, mess-free, apartment-friendly."
+                },
+                {
+                  icon: <Droplets className="w-8 h-8" />,
+                  title: "Sooftwash™ Finish",
+                  description: "Premium shine, planet-first method."
+                }
+              ].map((step, index) => (
+                <motion.div
+                  key={step.title}
+                  initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+                  animate={isStepsInView ? { opacity: 1, y: 0 } : { opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 30 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={prefersReducedMotion ? {} : { y: -4 }}
+                  className="bg-white p-8 shadow-md hover:shadow-lg transition-all duration-250 cursor-default"
+                  style={{ borderRadius: '12px 4px 12px 12px' }}
+                  data-testid={`step-card-${step.title.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  <div className="text-center space-y-4">
+                    <div className="w-16 h-16 bg-brand-primary/10 flex items-center justify-center mx-auto text-brand-primary" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                      {step.icon}
+                    </div>
+                    <h3 className="text-xl font-grandview-bold text-brand-primary">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground">
+                      {step.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Trust Strip Section */}
+        <section id="about-trust" className="py-12 bg-white">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { icon: <Leaf className="w-6 h-6" />, label: "Biodegradable" },
+                { icon: <Droplets className="w-6 h-6" />, label: "Low-water" },
+                { icon: <Home className="w-6 h-6" />, label: "Apartment-friendly" }
+              ].map((badge, index) => (
+                <div
+                  key={badge.label}
+                  className="flex items-center justify-center gap-3 py-4 px-6 bg-gray-50/80 hover:bg-gray-100/80 transition-colors duration-200"
+                  style={{ borderRadius: '12px 4px 12px 12px' }}
+                  data-testid={`trust-badge-${badge.label.toLowerCase()}`}
+                >
+                  <div className="text-brand-primary">
+                    {badge.icon}
+                  </div>
+                  <span className="font-grandview-bold text-brand-primary">
+                    {badge.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Band Section */}
+        <section id="about-cta" className="py-16 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <h2 className="text-2xl lg:text-3xl font-grandview-bold text-brand-primary mb-8">
+              Ready to wash smarter?
+            </h2>
+            
+            <a
+              href="#app-placeholder"
+              className="inline-flex items-center justify-center bg-brand-primary hover:bg-brand-secondary text-brand-bg font-grandview-bold px-8 py-4 text-lg shadow-lg transition-colors duration-200"
+              style={{ borderRadius: '12px 4px 12px 12px' }}
+              data-testid="cta-book-wash"
+            >
+              Book a Wash
+            </a>
+          </div>
+        </section>
+      </main>
     </>
   );
 }
