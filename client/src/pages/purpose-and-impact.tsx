@@ -184,10 +184,20 @@ export default function PurposeAndImpact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-3xl lg:text-4xl font-grandview-bold text-brand-primary mb-12 text-center"
+              className="text-3xl lg:text-4xl font-grandview-bold text-brand-primary mb-8 text-center"
             >
               Sooftwash™ - How does it work?
             </motion.h2>
+            
+            <motion.p 
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg text-muted-foreground leading-relaxed text-center max-w-4xl mx-auto mb-12"
+            >
+              Sooftwash™ is engineered to lift dirt without scratching by creating a lubricating barrier between the surface and contaminants.
+            </motion.p>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Text left */}
@@ -198,9 +208,6 @@ export default function PurposeAndImpact() {
                 transition={{ duration: 0.6 }}
                 className="space-y-6"
               >
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Sooftwash™ is engineered to lift dirt without scratching by creating a lubricating barrier between the surface and contaminants.
-                </p>
                 
                 <div className="space-y-6">
                   {[
