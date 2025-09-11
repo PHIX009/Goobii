@@ -222,57 +222,25 @@ export default function PurposeAndImpact() {
                   Sooftwash™ is engineered to lift dirt without scratching by creating a lubricating barrier between the surface and contaminants.
                 </p>
                 
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div 
-                      className="w-10 h-10 bg-brand-primary/10 border-2 border-brand-primary/20 flex items-center justify-center flex-shrink-0"
-                      style={{ borderRadius: '12px 4px 12px 12px' }}
-                    >
-                      <span className="text-brand-primary font-grandview-bold text-lg">1</span>
-                    </div>
-                    <div>
-                      <strong className="text-brand-primary font-grandview-bold">Mist</strong>
-                      <span className="text-muted-foreground"> — We apply the solution across the panel.</span>
-                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                    <strong className="text-brand-primary font-grandview-bold text-lg block mb-2">Mist</strong>
+                    <span className="text-muted-foreground">We apply the solution across the panel.</span>
                   </div>
                   
-                  <div className="flex items-start gap-3">
-                    <div 
-                      className="w-10 h-10 bg-brand-primary/10 border-2 border-brand-primary/20 flex items-center justify-center flex-shrink-0"
-                      style={{ borderRadius: '12px 4px 12px 12px' }}
-                    >
-                      <span className="text-brand-primary font-grandview-bold text-lg">2</span>
-                    </div>
-                    <div>
-                      <strong className="text-brand-primary font-grandview-bold">Lift & encapsulate</strong>
-                      <span className="text-muted-foreground"> — As it settles, the solution creeps beneath the dirt, encapsulating particles and forming a thin lubricating layer between the grime and the surface.</span>
-                    </div>
+                  <div className="bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                    <strong className="text-brand-primary font-grandview-bold text-lg block mb-2">Lift & encapsulate</strong>
+                    <span className="text-muted-foreground">As it settles, the solution creeps beneath the dirt, encapsulating particles and forming a thin lubricating layer between the grime and the surface.</span>
                   </div>
                   
-                  <div className="flex items-start gap-3">
-                    <div 
-                      className="w-10 h-10 bg-brand-primary/10 border-2 border-brand-primary/20 flex items-center justify-center flex-shrink-0"
-                      style={{ borderRadius: '12px 4px 12px 12px' }}
-                    >
-                      <span className="text-brand-primary font-grandview-bold text-lg">3</span>
-                    </div>
-                    <div>
-                      <strong className="text-brand-primary font-grandview-bold">Glide wipe</strong>
-                      <span className="text-muted-foreground"> — A premium microfiber carries the lifted dirt away with minimal friction, preventing marring and scratches.</span>
-                    </div>
+                  <div className="bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                    <strong className="text-brand-primary font-grandview-bold text-lg block mb-2">Glide wipe</strong>
+                    <span className="text-muted-foreground">A premium microfiber carries the lifted dirt away with minimal friction, preventing marring and scratches.</span>
                   </div>
                   
-                  <div className="flex items-start gap-3">
-                    <div 
-                      className="w-10 h-10 bg-brand-primary/10 border-2 border-brand-primary/20 flex items-center justify-center flex-shrink-0"
-                      style={{ borderRadius: '12px 4px 12px 12px' }}
-                    >
-                      <span className="text-brand-primary font-grandview-bold text-lg">4</span>
-                    </div>
-                    <div>
-                      <strong className="text-brand-primary font-grandview-bold">Finish</strong>
-                      <span className="text-muted-foreground"> — The surface is left clean, streak-free, and glossy, and tends to stay cleaner longer.</span>
-                    </div>
+                  <div className="bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                    <strong className="text-brand-primary font-grandview-bold text-lg block mb-2">Finish</strong>
+                    <span className="text-muted-foreground">The surface is left clean, streak-free, and glossy, and tends to stay cleaner longer.</span>
                   </div>
                 </div>
               </motion.div>
@@ -285,9 +253,9 @@ export default function PurposeAndImpact() {
                 transition={{ duration: 0.8 }}
                 className="space-y-8"
               >
-                {/* SVG Cross-section Diagram */}
-                <div className="bg-white p-8 shadow-md" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                  <svg viewBox="0 0 400 200" className="w-full h-auto max-w-md mx-auto">
+                {/* SVG Cross-section Diagram - Larger */}
+                <div className="bg-white p-8 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                  <svg viewBox="0 0 400 200" className="w-full h-auto">
                     {/* Paint/Clearcoat layer */}
                     <rect x="50" y="150" width="300" height="20" fill="#2D3748" />
                     <text x="60" y="145" className="text-xs" fill="#2D3748">Paint/Clearcoat</text>
@@ -315,14 +283,6 @@ export default function PurposeAndImpact() {
                     </defs>
                   </svg>
                 </div>
-                
-                {/* 4-step icon row */}
-                <div className="flex justify-center space-x-8">
-                  <StepIcon number={1} label="Mist" />
-                  <StepIcon number={2} label="Lift" />
-                  <StepIcon number={3} label="Wipe" />
-                  <StepIcon number={4} label="Shine" />
-                </div>
               </motion.div>
             </div>
           </div>
@@ -331,7 +291,7 @@ export default function PurposeAndImpact() {
         {/* Metrics Band Section */}
         <section id="pi-metrics" className="py-16 lg:py-20">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-8">
               <Counter 
                 target={waterSaved}
                 label="Water saved"
