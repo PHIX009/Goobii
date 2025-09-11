@@ -59,26 +59,6 @@ function Counter({ target, label, suffix = "", formatter }: {
 }
 
 // Step icon component for How it Works
-function StepIcon({ number, label }: { number: number; label: string }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: number * 0.1, duration: 0.5 }}
-      className="flex flex-col items-center"
-      data-testid={`step-icon-${number}`}
-    >
-      <div 
-        className="w-12 h-12 bg-brand-primary/10 border-2 border-brand-primary/20 flex items-center justify-center mb-2"
-        style={{ borderRadius: '12px 4px 12px 12px' }}
-      >
-        <span className="text-brand-primary font-grandview-bold">{number}</span>
-      </div>
-      <span className="text-xs text-brand-secondary font-grandview-bold text-center">{label}</span>
-    </motion.div>
-  );
-}
 
 export default function PurposeAndImpact() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
