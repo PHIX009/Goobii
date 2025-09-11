@@ -210,10 +210,10 @@ export default function PurposeAndImpact() {
                     { number: 4, title: "Finish", description: "The surface is left clean, streak-free, and glossy, and tends to stay cleaner longer." }
                   ].map((step) => (
                     <div key={step.number} className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-brand-primary/10 border-2 border-brand-primary/20 flex items-center justify-center flex-shrink-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                      <div className="w-12 h-12 bg-brand-primary/10 border-2 border-brand-primary/20 flex items-center justify-center flex-shrink-0 shadow-md" style={{ borderRadius: '12px 4px 12px 12px' }}>
                         <span className="text-brand-primary font-grandview-bold text-lg">{step.number}</span>
                       </div>
-                      <div>
+                      <div className="flex-1 bg-gray-50/80 border-2 border-brand-primary/20 p-4 shadow-md" style={{ borderRadius: '12px 4px 12px 12px' }}>
                         <h3 className="text-brand-primary font-grandview-bold text-lg mb-2">{step.title}</h3>
                         <p className="text-muted-foreground">{step.description}</p>
                       </div>
