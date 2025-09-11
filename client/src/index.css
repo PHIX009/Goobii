@@ -183,6 +183,44 @@ footer a:hover span,
   animation: glow-pulse 2s ease-in-out infinite;
 }
 
+/* General glow effect for boxes */
+.glow-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    hsl(210, 60%, 18% / 0.15),
+    transparent 40%
+  );
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glow-box:hover::before {
+  opacity: 1;
+}
+
+.glow-box > * {
+  position: relative;
+  z-index: 2;
+}
+
+.glow-box:hover {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
 /* CTA button hover effects - text and icons */
 .cta-button:hover,
 .cta-button:hover span,

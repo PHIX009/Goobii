@@ -170,7 +170,7 @@ export default function About() {
               ].map((badge, index) => (
                 <div
                   key={badge.label}
-                  className="flex items-center justify-center gap-3 py-4 px-6 bg-gray-50/80 hover:bg-gray-100/80 transition-colors duration-200"
+                  className="glow-box flex items-center justify-center gap-3 py-4 px-6 bg-gray-50/80 hover:bg-gray-100/80 transition-colors duration-200 border-2 border-brand-primary/20 shadow-md"
                   style={{ borderRadius: '12px 4px 12px 12px' }}
                   data-testid={`trust-badge-${badge.label.toLowerCase()}`}
                 >

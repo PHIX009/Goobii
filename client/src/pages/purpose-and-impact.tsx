@@ -113,7 +113,7 @@ export default function PurposeAndImpact() {
           {/* Background with overlay */}
           <div className="absolute inset-0 z-0">
             <img 
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+              src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80"
               alt="Clean green environment background"
               className="w-full h-full object-cover"
             />
@@ -223,22 +223,22 @@ export default function PurposeAndImpact() {
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="glow-box bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
                     <strong className="text-brand-primary font-grandview-bold text-lg block mb-2">Mist</strong>
                     <span className="text-muted-foreground">We apply the solution across the panel.</span>
                   </div>
                   
-                  <div className="bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="glow-box bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
                     <strong className="text-brand-primary font-grandview-bold text-lg block mb-2">Lift & encapsulate</strong>
                     <span className="text-muted-foreground">As it settles, the solution creeps beneath the dirt, encapsulating particles and forming a thin lubricating layer between the grime and the surface.</span>
                   </div>
                   
-                  <div className="bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="glow-box bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
                     <strong className="text-brand-primary font-grandview-bold text-lg block mb-2">Glide wipe</strong>
                     <span className="text-muted-foreground">A premium microfiber carries the lifted dirt away with minimal friction, preventing marring and scratches.</span>
                   </div>
                   
-                  <div className="bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="glow-box bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300" style={{ borderRadius: '12px 4px 12px 12px' }}>
                     <strong className="text-brand-primary font-grandview-bold text-lg block mb-2">Finish</strong>
                     <span className="text-muted-foreground">The surface is left clean, streak-free, and glossy, and tends to stay cleaner longer.</span>
                   </div>
