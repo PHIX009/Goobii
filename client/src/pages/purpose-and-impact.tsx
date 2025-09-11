@@ -1,42 +1,779 @@
+import { useState, useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
+import { motion, useInView, useMotionValue, useSpring, useTransform, animate } from "framer-motion";
+import { Link } from "wouter";
+import { Droplets, Leaf, Zap, Calendar, Recycle, GraduationCap, Download, FileText } from "lucide-react";
+
+// Counter Component for Metrics
+function Counter({ target, label, suffix = "", formatter }: {
+  target: number;
+  label: string;
+  suffix?: string;
+  formatter?: (value: number) => string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const [hasAnimated, setHasAnimated] = useState(false);
+  
+  const count = useMotionValue(0);
+  const springValue = useSpring(count, { duration: 1000, bounce: 0 });
+  const displayValue = useTransform(springValue, (value) => {
+    if (formatter) {
+      return formatter(Math.round(value));
+    }
+    return Math.round(value).toLocaleString();
+  });
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (isInView && !hasAnimated) {
+      if (prefersReducedMotion) {
+        count.set(target);
+      } else {
+        animate(count, target, { duration: 1.2 });
+      }
+      setHasAnimated(true);
+    }
+  }, [isInView, hasAnimated, target, count]);
+
+  return (
+    <motion.div 
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="text-center bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-250"
+      style={{ borderRadius: '12px 4px 12px 12px' }}
+      data-testid={`metric-${label.toLowerCase().replace(/\s+/g, '-')}`}
+    >
+      <div className="text-3xl lg:text-4xl font-grandview text-brand-primary mb-2 tracking-wide">
+        <motion.span>{displayValue}</motion.span>
+        <span className="text-brand-secondary">{suffix}</span>
+      </div>
+      <div className="text-sm font-grandview-bold text-brand-secondary/70 uppercase tracking-wider">
+        {label}
+      </div>
+    </motion.div>
+  );
+}
+
+// Step icon component for How it Works
+function StepIcon({ number, label }: { number: number; label: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: number * 0.1, duration: 0.5 }}
+      className="flex flex-col items-center"
+      data-testid={`step-icon-${number}`}
+    >
+      <div 
+        className="w-12 h-12 bg-brand-primary/10 border-2 border-brand-primary/20 flex items-center justify-center mb-2"
+        style={{ borderRadius: '12px 4px 12px 12px' }}
+      >
+        <span className="text-brand-primary font-grandview-bold">{number}</span>
+      </div>
+      <span className="text-xs text-brand-secondary font-grandview-bold text-center">{label}</span>
+    </motion.div>
+  );
+}
 
 export default function PurposeAndImpact() {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  
+  // Mock data for metrics (would come from props/API in real app)
+  const completedWashes = 2500;
+  const BASELINE_PER_WASH = 100;
+  const GOOBII_PER_WASH = 4;
+  const waterSaved = (BASELINE_PER_WASH - GOOBII_PER_WASH) * completedWashes;
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+  }, []);
+
   return (
     <>
       <Helmet>
-        <title>Purpose & Impact - Goobii</title>
-        <meta name="description" content="Discover Goobii's environmental approach, sustainability metrics, and our commitment to making car care part of everyday planet care." />
+        <title>Purpose & Impact | Goobii - Small choices. Big impact.</title>
+        <meta name="description" content="Learn about Goobii's purpose to build sustainable everyday services and our Sooftwash™ technology's environmental impact. Join the movement for cleaner car care." />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Purpose & Impact | Goobii - Small choices. Big impact." />
+        <meta property="og:description" content="Learn about Goobii's purpose to build sustainable everyday services and our Sooftwash™ technology's environmental impact." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://goobii.com/purpose-and-impact" />
       </Helmet>
 
-      <div className="pt-20">
-        <section className="py-16" data-testid="purpose-impact-page">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <div className="w-20 h-20 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-8">
-              <svg className="w-10 h-10 text-brand-primary" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2c-1.5 4.5-7 8.5-7 14a7 7 0 1 0 14 0c0-5.5-5.5-9.5-7-14z"/>
-              </svg>
-            </div>
-            
-            <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">
+      <main className="pt-20">
+        {/* Hero Section */}
+        <section id="pi-hero" className="relative py-24 lg:py-32 overflow-hidden">
+          {/* Background with overlay */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+              alt="Eco-friendly operations background"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/70 to-brand-secondary/50"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+          </div>
+          
+          <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-white">
+            <motion.h1 
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-5xl lg:text-7xl font-ghost font-bold mb-6"
+            >
               Purpose & Impact
-            </h1>
+            </motion.h1>
             
-            <div className="bg-card p-8 rounded-2xl shadow-lg max-w-2xl mx-auto">
-              <h2 className="text-2xl font-grandview-bold text-brand-primary mb-4">
-                Coming Soon
-              </h2>
-              <p className="text-lg text-muted-foreground font-grandview leading-relaxed">
-                We're preparing a comprehensive overview of our sustainability approach, environmental metrics, and community impact commitments.
-              </p>
-              <p className="text-base text-muted-foreground font-grandview mt-4">
-                This page will feature detailed insights into our water-saving technology, 
-                carbon footprint reduction, and our journey toward making eco-friendly car care 
-                accessible to everyone in Dubai.
-              </p>
+            <motion.p 
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-2xl lg:text-3xl mb-12 font-grandview"
+            >
+              Small choices. Big impact.
+            </motion.p>
+            
+            <motion.div 
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <a
+                href="#app-placeholder"
+                className="inline-flex items-center justify-center bg-white text-brand-primary hover:bg-gray-100 font-grandview-bold px-8 py-4 text-lg shadow-lg transition-colors duration-200"
+                style={{ borderRadius: '12px 4px 12px 12px' }}
+                data-testid="hero-book-wash-cta"
+              >
+                Book a Wash
+              </a>
+              
+              <a 
+                href="#pi-how"
+                className="text-white hover:text-brand-pop transition-colors duration-200 text-lg font-grandview-bold underline-offset-4 hover:underline inline-flex items-center justify-center px-8 py-4"
+                data-testid="about-method-link"
+              >
+                About the Method
+              </a>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Intro Section */}
+        <section id="pi-intro" className="py-16 lg:py-20">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+              {/* Mobile: Media first, Desktop: Text left (2/3) */}
+              <div className="lg:col-span-2 order-2 lg:order-1">
+                <motion.div
+                  initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6 }}
+                  className="prose prose-lg max-w-none"
+                >
+                  <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
+                    <p>
+                      We started Goobii to prove that caring for your car can be kinder to the planet — and simple for you. Our purpose goes further: we're building a platform for sustainable everyday services beyond car care, evolving step by step as we learn and improve.
+                    </p>
+                    
+                    <p>
+                      Traditional pressure washes typically use 100–150 liters of water per vehicle, while Sooftwash™ uses just 2–4 liters depending on car size. That's a measurable cut in water use, fewer harmful chemicals, and cleaner operations without compromising results. The point isn't a slogan — it's savings you can verify at scale.
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Small media card right (1/3) */}
+              <div className="order-1 lg:order-2">
+                <motion.div
+                  initial={prefersReducedMotion ? {} : { opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6 }}
+                  className="bg-white p-6 shadow-md"
+                  style={{ borderRadius: '12px 4px 12px 12px' }}
+                >
+                  <img 
+                    src="https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Community and urban green space"
+                    className="w-full h-48 object-cover mb-4"
+                    style={{ borderRadius: '8px 2px 8px 8px' }}
+                    loading="lazy"
+                    width="400"
+                    height="192"
+                  />
+                  <p className="text-sm text-brand-secondary font-grandview text-center">
+                    Building sustainable communities
+                  </p>
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>
-      </div>
+
+        {/* How it Works Section */}
+        <section id="pi-how" className="py-16 lg:py-20 bg-gray-50/50">
+          <div className="max-w-6xl mx-auto px-4">
+            <motion.h2 
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl lg:text-4xl font-grandview-bold text-brand-primary mb-12 text-center"
+            >
+              How it Works
+            </motion.h2>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Text left */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6 }}
+                className="space-y-6"
+              >
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  Sooftwash™ is engineered to lift dirt without scratching by creating a lubricating barrier between the surface and contaminants.
+                </p>
+                
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <span className="text-brand-primary font-grandview-bold text-lg">1)</span>
+                    <div>
+                      <strong className="text-brand-primary font-grandview-bold">Mist</strong>
+                      <span className="text-muted-foreground"> — We apply the solution across the panel.</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <span className="text-brand-primary font-grandview-bold text-lg">2)</span>
+                    <div>
+                      <strong className="text-brand-primary font-grandview-bold">Lift & encapsulate</strong>
+                      <span className="text-muted-foreground"> — As it settles, the solution creeps beneath the dirt, encapsulating particles and forming a thin lubricating layer between the grime and the surface.</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <span className="text-brand-primary font-grandview-bold text-lg">3)</span>
+                    <div>
+                      <strong className="text-brand-primary font-grandview-bold">Glide wipe</strong>
+                      <span className="text-muted-foreground"> — A premium microfiber carries the lifted dirt away with minimal friction, preventing marring and scratches.</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <span className="text-brand-primary font-grandview-bold text-lg">4)</span>
+                    <div>
+                      <strong className="text-brand-primary font-grandview-bold">Finish</strong>
+                      <span className="text-muted-foreground"> — The surface is left clean, streak-free, and glossy, and tends to stay cleaner longer.</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Diagram right */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-8"
+              >
+                {/* SVG Cross-section Diagram */}
+                <div className="bg-white p-8 shadow-md" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                  <svg viewBox="0 0 400 200" className="w-full h-auto max-w-md mx-auto">
+                    {/* Paint/Clearcoat layer */}
+                    <rect x="50" y="150" width="300" height="20" fill="#2D3748" />
+                    <text x="60" y="145" className="text-xs" fill="#2D3748">Paint/Clearcoat</text>
+                    
+                    {/* Solution film layer */}
+                    <rect x="50" y="140" width="300" height="10" fill="#3182CE" opacity="0.6" />
+                    <text x="60" y="135" className="text-xs" fill="#3182CE">Solution Film</text>
+                    
+                    {/* Dirt particles */}
+                    <circle cx="100" cy="125" r="8" fill="#8B4513" opacity="0.8" />
+                    <circle cx="150" cy="120" r="6" fill="#8B4513" opacity="0.8" />
+                    <circle cx="200" cy="128" r="7" fill="#8B4513" opacity="0.8" />
+                    <circle cx="280" cy="122" r="5" fill="#8B4513" opacity="0.8" />
+                    <text x="60" y="115" className="text-xs" fill="#8B4513">Dirt Particles</text>
+                    
+                    {/* Microfiber path arrow */}
+                    <path d="M 80 80 Q 200 60 320 80" stroke="#E53E3E" strokeWidth="3" fill="none" markerEnd="url(#arrowhead)" />
+                    <text x="180" y="55" className="text-xs text-center" fill="#E53E3E">Microfiber Path</text>
+                    
+                    {/* Arrow marker */}
+                    <defs>
+                      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#E53E3E" />
+                      </marker>
+                    </defs>
+                  </svg>
+                </div>
+                
+                {/* 4-step icon row */}
+                <div className="flex justify-center space-x-8">
+                  <StepIcon number={1} label="Mist" />
+                  <StepIcon number={2} label="Lift" />
+                  <StepIcon number={3} label="Wipe" />
+                  <StepIcon number={4} label="Shine" />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Metrics Band Section */}
+        <section id="pi-metrics" className="py-16 lg:py-20">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Counter 
+                target={waterSaved}
+                label="Water saved"
+                suffix=" L"
+                formatter={(value) => value.toLocaleString()}
+              />
+              
+              <Counter 
+                target={85}
+                label="Safer chemistry"
+                suffix="%"
+              />
+              
+              <Counter 
+                target={100}
+                label="Clean operations"
+                suffix="%"
+              />
+              
+              <div className="text-center bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-250" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                <Calendar className="w-8 h-8 text-brand-primary mx-auto mb-4" />
+                <div className="text-lg font-grandview-bold text-brand-primary mb-2">
+                  <a href="#pi-activities" className="hover:text-brand-pop transition-colors">
+                    Community actions
+                  </a>
+                </div>
+                <div className="text-sm font-grandview-bold text-brand-secondary/70 uppercase tracking-wider">
+                  View log
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pillars Mosaic Section */}
+        <section id="pi-pillars" className="py-16 lg:py-20 bg-gray-50/50">
+          <div className="max-w-6xl mx-auto px-4">
+            <motion.h2 
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl lg:text-4xl font-grandview-bold text-brand-primary mb-12 text-center"
+            >
+              Pillars of Impact
+            </motion.h2>
+            
+            {/* Asymmetric grid layout */}
+            <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
+              {/* Large tile 1 */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="md:col-span-3 bg-white p-8 shadow-md hover:shadow-lg transition-shadow duration-250"
+                style={{ borderRadius: '12px 4px 12px 12px' }}
+                data-testid="pillar-water-stewardship"
+              >
+                <div className="flex items-start gap-4">
+                  <Droplets className="w-8 h-8 text-brand-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Water stewardship</h3>
+                    <p className="text-muted-foreground">Cutting water use without compromising results.</p>
+                  </div>
+                </div>
+              </motion.div>
+              
+              {/* Large tile 2 */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="md:col-span-3 bg-white p-8 shadow-md hover:shadow-lg transition-shadow duration-250"
+                style={{ borderRadius: '12px 4px 12px 12px' }}
+                data-testid="pillar-safer-chemistry"
+              >
+                <div className="flex items-start gap-4">
+                  <Leaf className="w-8 h-8 text-brand-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Safer chemistry</h3>
+                    <p className="text-muted-foreground">Effective cleaning with biodegradable, non-hazardous formulations.</p>
+                  </div>
+                </div>
+              </motion.div>
+              
+              {/* Small tile 1 */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="md:col-span-2 bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-250"
+                style={{ borderRadius: '12px 4px 12px 12px' }}
+                data-testid="pillar-clean-energy"
+              >
+                <Zap className="w-6 h-6 text-brand-primary mb-3" />
+                <h3 className="text-lg font-grandview-bold text-brand-primary mb-2">Clean energy operations</h3>
+                <p className="text-muted-foreground text-sm">Electrification of tools and power systems in the field.</p>
+              </motion.div>
+              
+              {/* Small tile 2 */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="md:col-span-2 bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-250"
+                style={{ borderRadius: '12px 4px 12px 12px' }}
+                data-testid="pillar-circular-systems"
+              >
+                <Recycle className="w-6 h-6 text-brand-primary mb-3" />
+                <h3 className="text-lg font-grandview-bold text-brand-primary mb-2">Circular systems & waste</h3>
+                <p className="text-muted-foreground text-sm">Reduce, reuse, recycle — towels, packaging, and refills.</p>
+              </motion.div>
+              
+              {/* Small tile 3 */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="md:col-span-2 bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-250"
+                style={{ borderRadius: '12px 4px 12px 12px' }}
+                data-testid="pillar-community"
+              >
+                <GraduationCap className="w-6 h-6 text-brand-primary mb-3" />
+                <h3 className="text-lg font-grandview-bold text-brand-primary mb-2">Community & education</h3>
+                <p className="text-muted-foreground text-sm">Practical guidance and local initiatives that scale impact.</p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Near-Term Initiatives Section */}
+        <section id="pi-initiatives" className="py-16 lg:py-20">
+          <div className="max-w-6xl mx-auto px-4">
+            <motion.h2 
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl lg:text-4xl font-grandview-bold text-brand-primary mb-12 text-center"
+            >
+              Near-Term Initiatives
+            </motion.h2>
+            
+            <div className="space-y-8">
+              {/* Initiative 1 - Left aligned */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-center"
+              >
+                <div className="lg:col-span-1">
+                  <div className="w-20 h-20 bg-brand-primary/10 flex items-center justify-center mx-auto lg:mx-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                    <Droplets className="w-10 h-10 text-brand-primary" />
+                  </div>
+                </div>
+                <div className="lg:col-span-3">
+                  <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Closed-loop water care</h3>
+                  <p className="text-muted-foreground">Design a towel-wash water recycling system to reclaim and reuse laundry water for non-contact tasks.</p>
+                </div>
+              </motion.div>
+              
+              {/* Initiative 2 - Right aligned */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-center"
+              >
+                <div className="lg:col-span-3 order-2 lg:order-1">
+                  <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Sustainable energy for operations</h3>
+                  <p className="text-muted-foreground">Pilot solar-assisted charging for our power stations; increase renewable share of our energy mix.</p>
+                </div>
+                <div className="lg:col-span-1 order-1 lg:order-2">
+                  <div className="w-20 h-20 bg-brand-primary/10 flex items-center justify-center mx-auto lg:mx-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                    <Zap className="w-10 h-10 text-brand-primary" />
+                  </div>
+                </div>
+              </motion.div>
+              
+              {/* Initiative 3 - Left aligned */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-center"
+              >
+                <div className="lg:col-span-1">
+                  <div className="w-20 h-20 bg-brand-primary/10 flex items-center justify-center mx-auto lg:mx-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                    <Recycle className="w-10 h-10 text-brand-primary" />
+                  </div>
+                </div>
+                <div className="lg:col-span-3">
+                  <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Packaging & refills</h3>
+                  <p className="text-muted-foreground">PET is already in use for most packaging; expand bulk refills and push recyclability across the entire flow.</p>
+                </div>
+              </motion.div>
+              
+              {/* Initiative 4 - Right aligned */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-center"
+              >
+                <div className="lg:col-span-3 order-2 lg:order-1">
+                  <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Fleet & mobility</h3>
+                  <p className="text-muted-foreground">Field kit is already electric; as we add new transport modes, keep them electric by default.</p>
+                </div>
+                <div className="lg:col-span-1 order-1 lg:order-2">
+                  <div className="w-20 h-20 bg-brand-primary/10 flex items-center justify-center mx-auto lg:mx-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                    <Zap className="w-10 h-10 text-brand-primary" />
+                  </div>
+                </div>
+              </motion.div>
+              
+              {/* Initiative 5 - Left aligned */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-center"
+              >
+                <div className="lg:col-span-1">
+                  <div className="w-20 h-20 bg-brand-primary/10 flex items-center justify-center mx-auto lg:mx-0" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                    <FileText className="w-10 h-10 text-brand-primary" />
+                  </div>
+                </div>
+                <div className="lg:col-span-3">
+                  <h3 className="text-xl font-grandview-bold text-brand-primary mb-3">Measurement & reporting</h3>
+                  <p className="text-muted-foreground">Build reliable, auditable data pipelines for counters; publish a clear methods appendix with the first report.</p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Direction of Travel Section */}
+        <section id="pi-direction" className="py-16 lg:py-20 bg-gray-50/50">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-center">
+              {/* Small media left */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="lg:col-span-1"
+              >
+                <div className="bg-white p-6 shadow-md text-center" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="w-16 h-16 bg-brand-primary/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '8px 2px 8px 8px' }}>
+                    <Leaf className="w-8 h-8 text-brand-primary" />
+                  </div>
+                  <p className="text-sm text-brand-secondary font-grandview-bold">Net-Negative Goal</p>
+                </div>
+              </motion.div>
+
+              {/* Wide text right */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="lg:col-span-3"
+              >
+                <h2 className="text-3xl lg:text-4xl font-grandview-bold text-brand-primary mb-6">Direction of Travel</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  We're aiming not just for net-zero, but for net-negative (climate-positive) operations over time — first by reducing and electrifying, then by addressing remaining impacts with verified, high-quality solutions once our measurements are robust. No shortcuts, no performative claims.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* How We Measure Section */}
+        <section id="pi-methods" className="py-16 lg:py-20">
+          <div className="max-w-6xl mx-auto px-4">
+            <motion.h2 
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl lg:text-4xl font-grandview-bold text-brand-primary mb-12 text-center"
+            >
+              How We Measure
+            </motion.h2>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Bullets left */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="space-y-6"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-2 h-2 bg-brand-primary rounded-full mt-3 flex-shrink-0"></div>
+                  <div>
+                    <h3 className="font-grandview-bold text-brand-primary mb-2">Conservative defaults</h3>
+                    <p className="text-muted-foreground">calculations use 100 L vs. 4 L to avoid inflated savings.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-2 h-2 bg-brand-primary rounded-full mt-3 flex-shrink-0"></div>
+                  <div>
+                    <h3 className="font-grandview-bold text-brand-primary mb-2">Evidence on file</h3>
+                    <p className="text-muted-foreground">recorded washes, product usage logs, and operational records.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-2 h-2 bg-brand-primary rounded-full mt-3 flex-shrink-0"></div>
+                  <div>
+                    <h3 className="font-grandview-bold text-brand-primary mb-2">Transparent docs</h3>
+                    <p className="text-muted-foreground">methods, assumptions, and limitations published with the numbers.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-2 h-2 bg-brand-primary rounded-full mt-3 flex-shrink-0"></div>
+                  <div>
+                    <h3 className="font-grandview-bold text-brand-primary mb-2">External review (target)</h3>
+                    <p className="text-muted-foreground">independent review aligned with our first annual report.</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Document card right */}
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex justify-center"
+              >
+                <div className="bg-white p-8 shadow-md hover:shadow-lg transition-shadow duration-250 max-w-sm w-full" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-brand-primary/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                      <FileText className="w-10 h-10 text-brand-primary" />
+                    </div>
+                    <h3 className="text-xl font-grandview-bold text-brand-primary mb-2">Methodology</h3>
+                    <p className="text-muted-foreground mb-4 text-sm">Detailed methods and assumptions</p>
+                    <button className="inline-flex items-center gap-2 text-brand-primary hover:text-brand-pop transition-colors font-grandview-bold">
+                      <Download className="w-4 h-4" />
+                      Download
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Activities Log Section */}
+        <section id="pi-activities" className="py-16 lg:py-20 bg-gray-50/50">
+          <div className="max-w-4xl mx-auto px-4">
+            <motion.h2 
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl lg:text-4xl font-grandview-bold text-brand-primary mb-12 text-center"
+            >
+              Activities Log
+            </motion.h2>
+            
+            <div className="space-y-6">
+              {[
+                { date: "2024-12-01", title: "Solar pilot program launch", description: "Started testing solar-assisted charging for power stations" },
+                { date: "2024-11-15", title: "Water recycling prototype", description: "Developed first closed-loop towel wash system" },
+                { date: "2024-10-30", title: "Community workshop series", description: "Launched educational sessions on sustainable car care" },
+                { date: "2024-10-01", title: "PET packaging expansion", description: "Increased recyclable packaging across product line" }
+              ].map((activity, index) => (
+                <motion.div
+                  key={activity.date}
+                  initial={prefersReducedMotion ? {} : { opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-250"
+                  style={{ borderRadius: '12px 4px 12px 12px' }}
+                  data-testid={`activity-${index}`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-3 h-3 bg-brand-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="flex-1">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 mb-2">
+                        <span className="text-sm text-brand-secondary font-grandview-bold">{activity.date}</span>
+                        <h3 className="font-grandview-bold text-brand-primary">{activity.title}</h3>
+                      </div>
+                      <p className="text-muted-foreground text-sm">{activity.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA Band Section */}
+        <section id="pi-cta" className="py-16 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <motion.h2 
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl lg:text-4xl font-grandview-bold text-brand-primary mb-8"
+            >
+              Ready to make every wash count?
+            </motion.h2>
+            
+            <motion.a
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              href="#app-placeholder"
+              className="inline-flex items-center justify-center bg-brand-primary hover:bg-brand-secondary text-brand-bg font-grandview-bold px-8 py-4 text-lg shadow-lg transition-colors duration-200"
+              style={{ borderRadius: '12px 4px 12px 12px' }}
+              data-testid="final-cta-book-wash"
+            >
+              Book a Wash
+            </motion.a>
+          </div>
+        </section>
+      </main>
     </>
   );
 }
