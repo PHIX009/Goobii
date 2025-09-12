@@ -116,41 +116,51 @@ export default function Services() {
         <section className="py-16 lg:py-24">
           <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16">
             
-            {/* Title */}
-            <div className="text-center mb-16">
-              <h1 
-                className="text-4xl lg:text-5xl font-bold text-brand-primary mb-8 tracking-tight"
-                style={{ fontFamily: 'var(--font-ghost)' }}
-              >
-                Services
-              </h1>
-              
-              <p 
-                className="text-xl text-brand-primary mb-4 font-medium max-w-3xl mx-auto"
-                style={{ fontFamily: 'var(--font-grandview)' }}
-              >
-                Choose from our eco-friendly options designed for everyday upkeep or a fuller reset. Each visit is consistent, tidy, and apartment-friendly.
-              </p>
-              <p 
-                className="text-lg text-brand-primary mb-6 max-w-3xl mx-auto"
-                style={{ fontFamily: 'var(--font-grandview)' }}
-              >
-                On average, we use about 40× less water than a pressure wash through our Sooftwash™ technology. Our fleet runs electric via a mobile power station, we use fresh microfibres every wash, and biodegradable formulas that are kind to people, surfaces, and surroundings.
-              </p>
-              
-              {/* Method Link */}
-              <div className="flex justify-center mb-8">
-                <a 
-                  href="/purpose-and-impact#pi-how"
-                  className="inline-block bg-white border-2 border-brand-primary text-brand-primary px-6 py-3 font-bold hover:bg-brand-pop hover:border-brand-pop hover:text-white transition-all duration-300"
-                  style={{ 
-                    borderRadius: '12px 4px 12px 12px',
-                    fontFamily: 'var(--font-grandview-bold)'
-                  }}
-                  data-testid="link-sooftwash-method"
-                >
-                  See how Sooftwash™ works
-                </a>
+            {/* Title and Content with Image */}
+            <div className="mb-16">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                {/* Left side - Content */}
+                <div>
+                  <h1 
+                    className="text-4xl lg:text-5xl font-bold text-brand-primary mb-8 tracking-tight"
+                    style={{ fontFamily: 'var(--font-ghost)' }}
+                  >
+                    Services
+                  </h1>
+                  
+                  <p 
+                    className="text-xl text-brand-primary mb-4 font-medium"
+                    style={{ fontFamily: 'var(--font-grandview)' }}
+                  >
+                    Choose from our eco-friendly options designed for everyday upkeep or a fuller reset. Each visit is consistent, tidy, and apartment-friendly.
+                  </p>
+                  <p 
+                    className="text-lg text-brand-primary mb-6"
+                    style={{ fontFamily: 'var(--font-grandview)' }}
+                  >
+                    On average, we use about 40× less water than a pressure wash through our Sooftwash™ technology. Our fleet runs electric via a mobile power station, we use fresh microfibres every wash, and biodegradable formulas that are kind to people, surfaces, and surroundings.
+                  </p>
+                  
+                  {/* Method Link */}
+                  <div className="mb-8">
+                    <a 
+                      href="/purpose-and-impact#pi-how"
+                      className="inline-block bg-white border-2 border-brand-primary text-brand-primary px-6 py-3 font-bold hover:bg-brand-pop hover:border-brand-pop hover:text-white transition-all duration-300"
+                      style={{ 
+                        borderRadius: '12px 4px 12px 12px',
+                        fontFamily: 'var(--font-grandview-bold)'
+                      }}
+                      data-testid="link-sooftwash-method"
+                    >
+                      See how Sooftwash™ works
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Right side - Image Placeholder */}
+                <div className="w-full h-80 bg-gray-200 rounded flex items-center justify-center">
+                  <span className="text-gray-500 text-lg">Service Image</span>
+                </div>
               </div>
             </div>
 
