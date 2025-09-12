@@ -3,21 +3,21 @@ import { MessageCircle, Mail, Phone, Users } from 'lucide-react';
 import logoImage from "@assets/Horizontal Logo + Tagline_1757358585705.png";
 
 export default function FooterCategories() {
-  // Check if we're on the service page for conditional styling
-  const isServicePage = typeof window !== 'undefined' && window.location.pathname === '/services';
+  // Check if we're on the subscription page for conditional styling
+  const isSubscriptionPage = typeof window !== 'undefined' && window.location.pathname === '/subscriptions';
   
   const linkBase = "text-[var(--brand-primary)] hover:text-[var(--brand-pop)] transition-all duration-300 focus:outline-none";
   const row = "flex items-center gap-3";
 
   return (
     <footer className="bg-[var(--brand-bg)] border-t border-[color-mix(in_oklab,var(--brand-secondary)_15%,transparent)]">
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16 pt-8 md:pt-12 pb-16 md:pb-20 text-[#003a5c]">
+      <div className={`max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16 pt-8 md:pt-12 pb-16 md:pb-20 ${isSubscriptionPage ? 'text-[#003a5c]' : 'text-[var(--brand-primary)]'}`}>
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-16">
           {/* Left side - Products and Company closer together */}
           <div className="flex flex-col md:flex-row gap-8 md:gap-12">
             {/* Products */}
             <div>
-              <h3 className="font-extrabold tracking-tight text-lg md:text-xl text-[var(--brand-secondary)]" style={{ fontFamily: 'var(--font-grandview-bold)' }}>
+              <h3 className={`font-extrabold tracking-tight text-lg md:text-xl ${isSubscriptionPage ? 'text-[var(--brand-secondary)]' : 'text-[var(--brand-primary)]'}`} style={{ fontFamily: 'var(--font-grandview-bold)' }}>
                 Products
               </h3>
               <ul className="mt-3 space-y-1.5">
@@ -36,7 +36,7 @@ export default function FooterCategories() {
 
             {/* Company */}
             <div>
-              <h3 className="font-extrabold tracking-tight text-lg md:text-xl text-[var(--brand-secondary)]" style={{ fontFamily: 'var(--font-grandview-bold)' }}>
+              <h3 className={`font-extrabold tracking-tight text-lg md:text-xl ${isSubscriptionPage ? 'text-[var(--brand-secondary)]' : 'text-[var(--brand-primary)]'}`} style={{ fontFamily: 'var(--font-grandview-bold)' }}>
                 Company
               </h3>
               <ul className="mt-3 space-y-1.5">
@@ -61,7 +61,7 @@ export default function FooterCategories() {
 
           {/* Right side - Get in Touch */}
           <div>
-            <h3 className="font-extrabold tracking-tight text-lg md:text-xl text-[var(--brand-secondary)]" style={{ fontFamily: 'var(--font-grandview-bold)' }}>
+            <h3 className={`font-extrabold tracking-tight text-lg md:text-xl ${isSubscriptionPage ? 'text-[var(--brand-secondary)]' : 'text-[var(--brand-primary)]'}`} style={{ fontFamily: 'var(--font-grandview-bold)' }}>
               Get in Touch
             </h3>
             <ul className="mt-3 space-y-1.5">
@@ -99,13 +99,13 @@ export default function FooterCategories() {
             <div className="flex items-center mb-4 md:mb-0">
               <img src={logoImage} alt="Goobii - Planet. People. Purpose." className="h-12 w-auto" style={{ 
                 objectFit: 'contain', 
-                filter: isServicePage 
+                filter: isSubscriptionPage 
                   ? 'brightness(0) saturate(100%) invert(17%) sepia(26%) saturate(1765%) hue-rotate(174deg) brightness(93%) contrast(102%)' 
                   : 'none'
               }} />
             </div>
             
-            <div className={`${isServicePage ? 'text-[#003a5c]' : 'text-[var(--brand-primary)]'} text-sm`}>
+            <div className={`${isSubscriptionPage ? 'text-[#003a5c]' : 'text-[var(--brand-primary)]'} text-sm`}>
               <p>© 2024 Goobii. All rights reserved.</p>
             </div>
           </div>
