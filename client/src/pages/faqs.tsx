@@ -85,18 +85,13 @@ export default function FAQs() {
 
             {/* CTA Section */}
             <div className="text-center">
-              <div className="bg-muted/50 p-8" style={{ borderRadius: '12px 4px 12px 12px' }}>
+              <div className="bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 p-8 max-w-4xl mx-auto" style={{ borderRadius: '12px 4px 12px 12px' }}>
                 <h3 className="text-2xl font-grandview-bold text-brand-primary mb-4">Still have questions?</h3>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-brand-primary mb-6">
                   Contact us directly or download the app to get started with your first eco-friendly wash
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <Link href="/contact">
-                    <button className="cta-button bg-brand-primary text-brand-bg px-6 py-3 rounded-xl font-grandview-bold hover:bg-brand-secondary transition-colors w-full sm:w-auto text-center" data-testid="contact-us-button">
-                      Contact Us
-                    </button>
-                  </Link>
-                  <CTAGroup size="sm" />
+                <div className="flex justify-center">
+                  <CTAGroup size="lg" className="flex-col sm:flex-row" />
                 </div>
               </div>
             </div>
