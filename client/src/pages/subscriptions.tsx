@@ -127,7 +127,6 @@ export default function Subscriptions() {
         <title>Subscriptions | Goobii Spark, Pulse & Flow Plans</title>
         <meta name="description" content="Choose Spark, Pulse, or Flow. Flexible Sooftwash™ subscriptions built on Aura/Aura Absolute. Manage everything in Goobii Connect." />
       </Helmet>
-
       <div className="pt-20">
         <section className="py-16 lg:py-24">
           <div className="max-w-7xl mx-auto px-4">
@@ -142,7 +141,7 @@ export default function Subscriptions() {
                     className="h-32 lg:h-40"
                     style={{ filter: 'brightness(0) saturate(100%) invert(17%) sepia(26%) saturate(1765%) hue-rotate(174deg) brightness(93%) contrast(102%)' }}
                   />
-                  <h1 className="text-3xl lg:text-4xl font-ghost font-bold text-brand-pop leading-tight">SUBSCRIPTION</h1>
+                  <h1 className="text-3xl lg:text-4xl font-ghost font-bold leading-tight text-[#DCC57F]">SUBSCRIPTION</h1>
                 </div>
                 <p className="text-xl text-brand-secondary mb-4">
                   Welcome to Goobii subscriptions—your car's clean routine. Lock in reliable visits that fit real life, from solo drivers to full driveways, and keep your weeks running smoother with a schedule that works around you.
