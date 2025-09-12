@@ -17,7 +17,6 @@ export default function Services() {
         "Exterior Sooftwash™ pass",          // chip 1
         "Wheels & tyres",                    // chip 2
         "Exterior glass",                    // chip 3
-        "Ceramic-infused glass cleaner",
         "Final check and dry"
       ],
       duration: "20–30 minutes",
@@ -40,7 +39,6 @@ export default function Services() {
         "Exterior Sooftwash™ pass",          // chip 1
         "Quick cabin vacuum",                // chip 2
         "Interior wipe-downs",               // chip 3
-        "Ceramic-infused glass cleaner",
         "Interior glass touch-up"
       ],
       duration: "35–50 minutes",
@@ -66,7 +64,7 @@ export default function Services() {
         "Ceramic-infused glass cleaner"
       ],
       duration: "45–65 minutes",
-      bestFor: "Monthly or when you want premium attention",
+      bestFor: "Monthly care or when you want premium attention",
       process: [
         "Detailed exterior pass panel by panel",
         "Attention to trims, badges, and tight crevices",
