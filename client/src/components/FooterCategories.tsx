@@ -94,10 +94,10 @@ export default function FooterCategories() {
         <div className="border-t border-[color-mix(in_oklab,var(--brand-secondary)_15%,transparent)] mt-12 md:mt-16 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
-              <img src={logoImage} alt="Goobii - Planet. People. Purpose." className="h-12 w-auto" style={{ objectFit: 'contain' }} />
+              <img src={logoImage} alt="Goobii - Planet. People. Purpose." className="h-12 w-auto" style={{ objectFit: 'contain', filter: 'brightness(0) saturate(100%) invert(17%) sepia(26%) saturate(1765%) hue-rotate(174deg) brightness(93%) contrast(102%)' }} />
             </div>
             
-            <div className="text-[var(--brand-secondary)] opacity-60 text-sm">
+            <div className="text-[#003a5c] text-sm">
               <p>© 2024 Goobii. All rights reserved.</p>
             </div>
           </div>
