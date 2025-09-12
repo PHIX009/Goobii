@@ -197,21 +197,36 @@ export default function Services() {
               </p>
             </div>
 
-            {/* Service Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 mb-16">
-              {services.map((service) => (
-                <ServiceCard
-                  key={service.id}
-                  id={service.id}
-                  title={service.title}
-                  description={service.description}
-                  highlights={service.highlights}
-                  duration={service.duration}
-                  bestFor={service.bestFor}
-                  onClick={() => openModal(service.id)}
-                />
-              ))}
-            </div>
+            {/* Service Cards and Modal - Wrapped in LayoutGroup for smooth animations */}
+            <LayoutGroup id="services">
+              {/* Service Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 mb-16">
+                {services.map((service) => (
+                  <ServiceCard
+                    key={service.id}
+                    id={service.id}
+                    title={service.title}
+                    description={service.description}
+                    highlights={service.highlights}
+                    duration={service.duration}
+                    bestFor={service.bestFor}
+                    onClick={() => openModal(service.id)}
+                  />
+                ))}
+              </div>
+
+              {/* Service Modal */}
+              <AnimatePresence mode="wait" initial={false}>
+                {selectedService && (
+                  <ServiceModal
+                    key={selectedService.id}
+                    id={selectedService.id}
+                    onClose={closeModal}
+                    service={selectedService}
+                  />
+                )}
+              </AnimatePresence>
+            </LayoutGroup>
 
             {/* Bottom CTA */}
             <div className="text-center">
@@ -235,20 +250,6 @@ export default function Services() {
           </div>
         </section>
       </div>
-
-      {/* Service Modal */}
-      <LayoutGroup>
-        <AnimatePresence mode="popLayout" initial={false}>
-          {selectedService && (
-            <ServiceModal
-              key={selectedService.id}
-              id={selectedService.id}
-              onClose={closeModal}
-              service={selectedService}
-            />
-          )}
-        </AnimatePresence>
-      </LayoutGroup>
     </>
   );
 }

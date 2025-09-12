@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { createPortal } from 'react-dom';
 import { X, Clock, Check } from 'lucide-react';
 
 interface ServiceModalProps {
@@ -57,7 +56,7 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
     };
   }, []);
 
-  return createPortal(
+  return (
     <>
       {/* Backdrop with click-away */}
       <motion.div
@@ -80,7 +79,11 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
           aria-modal="true"
           aria-labelledby={`modal-title-${id}`}
           className="relative w-full max-w-4xl bg-[var(--brand-bg)] shadow-2xl pointer-events-auto border border-[var(--brand-primary)]/10"
-          style={{ borderRadius: '12px 4px 12px 12px', willChange: 'transform' }}
+          style={{ 
+            borderRadius: '12px 4px 12px 12px', 
+            contain: 'layout paint',
+            willChange: 'transform' 
+          }}
           transition={{ type: 'spring', stiffness: 400, damping: 30, mass: 0.8 }}
           onClick={(e) => e.stopPropagation()}
           data-testid={`service-modal-${id}`}
@@ -302,7 +305,6 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
           </div>
         </motion.div>
       </div>
-    </>,
-    document.body
+    </>
   );
 }

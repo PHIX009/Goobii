@@ -74,6 +74,24 @@ export default function PurposeAndImpact() {
     setPrefersReducedMotion(mediaQuery.matches);
   }, []);
 
+  // Handle hash-based scrolling on page load
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      // Small delay to ensure elements are rendered
+      const timer = setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -177,7 +195,7 @@ export default function PurposeAndImpact() {
         </section>
 
         {/* How it Works Section */}
-        <section id="pi-how" className="py-16 lg:py-20 bg-gray-50/50">
+        <section id="pi-how" className="py-16 lg:py-20 bg-gray-50/50" style={{ scrollMarginTop: '100px' }}>
           <div className="max-w-6xl mx-auto px-4">
             <motion.h2 
               initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
