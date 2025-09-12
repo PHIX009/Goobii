@@ -111,7 +111,6 @@ export default function Services() {
         <title>Services | Goobii Sooftwash™ in Dubai</title>
         <meta name="description" content="Explore Aura, Aura Absolute, Glow, and Glow Absolute—Sooftwash™ services that save water while delivering a clean, confident finish." />
       </Helmet>
-
       <div className="pt-20">
         <section className="py-16 lg:py-24">
           <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16">
@@ -203,7 +202,7 @@ export default function Services() {
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-3xl font-ghost font-bold text-brand-primary mb-4">Ready to book your service?</h2>
             <p className="text-xl text-brand-primary mb-4">Get Goobii Connect and schedule your eco-friendly clean in seconds.</p>
-            <p className="text-lg text-brand-primary mb-8 font-grandview-bold">Download our App now!</p>
+            <p className="text-lg text-brand-primary mb-8 font-grandview-bold">Download now!</p>
             
             <div className="flex justify-center">
               <CTAGroup size="lg" className="flex-col sm:flex-row" />
