@@ -1,0 +1,73 @@
+{
+  "subscriptions": {
+    "intro": {
+      "title": "Subscriptions",
+      "paragraph": "Welcome to Goobii subscriptions—your car’s clean routine. Lock in reliable visits that fit real life, from solo drivers to full driveways, and keep your weeks running smoother with a schedule that works around you. Manage everything in Goobii Connect in seconds—pick a plan, schedule your washes, reschedule when plans change, and track every visit in the app. With our eco-first approach, your subscription supports safe, biodegradable cleaning that’s better for your car and the environment. Clean, consistent, and effortless—so you can focus on the road, not the wash.",
+      "oneLiner": "Your car’s clean routine: consistency, savings, and zero hassle—on your terms."
+    },
+    "plans": {
+      "spark": {
+        "title": "Spark",
+        "description": "The ignition—a gentle start to eco-conscious care. One wash per week with one full-service included, keeping your car fresh on a simple, reliable rhythm.",
+        "monthlyWashes": "3 Aura + 1 Aura Absolute",
+        "highlights": [
+          "1 car",
+          "Great weekly rhythm",
+          "Simple, reliable value",
+          "Eco-first care"
+        ]
+      },
+      "pulse": {
+        "title": "Pulse",
+        "description": "The steady rhythm for busy weeks. A balanced monthly routine that keeps your car looking sharp without the mental load.",
+        "monthlyWashes": "6 Aura + 2 Aura Absolute",
+        "highlights": [
+          "1 car",
+          "Built for busy weeks",
+          "Balanced monthly value",
+          "Sustainable care"
+        ]
+      },
+      "flow": {
+        "title": "Flow",
+        "description": "The seamless flow of premium care. Maximum convenience and flexibility for households or drivers who want their cars consistently spotless without compromise.",
+        "monthlyWashes": "8 Aura + 4 Aura Absolute",
+        "highlights": [
+          "Up to 2 cars",
+          "Priority convenience",
+          "Maximum monthly value",
+          "Premium & planet-minded care"
+        ]
+      }
+    },
+    "included": {
+      "title": "What’s Included",
+      "points": [
+        {
+          "title": "App convenience",
+          "text": "Control everything in Goobii Connect—book, reschedule, and track visits in seconds."
+        },
+        {
+          "title": "Clear value",
+          "text": "Routine care that saves time and keeps standards high."
+        },
+        {
+          "title": "Premium & planet-minded",
+          "text": "Pro-grade, biodegradable formulations—high performance without the harsh stuff."
+        },
+        {
+          "title": "Clean footprint",
+          "text": "Quiet, tidy, and respectful service wherever you are."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Start your subscription today",
+      "paragraph": "Choose the plan that fits your lifestyle and let Goobii handle the rest. Simple setup, reliable care, and a cleaner way forward—always managed in Goobii Connect.",
+      "buttons": [
+        "Download on iOS",
+        "Get it on Android"
+      ]
+    }
+  }
+}
