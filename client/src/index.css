@@ -4,33 +4,33 @@
 @tailwind utilities;
 
 :root {
-  /* Goobii Brand Colors - Exact Values */
-  --brand-primary: hsl(195, 100%, 26%); /* #006980 */
-  --brand-secondary: hsl(210, 60%, 18%); /* #003B5C */
-  --brand-bg: hsl(200, 17%, 95%); /* #ecf1f4 */
-  --brand-pop: hsl(30, 100%, 50%); /* #FF8200 */
-  --brand-contrast-2: hsl(48, 56%, 66%); /* #DCC57F */
+  /* Goobii Brand Colors - HSL Triplets for Tailwind */
+  --brand-primary: 195 100% 26%; /* #006980 */
+  --brand-secondary: 202 100% 18%; /* #003B5C */
+  --brand-bg: 200 17% 95%; /* #ecf1f4 */
+  --brand-pop: 30 100% 50%; /* #FF8200 */
+  --brand-contrast-2: 48 56% 66%; /* #DCC57F */
 
-  /* Theme Variables using brand colors */
-  --background: hsl(200, 17%, 95%);
-  --foreground: hsl(195, 100%, 26%);
-  --card: hsl(200, 17%, 97%);
-  --card-foreground: hsl(195, 100%, 26%);
-  --popover: hsl(200, 17%, 95%);
-  --popover-foreground: hsl(195, 100%, 26%);
-  --primary: hsl(195, 100%, 26%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(210, 60%, 18%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --muted: hsl(210, 40%, 96%);
-  --muted-foreground: hsl(195, 100%, 26%);
-  --accent: hsl(30, 100%, 50%);
-  --accent-foreground: hsl(210, 40%, 98%);
-  --destructive: hsl(0, 84%, 60%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --border: hsl(210, 40%, 90%);
-  --input: hsl(210, 40%, 94%);
-  --ring: hsl(195, 100%, 26%);
+  /* Theme Variables using brand colors as HSL triplets */
+  --background: 200 17% 95%;
+  --foreground: 210 60% 18%;
+  --card: 200 17% 97%;
+  --card-foreground: 210 60% 18%;
+  --popover: 200 17% 95%;
+  --popover-foreground: 210 60% 18%;
+  --primary: 195 100% 26%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 60% 18%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 210 60% 18%;
+  --accent: 30 100% 50%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 210 40% 90%;
+  --input: 210 40% 94%;
+  --ring: 195 100% 26%;
   --radius: 1rem;
 
   /* Font families */
@@ -60,7 +60,7 @@ button:hover,
 [role="button"]:hover,
 .hover\\:text-brand-bg:hover,
 .hover\\:text-brand-primary:hover {
-  color: var(--brand-pop) !important;
+  color: hsl(var(--brand-pop)) !important;
 }
 
 /* Specific hover effects for navigation and interactive elements */
@@ -70,7 +70,7 @@ footer a:hover span,
 .menu-item:hover,
 [data-testid*="link"]:hover,
 [data-testid*="button"]:hover {
-  color: var(--brand-pop) !important;
+  color: hsl(var(--brand-pop)) !important;
   transition: color 0.3s ease;
 }
 
@@ -225,7 +225,7 @@ footer a:hover span,
 .cta-button:hover,
 .cta-button:hover span,
 .cta-button:hover svg {
-  color: var(--brand-pop) !important;
+  color: hsl(var(--brand-pop)) !important;
   transition: all 0.3s ease;
 }
 
@@ -279,7 +279,7 @@ footer a:hover span,
   }
 
   body {
-    @apply font-sans antialiased bg-brand-bg text-brand-primary;
+    @apply font-sans antialiased bg-brand-bg text-brand-secondary;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -324,10 +324,7 @@ footer a:hover span,
     color: inherit !important;
   }
   
-  /* Ensure all text uses teal color */
-  body, p, h1, h2, h3, h4, h5, h6, span, div {
-    color: hsl(195, 100%, 26%) !important;
-  }
+  /* Remove global color override to allow class-based colors */
 
   .service-card:hover {
     transform: translateY(-4px);

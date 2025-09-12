@@ -187,7 +187,7 @@ export default function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-40 bg-black/50"
+              className="fixed inset-0 z-40 bg-black/30"
               onClick={() => setIsOpen(false)}
             />
 
@@ -259,7 +259,7 @@ export default function Header() {
                       href={item.href}
                       className={`block py-2 px-3 text-sm transition-colors rounded-md mb-1 ${
                         location === item.href
-                          ? "font-bold text-[var(--brand-secondary)]"
+                          ? "font-bold text-brand-secondary"
                           : "text-brand-secondary hover:text-brand-pop hover:font-semibold"
                       }`}
                       onClick={() => setIsOpen(false)}

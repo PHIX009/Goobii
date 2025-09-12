@@ -4,6 +4,7 @@ import SubscriptionCard from "@/components/subscription-card";
 import SubscriptionModal from "@/components/SubscriptionModal";
 import CTAGroup from "@/components/cta-group";
 import { DollarSign, Calendar, Shield, Leaf } from "lucide-react";
+import verticalLogo from "@assets/Goobii Vertical Logo_1756905830399.png";
 
 export default function Subscriptions() {
   const [selectedSubscription, setSelectedSubscription] = useState<string | null>(null);
@@ -130,14 +131,36 @@ export default function Subscriptions() {
       <div className="pt-20">
         <section className="py-16 lg:py-24">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">Subscriptions</h1>
-              <p className="text-xl text-muted-foreground mb-4">
-                Welcome to Goobii subscriptions—your car's clean routine. Lock in reliable visits that fit real life, from solo drivers to full driveways, and keep your weeks running smoother with a schedule that works around you.
-              </p>
-              <p className="text-lg text-brand-secondary font-medium">
-                Your car's clean routine: consistency, savings, and zero hassle—on your terms.
-              </p>
+            {/* Hero Section with Text Left and Image Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+              {/* Text Content */}
+              <div className="text-left">
+                <div className="flex items-center gap-3 mb-6">
+                  <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-secondary">SUBSCRIPTION</h1>
+                  <img 
+                    src={verticalLogo} 
+                    alt="Goobii Logo" 
+                    className="h-16 lg:h-20"
+                    style={{ filter: 'brightness(0) saturate(100%) invert(17%) sepia(26%) saturate(1765%) hue-rotate(174deg) brightness(93%) contrast(102%)' }}
+                  />
+                </div>
+                <p className="text-xl text-muted-foreground mb-4">
+                  Welcome to Goobii subscriptions—your car's clean routine. Lock in reliable visits that fit real life, from solo drivers to full driveways, and keep your weeks running smoother with a schedule that works around you.
+                </p>
+                <p className="text-lg text-brand-secondary font-medium">
+                  Your car's clean routine: consistency, savings, and zero hassle—on your terms.
+                </p>
+              </div>
+              
+              {/* Image Placeholder */}
+              <div className="flex justify-center lg:justify-end">
+                <div 
+                  className="w-full max-w-md h-80 bg-muted/30 flex items-center justify-center text-muted-foreground border-2 border-dashed border-muted-foreground/30"
+                  style={{ borderRadius: '12px 4px 12px 12px' }}
+                >
+                  <span className="text-sm font-medium">Image Placeholder</span>
+                </div>
+              </div>
             </div>
 
             {/* Subscription Cards */}
@@ -167,14 +190,14 @@ export default function Subscriptions() {
 
             {/* What's Included Section */}
             <div className="bg-muted/30 p-8 lg:p-12 mb-16" data-testid="subscription-benefits" style={{ borderRadius: '12px 4px 12px 12px' }}>
-              <h2 className="text-2xl lg:text-3xl font-grandview-bold text-center text-brand-primary mb-8">What's Included</h2>
+              <h2 className="text-2xl lg:text-3xl font-grandview-bold text-center text-brand-secondary mb-8">What's Included</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-primary/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                    <DollarSign className="w-8 h-8 text-brand-primary" />
+                  <div className="w-16 h-16 bg-brand-secondary/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                    <DollarSign className="w-8 h-8 text-brand-secondary" />
                   </div>
-                  <h3 className="font-grandview-bold text-lg text-brand-primary mb-2">App convenience</h3>
+                  <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">App convenience</h3>
                   <p className="text-muted-foreground">Control everything in Goobii Connect—book, reschedule, and track visits in seconds.</p>
                 </div>
                 
@@ -182,7 +205,7 @@ export default function Subscriptions() {
                   <div className="w-16 h-16 bg-brand-secondary/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
                     <Calendar className="w-8 h-8 text-brand-secondary" />
                   </div>
-                  <h3 className="font-grandview-bold text-lg text-brand-primary mb-2">Clear value</h3>
+                  <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">Clear value</h3>
                   <p className="text-muted-foreground">Routine care that saves time and keeps standards high.</p>
                 </div>
                 
@@ -190,7 +213,7 @@ export default function Subscriptions() {
                   <div className="w-16 h-16 bg-brand-pop/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
                     <Shield className="w-8 h-8 text-brand-pop" />
                   </div>
-                  <h3 className="font-grandview-bold text-lg text-brand-primary mb-2">Premium & planet-minded</h3>
+                  <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">Premium & planet-minded</h3>
                   <p className="text-muted-foreground">Pro-grade, biodegradable formulations—high performance without the harsh stuff.</p>
                 </div>
 
@@ -198,7 +221,7 @@ export default function Subscriptions() {
                   <div className="w-16 h-16 bg-brand-secondary/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
                     <Leaf className="w-8 h-8 text-brand-secondary" />
                   </div>
-                  <h3 className="font-grandview-bold text-lg text-brand-primary mb-2">Clean footprint</h3>
+                  <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">Clean footprint</h3>
                   <p className="text-muted-foreground">Quiet, tidy, and respectful service wherever you are.</p>
                 </div>
               </div>
