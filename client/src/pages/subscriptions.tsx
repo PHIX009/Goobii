@@ -194,7 +194,7 @@ export default function Subscriptions() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-secondary/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'hsl(var(--brand-secondary) / 0.1)', borderRadius: '12px 4px 12px 12px' }}>
                     <DollarSign className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">App convenience</h3>
@@ -202,7 +202,7 @@ export default function Subscriptions() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-secondary/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'hsl(var(--brand-secondary) / 0.1)', borderRadius: '12px 4px 12px 12px' }}>
                     <Calendar className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">Clear value</h3>
@@ -210,7 +210,7 @@ export default function Subscriptions() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-secondary/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'hsl(var(--brand-secondary) / 0.1)', borderRadius: '12px 4px 12px 12px' }}>
                     <Shield className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">Premium & planet-minded</h3>
@@ -218,7 +218,7 @@ export default function Subscriptions() {
                 </div>
 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-secondary/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'hsl(var(--brand-secondary) / 0.1)', borderRadius: '12px 4px 12px 12px' }}>
                     <Leaf className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">Clean footprint</h3>
