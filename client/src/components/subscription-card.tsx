@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Badge } from "@/components/ui/badge";
-import { Check, Calendar } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 
 interface SubscriptionCardProps {
   id: string;
@@ -97,11 +97,10 @@ export default function SubscriptionCard({
             Monthly Washes
           </h4>
           <div className="flex items-center">
-            <Calendar className="w-5 h-5 text-[var(--brand-secondary)] mr-2" />
+            <Sparkles className="w-5 h-5 text-[var(--brand-secondary)] mr-2" />
             <span className="text-2xl font-bold text-[var(--brand-contrast-2)]" style={{ fontFamily: 'var(--font-grandview-bold)' }}>
               {washCount}
             </span>
-            <span className="text-sm text-[var(--brand-primary)] ml-1">/month</span>
           </div>
         </div>
 
@@ -114,25 +113,20 @@ export default function SubscriptionCard({
             Highlights
           </h4>
           <ul className="space-y-1.5 text-xs text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
-            {features.slice(0, 3).map((feature, index) => (
+            {features.slice(0, 4).map((feature, index) => (
               <li key={index} className="flex items-start">
                 <Check className="w-3 h-3 text-[var(--brand-secondary)] mr-1.5 flex-shrink-0 mt-0.5" />
                 {feature}
               </li>
             ))}
-            {features.length > 3 && (
-              <li className="text-[var(--brand-secondary)] font-medium">
-                +{features.length - 3} more benefits
-              </li>
-            )}
           </ul>
         </div>
       </div>
       
       {/* Learn More Button */}
-      <div className="flex justify-end">
+      <div className="flex justify-center">
         <span 
-          className="text-xs text-[var(--brand-secondary)] font-medium"
+          className="text-xs text-[var(--brand-secondary)] font-medium text-center"
           style={{ fontFamily: 'var(--font-grandview)' }}
         >
           Click to learn more →

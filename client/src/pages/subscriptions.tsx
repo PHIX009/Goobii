@@ -61,7 +61,6 @@ export default function Subscriptions() {
         "Balanced monthly value", 
         "Sustainable care"
       ],
-      isPopular: true,
       bestFor: "Busy professionals who need reliable car care that fits around their demanding schedule",
       priceDetails: "Most popular plan with balanced frequency and value",
       benefits: [
@@ -151,7 +150,7 @@ export default function Subscriptions() {
                   description={subscription.description}
                   washCount={subscription.washCount}
                   features={subscription.features}
-                  isPopular={subscription.isPopular}
+                  isPopular={false}
                   onClick={() => handleCardClick(subscription.id)}
                 />
               ))}
