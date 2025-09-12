@@ -138,7 +138,7 @@ export default function Header() {
           <Button
             ref={menuButtonRef}
             variant="ghost"
-            className="p-2"
+            className="p-2 hover:bg-transparent"
             data-testid="menu-toggle"
             aria-haspopup="dialog"
             aria-controls="site-menu"
