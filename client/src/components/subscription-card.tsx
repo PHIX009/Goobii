@@ -66,7 +66,7 @@ export default function SubscriptionCard({
     >
       {/* Title */}
       <h3 
-        className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight mb-2"
+        className="text-3xl font-extrabold tracking-tight mb-2 text-[#003a5c]"
         style={{ fontFamily: 'var(--font-grandview-bold)' }}
       >
         {title}
@@ -74,10 +74,8 @@ export default function SubscriptionCard({
           <Badge className="ml-2 bg-[var(--brand-pop)] text-white text-xs">Popular</Badge>
         )}
       </h3>
-      
       {/* Thin barrier */}
       <div className="h-0.5 bg-[var(--brand-contrast-2)] mb-4"></div>
-      
       {/* Description */}
       <p 
         className="text-[var(--brand-primary)] mb-6 leading-relaxed text-sm"
@@ -85,7 +83,6 @@ export default function SubscriptionCard({
       >
         {description}
       </p>
-      
       {/* Wash Count and Features Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
         {/* Wash Count (Left) */}
@@ -122,7 +119,6 @@ export default function SubscriptionCard({
           </ul>
         </div>
       </div>
-      
       {/* Learn More Button */}
       <div className="flex justify-center">
         <span 
