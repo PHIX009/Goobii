@@ -21,11 +21,11 @@ export default function CTAGroup({ size = "md", variant = "default", className =
   if (size === "lg") {
     return (
       <div className={`flex gap-2 ${className}`} data-testid="cta-group">
-        <a href="#ios-placeholder" className="cta-button bg-brand-primary text-brand-bg hover:bg-brand-secondary px-6 py-4 font-grandview-bold transition-colors flex items-center justify-center gap-2 border-2 border-brand-primary/20 shadow-lg" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="cta-button-ios">
+        <a href="#ios-placeholder" className="cta-button bg-transparent text-brand-primary hover:text-brand-pop border-2 border-brand-primary hover:border-brand-pop px-6 py-4 font-grandview-bold transition-colors flex items-center justify-center gap-2" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="cta-button-ios">
           <SiApple className="w-6 h-6" />
           <span className="font-bold">iOS</span>
         </a>
-        <a href="#android-placeholder" className="cta-button bg-brand-secondary text-brand-bg hover:bg-brand-primary px-6 py-4 font-grandview-bold transition-colors flex items-center justify-center gap-2 border-2 border-brand-secondary/20 shadow-lg" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="cta-button-android">
+        <a href="#android-placeholder" className="cta-button bg-transparent text-brand-primary hover:text-brand-pop border-2 border-brand-primary hover:border-brand-pop px-6 py-4 font-grandview-bold transition-colors flex items-center justify-center gap-2" style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="cta-button-android">
           <SiGoogleplay className="w-6 h-6" />
           <span className="font-bold">Android</span>
         </a>
@@ -37,7 +37,7 @@ export default function CTAGroup({ size = "md", variant = "default", className =
     <div className={`flex gap-2 ${className}`} data-testid="cta-group">
       <a
         href="#ios-placeholder"
-        className={`cta-button ${variant === "footer" ? footerClasses : "bg-brand-primary text-brand-bg hover:bg-brand-secondary"} ${sizeClasses[size]} font-grandview-bold transition-colors flex items-center justify-center gap-1 border-2 border-brand-primary/20 shadow-md`}
+        className={`cta-button ${variant === "footer" ? footerClasses : "bg-transparent text-brand-primary hover:text-brand-pop border-2 border-brand-primary hover:border-brand-pop"} ${sizeClasses[size]} font-grandview-bold transition-colors flex items-center justify-center gap-1`}
         style={{ borderRadius: '12px 4px 12px 12px' }}
         data-testid="cta-button-ios"
       >
@@ -46,7 +46,7 @@ export default function CTAGroup({ size = "md", variant = "default", className =
       </a>
       <a
         href="#android-placeholder"
-        className={`cta-button ${variant === "footer" ? footerClasses : "bg-brand-secondary text-brand-bg hover:bg-brand-primary"} ${sizeClasses[size]} font-grandview-bold transition-colors flex items-center justify-center gap-1 border-2 border-brand-secondary/20 shadow-md`}
+        className={`cta-button ${variant === "footer" ? footerClasses : "bg-transparent text-brand-primary hover:text-brand-pop border-2 border-brand-primary hover:border-brand-pop"} ${sizeClasses[size]} font-grandview-bold transition-colors flex items-center justify-center gap-1`}
         style={{ borderRadius: '12px 4px 12px 12px' }}
         data-testid="cta-button-android"
       >

@@ -123,74 +123,20 @@ export default function Services() {
             {/* Title */}
             <div className="text-center mb-16">
               <h1 
-                className="text-4xl lg:text-5xl font-bold text-[var(--brand-primary)] mb-16 tracking-tight"
+                className="text-4xl lg:text-5xl font-bold text-brand-primary mb-8 tracking-tight"
                 style={{ fontFamily: 'var(--font-ghost)' }}
               >
                 Services
               </h1>
-            </div>
-
-            {/* Hero section with image placeholder and content */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-              {/* Left: Image placeholder */}
-              <div className="bg-gradient-to-br from-[var(--brand-primary)]/10 to-[var(--brand-secondary)]/10 rounded-lg aspect-square flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-[var(--brand-primary)]/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <svg className="w-10 h-10 text-[var(--brand-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <p 
-                    className="text-sm text-[var(--brand-primary)] font-medium"
-                    style={{ fontFamily: 'var(--font-grandview)' }}
-                  >
-                    Service Image Placeholder
-                  </p>
-                </div>
-              </div>
-
-              {/* Right: Content */}
-              <div>
-                <p
-                  className="text-lg text-[var(--brand-primary)] leading-relaxed mb-4"
-                  style={{ fontFamily: 'var(--font-grandview)' }}
-                >
-                  Choose from our eco-friendly options designed for everyday upkeep or a fuller reset. Each visit is consistent, tidy, and apartment-friendly.
-                </p>
-
-                <p
-                  className="text-lg text-[var(--brand-primary)] leading-relaxed mb-6"
-                  style={{ fontFamily: 'var(--font-grandview)' }}
-                >
-                  On average, we use about 40× less water than a pressure wash through our Sooftwash™ technology. Our fleet runs electric via a mobile power station, we use fresh microfibres every wash, and biodegradable formulas that are kind to people, surfaces, and surroundings.
-                </p>
-
-                <a
-                  href="/purpose-and-impact#pi-how"
-                  className="inline-flex items-center px-4 py-2 border border-[var(--brand-primary)] text-[var(--brand-primary)] hover:text-[var(--brand-pop)] hover:border-[var(--brand-pop)] transition-colors"
-                  style={{ 
-                    fontFamily: 'var(--font-grandview-semibold)',
-                    borderRadius: '12px 4px 12px 12px'
-                  }}
-                >
-                  See how Sooftwash™ works
-                  <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M13 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            {/* Services intro lines */}
-            <div className="text-center max-w-3xl mx-auto mb-16">
+              
               <p 
-                className="text-xl text-[var(--brand-primary)] mb-4 font-medium"
+                className="text-xl text-brand-primary mb-4 font-medium max-w-3xl mx-auto"
                 style={{ fontFamily: 'var(--font-grandview)' }}
               >
                 Quick refresh or full reset—the choice is simple, the results consistent.
               </p>
               <p 
-                className="text-lg text-[var(--brand-primary)]"
+                className="text-lg text-brand-primary max-w-3xl mx-auto"
                 style={{ fontFamily: 'var(--font-grandview)' }}
               >
                 Check out our service options below to see what's included, then press a service to get more information.
