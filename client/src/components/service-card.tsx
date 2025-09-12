@@ -49,94 +49,85 @@ export default function ServiceCard({
   }, []);
 
   return (
-    <button 
+    <motion.button 
       ref={cardRef}
-      className="service-card w-full text-left relative p-8 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-secondary)]/30 transition-all duration-300 border border-[var(--brand-primary)]/10 hover:border-[var(--brand-secondary)]/30 hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-[var(--brand-pop)] focus:ring-0 ring-offset-2 ring-offset-white cursor-pointer overflow-hidden"
+      layoutId={`service-${id}`}
+      className="service-card w-full text-left bg-[var(--brand-bg)] p-8 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-secondary)]/30 transition-all duration-300 border border-[var(--brand-primary)]/10 hover:border-[var(--brand-secondary)]/30 hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-[var(--brand-pop)] focus:ring-0 ring-offset-2 ring-offset-white cursor-pointer relative overflow-hidden"
+      style={{ borderRadius: '12px 4px 12px 12px' }}
       onClick={onClick}
       onKeyDown={handleKeyDown}
       aria-controls={`modal-${title.toLowerCase().replace(/\s+/g, '-')}`}
       data-testid={`service-card-${title.toLowerCase().replace(/\s+/g, '-')}`}
+      whileHover={{ y: -4 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
     >
-      {/* Morphing Surface - only this element transitions */}
-      <motion.div
-        layoutId={`service-surface-${id}`}
-        className="absolute inset-0 bg-[var(--brand-bg)]"
-        style={{ 
-          borderRadius: '12px 4px 12px 12px',
-          willChange: 'transform'
-        }}
-        transition={{ type: 'tween', duration: 0.35, ease: 'easeInOut' }}
-      />
+      {/* Title */}
+      <h3 
+        className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight mb-2"
+        style={{ fontFamily: 'var(--font-grandview-bold)' }}
+      >
+        {title}
+      </h3>
       
-      {/* Card Content - stays in place */}
-      <div className="relative z-10">
-        {/* Title */}
-        <h3 
-          className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight mb-2"
-          style={{ fontFamily: 'var(--font-grandview-bold)' }}
-        >
-          {title}
-        </h3>
-        
-        {/* Thin barrier */}
-        <div className="h-0.5 bg-[var(--brand-contrast-2)] mb-4"></div>
-        
-        {/* Description */}
-        <p 
-          className="text-[var(--brand-primary)] mb-6 leading-relaxed text-sm"
-          style={{ fontFamily: 'var(--font-grandview)' }}
-        >
-          {description}
-        </p>
-        
-        {/* Highlights and Duration Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
-          {/* Highlights (Left) */}
-          <div>
-            <h4 
-              className="font-extrabold text-[var(--brand-secondary)] mb-3"
-              style={{ fontFamily: 'var(--font-grandview-bold)' }}
-            >
-              Highlights
-            </h4>
-            <ul className="space-y-1.5 text-xs text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
-              {highlights.map((highlight, index) => (
-                <li key={index} className="flex items-start">
-                  <Check className="w-3 h-3 text-[var(--brand-secondary)] mr-2 flex-shrink-0 mt-0.5" />
-                  {highlight}
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          {/* Duration (Right) */}
-          <div>
-            <h4 
-              className="font-extrabold text-[var(--brand-secondary)] mb-3"
-              style={{ fontFamily: 'var(--font-grandview-bold)' }}
-            >
-              Estimated duration
-            </h4>
-            <div className="flex items-center">
-              <Clock className="w-3 h-3 text-[var(--brand-secondary)] mr-2" />
-              <p 
-                className="text-xs text-[var(--brand-primary)]"
-                style={{ fontFamily: 'var(--font-grandview)' }}
-              >
-                {duration}
-              </p>
-            </div>
-          </div>
+      {/* Thin barrier */}
+      <div className="h-0.5 bg-[var(--brand-contrast-2)] mb-4"></div>
+      
+      {/* Description */}
+      <p 
+        className="text-[var(--brand-primary)] mb-6 leading-relaxed text-sm"
+        style={{ fontFamily: 'var(--font-grandview)' }}
+      >
+        {description}
+      </p>
+      
+      {/* Highlights and Duration Row */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+        {/* Highlights (Left) */}
+        <div>
+          <h4 
+            className="font-extrabold text-[var(--brand-secondary)] mb-3"
+            style={{ fontFamily: 'var(--font-grandview-bold)' }}
+          >
+            Highlights
+          </h4>
+          <ul className="space-y-1.5 text-xs text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
+            {highlights.map((highlight, index) => (
+              <li key={index} className="flex items-start">
+                <Check className="w-3 h-3 text-[var(--brand-secondary)] mr-2 flex-shrink-0 mt-0.5" />
+                {highlight}
+              </li>
+            ))}
+          </ul>
         </div>
         
-        {/* Best for line */}
-        <p 
-          className="text-xs text-[var(--brand-primary)] font-medium"
-          style={{ fontFamily: 'var(--font-grandview)' }}
-        >
-          <span className="font-bold">Best for:</span> {bestFor}
-        </p>
+        {/* Duration (Right) */}
+        <div>
+          <h4 
+            className="font-extrabold text-[var(--brand-secondary)] mb-3"
+            style={{ fontFamily: 'var(--font-grandview-bold)' }}
+          >
+            Estimated duration
+          </h4>
+          <div className="flex items-center">
+            <Clock className="w-3 h-3 text-[var(--brand-secondary)] mr-2" />
+            <p 
+              className="text-xs text-[var(--brand-primary)]"
+              style={{ fontFamily: 'var(--font-grandview)' }}
+            >
+              {duration}
+            </p>
+          </div>
+        </div>
       </div>
-    </button>
+      
+      {/* Best for line */}
+      <p 
+        className="text-xs text-[var(--brand-primary)] font-medium"
+        style={{ fontFamily: 'var(--font-grandview)' }}
+      >
+        <span className="font-bold">Best for:</span> {bestFor}
+      </p>
+    </motion.button>
   );
 }

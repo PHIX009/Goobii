@@ -41,7 +41,7 @@ export default function Services() {
         "Interior wipe-downs",               // chip 3
         "Interior glass touch-up"
       ],
-      duration: "35–50 minutes",
+      duration: "30–40 minutes",
       bestFor: "Weekly or bi-weekly maintenance",
       process: [
         "Everything in Aura",
@@ -63,7 +63,7 @@ export default function Services() {
         "Tyre dressing",                     // chip 3
         "Ceramic-infused glass cleaner"
       ],
-      duration: "45–65 minutes",
+      duration: "30–40 minutes",
       bestFor: "Monthly care or when you want premium attention",
       process: [
         "Detailed exterior pass panel by panel",
@@ -85,7 +85,7 @@ export default function Services() {
         "Finishing touches",                 // chip 3
         "Ceramic-infused glass cleaner"
       ],
-      duration: "60–85 minutes",
+      duration: "45–55 minutes",
       bestFor: "Monthly reset or before special events",
       process: [
         "Full Glow exterior detail",
