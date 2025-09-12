@@ -14,10 +14,9 @@ export default function Services() {
       title: "Aura",
       description: "A focused exterior refresh that keeps your car looking sharper for everyday living.",
       highlights: [
-        "Exterior Sooftwash™ pass",          // chip 1
-        "Wheels & tyres",                    // chip 2
-        "Exterior glass",                    // chip 3
-        "Final check and dry"
+        "Exterior Sooftwash™ pass",
+        "Wheels & tyres",
+        "Exterior glass"
       ],
       duration: "20–30 minutes",
       bestFor: "Everyday upkeep and dusty days",
@@ -36,10 +35,9 @@ export default function Services() {
       title: "Aura Absolute",
       description: "Aura exterior plus a light interior tidy so the cabin feels fresh too.",
       highlights: [
-        "Exterior Sooftwash™ pass",          // chip 1
-        "Quick cabin vacuum",                // chip 2
-        "Interior wipe-downs",               // chip 3
-        "Interior glass touch-up"
+        "Exterior Sooftwash™ pass",
+        "Quick cabin vacuum",
+        "Interior wipe-downs"
       ],
       duration: "30–40 minutes",
       bestFor: "Weekly or bi-weekly maintenance",
@@ -58,13 +56,12 @@ export default function Services() {
       title: "Glow",
       description: "Premium exterior attention and care for a crisp, stand-out finish.",
       highlights: [
-        "Glow Sooftwash™ exterior pass",     // chip 1
-        "Trims & crevices",                  // chip 2
-        "Tyre dressing",                     // chip 3
-        "Ceramic-infused glass cleaner"
+        "Glow Sooftwash™ exterior pass",
+        "Trims & crevices",
+        "Tyre dressing"
       ],
       duration: "30–40 minutes",
-      bestFor: "Monthly care or when you want premium attention",
+      bestFor: "Monthly refresh or when you want premium attention",
       process: [
         "Detailed exterior pass panel by panel",
         "Attention to trims, badges, and tight crevices",
@@ -80,10 +77,9 @@ export default function Services() {
       title: "Glow Absolute",
       description: "Everything in Glow plus a fuller interior treatment for an all-round reset.",
       highlights: [
-        "Glow Sooftwash™ exterior pass",     // chip 1
-        "Vacuum & interiors",                // chip 2
-        "Finishing touches",                 // chip 3
-        "Ceramic-infused glass cleaner"
+        "Glow Sooftwash™ exterior pass",
+        "Vacuum & interiors",
+        "Finishing touches"
       ],
       duration: "45–55 minutes",
       bestFor: "Monthly reset or before special events",
@@ -133,14 +129,29 @@ export default function Services() {
                 className="text-xl text-brand-primary mb-4 font-medium max-w-3xl mx-auto"
                 style={{ fontFamily: 'var(--font-grandview)' }}
               >
-                Quick refresh or full reset—the choice is simple, the results consistent.
+                Choose from our eco-friendly options designed for everyday upkeep or a fuller reset. Each visit is consistent, tidy, and apartment-friendly.
               </p>
               <p 
-                className="text-lg text-brand-primary max-w-3xl mx-auto"
+                className="text-lg text-brand-primary mb-6 max-w-3xl mx-auto"
                 style={{ fontFamily: 'var(--font-grandview)' }}
               >
-                Check out our service options below to see what's included, then press a service to get more information.
+                On average, we use about 40× less water than a pressure wash through our Sooftwash™ technology. Our fleet runs electric via a mobile power station, we use fresh microfibres every wash, and biodegradable formulas that are kind to people, surfaces, and surroundings.
               </p>
+              
+              {/* Method Link */}
+              <div className="flex justify-center mb-8">
+                <a 
+                  href="/purpose-and-impact#pi-how"
+                  className="inline-block bg-white border-2 border-brand-primary text-brand-primary px-6 py-3 font-bold hover:bg-brand-pop hover:border-brand-pop hover:text-white transition-all duration-300"
+                  style={{ 
+                    borderRadius: '12px 4px 12px 12px',
+                    fontFamily: 'var(--font-grandview-bold)'
+                  }}
+                  data-testid="link-sooftwash-method"
+                >
+                  See how Sooftwash™ works
+                </a>
+              </div>
             </div>
 
             {/* Service Cards and Modal - Wrapped in LayoutGroup for smooth animations */}
