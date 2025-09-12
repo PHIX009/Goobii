@@ -78,7 +78,7 @@ export default function SubscriptionCard({
       <div className="h-0.5 bg-[var(--brand-contrast-2)] mb-4"></div>
       {/* Description */}
       <p 
-        className="text-[var(--brand-primary)] mb-6 leading-relaxed text-sm"
+        className="mb-6 text-sm text-[#003a5c]"
         style={{ fontFamily: 'var(--font-grandview)' }}
       >
         {description}
