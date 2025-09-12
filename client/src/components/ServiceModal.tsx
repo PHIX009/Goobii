@@ -78,7 +78,7 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
           role="dialog"
           aria-modal="true"
           aria-labelledby={`modal-title-${id}`}
-          className="relative w-full max-w-4xl bg-[var(--brand-bg)] shadow-2xl pointer-events-auto border border-[var(--brand-primary)]/10"
+          className="relative w-full max-w-4xl bg-gray-100 shadow-2xl pointer-events-auto border border-[var(--brand-primary)]/10"
           style={{ 
             borderRadius: '12px 4px 12px 12px', 
             contain: 'layout paint',
