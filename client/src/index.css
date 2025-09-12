@@ -13,7 +13,7 @@
 
   /* Theme Variables using brand colors as HSL triplets */
   --background: 200 17% 95%;
-  --foreground: 210 60% 18%;
+  --foreground: 195 100% 26%;
   --card: 200 17% 97%;
   --card-foreground: 210 60% 18%;
   --popover: 200 17% 95%;
@@ -23,7 +23,7 @@
   --secondary: 210 60% 18%;
   --secondary-foreground: 210 40% 98%;
   --muted: 210 40% 96%;
-  --muted-foreground: 210 60% 18%;
+  --muted-foreground: 195 100% 26%;
   --accent: 30 100% 50%;
   --accent-foreground: 210 40% 98%;
   --destructive: 0 84% 60%;
@@ -279,12 +279,11 @@ footer a:hover span,
   }
 
   body {
-    @apply font-sans antialiased bg-brand-bg text-brand-secondary;
+    @apply font-sans antialiased bg-brand-bg text-brand-primary;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-ghost);
-    color: hsl(var(--brand-secondary));
   }
 }
 
