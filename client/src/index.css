@@ -74,11 +74,11 @@ footer a:hover span,
   transition: color 0.3s ease;
 }
 
-/* Exception for Sooftwash method link - allow full hover effect */
+/* Exception for Sooftwash method link - only frame and text color change */
 [data-testid="link-sooftwash-method"]:hover {
-  background-color: hsl(var(--brand-pop)) !important;
   border-color: hsl(var(--brand-pop)) !important;
-  color: white !important;
+  color: hsl(var(--brand-pop)) !important;
+  background-color: transparent !important;
 }
 
 /* Force hardware acceleration for smoother animations */

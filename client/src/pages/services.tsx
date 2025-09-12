@@ -145,7 +145,7 @@ export default function Services() {
                   <div className="mb-8">
                     <a 
                       href="/purpose-and-impact#pi-how"
-                      className="inline-block bg-white border-2 border-brand-primary text-brand-primary px-6 py-3 font-bold hover:bg-brand-pop hover:border-brand-pop hover:text-white transition-all duration-300"
+                      className="inline-block bg-transparent border-2 border-brand-primary text-brand-primary px-6 py-3 font-bold hover:border-brand-pop hover:text-brand-pop transition-all duration-300"
                       style={{ 
                         borderRadius: '12px 4px 12px 12px',
                         fontFamily: 'var(--font-grandview-bold)'
