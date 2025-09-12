@@ -80,7 +80,7 @@ export default function ServiceCard({
           </h3>
           
           {/* Golden horizontal separator line */}
-          <div className="w-full h-1 bg-[var(--brand-pop)] mb-4 rounded-sm"></div>
+          <div className="w-full h-1 bg-orange-500 mb-4 rounded-sm"></div>
           
           {/* Description */}
           <p 
