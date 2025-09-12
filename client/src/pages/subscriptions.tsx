@@ -134,7 +134,7 @@ export default function Subscriptions() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
               {/* Text Content */}
               <div className="text-left">
-                <div className="flex items-center gap-4 mb-6">
+                <div className="flex items-end gap-4 mb-6">
                   <img 
                     src={verticalLogo} 
                     alt="Goobii Logo" 
