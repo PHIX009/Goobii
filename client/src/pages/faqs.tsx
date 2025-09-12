@@ -61,7 +61,6 @@ export default function FAQs() {
         <title>Frequently Asked Questions - Goobii</title>
         <meta name="description" content="Find answers to common questions about Goobii's eco-friendly car cleaning services, Sooftwash™ technology, booking process, and more." />
       </Helmet>
-
       <div className="pt-20">
         <section className="py-16 lg:py-24">
           <div className="max-w-4xl mx-auto px-4">
@@ -91,7 +90,7 @@ export default function FAQs() {
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-3xl font-ghost font-bold text-brand-primary mb-4">Still have questions?</h2>
             <p className="text-xl text-brand-primary mb-4">Contact us directly or download the app to get started with your first eco-friendly wash</p>
-            <p className="text-lg text-brand-primary mb-8 font-grandview-bold">Download our App now!</p>
+            <p className="text-lg text-brand-primary mb-8 font-grandview-bold">Download Goobii Connect now!</p>
             
             <div className="flex justify-center">
               <CTAGroup size="lg" className="flex-col sm:flex-row" />
