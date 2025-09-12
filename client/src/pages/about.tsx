@@ -44,7 +44,7 @@ export default function About() {
                     Cleaner planet.
                   </h1>
                   
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground text-[20px]">
                     At Goobii, every detail of what we do is guided by a simple idea: small choices add up to big change. We've reimagined car care to be smarter, cleaner, and more responsible—so every wash not only delivers a premium finish but also contributes to a healthier planet. From our all-electric fleet to our biodegradable products and water-wise methods, we're proving that convenience and sustainability can go hand in hand.
                   </p>
                 </div>
