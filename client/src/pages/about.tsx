@@ -43,8 +43,11 @@ export default function About() {
                     Clean cars.<br />
                     Cleaner planet.
                   </h1>
-                  <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
+                  <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-6">
                     At Goobii, we believe caring for your car should never come at the cost of our planet.
+                  </p>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    At Goobii, every detail of what we do is guided by a simple idea: small choices add up to big change. We've reimagined car care to be smarter, cleaner, and more responsible—so every wash not only delivers a premium finish but also contributes to a healthier planet. From our all-electric fleet to our biodegradable products and water-wise methods, we're proving that convenience and sustainability can go hand in hand.
                   </p>
                 </div>
                 
@@ -71,34 +74,69 @@ export default function About() {
           </div>
         </section>
 
-        {/* Body Section */}
-        <section id="about-body" className="py-16 lg:py-20">
-          <div className="max-w-4xl mx-auto px-4">
-            <motion.div
-              ref={bodyRef}
-              initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-              animate={isBodyInView ? { opacity: 1, y: 0 } : { opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 30 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="prose prose-lg max-w-none"
-            >
-              <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
-                <p>
-                  At Goobii, we believe caring for your car should never come at the cost of our planet. With our signature Sooftwash™ technology, we achieve a spotless clean while using a fraction of the water required by traditional methods. That means every wash isn't just good for your car — it's a step toward protecting our shared environment.
-                </p>
-                
-                <p>
-                  But Goobii is more than just an eco-friendly car wash. We're building a movement. A community of people who care about the choices they make, and how those choices affect the world around them. From our all-electric fleet and biodegradable products to our safe and easy-to-use app, everything we do is designed to give you the best possible experience while helping you join something bigger.
-                </p>
-                
-                <p>
-                  Our mission is simple: make it easy, affordable, and rewarding to choose sustainability without compromise. Whether it's saving water, reducing harmful chemicals, or supporting future environmental initiatives, every wash with Goobii brings us closer to a cleaner, greener tomorrow.
-                </p>
-                
-                <p>
-                  We're here to change the way people think about car care — turning a routine service into a statement of responsibility, innovation, and trust. When you wash with Goobii, you're not just keeping your car clean — you're becoming part of a growing community that values the planet, the people, and the future.
-                </p>
+        {/* Body Section - First Part */}
+        <section id="about-body-1" className="py-16 lg:py-20">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Text Content - Left */}
+              <motion.div
+                ref={bodyRef}
+                initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+                animate={isBodyInView ? { opacity: 1, y: 0 } : { opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 30 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-left"
+              >
+                <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
+                  <p>
+                    At Goobii, we believe caring for your car should never come at the cost of our planet. With our signature Sooftwash™ technology, we achieve a spotless clean while using a fraction of the water required by traditional methods. That means every wash isn't just good for your car — it's a step toward protecting our shared environment.
+                  </p>
+                  
+                  <p>
+                    But Goobii is more than just an eco-friendly car wash. We're building a movement. A community of people who care about the choices they make, and how those choices affect the world around them. From our all-electric fleet and biodegradable products to our safe and easy-to-use app, everything we do is designed to give you the best possible experience while helping you join something bigger.
+                  </p>
+                </div>
+              </motion.div>
+              
+              {/* Image Placeholder - Right */}
+              <div className="flex justify-center lg:justify-end">
+                <div 
+                  className="w-full max-w-md h-80 bg-muted/30 flex items-center justify-center text-muted-foreground border-2 border-dashed border-muted-foreground/30"
+                  style={{ borderRadius: '12px 4px 12px 12px' }}
+                >
+                  <span className="text-sm font-medium">Image Placeholder</span>
+                </div>
               </div>
-            </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Body Section - Second Part */}
+        <section id="about-body-2" className="py-16 lg:py-20">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Image Placeholder - Left */}
+              <div className="flex justify-center lg:justify-start">
+                <div 
+                  className="w-full max-w-md h-80 bg-muted/30 flex items-center justify-center text-muted-foreground border-2 border-dashed border-muted-foreground/30"
+                  style={{ borderRadius: '12px 4px 12px 12px' }}
+                >
+                  <span className="text-sm font-medium">Image Placeholder</span>
+                </div>
+              </div>
+              
+              {/* Text Content - Right */}
+              <div className="text-left">
+                <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
+                  <p>
+                    Our mission is simple: make it easy, affordable, and rewarding to choose sustainability without compromise. Whether it's saving water, reducing harmful chemicals, or supporting future environmental initiatives, every wash with Goobii brings us closer to a cleaner, greener tomorrow.
+                  </p>
+                  
+                  <p>
+                    We're here to change the way people think about car care — turning a routine service into a statement of responsibility, innovation, and trust. When you wash with Goobii, you're not just keeping your car clean — you're becoming part of a growing community that values the planet, the people, and the future.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
