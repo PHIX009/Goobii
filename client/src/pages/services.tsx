@@ -237,9 +237,10 @@ export default function Services() {
       </div>
 
       {/* Service Modal */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait" initial={false}>
         {selectedService && (
           <ServiceModal
+            key={selectedService.id}
             id={selectedService.id}
             onClose={closeModal}
             service={selectedService}

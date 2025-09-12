@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import CTAGroup from "@/components/cta-group";
+import useClickAway from "@/hooks/useClickAway";
 import logoImage from "@assets/Horizontal Logo + Tagline_1757358585705.png";
 
 const navigation = [
@@ -25,6 +26,7 @@ export default function Header() {
   const navRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   // NEW: computed X position for CTA on home when scrolled
   const [ctaTargetX, setCtaTargetX] = useState(0);
@@ -95,6 +97,11 @@ export default function Header() {
       document.body.style.overflow = prev;
     };
   }, [isOpen]);
+
+  // Click away to close mobile menu
+  useClickAway(mobileMenuRef, () => {
+    if (isOpen) setIsOpen(false);
+  });
 
   return (
     <header
@@ -186,6 +193,7 @@ export default function Header() {
 
             {/* Sliding Menu */}
             <motion.div
+              ref={mobileMenuRef}
               role="dialog"
               aria-modal="true"
               id="site-menu"

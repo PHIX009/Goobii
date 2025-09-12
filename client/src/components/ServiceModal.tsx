@@ -25,7 +25,14 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
   const [isClosing, setIsClosing] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
-  const handleClose = () => setIsClosing(true);
+  const handleClose = () => {
+    if (isClosing) return; // Prevent multiple close calls
+    setIsClosing(true);
+    // After content fades, trigger the actual close to allow layoutId shrinking
+    setTimeout(() => {
+      onClose();
+    }, prefersReducedMotion ? 0 : 200);
+  };
 
   // ESC to close
   useEffect(() => {
@@ -60,46 +67,38 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
 
   return createPortal(
     <>
-      {/* Modal Backdrop + Panel */}
-      <AnimatePresence onExitComplete={onClose}>
-        {/* Backdrop with click-away */}
-        <motion.div
-          key="overlay"
-          className="fixed inset-0 z-[50] bg-black/40"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.18 }}
-          onClick={handleClose}
-        />
+      {/* Backdrop with click-away */}
+      <motion.div
+        key="overlay"
+        className="fixed inset-0 z-[50] bg-black/40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isClosing ? 0 : 1 }}
+        transition={{ duration: 0.18 }}
+        onClick={handleClose}
+      />
 
-        {/* Centering wrapper (keeps your spacing) */}
-        <div className="fixed inset-0 z-[51] flex items-center justify-center p-4">
+      {/* Centering wrapper */}
+      <div className="fixed inset-0 z-[51] flex items-center justify-center p-4 pointer-events-none">
+        <motion.div
+          ref={modalRef}
+          layoutId={`service-${id}`}
+          id={`modal-${id}`}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={`modal-title-${id}`}
+          className="relative w-full max-w-4xl bg-[var(--brand-bg)] shadow-2xl pointer-events-auto border border-[var(--brand-primary)]/10"
+          style={{ borderRadius: '12px 4px 12px 12px', willChange: 'transform' }}
+          transition={{ type: 'spring', stiffness: 400, damping: 30, mass: 0.8 }}
+          onClick={(e) => e.stopPropagation()}
+          data-testid={`service-modal-${id}`}
+          tabIndex={-1}
+        >
+          {/* Content with opacity fade - no unmounting */}
           <motion.div
-            ref={modalRef}
-            layoutId={`service-${id}`}
-            id={`modal-${id}`}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={`modal-title-${id}`}
-            className="relative w-full max-w-4xl bg-[var(--brand-bg)] shadow-2xl pointer-events-auto border border-[var(--brand-primary)]/10"
-            style={{ borderRadius: '12px 4px 12px 12px', willChange: 'transform' }}
-            transition={{ type: 'spring', stiffness: 400, damping: 30, mass: 0.8 }}
-            onClick={(e) => e.stopPropagation()}
-            data-testid={`service-modal-${id}`}
-            tabIndex={-1}
+            animate={{ opacity: isClosing ? 0 : 1 }}
+            transition={{ duration: 0.2, ease: 'easeIn' }}
+            className="h-full"
           >
-            {/* Content with fade animation during close only */}
-            <AnimatePresence>
-              {!isClosing && (
-                <motion.div
-                  key="content"
-                  variants={contentVariants}
-                  initial="visible"
-                  animate="visible"
-                  exit="exit"
-                  className="h-full"
-                >
                   {/* Scrollable content wrapper */}
                   <div className="max-h-[90vh] overflow-y-auto">
                     {/* Header */}
@@ -314,12 +313,9 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
                       </div>
                     </div>
                   </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
           </motion.div>
-        </div>
-      </AnimatePresence>
+        </motion.div>
+      </div>
     </>,
     document.body
   );
