@@ -135,14 +135,14 @@ export default function Subscriptions() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
               {/* Text Content */}
               <div className="text-left">
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-4 mb-6">
                   <img 
                     src={verticalLogo} 
                     alt="Goobii Logo" 
                     className="h-32 lg:h-40"
                     style={{ filter: 'brightness(0) saturate(100%) invert(17%) sepia(26%) saturate(1765%) hue-rotate(174deg) brightness(93%) contrast(102%)' }}
                   />
-                  <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-pop">SUBSCRIPTION</h1>
+                  <h1 className="text-3xl lg:text-4xl font-ghost font-bold text-brand-pop leading-tight">SUBSCRIPTION</h1>
                 </div>
                 <p className="text-xl text-brand-secondary mb-4">
                   Welcome to Goobii subscriptions—your car's clean routine. Lock in reliable visits that fit real life, from solo drivers to full driveways, and keep your weeks running smoother with a schedule that works around you.
@@ -194,7 +194,7 @@ export default function Subscriptions() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'hsl(var(--brand-secondary) / 0.1)', borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'rgba(0, 59, 92, 0.1)', borderRadius: '12px 4px 12px 12px' }}>
                     <DollarSign className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">App convenience</h3>
@@ -202,7 +202,7 @@ export default function Subscriptions() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'hsl(var(--brand-secondary) / 0.1)', borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'rgba(0, 59, 92, 0.1)', borderRadius: '12px 4px 12px 12px' }}>
                     <Calendar className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">Clear value</h3>
@@ -210,7 +210,7 @@ export default function Subscriptions() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'hsl(var(--brand-secondary) / 0.1)', borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'rgba(0, 59, 92, 0.1)', borderRadius: '12px 4px 12px 12px' }}>
                     <Shield className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">Premium & planet-minded</h3>
@@ -218,7 +218,7 @@ export default function Subscriptions() {
                 </div>
 
                 <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'hsl(var(--brand-secondary) / 0.1)', borderRadius: '12px 4px 12px 12px' }}>
+                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'rgba(0, 59, 92, 0.1)', borderRadius: '12px 4px 12px 12px' }}>
                     <Leaf className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">Clean footprint</h3>

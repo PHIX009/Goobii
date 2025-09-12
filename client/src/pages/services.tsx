@@ -176,21 +176,23 @@ export default function Services() {
 
             {/* Bottom CTA */}
             <div className="text-center">
-              <h3 
-                className="text-2xl md:text-3xl font-bold text-[var(--brand-primary)] mb-4"
-                style={{ fontFamily: 'var(--font-grandview-bold)' }}
-              >
-                Ready to book your service?
-              </h3>
-              <p
-                className="text-lg text-[var(--brand-primary)] mb-8"
-                style={{ fontFamily: 'var(--font-grandview)' }}
-              >
-                Get Goobii Connect and schedule your eco-friendly clean in seconds.
-              </p>
-              
-              <div className="flex justify-center">
-                <CTAGroup size="lg" className="flex-col sm:flex-row" />
+              <div className="bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 p-8 max-w-4xl mx-auto" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                <h3 
+                  className="text-2xl md:text-3xl font-bold text-brand-primary mb-4"
+                  style={{ fontFamily: 'var(--font-grandview-bold)' }}
+                >
+                  Ready to book your service?
+                </h3>
+                <p
+                  className="text-lg text-brand-primary mb-8"
+                  style={{ fontFamily: 'var(--font-grandview)' }}
+                >
+                  Get Goobii Connect and schedule your eco-friendly clean in seconds.
+                </p>
+                
+                <div className="flex justify-center">
+                  <CTAGroup size="lg" className="flex-col sm:flex-row" />
+                </div>
               </div>
             </div>
           </div>
