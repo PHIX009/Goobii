@@ -234,7 +234,7 @@ export default function Subscriptions() {
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-3xl font-ghost font-bold text-brand-secondary mb-4">Start your subscription today</h2>
             <p className="text-xl text-brand-secondary mb-4">Choose the plan that fits your lifestyle and let Goobii handle the rest.</p>
-            <p className="text-lg text-brand-secondary mb-8 font-grandview-bold">Download our App now!</p>
+            <p className="text-lg text-brand-secondary mb-8 font-grandview-bold">Download Goobii Connect now!</p>
             
             <div className="flex justify-center">
               <CTAGroup size="lg" className="flex-col sm:flex-row" />
