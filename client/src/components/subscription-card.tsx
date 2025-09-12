@@ -54,7 +54,7 @@ export default function SubscriptionCard({
     <motion.button 
       ref={cardRef}
       layoutId={`subscription-${id}`}
-      className="subscription-card w-full text-left bg-[var(--brand-bg)] p-8 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-secondary)]/30 transition-all duration-300 border border-[var(--brand-primary)]/10 hover:border-[var(--brand-secondary)]/30 hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-[var(--brand-pop)] focus:ring-0 ring-offset-2 ring-offset-white cursor-pointer relative overflow-hidden"
+      className="subscription-card w-full text-left bg-[var(--brand-bg)] p-8 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-secondary)]/30 transition-all duration-300 border border-[var(--brand-primary)]/10 hover:border-[var(--brand-secondary)]/30 hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-[var(--brand-pop)] focus:ring-0 ring-offset-2 ring-offset-white cursor-pointer relative overflow-hidden text-[#003a5c]"
       style={{ borderRadius: '12px 4px 12px 12px' }}
       onClick={onClick}
       onKeyDown={handleKeyDown}
