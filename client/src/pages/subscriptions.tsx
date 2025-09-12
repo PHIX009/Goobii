@@ -144,7 +144,7 @@ export default function Subscriptions() {
                   />
                   <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-pop">SUBSCRIPTION</h1>
                 </div>
-                <p className="text-xl text-muted-foreground mb-4">
+                <p className="text-xl text-brand-secondary mb-4">
                   Welcome to Goobii subscriptions—your car's clean routine. Lock in reliable visits that fit real life, from solo drivers to full driveways, and keep your weeks running smoother with a schedule that works around you.
                 </p>
                 <p className="text-lg text-brand-secondary font-medium">
@@ -198,7 +198,7 @@ export default function Subscriptions() {
                     <DollarSign className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">App convenience</h3>
-                  <p className="text-muted-foreground">Control everything in Goobii Connect—book, reschedule, and track visits in seconds.</p>
+                  <p className="text-brand-secondary">Control everything in Goobii Connect—book, reschedule, and track visits in seconds.</p>
                 </div>
                 
                 <div className="text-center">
@@ -206,7 +206,7 @@ export default function Subscriptions() {
                     <Calendar className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">Clear value</h3>
-                  <p className="text-muted-foreground">Routine care that saves time and keeps standards high.</p>
+                  <p className="text-brand-secondary">Routine care that saves time and keeps standards high.</p>
                 </div>
                 
                 <div className="text-center">
@@ -214,7 +214,7 @@ export default function Subscriptions() {
                     <Shield className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">Premium & planet-minded</h3>
-                  <p className="text-muted-foreground">Pro-grade, biodegradable formulations—high performance without the harsh stuff.</p>
+                  <p className="text-brand-secondary">Pro-grade, biodegradable formulations—high performance without the harsh stuff.</p>
                 </div>
 
                 <div className="text-center">
@@ -222,15 +222,15 @@ export default function Subscriptions() {
                     <Leaf className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">Clean footprint</h3>
-                  <p className="text-muted-foreground">Quiet, tidy, and respectful service wherever you are.</p>
+                  <p className="text-brand-secondary">Quiet, tidy, and respectful service wherever you are.</p>
                 </div>
               </div>
             </div>
 
             {/* CTA Section */}
             <div className="text-center">
-              <h3 className="text-2xl font-grandview-bold text-brand-primary mb-4">Start your subscription today</h3>
-              <p className="text-brand-primary mb-6">Choose the plan that fits your lifestyle and let Goobii handle the rest. Simple setup, reliable care, and a cleaner way forward—always managed in Goobii Connect.</p>
+              <h3 className="text-2xl font-grandview-bold text-brand-secondary mb-4">Start your subscription today</h3>
+              <p className="text-brand-secondary mb-6">Choose the plan that fits your lifestyle and let Goobii handle the rest. Simple setup, reliable care, and a cleaner way forward—always managed in Goobii Connect.</p>
               <div className="flex justify-center">
                 <CTAGroup variant="default" />
               </div>

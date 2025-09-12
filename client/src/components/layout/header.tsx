@@ -126,7 +126,12 @@ export default function Header() {
               src={logoImage}
               alt="Goobii logo"
               className="h-12 w-auto max-w-[180px]"
-              style={{ objectFit: "contain" }}
+              style={{ 
+                objectFit: "contain",
+                filter: location === "/subscriptions" 
+                  ? 'brightness(0) saturate(100%) invert(17%) sepia(26%) saturate(1765%) hue-rotate(174deg) brightness(93%) contrast(102%)' 
+                  : 'none'
+              }}
             />
           </Link>
         </div>
@@ -150,7 +155,7 @@ export default function Header() {
               animate={{ rotate: isOpen ? 90 : 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <Menu className="w-6 h-6 text-brand-primary" />
+              <Menu className={`w-6 h-6 ${location === "/subscriptions" ? "text-brand-secondary" : "text-brand-primary"}`} />
             </motion.div>
           </Button>
         </div>
