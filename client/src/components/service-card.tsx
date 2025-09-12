@@ -56,7 +56,8 @@ export default function ServiceCard({
       style={{ borderRadius: '12px 4px 12px 12px' }}
       onClick={onClick}
       onKeyDown={handleKeyDown}
-      aria-controls={`modal-${title.toLowerCase().replace(/\s+/g, '-')}`}
+      aria-controls={`modal-${id}`}
+      aria-haspopup="dialog"
       data-testid={`service-card-${title.toLowerCase().replace(/\s+/g, '-')}`}
       whileHover={{ y: -4 }}
       whileTap={{ scale: 0.98 }}
