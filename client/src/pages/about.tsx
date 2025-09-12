@@ -31,7 +31,6 @@ export default function About() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://goobii.com/about" />
       </Helmet>
-
       <main className="pt-20">
         {/* Hero Section */}
         <section id="about-hero" className="py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50/50">
@@ -191,7 +190,7 @@ export default function About() {
         <section id="about-cta" className="py-16 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-3xl font-ghost font-bold text-brand-primary mb-4">Start with Goobii</h2>
-            <p className="text-xl text-brand-primary mb-4">Make car care part of something bigger. Book in Goobii Connect for a premium clean with a lighter footprint—quick to schedule, easy to trust.</p>
+            <p className="text-xl text-brand-primary mb-4">Make car care part of something bigger. Book in Goobii Connect for a premium clean with a lighter footprint. Quick to schedule, easy to trust.</p>
             <p className="text-lg text-brand-primary mb-8 font-grandview-bold">Get Goobii Connect now!</p>
             
             <div className="flex justify-center">
