@@ -1,4 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+    font-family: "Ghost Trial";
+    src: url("https://db.onlinewebfonts.com/t/1ec97210f66c00b8d72308f602332a85.eot");
+    src: url("https://db.onlinewebfonts.com/t/1ec97210f66c00b8d72308f602332a85.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/1ec97210f66c00b8d72308f602332a85.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/1ec97210f66c00b8d72308f602332a85.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/1ec97210f66c00b8d72308f602332a85.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/1ec97210f66c00b8d72308f602332a85.svg#Ghost Trial")format("svg");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
