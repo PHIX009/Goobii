@@ -138,7 +138,7 @@ export default function Subscriptions() {
                   <img 
                     src={verticalLogo} 
                     alt="Goobii Logo" 
-                    className="h-32 lg:h-40"
+                    className="h-32 lg:h-40 mt-[0px] mb-[0px] pt-[4px] pb-[4px]"
                     style={{ filter: 'brightness(0) saturate(100%) invert(17%) sepia(26%) saturate(1765%) hue-rotate(174deg) brightness(93%) contrast(102%)' }}
                   />
                   <h1 className="lg:text-4xl font-bold text-[#DCC57F] pl-[-13px] pr-[-13px] pt-[0px] pb-[0px] mt-[9px] mb-[9px] ml-[-30px] mr-[-30px] text-[35px]" style={{ fontFamily: 'Ghost Trial', fontWeight: '900', fontStyle: 'italic' }}>SUBSCRIPTION</h1>
