@@ -1,359 +1,118 @@
-import { useEffect, useRef } from 'react';
-import { motion, AnimatePresence, LazyMotion, domAnimation, useReducedMotion } from 'framer-motion';
-import { createPortal } from 'react-dom';
-import { X, Clock, Check } from 'lucide-react';
+import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { X } from "lucide-react";
 
-interface ServiceModalProps {
+type Service = {
   id: string;
-  service: {
-    id: string;
-    title: string;
-    description: string;
-    highlights: string[];
-    duration: string;
-    bestFor: string;
-    process: string[];
-    products: string[];
-    tools: string[];
-    equipment: string[];
-  };
+  title: string;
+  description: string;
+  highlights: string[];
+  duration: string;
+  bestFor: string;
+  process: string[];
+  products: string[];
+  tools: string[];
+  equipment: string[];
+};
+
+type Props = {
+  id: string;
+  service: Service;
   onClose: () => void;
-}
+};
 
-export default function ServiceModal({ id, service, onClose }: ServiceModalProps) {
-  const modalRef = useRef<HTMLDivElement>(null);
-  const lastWasKeyboardRef = useRef(false);
+const spring = { type: "spring", stiffness: 420, damping: 40 };
 
-  // Check for reduced motion preference
-  const prefersReducedMotion = useReducedMotion();
+export default function ServiceModal({ id, service, onClose }: Props) {
+  const reduce = useReducedMotion();
+  const panelRef = useRef<HTMLDivElement>(null);
 
-  // Track keyboard vs mouse usage for focus management
+  // Lock body scroll
   useEffect(() => {
-    const onKey = () => (lastWasKeyboardRef.current = true);
-    const onPointer = () => (lastWasKeyboardRef.current = false);
-    
-    window.addEventListener('keydown', onKey);
-    window.addEventListener('pointerdown', onPointer);
-    
-    return () => {
-      window.removeEventListener('keydown', onKey);
-      window.removeEventListener('pointerdown', onPointer);
-    };
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
   }, []);
 
-  // Handle escape key and setup
+  // ESC to close
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        lastWasKeyboardRef.current = true;
-        onClose();
-      }
-    };
-
-    document.addEventListener('keydown', handleEscape);
-    
-    // Prevent background scroll
-    document.body.style.overflow = 'hidden';
-    
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
-    };
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  // Focus management with keyboard detection
-  useEffect(() => {
-    const modal = modalRef.current;
-    if (modal) {
-      modal.focus();
-    }
-  }, []);
+  // Click outside to close (overlay handles it; also guard clicks outside panel)
+  const content = (
+    <AnimatePresence>
+      <motion.div
+        key="overlay"
+        className="fixed inset-0 z-[60] bg-black/40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: reduce ? 0 : 0.18 }}
+        onClick={onClose} // <- click-away
+      />
 
-  const restoreFocus = () => {
-    const triggerCard = document.querySelector(`[data-testid="service-card-${id}"]`) as HTMLButtonElement;
-    if (triggerCard) {
-      if (lastWasKeyboardRef.current) {
-        // Scroll into view before focusing
-        triggerCard.scrollIntoView({ block: 'center', behavior: 'smooth' });
-        triggerCard.focus();
-      } else {
-        triggerCard.blur(); // Avoid orange ring after mouse close
-      }
-    }
-  };
-
-  const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
-  };
-
-  // Lightning-fast spring settings for instant response
-  const spring = { type: 'spring', stiffness: 600, damping: 40, mass: 0.7 };
-  const layoutTransition = prefersReducedMotion ? { duration: 0 } : spring;
-
-  // Instant backdrop animation
-  const backdropVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { duration: 0.12, ease: 'easeOut' }
-    },
-    exit: { 
-      opacity: 0,
-      transition: { duration: 0.1, ease: 'easeIn' }
-    }
-  };
-
-  return createPortal(
-    <LazyMotion features={domAnimation}>
-      <AnimatePresence mode="wait" onExitComplete={restoreFocus}>
-        <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          variants={backdropVariants}
-          onClick={handleBackdropClick}
-          style={{ pointerEvents: 'auto' }}
-        >
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/80" />
-          
-          {/* Modal Surface - Uses same layoutId as ServiceCard */}
-          <motion.div
-            ref={modalRef}
-            layoutId={`service-${id}`}
-            className="relative w-full max-w-4xl bg-white shadow-2xl will-change-transform"
-            style={{ 
-              borderRadius: '12px 4px 12px 12px',
-              transform: 'translateZ(0)' // Force hardware acceleration
-            }}
-            transition={layoutTransition}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-            tabIndex={-1}
-            data-testid={`service-modal-${id}`}
+      <motion.div
+        key="panel"
+        ref={panelRef}
+        layoutId={`card-${id}`}
+        className="fixed inset-x-0 md:inset-auto md:left-1/2 md:top-20 z-[70] md:-translate-x-1/2 w-full md:w-[720px] lg:w-[820px] rounded-2xl border border-border bg-background shadow-2xl"
+        style={{ willChange: "transform, opacity" }}
+        onClick={(e) => e.stopPropagation()} // prevent overlay close when interacting inside
+        transition={reduce ? { duration: 0 } : spring}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between gap-4 p-5 border-b border-border">
+          <motion.h3 layoutId={`card-title-${id}`} className="text-xl font-bold text-[var(--brand-primary)]">
+            {service.title}
+          </motion.h3>
+          <button
+            aria-label="Close"
+            onClick={onClose}
+            className="rounded-full p-2 text-[var(--brand-secondary)] hover:text-[var(--brand-pop)] transition-colors"
           >
-            {/* Scrollable content wrapper */}
-            <div className="max-h-[90vh] overflow-y-auto">
-                {/* Header */}
-                <div className="flex items-center justify-between p-6 border-b border-[var(--brand-primary)]/10">
-                  <h2
-                    id="modal-title"
-                    className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight"
-                    style={{ fontFamily: 'var(--font-grandview-bold)' }}
-                  >
-                    {service.title}
-                  </h2>
-                  
-                  <button
-                    onClick={onClose}
-                    className="p-2 rounded-full text-[var(--brand-secondary)] hover:text-[var(--brand-pop)] active:text-[var(--brand-pop)] focus-visible:ring-2 focus-visible:ring-[var(--brand-pop)] focus:ring-0 ring-offset-2 ring-offset-white transition-colors"
-                    aria-label="Close modal"
-                    data-testid="button-close-modal"
-                  >
-                    <X className="w-5 h-5" aria-hidden="true" />
-                  </button>
-                </div>
+            <X className="h-5 w-5" />
+          </button>
+        </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  {/* Description */}
-                  <p 
-                    className="text-lg text-[var(--brand-primary)] mb-8 leading-relaxed"
-                    style={{ fontFamily: 'var(--font-grandview)' }}
-                  >
-                    {service.description}
-                  </p>
+        {/* Subheader */}
+        <div className="flex items-start justify-between gap-4 px-5 pt-4">
+          <motion.p layoutId={`card-desc-${id}`} className="text-[var(--brand-secondary)]">
+            {service.description}
+          </motion.p>
+          <motion.span layoutId={`card-duration-${id}`} className="text-sm text-[var(--brand-secondary)] whitespace-nowrap">
+            {service.duration}
+          </motion.span>
+        </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Left Column */}
-                    <div className="space-y-8">
-                      {/* Process Steps */}
-                      <div>
-                        <h3 
-                          className="text-xl font-extrabold text-[var(--brand-secondary)] mb-4"
-                          style={{ fontFamily: 'var(--font-grandview-bold)' }}
-                        >
-                          Process
-                        </h3>
-                        <ol className="space-y-3">
-                          {service.process.map((step, index) => (
-                            <li key={index} className="flex items-start">
-                              <span className="w-6 h-6 bg-[var(--brand-secondary)] text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 flex-shrink-0">
-                                {index + 1}
-                              </span>
-                              <span 
-                                className="text-[var(--brand-primary)] text-sm leading-relaxed"
-                                style={{ fontFamily: 'var(--font-grandview)' }}
-                              >
-                                {step}
-                              </span>
-                            </li>
-                          ))}
-                        </ol>
-                      </div>
+        {/* Scrollable content */}
+        <div className="max-h-[65vh] overflow-y-auto px-5 pb-6 pt-4">
+          <Section title="What's included" items={service.highlights} />
+          <Section title="Best for" items={[service.bestFor]} />
+          <Section title="Process" items={service.process} />
+          <Section title="Products" items={service.products} />
+          <Section title="Tools" items={service.tools} />
+          <Section title="Equipment" items={service.equipment} />
+        </div>
+      </motion.div>
+    </AnimatePresence>
+  );
 
-                      {/* Used Section */}
-                      <div>
-                        <h3 
-                          className="text-xl font-extrabold text-[var(--brand-secondary)] mb-4"
-                          style={{ fontFamily: 'var(--font-grandview-bold)' }}
-                        >
-                          Used
-                        </h3>
-                        
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                          {/* Products */}
-                          <div>
-                            <h4 
-                              className="font-bold text-[var(--brand-primary)] mb-2 text-sm"
-                              style={{ fontFamily: 'var(--font-grandview-bold)' }}
-                            >
-                              Products
-                            </h4>
-                            <ul className="space-y-1 text-xs text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
-                              {service.products.map((product, index) => (
-                                <li key={index} className="flex items-start">
-                                  <Check className="w-3 h-3 text-[var(--brand-secondary)] mr-1 flex-shrink-0 mt-0.5" />
-                                  {product}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
+  return createPortal(content, document.body);
+}
 
-                          {/* Tools */}
-                          <div>
-                            <h4 
-                              className="font-bold text-[var(--brand-primary)] mb-2 text-sm"
-                              style={{ fontFamily: 'var(--font-grandview-bold)' }}
-                            >
-                              Tools
-                            </h4>
-                            <ul className="space-y-1 text-xs text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
-                              {service.tools.map((tool, index) => (
-                                <li key={index} className="flex items-start">
-                                  <Check className="w-3 h-3 text-[var(--brand-secondary)] mr-1 flex-shrink-0 mt-0.5" />
-                                  {tool}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          {/* Equipment */}
-                          <div>
-                            <h4 
-                              className="font-bold text-[var(--brand-primary)] mb-2 text-sm"
-                              style={{ fontFamily: 'var(--font-grandview-bold)' }}
-                            >
-                              Equipment
-                            </h4>
-                            <ul className="space-y-1 text-xs text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
-                              {service.equipment.map((equipment, index) => (
-                                <li key={index} className="flex items-start">
-                                  <Check className="w-3 h-3 text-[var(--brand-secondary)] mr-1 flex-shrink-0 mt-0.5" />
-                                  {equipment}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Right Column */}
-                    <div className="space-y-8">
-                      {/* Service Details */}
-                      <div className="bg-[var(--brand-primary)]/5 p-6 rounded-lg">
-                        <h3 
-                          className="text-xl font-extrabold text-[var(--brand-secondary)] mb-4"
-                          style={{ fontFamily: 'var(--font-grandview-bold)' }}
-                        >
-                          Service Details
-                        </h3>
-                        
-                        <div className="space-y-4">
-                          {/* Duration */}
-                          <div>
-                            <h4 
-                              className="font-bold text-[var(--brand-secondary)] mb-2"
-                              style={{ fontFamily: 'var(--font-grandview-bold)' }}
-                            >
-                              Estimated Duration
-                            </h4>
-                            <div className="flex items-center">
-                              <Clock className="w-4 h-4 text-[var(--brand-secondary)] mr-2" />
-                              <span 
-                                className="text-[var(--brand-primary)]"
-                                style={{ fontFamily: 'var(--font-grandview)' }}
-                              >
-                                {service.duration}
-                              </span>
-                            </div>
-                          </div>
-
-                          {/* Best For */}
-                          <div>
-                            <h4 
-                              className="font-bold text-[var(--brand-secondary)] mb-2"
-                              style={{ fontFamily: 'var(--font-grandview-bold)' }}
-                            >
-                              Best For
-                            </h4>
-                            <p 
-                              className="text-[var(--brand-primary)]"
-                              style={{ fontFamily: 'var(--font-grandview)' }}
-                            >
-                              {service.bestFor}
-                            </p>
-                          </div>
-
-                          {/* Highlights */}
-                          <div>
-                            <h4 
-                              className="font-bold text-[var(--brand-secondary)] mb-2"
-                              style={{ fontFamily: 'var(--font-grandview-bold)' }}
-                            >
-                              Highlights
-                            </h4>
-                            <ul className="space-y-1 text-sm text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
-                              {service.highlights.map((highlight, index) => (
-                                <li key={index} className="flex items-start">
-                                  <Check className="w-4 h-4 text-[var(--brand-secondary)] mr-2 flex-shrink-0 mt-0.5" />
-                                  {highlight}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Service Illustration Placeholder */}
-                      <div className="bg-[var(--brand-primary)]/5 p-6 rounded-lg">
-                        <div className="aspect-square bg-gradient-to-br from-[var(--brand-primary)]/10 to-[var(--brand-secondary)]/10 rounded-lg flex items-center justify-center">
-                          <div className="text-center">
-                            <div className="w-16 h-16 bg-[var(--brand-primary)]/20 rounded-full mx-auto mb-3 flex items-center justify-center">
-                              <Check className="w-8 h-8 text-[var(--brand-primary)]" />
-                            </div>
-                            <p 
-                              className="text-sm text-[var(--brand-primary)] font-medium"
-                              style={{ fontFamily: 'var(--font-grandview)' }}
-                            >
-                              Service Illustration
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-          </motion.div>
-        </motion.div>
-      </AnimatePresence>
-    </LazyMotion>,
-    document.body
+function Section({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div className="mt-5">
+      <h4 className="text-sm font-semibold text-[var(--brand-primary)] mb-2">{title}</h4>
+      <ul className="space-y-1 text-[var(--brand-secondary)]">
+        {items.map((it) => (
+          <li key={it} className="text-sm leading-relaxed">{it}</li>
+        ))}
+      </ul>
+    </div>
   );
 }

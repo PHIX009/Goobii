@@ -14,9 +14,10 @@ export default function Services() {
       title: "Aura",
       description: "A focused exterior refresh that keeps your car looking sharper for everyday living.",
       highlights: [
-        "Exterior Sooftwash™ clean",
-        "Wheels & tyres touch-up",
-        "Exterior glass touch-up",
+        "Exterior Sooftwash™ pass",          // chip 1
+        "Wheels & tyres",                    // chip 2
+        "Exterior glass",                    // chip 3
+        "Ceramic-infused glass cleaner",
         "Final check and dry"
       ],
       duration: "20–30 minutes",
@@ -27,18 +28,19 @@ export default function Services() {
         "Wheels and tyres freshen",
         "Exterior glass clean and final check"
       ],
-      products: ["Sooftwash™", "glass cleaner"],
-      tools: ["Microfibers", "soft wash pads", "wheel brush"],
-      equipment: ["Spray system", "portable power"]
+      products: ["Sooftwash™", "ceramic-infused glass cleaner"],
+      tools: ["Microfibres", "soft wash pads", "wheel brush"],
+      equipment: ["Spray system", "power station"]
     },
     {
       id: "aura-absolute",
       title: "Aura Absolute",
       description: "Aura exterior plus a light interior tidy so the cabin feels fresh too.",
       highlights: [
-        "Everything in Aura",
-        "Quick cabin vacuum",
-        "Interior wipe-downs",
+        "Exterior Sooftwash™ pass",          // chip 1
+        "Quick cabin vacuum",                // chip 2
+        "Interior wipe-downs",               // chip 3
+        "Ceramic-infused glass cleaner",
         "Interior glass touch-up"
       ],
       duration: "35–50 minutes",
@@ -49,41 +51,41 @@ export default function Services() {
         "Interior wipe-downs for high-touch areas",
         "Interior glass clean and final check"
       ],
-      products: ["Sooftwash™", "interior-safe cleaner", "glass cleaner"],
-      tools: ["Microfibers", "interior brush set", "handheld vacuum"],
-      equipment: ["Portable power"]
+      products: ["Sooftwash™", "interior-safe cleaner", "ceramic-infused glass cleaner"],
+      tools: ["Microfibres", "interior brush set", "handheld vacuum"],
+      equipment: ["Power station"]
     },
     {
       id: "glow",
       title: "Glow",
       description: "Premium exterior attention and care for a crisp, stand-out finish.",
       highlights: [
-        "Detailed exterior Sooftwash™ pass",
-        "Trims, badges & crevices carefully addressed",
-        "Wheels & tyres deep clean + sleek, long-lasting tyre dressing",
-        "Ceramic glass cleaning"
+        "Glow Sooftwash™ exterior pass",     // chip 1
+        "Trims & crevices",                  // chip 2
+        "Tyre dressing",                     // chip 3
+        "Ceramic-infused glass cleaner"
       ],
       duration: "45–65 minutes",
-      bestFor: "When you want premium attention or every 4–5 washes",
+      bestFor: "Monthly or when you want premium attention",
       process: [
         "Detailed exterior pass panel by panel",
         "Attention to trims, badges, and tight crevices",
         "Wheels and tyres care with extra dwell where needed",
         "Exterior glass clarity check and final inspection"
       ],
-      products: ["Sooftwash™", "targeted exterior cleaner", "glass cleaner"],
-      tools: ["Detail brushes", "microfiber set", "wheel tools"],
-      equipment: ["Spray system", "portable power"]
+      products: ["Sooftwash™", "targeted exterior cleaner", "ceramic-infused glass cleaner"],
+      tools: ["Detail brushes", "microfibre set", "wheel tools"],
+      equipment: ["Spray system", "power station"]
     },
     {
       id: "glow-absolute",
       title: "Glow Absolute",
       description: "Everything in Glow plus a fuller interior treatment for an all-round reset.",
       highlights: [
-        "Glow exterior detail",
-        "Mats removed, leg space and seats vacuumed",
-        "Ceramic glass cleaning",
-        "Finished with sleek interior dressing"
+        "Glow Sooftwash™ exterior pass",     // chip 1
+        "Vacuum & interiors",                // chip 2
+        "Finishing touches",                 // chip 3
+        "Ceramic-infused glass cleaner"
       ],
       duration: "60–85 minutes",
       bestFor: "Monthly reset or before special events",
@@ -93,9 +95,9 @@ export default function Services() {
         "Interior glass and finishing passes",
         "Final inspection and handover"
       ],
-      products: ["Sooftwash™", "interior-safe cleaner", "glass cleaner", "dressing as needed"],
-      tools: ["Detail and crevice brushes", "microfiber set", "handheld vacuum"],
-      equipment: ["Portable power"]
+      products: ["Sooftwash™", "interior-safe cleaner", "ceramic-infused glass cleaner", "dressing as needed"],
+      tools: ["Detail and crevice brushes", "microfibre set", "handheld vacuum"],
+      equipment: ["Power station"]
     }
   ];
 
@@ -128,12 +130,30 @@ export default function Services() {
               >
                 Services
               </h1>
-              <p 
-                className="text-lg text-[var(--brand-primary)] leading-relaxed mb-8"
+              <p
+                className="text-lg text-[var(--brand-primary)] leading-relaxed mb-4"
                 style={{ fontFamily: 'var(--font-grandview)' }}
               >
-                Sooftwash™ is our signature clean—pro finish, tiny footprint. On average, we use about 40× less water than a pressure wash. Our fleet runs electric, and a mobile power station powers full-strength equipment with minimal fuss. Fresh towels every wash. Biodegradable formulas that are kind to people, surfaces, and surroundings. And it's delivered by professionally trained Liinks who follow clear checklists for consistent results.
+                Choose from our eco-friendly options designed for everyday upkeep or a fuller reset. Each visit is consistent, tidy, and apartment-friendly.
               </p>
+
+              <p
+                className="text-lg text-[var(--brand-primary)] leading-relaxed mb-6"
+                style={{ fontFamily: 'var(--font-grandview)' }}
+              >
+                On average, we use about <strong>40× less water</strong> than a pressure wash through our <strong>Sooftwash™</strong> technology. Our fleet runs electric via a mobile <strong>power station</strong>, we use fresh <strong>microfibres</strong> every wash, and biodegradable formulas that are kind to people, surfaces, and surroundings.
+              </p>
+
+              <a
+                href="/purpose-and-impact#pi-how"
+                className="inline-flex items-center px-4 py-2 rounded-2xl border border-[var(--brand-secondary)] text-[var(--brand-secondary)] hover:text-[var(--brand-pop)] hover:border-[var(--brand-pop)] transition-colors"
+                style={{ fontFamily: 'var(--font-grandview-semibold)' }}
+              >
+                See how Sooftwash™ works
+                <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
 
             {/* Services intro lines */}
@@ -176,11 +196,11 @@ export default function Services() {
               >
                 Ready to book your service?
               </h3>
-              <p 
+              <p
                 className="text-lg text-[var(--brand-primary)] mb-8"
                 style={{ fontFamily: 'var(--font-grandview)' }}
               >
-                Get the Goobii app and schedule your eco-friendly clean in seconds.
+                Get <strong>Goobii Connect</strong> and schedule your eco-friendly clean in seconds.
               </p>
               
               <div className="flex justify-center">
