@@ -43,9 +43,7 @@ export default function About() {
                     Clean cars.<br />
                     Cleaner planet.
                   </h1>
-                  <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-6">
-                    At Goobii, we believe caring for your car should never come at the cost of our planet.
-                  </p>
+                  
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     At Goobii, every detail of what we do is guided by a simple idea: small choices add up to big change. We've reimagined car care to be smarter, cleaner, and more responsible—so every wash not only delivers a premium finish but also contributes to a healthier planet. From our all-electric fleet to our biodegradable products and water-wise methods, we're proving that convenience and sustainability can go hand in hand.
                   </p>
