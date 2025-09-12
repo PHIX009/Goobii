@@ -132,10 +132,18 @@ export default function ServiceCard({
           
           {/* Best for line */}
           <p 
-            className="text-xs text-[var(--brand-primary)] font-medium"
+            className="text-xs text-[var(--brand-primary)] font-medium mb-3"
             style={{ fontFamily: 'var(--font-grandview)' }}
           >
             <span className="font-bold">Ideal for:</span> {bestFor}
+          </p>
+          
+          {/* Press to learn more */}
+          <p 
+            className="text-xs text-[var(--brand-secondary)] font-medium text-center"
+            style={{ fontFamily: 'var(--font-grandview)' }}
+          >
+            Press to learn more
           </p>
         </div>
       </div>
