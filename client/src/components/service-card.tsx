@@ -73,14 +73,14 @@ export default function ServiceCard({
         <div className="flex-1">
           {/* Title */}
           <h3 
-            className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight mb-2"
+            className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight mb-3"
             style={{ fontFamily: 'var(--font-grandview-bold)' }}
           >
             {title}
           </h3>
           
-          {/* Golden barrier */}
-          <div className="h-0.5 bg-[var(--brand-pop)] mb-4"></div>
+          {/* Golden horizontal separator line */}
+          <div className="w-full h-1 bg-[var(--brand-pop)] mb-4 rounded-sm"></div>
           
           {/* Description */}
           <p 
