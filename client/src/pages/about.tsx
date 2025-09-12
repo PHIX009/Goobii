@@ -85,9 +85,7 @@ export default function About() {
                 className="text-left"
               >
                 <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
-                  <p>
-                    At Goobii, we believe caring for your car should never come at the cost of our planet. With our signature Sooftwash™ technology, we achieve a spotless clean while using a fraction of the water required by traditional methods. That means every wash isn't just good for your car — it's a step toward protecting our shared environment.
-                  </p>
+                  <p>We believe caring for your car should never come at the cost of our planet. With our signature Sooftwash™ technology, we achieve a spotless clean while using a fraction of the water required by traditional methods. That means every wash isn't just good for your car — it's a step toward protecting our shared environment.</p>
                   
                   <p>
                     But Goobii is more than just an eco-friendly car wash. We're building a movement. A community of people who care about the choices they make, and how those choices affect the world around them. From our all-electric fleet and biodegradable products to our safe and easy-to-use app, everything we do is designed to give you the best possible experience while helping you join something bigger.
