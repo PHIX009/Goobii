@@ -3,6 +3,9 @@ import { MessageCircle, Mail, Phone, Users } from 'lucide-react';
 import logoImage from "@assets/Horizontal Logo + Tagline_1757358585705.png";
 
 export default function FooterCategories() {
+  // Check if we're on the service page for conditional styling
+  const isServicePage = typeof window !== 'undefined' && window.location.pathname === '/services';
+  
   const linkBase = "text-[var(--brand-primary)] hover:text-[var(--brand-pop)] transition-all duration-300 focus:outline-none";
   const row = "flex items-center gap-3";
 
@@ -94,10 +97,15 @@ export default function FooterCategories() {
         <div className="border-t border-[color-mix(in_oklab,var(--brand-secondary)_15%,transparent)] mt-12 md:mt-16 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
-              <img src={logoImage} alt="Goobii - Planet. People. Purpose." className="h-12 w-auto" style={{ objectFit: 'contain', filter: 'brightness(0) saturate(100%) invert(17%) sepia(26%) saturate(1765%) hue-rotate(174deg) brightness(93%) contrast(102%)' }} />
+              <img src={logoImage} alt="Goobii - Planet. People. Purpose." className="h-12 w-auto" style={{ 
+                objectFit: 'contain', 
+                filter: isServicePage 
+                  ? 'brightness(0) saturate(100%) invert(17%) sepia(26%) saturate(1765%) hue-rotate(174deg) brightness(93%) contrast(102%)' 
+                  : 'none'
+              }} />
             </div>
             
-            <div className="text-[#003a5c] text-sm">
+            <div className={`${isServicePage ? 'text-[#003a5c]' : 'text-[var(--brand-primary)]'} text-sm`}>
               <p>© 2024 Goobii. All rights reserved.</p>
             </div>
           </div>
