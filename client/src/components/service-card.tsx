@@ -140,10 +140,10 @@ export default function ServiceCard({
           
           {/* Press to learn more */}
           <p 
-            className="text-xs text-[var(--brand-secondary)] font-medium text-center"
+            className="text-xs text-[var(--brand-secondary)] font-medium text-left flex items-center"
             style={{ fontFamily: 'var(--font-grandview)' }}
           >
-            Press to learn more
+            Press to learn more →
           </p>
         </div>
       </div>
