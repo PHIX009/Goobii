@@ -163,18 +163,18 @@ export default function Fleet() {
 
             {/* CTA Section */}
             <div className="text-center">
-              <div className="bg-brand-primary p-8 max-w-3xl mx-auto" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                <h3 className="text-2xl font-grandview-bold text-brand-bg mb-4">Ready to discuss your fleet cleaning needs?</h3>
-                <p className="text-brand-bg/80 mb-6">
+              <div className="bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 p-8 max-w-3xl mx-auto" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                <h3 className="text-2xl font-grandview-bold text-brand-primary mb-4">Ready to discuss your fleet cleaning needs?</h3>
+                <p className="text-brand-primary mb-6">
                   Get a customized proposal for your business vehicle cleaning requirements.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <Link href="/contact">
-                    <button className="cta-button bg-brand-bg text-brand-primary px-6 py-3 rounded-xl font-grandview-bold hover:bg-brand-bg/90 transition-colors w-full sm:w-auto text-center" data-testid="request-proposal-button">
+                    <button className="cta-button bg-transparent text-brand-primary hover:text-brand-pop border-2 border-brand-primary hover:border-brand-pop px-6 py-3 rounded-xl font-grandview-bold transition-colors w-full sm:w-auto text-center" data-testid="request-proposal-button">
                       Request a Proposal
                     </button>
                   </Link>
-                  <CTAGroup size="sm" variant="footer" />
+                  <CTAGroup size="sm" />
                 </div>
               </div>
             </div>
