@@ -63,72 +63,82 @@ export default function ServiceCard({
       whileTap={{ scale: 0.98 }}
       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
     >
-      {/* Title */}
-      <h3 
-        className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight mb-2"
-        style={{ fontFamily: 'var(--font-grandview-bold)' }}
-      >
-        {title}
-      </h3>
-      
-      {/* Thin barrier */}
-      <div className="h-0.5 bg-[var(--brand-contrast-2)] mb-4"></div>
-      
-      {/* Description */}
-      <p 
-        className="text-[var(--brand-primary)] mb-6 leading-relaxed text-sm"
-        style={{ fontFamily: 'var(--font-grandview)' }}
-      >
-        {description}
-      </p>
-      
-      {/* Highlights and Duration Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
-        {/* Highlights (Left) */}
-        <div>
-          <h4 
-            className="font-extrabold text-[var(--brand-secondary)] mb-3"
-            style={{ fontFamily: 'var(--font-grandview-bold)' }}
-          >
-            Highlights
-          </h4>
-          <ul className="space-y-1.5 text-xs text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
-            {highlights.map((highlight, index) => (
-              <li key={index} className="flex items-start">
-                <Check className="w-3 h-3 text-[var(--brand-secondary)] mr-2 flex-shrink-0 mt-0.5" />
-                {highlight}
-              </li>
-            ))}
-          </ul>
+      <div className="flex gap-6">
+        {/* Image Placeholder (Left) */}
+        <div className="w-32 h-32 bg-gray-200 rounded flex-shrink-0 flex items-center justify-center">
+          <span className="text-gray-500 text-sm">Service Image</span>
         </div>
         
-        {/* Duration (Right) */}
-        <div>
-          <h4 
-            className="font-extrabold text-[var(--brand-secondary)] mb-3"
+        {/* Content (Right) */}
+        <div className="flex-1">
+          {/* Title */}
+          <h3 
+            className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight mb-2"
             style={{ fontFamily: 'var(--font-grandview-bold)' }}
           >
-            Estimated duration
-          </h4>
-          <div className="flex items-center">
-            <Clock className="w-3 h-3 text-[var(--brand-secondary)] mr-2" />
-            <p 
-              className="text-xs text-[var(--brand-primary)]"
-              style={{ fontFamily: 'var(--font-grandview)' }}
-            >
-              {duration}
-            </p>
+            {title}
+          </h3>
+          
+          {/* Golden barrier */}
+          <div className="h-0.5 bg-[var(--brand-pop)] mb-4"></div>
+          
+          {/* Description */}
+          <p 
+            className="text-[var(--brand-primary)] mb-6 leading-relaxed text-sm"
+            style={{ fontFamily: 'var(--font-grandview)' }}
+          >
+            {description}
+          </p>
+          
+          {/* Highlights and Duration Row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+            {/* Highlights (Left) */}
+            <div>
+              <h4 
+                className="font-extrabold text-[var(--brand-secondary)] mb-3"
+                style={{ fontFamily: 'var(--font-grandview-bold)' }}
+              >
+                Highlights
+              </h4>
+              <ul className="space-y-1.5 text-xs text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
+                {highlights.map((highlight, index) => (
+                  <li key={index} className="flex items-start">
+                    <Check className="w-3 h-3 text-[var(--brand-secondary)] mr-2 flex-shrink-0 mt-0.5" />
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* Duration (Right) */}
+            <div>
+              <h4 
+                className="font-extrabold text-[var(--brand-secondary)] mb-3"
+                style={{ fontFamily: 'var(--font-grandview-bold)' }}
+              >
+                Estimated duration
+              </h4>
+              <div className="flex items-center">
+                <Clock className="w-3 h-3 text-[var(--brand-secondary)] mr-2" />
+                <p 
+                  className="text-xs text-[var(--brand-primary)]"
+                  style={{ fontFamily: 'var(--font-grandview)' }}
+                >
+                  {duration}
+                </p>
+              </div>
+            </div>
           </div>
+          
+          {/* Best for line */}
+          <p 
+            className="text-xs text-[var(--brand-primary)] font-medium"
+            style={{ fontFamily: 'var(--font-grandview)' }}
+          >
+            <span className="font-bold">Ideal for:</span> {bestFor}
+          </p>
         </div>
       </div>
-      
-      {/* Best for line */}
-      <p 
-        className="text-xs text-[var(--brand-primary)] font-medium"
-        style={{ fontFamily: 'var(--font-grandview)' }}
-      >
-        <span className="font-bold">Best for:</span> {bestFor}
-      </p>
     </motion.button>
   );
 }
