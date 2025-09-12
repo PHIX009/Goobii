@@ -125,7 +125,7 @@ export default function SubscriptionCard({
           className="text-xs text-[var(--brand-secondary)] font-medium text-center"
           style={{ fontFamily: 'var(--font-grandview)' }}
         >
-          Click to learn more →
+          Press to learn more →
         </span>
       </div>
     </motion.button>
