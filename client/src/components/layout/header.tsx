@@ -139,12 +139,12 @@ export default function Header() {
             aria-label={isOpen ? "Close menu" : "Open menu"}
             onClick={() => setIsOpen(!isOpen)}
           >
-            {/* Swap icon for clearer affordance */}
-            {isOpen ? (
-              <X className="w-6 h-6 text-brand-primary" />
-            ) : (
+            <motion.div
+              animate={{ rotate: isOpen ? 90 : 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
               <Menu className="w-6 h-6 text-brand-primary" />
-            )}
+            </motion.div>
           </Button>
         </div>
 
@@ -219,14 +219,14 @@ export default function Header() {
               transition={{
                 duration: 0.4,
                 ease: "easeInOut",
-                height: { duration: 0.5 },
-                width: { duration: 0.4, ease: "easeInOut" },
+                height: { duration: 0.5, delay: isOpen ? 0.1 : 0 },
+                width: { duration: 0.4, ease: "easeInOut" }
               }}
-              className="fixed z-50 border-2 border-brand-primary shadow-2xl overflow-hidden bg-background"
+              className="fixed z-50 border-2 border-brand-primary shadow-2xl overflow-hidden"
               style={{
                 borderRadius: "12px 4px 12px 12px",
-                boxShadow:
-                  "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 8px 16px -8px rgba(0, 105, 128, 0.3)",
+                backgroundColor: '#e2e8f0',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 8px 16px -8px rgba(0, 105, 128, 0.3)'
               }}
             >
               <motion.div
@@ -234,7 +234,7 @@ export default function Header() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.2, delay: 0.2 }}
+                transition={{ duration: 0.2, delay: isOpen ? 0.3 : 0 }}
               >
                 {navigation.map((item, index) => (
                   <motion.div
@@ -244,7 +244,7 @@ export default function Header() {
                     exit={{ opacity: 0, x: -20 }}
                     transition={{
                       duration: 0.2,
-                      delay: 0.1 + index * 0.05,
+                      delay: isOpen ? 0.1 + (index * 0.05) : 0
                     }}
                   >
                     <Link
