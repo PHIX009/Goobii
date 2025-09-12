@@ -74,6 +74,13 @@ footer a:hover span,
   transition: color 0.3s ease;
 }
 
+/* Exception for Sooftwash method link - allow full hover effect */
+[data-testid="link-sooftwash-method"]:hover {
+  background-color: hsl(var(--brand-pop)) !important;
+  border-color: hsl(var(--brand-pop)) !important;
+  color: white !important;
+}
+
 /* Force hardware acceleration for smoother animations */
 .force-layer {
   transform: translateZ(0);
