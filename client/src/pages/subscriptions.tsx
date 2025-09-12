@@ -226,13 +226,18 @@ export default function Subscriptions() {
               </div>
             </div>
 
-            {/* CTA Section */}
-            <div className="text-center">
-              <h3 className="text-2xl font-grandview-bold text-brand-secondary mb-4">Start your subscription today</h3>
-              <p className="text-brand-secondary mb-6">Choose the plan that fits your lifestyle and let Goobii handle the rest. Simple setup, reliable care, and a cleaner way forward—always managed in Goobii Connect.</p>
-              <div className="flex justify-center">
-                <CTAGroup variant="default" />
-              </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <h2 className="text-3xl font-ghost font-bold text-brand-secondary mb-4">Start your subscription today</h2>
+            <p className="text-xl text-brand-secondary mb-4">Choose the plan that fits your lifestyle and let Goobii handle the rest.</p>
+            <p className="text-lg text-brand-secondary mb-8 font-grandview-bold">Download our App now!</p>
+            
+            <div className="flex justify-center">
+              <CTAGroup size="lg" className="flex-col sm:flex-row" />
             </div>
           </div>
         </section>

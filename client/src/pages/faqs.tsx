@@ -83,17 +83,18 @@ export default function FAQs() {
               ))}
             </div>
 
-            {/* CTA Section */}
-            <div className="text-center">
-              <div className="bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 p-8 max-w-4xl mx-auto" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                <h3 className="text-2xl font-grandview-bold text-brand-primary mb-4">Still have questions?</h3>
-                <p className="text-brand-primary mb-6">
-                  Contact us directly or download the app to get started with your first eco-friendly wash
-                </p>
-                <div className="flex justify-center">
-                  <CTAGroup size="lg" className="flex-col sm:flex-row" />
-                </div>
-              </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <h2 className="text-3xl font-ghost font-bold text-brand-primary mb-4">Still have questions?</h2>
+            <p className="text-xl text-brand-primary mb-4">Contact us directly or download the app to get started with your first eco-friendly wash</p>
+            <p className="text-lg text-brand-primary mb-8 font-grandview-bold">Download our App now!</p>
+            
+            <div className="flex justify-center">
+              <CTAGroup size="lg" className="flex-col sm:flex-row" />
             </div>
           </div>
         </section>
