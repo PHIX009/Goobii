@@ -136,13 +136,13 @@ export default function Subscriptions() {
               {/* Text Content */}
               <div className="text-left">
                 <div className="flex items-center gap-3 mb-6">
-                  <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-secondary">SUBSCRIPTION</h1>
                   <img 
                     src={verticalLogo} 
                     alt="Goobii Logo" 
-                    className="h-16 lg:h-20"
+                    className="h-32 lg:h-40"
                     style={{ filter: 'brightness(0) saturate(100%) invert(17%) sepia(26%) saturate(1765%) hue-rotate(174deg) brightness(93%) contrast(102%)' }}
                   />
+                  <h1 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-pop">SUBSCRIPTION</h1>
                 </div>
                 <p className="text-xl text-muted-foreground mb-4">
                   Welcome to Goobii subscriptions—your car's clean routine. Lock in reliable visits that fit real life, from solo drivers to full driveways, and keep your weeks running smoother with a schedule that works around you.
@@ -210,8 +210,8 @@ export default function Subscriptions() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-pop/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                    <Shield className="w-8 h-8 text-brand-pop" />
+                  <div className="w-16 h-16 bg-brand-secondary/10 flex items-center justify-center mx-auto mb-4" style={{ borderRadius: '12px 4px 12px 12px' }}>
+                    <Shield className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">Premium & planet-minded</h3>
                   <p className="text-muted-foreground">Pro-grade, biodegradable formulations—high performance without the harsh stuff.</p>
@@ -229,12 +229,10 @@ export default function Subscriptions() {
 
             {/* CTA Section */}
             <div className="text-center">
-              <div className="bg-brand-primary p-8" style={{ borderRadius: '12px 4px 12px 12px' }}>
-                <h3 className="text-2xl font-grandview-bold text-brand-bg mb-4">Start your subscription today</h3>
-                <p className="text-brand-bg/80 mb-6">Choose the plan that fits your lifestyle and let Goobii handle the rest. Simple setup, reliable care, and a cleaner way forward—always managed in Goobii Connect.</p>
-                <div className="flex justify-center">
-                  <CTAGroup variant="footer" />
-                </div>
+              <h3 className="text-2xl font-grandview-bold text-brand-primary mb-4">Start your subscription today</h3>
+              <p className="text-brand-primary mb-6">Choose the plan that fits your lifestyle and let Goobii handle the rest. Simple setup, reliable care, and a cleaner way forward—always managed in Goobii Connect.</p>
+              <div className="flex justify-center">
+                <CTAGroup variant="default" />
               </div>
             </div>
           </div>

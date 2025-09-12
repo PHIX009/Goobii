@@ -260,7 +260,7 @@ export default function Header() {
                       className={`block py-2 px-3 text-sm transition-colors rounded-md mb-1 ${
                         location === item.href
                           ? "font-bold text-brand-secondary"
-                          : "text-brand-secondary hover:text-brand-pop hover:font-semibold"
+                          : "text-brand-secondary hover:font-semibold"
                       }`}
                       onClick={() => setIsOpen(false)}
                       data-testid={`nav-link-${item.name
