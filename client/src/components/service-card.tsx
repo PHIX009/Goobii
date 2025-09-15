@@ -6,6 +6,7 @@ interface ServiceCardProps {
   id: string;
   title: string;
   subtitle: string;
+  washType: string;
   description: string;
   highlights: string[];
   duration: string;
@@ -17,6 +18,7 @@ export default function ServiceCard({
   id,
   title,
   subtitle,
+  washType,
   description, 
   highlights,
   duration,
@@ -128,13 +130,26 @@ export default function ServiceCard({
               >
                 Estimated duration
               </h4>
-              <div className="flex items-center">
+              <div className="flex items-center mb-3">
                 <Clock className="w-3 h-3 text-[var(--brand-secondary)] mr-2" />
                 <p 
                   className="text-xs text-[var(--brand-primary)]"
                   style={{ fontFamily: 'var(--font-grandview)' }}
                 >
                   {duration}
+                </p>
+              </div>
+              
+              {/* Wash Type Frame */}
+              <div 
+                className="inline-block px-3 py-1 bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/20"
+                style={{ borderRadius: '12px 4px 12px 12px' }}
+              >
+                <p 
+                  className="text-xs text-[var(--brand-primary)]"
+                  style={{ fontFamily: 'var(--font-grandview)' }}
+                >
+                  {washType}
                 </p>
               </div>
             </div>
