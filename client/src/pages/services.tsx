@@ -12,6 +12,7 @@ export default function Services() {
     {
       id: "aura",
       title: "Aura",
+      subtitle: "Refresh Wash",
       description: "A focused exterior refresh that keeps your car looking sharper for everyday living.",
       highlights: [
         "Exterior Sooftwash™ pass",
@@ -33,6 +34,7 @@ export default function Services() {
     {
       id: "aura-absolute",
       title: "Aura Absolute",
+      subtitle: "Full Refresh",
       description: "Aura exterior plus a light interior tidy so the cabin feels fresh too.",
       highlights: [
         "Exterior Sooftwash™ pass",
@@ -54,6 +56,7 @@ export default function Services() {
     {
       id: "glow",
       title: "Glow",
+      subtitle: "Premium Wash",
       description: "Premium exterior attention and care for a crisp, stand-out finish.",
       highlights: [
         "Glow Sooftwash™ exterior pass",
@@ -75,6 +78,7 @@ export default function Services() {
     {
       id: "glow-absolute",
       title: "Glow Absolute",
+      subtitle: "Full Premium",
       description: "Everything in Glow plus a fuller interior treatment for an all-round reset.",
       highlights: [
         "Glow Sooftwash™ exterior pass",
@@ -172,6 +176,7 @@ export default function Services() {
                     key={service.id}
                     id={service.id}
                     title={service.title}
+                    subtitle={service.subtitle}
                     description={service.description}
                     highlights={service.highlights}
                     duration={service.duration}

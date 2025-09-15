@@ -5,6 +5,7 @@ import { Clock, Check } from 'lucide-react';
 interface ServiceCardProps {
   id: string;
   title: string;
+  subtitle: string;
   description: string;
   highlights: string[];
   duration: string;
@@ -14,7 +15,8 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ 
   id,
-  title, 
+  title,
+  subtitle,
   description, 
   highlights,
   duration,
@@ -73,11 +75,19 @@ export default function ServiceCard({
         <div className="flex-1">
           {/* Title */}
           <h3 
-            className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight mb-3"
+            className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight mb-2"
             style={{ fontFamily: 'var(--font-grandview-bold)' }}
           >
             {title}
           </h3>
+          
+          {/* Subtitle */}
+          <p 
+            className="text-xl text-[var(--brand-primary)] mb-3"
+            style={{ fontFamily: 'var(--font-grandview)' }}
+          >
+            {subtitle}
+          </p>
           
           {/* Golden horizontal separator line */}
           <div className="w-full h-1 mb-4 rounded-sm bg-[#DCC57F]"></div>
