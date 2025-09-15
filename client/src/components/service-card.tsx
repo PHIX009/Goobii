@@ -142,11 +142,11 @@ export default function ServiceCard({
               
               {/* Wash Type Frame */}
               <div 
-                className="inline-block px-3 py-1 bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/20"
+                className="inline-block px-2 py-1 bg-[var(--brand-primary)]/10 border-2 border-[var(--brand-primary)]/20 w-fit"
                 style={{ borderRadius: '12px 4px 12px 12px' }}
               >
                 <p 
-                  className="text-xs text-[var(--brand-primary)]"
+                  className="text-xs text-[var(--brand-primary)] whitespace-nowrap"
                   style={{ fontFamily: 'var(--font-grandview)' }}
                 >
                   {washType}
