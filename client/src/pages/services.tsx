@@ -136,13 +136,13 @@ export default function Services() {
                   </h1>
                   
                   <p 
-                    className="text-xl text-brand-primary mb-4 font-medium"
+                    className="text-xl text-brand-primary mb-4 font-normal"
                     style={{ fontFamily: 'var(--font-grandview)' }}
                   >
                     Choose from our eco-friendly options designed for everyday upkeep or a fuller reset. Each visit is consistent, tidy, and apartment-friendly.
                   </p>
                   <p 
-                    className="text-lg text-brand-primary mb-6"
+                    className="text-brand-primary mb-6 text-[20px]"
                     style={{ fontFamily: 'var(--font-grandview)' }}
                   >
                     On average, we use about 40× less water than a pressure wash through our Sooftwash™ technology. Our fleet runs electric via a mobile power station, we use fresh microfibres every wash, and biodegradable formulas that are kind to people, surfaces, and surroundings.
