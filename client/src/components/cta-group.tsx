@@ -26,38 +26,38 @@ export default function CTAGroup({ size = "md", variant = "default", className =
 
   if (size === "lg") {
     return (
-      <div className={`flex gap-2 ${className}`} data-testid="cta-group">
-        <a href="#ios-placeholder" className={`cta-button bg-transparent ${textColor} border-2 ${borderColor} px-6 py-4 font-grandview-bold transition-colors flex items-center justify-center gap-2`} style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="cta-button-ios">
+      <div className={`flex flex-col xs:flex-row gap-4 sm:gap-2 ${className}`} data-testid="cta-group">
+        <a href="#ios-placeholder" className={`cta-button bg-transparent ${textColor} border-2 ${borderColor} px-6 py-4 font-grandview-bold transition-colors flex items-center justify-center gap-2 flex-1 sm:flex-initial`} style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="cta-button-ios">
           <SiApple className="w-6 h-6" />
-          <span className="font-bold">iOS</span>
+          <span className="font-bold text-sm sm:text-base">iOS</span>
         </a>
-        <a href="#android-placeholder" className={`cta-button bg-transparent ${textColor} border-2 ${borderColor} px-6 py-4 font-grandview-bold transition-colors flex items-center justify-center gap-2`} style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="cta-button-android">
+        <a href="#android-placeholder" className={`cta-button bg-transparent ${textColor} border-2 ${borderColor} px-6 py-4 font-grandview-bold transition-colors flex items-center justify-center gap-2 flex-1 sm:flex-initial`} style={{ borderRadius: '12px 4px 12px 12px' }} data-testid="cta-button-android">
           <SiGoogleplay className="w-6 h-6" />
-          <span className="font-bold">Android</span>
+          <span className="font-bold text-sm sm:text-base">Android</span>
         </a>
       </div>
     );
   }
 
   return (
-    <div className={`flex gap-2 ${className}`} data-testid="cta-group">
+    <div className={`flex flex-col xs:flex-row gap-4 sm:gap-2 ${className}`} data-testid="cta-group">
       <a
         href="#ios-placeholder"
-        className={`cta-button ${variant === "footer" ? footerClasses : `bg-transparent ${textColor} border-2 ${borderColor}`} ${sizeClasses[size]} font-grandview-bold transition-colors flex items-center justify-center gap-1`}
+        className={`cta-button ${variant === "footer" ? footerClasses : `bg-transparent ${textColor} border-2 ${borderColor}`} ${sizeClasses[size]} font-grandview-bold transition-colors flex items-center justify-center gap-1 flex-1 sm:flex-initial`}
         style={{ borderRadius: '12px 4px 12px 12px' }}
         data-testid="cta-button-ios"
       >
         <SiApple className="w-4 h-4" />
-        <span className="font-bold">{size === "sm" ? "iOS" : "Download on iOS"}</span>
+        <span className="font-bold text-sm sm:text-base">{size === "sm" ? "iOS" : "Download on iOS"}</span>
       </a>
       <a
         href="#android-placeholder"
-        className={`cta-button ${variant === "footer" ? footerClasses : `bg-transparent ${textColor} border-2 ${borderColor}`} ${sizeClasses[size]} font-grandview-bold transition-colors flex items-center justify-center gap-1`}
+        className={`cta-button ${variant === "footer" ? footerClasses : `bg-transparent ${textColor} border-2 ${borderColor}`} ${sizeClasses[size]} font-grandview-bold transition-colors flex items-center justify-center gap-1 flex-1 sm:flex-initial`}
         style={{ borderRadius: '12px 4px 12px 12px' }}
         data-testid="cta-button-android"
       >
         <SiGoogleplay className="w-4 h-4" />
-        <span className="font-bold">{size === "sm" ? "Android" : "Get it on Android"}</span>
+        <span className="font-bold text-sm sm:text-base">{size === "sm" ? "Android" : "Get it on Android"}</span>
       </a>
     </div>
   );

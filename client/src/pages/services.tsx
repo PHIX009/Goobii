@@ -125,24 +125,24 @@ export default function Services() {
             
             {/* Title and Content with Image */}
             <div className="mb-16">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 {/* Left side - Content */}
-                <div>
+                <div className="order-2 lg:order-1 text-center lg:text-left">
                   <h1 
-                    className="text-4xl lg:text-5xl font-bold text-brand-primary mb-8 tracking-tight"
+                    className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-primary mb-6 lg:mb-8 tracking-tight"
                     style={{ fontFamily: 'var(--font-ghost)' }}
                   >
                     Services
                   </h1>
                   
                   <p 
-                    className="text-xl text-brand-primary mb-4 font-normal"
+                    className="text-lg sm:text-xl text-brand-primary mb-4 font-normal leading-relaxed"
                     style={{ fontFamily: 'var(--font-grandview)' }}
                   >
                     Choose from our eco-friendly options designed for everyday upkeep or a fuller reset. Each visit is consistent, tidy, and apartment-friendly.
                   </p>
                   <p 
-                    className="text-brand-primary mb-6 text-[20px]"
+                    className="text-brand-primary mb-6 text-base sm:text-[20px] leading-relaxed"
                     style={{ fontFamily: 'var(--font-grandview)' }}
                   >
                     On average, we use about 40× less water than a pressure wash through our Sooftwash™ technology. Our fleet runs electric via a mobile power station, we use fresh microfibres every wash, and biodegradable formulas that are kind to people, surfaces, and surroundings.
@@ -165,7 +165,7 @@ export default function Services() {
                 </div>
                 
                 {/* Right side - Image Placeholder */}
-                <div className="w-full h-80 bg-gray-200 rounded flex items-center justify-center">
+                <div className="order-1 lg:order-2 w-full h-64 sm:h-80 bg-gray-200 rounded flex items-center justify-center">
                   <span className="text-gray-500 text-lg">Service Image</span>
                 </div>
               </div>

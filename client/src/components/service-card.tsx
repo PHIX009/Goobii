@@ -56,7 +56,7 @@ export default function ServiceCard({
     <motion.button 
       ref={cardRef}
       layoutId={`service-${id}`}
-      className="service-card w-full text-left bg-[var(--brand-bg)] p-8 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-secondary)]/30 transition-all duration-300 border border-[var(--brand-primary)]/10 hover:border-[var(--brand-secondary)]/30 hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-[var(--brand-pop)] focus:ring-0 ring-offset-2 ring-offset-white cursor-pointer relative overflow-hidden"
+      className="service-card w-full text-left bg-[var(--brand-bg)] p-6 sm:p-8 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-secondary)]/30 transition-all duration-300 border border-[var(--brand-primary)]/10 hover:border-[var(--brand-secondary)]/30 hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-[var(--brand-pop)] focus:ring-0 ring-offset-2 ring-offset-white cursor-pointer relative overflow-hidden"
       style={{ borderRadius: '12px 4px 12px 12px' }}
       onClick={onClick}
       onKeyDown={handleKeyDown}
@@ -67,17 +67,17 @@ export default function ServiceCard({
       whileTap={{ scale: 0.98 }}
       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
     >
-      <div className="flex gap-6">
-        {/* Image Placeholder (Left) */}
-        <div className="w-32 h-32 bg-gray-200 rounded flex-shrink-0 flex items-center justify-center">
+      <div className="flex flex-col sm:flex-row gap-6">
+        {/* Image Placeholder (Left/Top) */}
+        <div className="w-full sm:w-32 h-48 sm:h-32 bg-gray-200 rounded flex-shrink-0 flex items-center justify-center">
           <span className="text-gray-500 text-sm">Service Image</span>
         </div>
         
-        {/* Content (Right) */}
-        <div className="flex-1">
+        {/* Content (Right/Bottom) */}
+        <div className="flex-1 min-w-0">
           {/* Title */}
           <h3 
-            className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight mb-2"
+            className="text-2xl sm:text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight mb-2"
             style={{ fontFamily: 'var(--font-grandview-bold)' }}
           >
             {title}
@@ -85,7 +85,7 @@ export default function ServiceCard({
           
           {/* Subtitle */}
           <p 
-            className="text-xl text-[var(--brand-primary)] mb-3"
+            className="text-lg sm:text-xl text-[var(--brand-primary)] mb-3"
             style={{ fontFamily: 'var(--font-grandview)' }}
           >
             {subtitle}
