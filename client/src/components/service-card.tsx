@@ -5,8 +5,6 @@ import { Clock, Check } from 'lucide-react';
 interface ServiceCardProps {
   id: string;
   title: string;
-  subtitle: string;
-  washType: string;
   description: string;
   highlights: string[];
   duration: string;
@@ -16,9 +14,7 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ 
   id,
-  title,
-  subtitle,
-  washType,
+  title, 
   description, 
   highlights,
   duration,
@@ -56,7 +52,7 @@ export default function ServiceCard({
     <motion.button 
       ref={cardRef}
       layoutId={`service-${id}`}
-      className="service-card w-full text-left bg-[var(--brand-bg)] p-6 sm:p-8 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-secondary)]/30 transition-all duration-300 border border-[var(--brand-primary)]/10 hover:border-[var(--brand-secondary)]/30 hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-[var(--brand-pop)] focus:ring-0 ring-offset-2 ring-offset-white cursor-pointer relative overflow-hidden"
+      className="service-card w-full text-left bg-[var(--brand-bg)] p-8 shadow-lg hover:shadow-xl hover:shadow-[var(--brand-secondary)]/30 transition-all duration-300 border border-[var(--brand-primary)]/10 hover:border-[var(--brand-secondary)]/30 hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-[var(--brand-pop)] focus:ring-0 ring-offset-2 ring-offset-white cursor-pointer relative overflow-hidden"
       style={{ borderRadius: '12px 4px 12px 12px' }}
       onClick={onClick}
       onKeyDown={handleKeyDown}
@@ -67,29 +63,21 @@ export default function ServiceCard({
       whileTap={{ scale: 0.98 }}
       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
     >
-      <div className="flex flex-col sm:flex-row gap-6">
-        {/* Image Placeholder (Left/Top) */}
-        <div className="w-full sm:w-32 h-48 sm:h-32 bg-gray-200 rounded flex-shrink-0 flex items-center justify-center">
+      <div className="flex gap-6">
+        {/* Image Placeholder (Left) */}
+        <div className="w-32 h-32 bg-gray-200 rounded flex-shrink-0 flex items-center justify-center">
           <span className="text-gray-500 text-sm">Service Image</span>
         </div>
         
-        {/* Content (Right/Bottom) */}
-        <div className="flex-1 min-w-0">
+        {/* Content (Right) */}
+        <div className="flex-1">
           {/* Title */}
           <h3 
-            className="text-2xl sm:text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight mb-2"
+            className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight mb-3"
             style={{ fontFamily: 'var(--font-grandview-bold)' }}
           >
             {title}
           </h3>
-          
-          {/* Subtitle */}
-          <p 
-            className="text-lg sm:text-xl text-[var(--brand-primary)] mb-3"
-            style={{ fontFamily: 'var(--font-grandview)' }}
-          >
-            {subtitle}
-          </p>
           
           {/* Golden horizontal separator line */}
           <div className="w-full h-1 mb-4 rounded-sm bg-[#DCC57F]"></div>
@@ -130,26 +118,13 @@ export default function ServiceCard({
               >
                 Estimated duration
               </h4>
-              <div className="flex items-center mb-3">
+              <div className="flex items-center">
                 <Clock className="w-3 h-3 text-[var(--brand-secondary)] mr-2" />
                 <p 
                   className="text-xs text-[var(--brand-primary)]"
                   style={{ fontFamily: 'var(--font-grandview)' }}
                 >
                   {duration}
-                </p>
-              </div>
-              
-              {/* Wash Type Frame */}
-              <div 
-                className="inline-block px-2 py-1 bg-[var(--brand-primary)]/10 border-2 border-[var(--brand-primary)]/20 w-fit"
-                style={{ borderRadius: '12px 4px 12px 12px' }}
-              >
-                <p 
-                  className="text-xs text-[var(--brand-primary)] whitespace-nowrap"
-                  style={{ fontFamily: 'var(--font-grandview)' }}
-                >
-                  {washType}
                 </p>
               </div>
             </div>

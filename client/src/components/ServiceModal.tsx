@@ -78,7 +78,7 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
           role="dialog"
           aria-modal="true"
           aria-labelledby={`modal-title-${id}`}
-          className="relative w-full max-w-4xl bg-gray-100 shadow-2xl pointer-events-auto border border-[var(--brand-primary)]/10 overflow-hidden flex flex-col md:flex-row h-full md:h-auto max-h-[90vh] md:max-h-[85vh]"
+          className="relative w-full max-w-4xl bg-gray-100 shadow-2xl pointer-events-auto border border-[var(--brand-primary)]/10"
           style={{ 
             borderRadius: '12px 4px 12px 12px', 
             contain: 'layout paint',
@@ -89,47 +89,21 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
           data-testid={`service-modal-${id}`}
           tabIndex={-1}
         >
-          {/* Left Side: Image (Top on mobile) */}
-          <div className="w-full md:w-2/5 h-48 sm:h-64 md:h-auto bg-gray-200 relative flex-shrink-0">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-gray-500 font-grandview">Service Image</span>
-            </div>
-            <button
-              onClick={handleClose}
-              className="absolute top-4 left-4 p-2 bg-white/80 backdrop-blur-sm rounded-full text-brand-primary md:hidden z-10"
-              aria-label="Close modal"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* Right Side: Content Wrapper */}
-          <div className="flex-1 overflow-y-auto">
+          {/* Scrollable content wrapper - no fade delays */}
+          <div className="max-h-[90vh] overflow-y-auto">
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-[var(--brand-primary)]/10">
-              <div>
-                <h2
-                  id={`modal-title-${id}`}
-                  className="text-2xl sm:text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight"
-                  style={{ fontFamily: 'var(--font-grandview-bold)' }}
-                >
-                  {service.title}
-                </h2>
-                {/* @ts-ignore - subtitle exists in service object but not in type */}
-                {service.subtitle && (
-                  <p 
-                    className="text-lg text-brand-primary mt-1"
-                    style={{ fontFamily: 'var(--font-grandview)' }}
-                  >
-                    {/* @ts-ignore */}
-                    {service.subtitle}
-                  </p>
-                )}
-              </div>
+              <h2
+                id={`modal-title-${id}`}
+                className="text-3xl font-extrabold text-[var(--brand-contrast-2)] tracking-tight"
+                style={{ fontFamily: 'var(--font-grandview-bold)' }}
+              >
+                {service.title}
+              </h2>
               
               <button
                 onClick={handleClose}
-                className="p-2 rounded-full text-[var(--brand-secondary)] hover:text-[var(--brand-pop)] active:text-[var(--brand-pop)] focus-visible:ring-2 focus-visible:ring-[var(--brand-pop)] focus:ring-0 ring-offset-2 ring-offset-white transition-colors hidden md:block"
+                className="p-2 rounded-full text-[var(--brand-secondary)] hover:text-[var(--brand-pop)] active:text-[var(--brand-pop)] focus-visible:ring-2 focus-visible:ring-[var(--brand-pop)] focus:ring-0 ring-offset-2 ring-offset-white transition-colors"
                 aria-label="Close modal"
                 data-testid="button-close-modal"
               >
@@ -137,11 +111,11 @@ export default function ServiceModal({ id, service, onClose }: ServiceModalProps
               </button>
             </div>
 
-            {/* Content Body */}
+            {/* Content */}
             <div className="p-6">
               {/* Description */}
               <p 
-                className="text-base sm:text-lg text-[var(--brand-primary)] mb-8 leading-relaxed"
+                className="text-lg text-[var(--brand-primary)] mb-8 leading-relaxed"
                 style={{ fontFamily: 'var(--font-grandview)' }}
               >
                 {service.description}

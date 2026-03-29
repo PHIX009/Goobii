@@ -12,8 +12,6 @@ export default function Services() {
     {
       id: "aura",
       title: "Aura",
-      subtitle: "Refresh Wash",
-      washType: "Exterior",
       description: "A focused exterior refresh that keeps your car looking sharper for everyday living.",
       highlights: [
         "Exterior Sooftwash™ pass",
@@ -35,8 +33,6 @@ export default function Services() {
     {
       id: "aura-absolute",
       title: "Aura Absolute",
-      subtitle: "Full Refresh",
-      washType: "Exterior + Interior",
       description: "Aura exterior plus a light interior tidy so the cabin feels fresh too.",
       highlights: [
         "Exterior Sooftwash™ pass",
@@ -58,8 +54,6 @@ export default function Services() {
     {
       id: "glow",
       title: "Glow",
-      subtitle: "Premium Wash",
-      washType: "Exterior",
       description: "Premium exterior attention and care for a crisp, stand-out finish.",
       highlights: [
         "Glow Sooftwash™ exterior pass",
@@ -81,8 +75,6 @@ export default function Services() {
     {
       id: "glow-absolute",
       title: "Glow Absolute",
-      subtitle: "Full Premium",
-      washType: "Exterior + Interior",
       description: "Everything in Glow plus a fuller interior treatment for an all-round reset.",
       highlights: [
         "Glow Sooftwash™ exterior pass",
@@ -125,24 +117,24 @@ export default function Services() {
             
             {/* Title and Content with Image */}
             <div className="mb-16">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                 {/* Left side - Content */}
-                <div className="order-2 lg:order-1 text-center lg:text-left">
+                <div>
                   <h1 
-                    className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-primary mb-6 lg:mb-8 tracking-tight"
+                    className="text-4xl lg:text-5xl font-bold text-brand-primary mb-8 tracking-tight"
                     style={{ fontFamily: 'var(--font-ghost)' }}
                   >
                     Services
                   </h1>
                   
                   <p 
-                    className="text-lg sm:text-xl text-brand-primary mb-4 font-normal leading-relaxed"
+                    className="text-xl text-brand-primary mb-4 font-medium"
                     style={{ fontFamily: 'var(--font-grandview)' }}
                   >
                     Choose from our eco-friendly options designed for everyday upkeep or a fuller reset. Each visit is consistent, tidy, and apartment-friendly.
                   </p>
                   <p 
-                    className="text-brand-primary mb-6 text-base sm:text-[20px] leading-relaxed"
+                    className="text-lg text-brand-primary mb-6"
                     style={{ fontFamily: 'var(--font-grandview)' }}
                   >
                     On average, we use about 40× less water than a pressure wash through our Sooftwash™ technology. Our fleet runs electric via a mobile power station, we use fresh microfibres every wash, and biodegradable formulas that are kind to people, surfaces, and surroundings.
@@ -165,7 +157,7 @@ export default function Services() {
                 </div>
                 
                 {/* Right side - Image Placeholder */}
-                <div className="order-1 lg:order-2 w-full h-64 sm:h-80 bg-gray-200 rounded flex items-center justify-center">
+                <div className="w-full h-80 bg-gray-200 rounded flex items-center justify-center">
                   <span className="text-gray-500 text-lg">Service Image</span>
                 </div>
               </div>
@@ -180,8 +172,6 @@ export default function Services() {
                     key={service.id}
                     id={service.id}
                     title={service.title}
-                    subtitle={service.subtitle}
-                    washType={service.washType}
                     description={service.description}
                     highlights={service.highlights}
                     duration={service.duration}
