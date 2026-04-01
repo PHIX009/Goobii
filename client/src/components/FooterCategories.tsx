@@ -17,17 +17,17 @@ export default function FooterCategories() {
           <div className="flex flex-col md:flex-row gap-8 md:gap-12">
             {/* Products */}
             <div>
-              <h3 className={`font-extrabold tracking-tight text-lg md:text-xl ${isSubscriptionPage ? 'text-[var(--brand-secondary)]' : 'text-[var(--brand-primary)]'}`} style={{ fontFamily: 'var(--font-grandview-bold)' }}>
+              <h3 className={`font-extrabold tracking-tight text-lg md:text-xl ${isSubscriptionPage ? 'text-[var(--brand-secondary)]' : 'text-[var(--brand-primary)]'}`} style={{ fontFamily: 'var(--font-grandview-bold)', fontWeight: 900 }}>
                 Products
               </h3>
               <ul className="mt-3 space-y-1.5">
                 <li>
-                  <Link href="/services" className={`${linkBase} inline-block`}>
+                  <Link href="/services" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className={`${linkBase} inline-block`}>
                     Services
                   </Link>
                 </li>
                 <li>
-                  <Link href="/subscriptions" className={`${linkBase} inline-block`}>
+                  <Link href="/subscriptions" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className={`${linkBase} inline-block`}>
                     Subscriptions
                   </Link>
                 </li>
@@ -36,22 +36,22 @@ export default function FooterCategories() {
 
             {/* Company */}
             <div>
-              <h3 className={`font-extrabold tracking-tight text-lg md:text-xl ${isSubscriptionPage ? 'text-[var(--brand-secondary)]' : 'text-[var(--brand-primary)]'}`} style={{ fontFamily: 'var(--font-grandview-bold)' }}>
+              <h3 className={`font-extrabold tracking-tight text-lg md:text-xl ${isSubscriptionPage ? 'text-[var(--brand-secondary)]' : 'text-[var(--brand-primary)]'}`} style={{ fontFamily: 'var(--font-grandview-bold)', fontWeight: 900 }}>
                 Company
               </h3>
               <ul className="mt-3 space-y-1.5">
                 <li>
-                  <Link href="/about" className={`${linkBase} inline-block`}>
+                  <Link href="/about" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className={`${linkBase} inline-block`}>
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/purpose-and-impact" className={`${linkBase} inline-block`}>
+                  <Link href="/purpose-and-impact" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className={`${linkBase} inline-block`}>
                     Purpose &amp; Impact
                   </Link>
                 </li>
                 <li>
-                  <Link href="/faqs" className={`${linkBase} inline-block`}>
+                  <Link href="/faqs" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className={`${linkBase} inline-block`}>
                     FAQs
                   </Link>
                 </li>
@@ -61,7 +61,7 @@ export default function FooterCategories() {
 
           {/* Right side - Get in Touch */}
           <div>
-            <h3 className={`font-extrabold tracking-tight text-lg md:text-xl ${isSubscriptionPage ? 'text-[var(--brand-secondary)]' : 'text-[var(--brand-primary)]'}`} style={{ fontFamily: 'var(--font-grandview-bold)' }}>
+            <h3 className={`font-extrabold tracking-tight text-lg md:text-xl ${isSubscriptionPage ? 'text-[var(--brand-secondary)]' : 'text-[var(--brand-primary)]'}`} style={{ fontFamily: 'var(--font-grandview-bold)', fontWeight: 900 }}>
               Get in Touch
             </h3>
             <ul className="mt-3 space-y-1.5">

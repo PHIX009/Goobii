@@ -88,9 +88,9 @@ export default function FAQs() {
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-ghost font-bold text-brand-primary mb-4">Still have questions?</h2>
+            <h2 className="text-3xl font-grandview-bold font-bold text-brand-primary mb-4">Still have questions?</h2>
             <p className="text-xl text-brand-primary mb-4">Contact us directly or download the app to get started with your first eco-friendly wash</p>
-            <p className="text-lg text-brand-primary mb-8 font-grandview-bold">Download Goobii Connect now!</p>
+            <p className="text-lg text-brand-primary mb-8 font-grandview-bold">Download the Goobii App now!</p>
             
             <div className="flex justify-center">
               <CTAGroup size="lg" className="flex-col sm:flex-row" />

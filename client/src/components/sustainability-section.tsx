@@ -113,7 +113,7 @@ export default function SustainabilitySection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">
+          <h2 className="text-4xl lg:text-5xl font-grandview-bold font-bold text-brand-primary mb-6">
             Purpose at the Core
           </h2>
           <p className="text-xl lg:text-2xl font-grandview text-brand-secondary/80 max-w-4xl mx-auto leading-relaxed">

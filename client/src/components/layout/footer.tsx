@@ -13,25 +13,25 @@ export default function Footer() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Products */}
               <div>
-                <h4 className="text-xl text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>Products</h4>
+                <h4 className="text-xl font-bold text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)', fontWeight: '800', fontStyle: 'normal' }}>Products</h4>
                 <ul className="space-y-1 text-brand-bg/80">
                   <li>
-                    <Link href="/services" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-services">
+                    <Link href="/services" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className="hover:text-brand-bg transition-colors block" data-testid="footer-link-services">
                       Car Cleaning
                     </Link>
                   </li>
                   <li>
-                    <Link href="/subscriptions" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-subscriptions">
+                    <Link href="/subscriptions" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className="hover:text-brand-bg transition-colors block" data-testid="footer-link-subscriptions">
                       Subscriptions
                     </Link>
                   </li>
                   <li>
-                    <Link href="/buildings" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-buildings">
+                    <Link href="/buildings" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className="hover:text-brand-bg transition-colors block" data-testid="footer-link-buildings">
                       Buildings & Communities
                     </Link>
                   </li>
                   <li>
-                    <Link href="/fleet" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-fleet">
+                    <Link href="/fleet" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className="hover:text-brand-bg transition-colors block" data-testid="footer-link-fleet">
                       Fleet & Business
                     </Link>
                   </li>
@@ -39,20 +39,20 @@ export default function Footer() {
               </div>
               {/* Company */}
               <div>
-                <h4 className="text-xl text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>Company</h4>
+                <h4 className="text-xl font-bold text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)', fontWeight: '800', fontStyle: 'normal' }}>Company</h4>
                 <ul className="space-y-1 text-brand-bg/80">
                   <li>
-                    <Link href="/about" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-about">
+                    <Link href="/about" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className="hover:text-brand-bg transition-colors block" data-testid="footer-link-about">
                       About Us
                     </Link>
                   </li>
                   <li>
-                    <Link href="/faqs" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-faqs">
+                    <Link href="/faqs" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className="hover:text-brand-bg transition-colors block" data-testid="footer-link-faqs">
                       FAQs
                     </Link>
                   </li>
                   <li>
-                    <Link href="/contact" className="hover:text-brand-bg transition-colors block" data-testid="footer-link-contact">
+                    <Link href="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className="hover:text-brand-bg transition-colors block" data-testid="footer-link-contact">
                       Contact
                     </Link>
                   </li>
@@ -63,7 +63,7 @@ export default function Footer() {
           
           {/* Right side - Get in Touch */}
           <div>
-            <h4 className="text-xl text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)' }}>Get in Touch</h4>
+            <h4 className="text-xl font-bold text-brand-bg mb-3" style={{ fontFamily: 'var(--font-grandview-bold)', fontWeight: '800', fontStyle: 'normal' }}>Get in Touch</h4>
             <div className="space-y-1 text-brand-bg/80">
               <a
                 href="#whatsapp-placeholder"

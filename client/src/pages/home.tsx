@@ -176,7 +176,7 @@ export default function Home() {
                 </div>
               </div>
               
-              <h1 className="text-4xl lg:text-6xl font-ghost font-bold text-brand-primary mb-6">
+              <h1 className="text-4xl lg:text-6xl font-grandview-bold font-bold text-brand-primary mb-6">
                 You lead the change. We make it effortless.
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground mb-8 font-grandview">
@@ -194,7 +194,7 @@ export default function Home() {
         {/* Value Cards */}
         <section className="py-16" data-testid="value-cards-section">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-center text-brand-primary mb-12">
+            <h2 className="text-3xl lg:text-4xl font-grandview-bold font-bold text-center text-brand-primary mb-12">
               Lead the Change
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -238,7 +238,7 @@ export default function Home() {
         <section className="py-16" data-testid="how-it-works-section">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-ghost font-bold text-brand-primary mb-4">How It Works</h2>
+              <h2 className="text-3xl lg:text-4xl font-grandview-bold font-bold text-brand-primary mb-4">How It Works</h2>
               <p className="text-xl text-muted-foreground">Simple steps. Real impact.</p>
             </div>
             
@@ -329,7 +329,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl lg:text-5xl font-ghost font-bold text-brand-primary mb-6">
+              <h2 className="text-4xl lg:text-5xl font-grandview-bold font-bold text-brand-primary mb-6">
                 Purpose at the Core
               </h2>
               <p className="text-xl lg:text-2xl font-grandview text-brand-secondary/80 max-w-4xl mx-auto leading-relaxed">
@@ -449,7 +449,7 @@ export default function Home() {
         {/* Secondary CTA Band */}
         <section className="py-16 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5" data-testid="secondary-cta-section">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-ghost font-bold text-brand-primary mb-4">Join the People with Purpose</h2>
+            <h2 className="text-3xl font-grandview-bold font-bold text-brand-primary mb-4">Join the People with Purpose</h2>
             <p className="text-xl text-brand-primary mb-4">Make your next clean a change the city feels.</p>
             <p className="text-lg text-brand-primary mb-8 font-grandview-bold">Download our App now!</p>
             

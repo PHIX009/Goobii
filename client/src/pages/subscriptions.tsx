@@ -125,7 +125,7 @@ export default function Subscriptions() {
     <>
       <Helmet>
         <title>Subscriptions | Goobii Spark, Pulse & Flow Plans</title>
-        <meta name="description" content="Choose Spark, Pulse, or Flow. Flexible Sooftwash™ subscriptions built on Aura/Aura Absolute. Manage everything in Goobii Connect." />
+        <meta name="description" content="Choose Spark, Pulse, or Flow. Flexible Sooftwash™ subscriptions built on Aura/Aura Absolute. Manage everything in the Goobii App." />
       </Helmet>
       <div className="pt-20">
         <section className="py-16 lg:py-24">
@@ -197,7 +197,7 @@ export default function Subscriptions() {
                     <DollarSign className="w-8 h-8 text-brand-secondary" />
                   </div>
                   <h3 className="font-grandview-bold text-lg text-brand-secondary mb-2">App convenience</h3>
-                  <p className="text-brand-secondary">Control everything in Goobii Connect—book, reschedule, and track visits in seconds.</p>
+                  <p className="text-brand-secondary">Control everything in the Goobii App—book, reschedule, and track visits in seconds.</p>
                 </div>
                 
                 <div className="text-center">
@@ -232,9 +232,9 @@ export default function Subscriptions() {
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-ghost font-bold text-brand-secondary mb-4">Start your subscription today</h2>
+            <h2 className="text-3xl font-grandview-bold font-bold text-brand-secondary mb-4">Start your subscription today</h2>
             <p className="text-xl text-brand-secondary mb-4">Choose the plan that fits your lifestyle and let Goobii handle the rest.</p>
-            <p className="text-lg text-brand-secondary mb-8 font-grandview-bold">Download Goobii Connect now!</p>
+            <p className="text-lg text-brand-secondary mb-8 font-grandview-bold">Download the Goobii App now!</p>
             
             <div className="flex justify-center">
               <CTAGroup size="lg" className="flex-col sm:flex-row" />

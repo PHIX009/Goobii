@@ -167,8 +167,8 @@ export default function SubscriptionModal({ id, subscription, onClose }: Subscri
               {/* Content */}
               <div className="p-6">
                 {/* Description */}
-                <p 
-                  className="text-lg text-[var(--brand-primary)] mb-8 leading-relaxed"
+                <p
+                  className="text-lg text-[var(--brand-secondary)] mb-8 leading-relaxed"
                   style={{ fontFamily: 'var(--font-grandview)' }}
                 >
                   {subscription.description}
@@ -188,8 +188,8 @@ export default function SubscriptionModal({ id, subscription, onClose }: Subscri
                       <div className="space-y-3">
                         <div className="flex items-center">
                           <Calendar className="w-5 h-5 text-[var(--brand-secondary)] mr-3" />
-                          <span 
-                            className="text-[var(--brand-primary)]"
+                          <span
+                            className="text-[var(--brand-secondary)]"
                             style={{ fontFamily: 'var(--font-grandview)' }}
                           >
                             <strong>{subscription.washCount} washes</strong> per month
@@ -197,8 +197,8 @@ export default function SubscriptionModal({ id, subscription, onClose }: Subscri
                         </div>
                         <div className="flex items-center">
                           <Users className="w-5 h-5 text-[var(--brand-secondary)] mr-3" />
-                          <span 
-                            className="text-[var(--brand-primary)]"
+                          <span
+                            className="text-[var(--brand-secondary)]"
                             style={{ fontFamily: 'var(--font-grandview)' }}
                           >
                             {subscription.planType}
@@ -206,8 +206,8 @@ export default function SubscriptionModal({ id, subscription, onClose }: Subscri
                         </div>
                         <div className="flex items-center">
                           <Clock className="w-5 h-5 text-[var(--brand-secondary)] mr-3" />
-                          <span 
-                            className="text-[var(--brand-primary)]"
+                          <span
+                            className="text-[var(--brand-secondary)]"
                             style={{ fontFamily: 'var(--font-grandview)' }}
                           >
                             {subscription.priceDetails}
@@ -228,8 +228,8 @@ export default function SubscriptionModal({ id, subscription, onClose }: Subscri
                         {subscription.features.map((feature, index) => (
                           <li key={index} className="flex items-start">
                             <Check className="w-4 h-4 text-[var(--brand-secondary)] mr-3 flex-shrink-0 mt-0.5" />
-                            <span 
-                              className="text-[var(--brand-primary)] text-sm"
+                            <span
+                              className="text-[var(--brand-secondary)] text-sm"
                               style={{ fontFamily: 'var(--font-grandview)' }}
                             >
                               {feature}
@@ -260,8 +260,8 @@ export default function SubscriptionModal({ id, subscription, onClose }: Subscri
                           >
                             Best For
                           </h4>
-                          <p 
-                            className="text-[var(--brand-primary)]"
+                          <p
+                            className="text-[var(--brand-secondary)]"
                             style={{ fontFamily: 'var(--font-grandview)' }}
                           >
                             {subscription.bestFor}
@@ -276,7 +276,7 @@ export default function SubscriptionModal({ id, subscription, onClose }: Subscri
                           >
                             Key Benefits
                           </h4>
-                          <ul className="space-y-1 text-sm text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
+                          <ul className="space-y-1 text-sm text-[var(--brand-secondary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
                             {subscription.benefits.map((benefit, index) => (
                               <li key={index} className="flex items-start">
                                 <Star className="w-4 h-4 text-[var(--brand-secondary)] mr-2 flex-shrink-0 mt-0.5" />
@@ -295,7 +295,7 @@ export default function SubscriptionModal({ id, subscription, onClose }: Subscri
                             >
                               Important Notes
                             </h4>
-                            <ul className="space-y-1 text-sm text-[var(--brand-primary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
+                            <ul className="space-y-1 text-sm text-[var(--brand-secondary)]" style={{ fontFamily: 'var(--font-grandview)' }}>
                               {subscription.limitations.map((limitation, index) => (
                                 <li key={index} className="flex items-start">
                                   <span className="w-2 h-2 bg-[var(--brand-secondary)] rounded-full mr-2 flex-shrink-0 mt-2"></span>
@@ -315,8 +315,8 @@ export default function SubscriptionModal({ id, subscription, onClose }: Subscri
                           <div className="w-16 h-16 bg-[var(--brand-primary)]/20 rounded-full mx-auto mb-3 flex items-center justify-center">
                             <Calendar className="w-8 h-8 text-[var(--brand-primary)]" />
                           </div>
-                          <p 
-                            className="text-sm text-[var(--brand-primary)] font-medium"
+                          <p
+                            className="text-sm text-[var(--brand-secondary)] font-medium"
                             style={{ fontFamily: 'var(--font-grandview)' }}
                           >
                             Subscription Visualization

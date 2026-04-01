@@ -120,9 +120,8 @@ export default function Services() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                 {/* Left side - Content */}
                 <div>
-                  <h1 
-                    className="text-4xl lg:text-5xl font-bold text-brand-primary mb-8 tracking-tight"
-                    style={{ fontFamily: 'var(--font-ghost)' }}
+                  <h1
+                    className="text-4xl lg:text-5xl font-bold text-brand-primary mb-8 tracking-tight font-ghost"
                   >
                     Services
                   </h1>
@@ -200,8 +199,8 @@ export default function Services() {
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-ghost font-bold text-brand-primary mb-4">Ready to book your service?</h2>
-            <p className="text-xl text-brand-primary mb-4">Get Goobii Connect and schedule your eco-friendly clean in seconds.</p>
+            <h2 className="text-3xl font-grandview-bold font-bold text-brand-primary mb-4">Ready to book your service?</h2>
+            <p className="text-xl text-brand-primary mb-4">Get the Goobii App and schedule your eco-friendly clean in seconds.</p>
             <p className="text-lg text-brand-primary mb-8 font-grandview-bold">Download now!</p>
             
             <div className="flex justify-center">

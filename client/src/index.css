@@ -45,7 +45,7 @@
   --radius: 1rem;
 
   /* Font families */
-  --font-ghost: "Ghost", "Inter", system-ui, -apple-system, sans-serif;
+  --font-ghost: "Ghost Trial", "Inter", system-ui, -apple-system, sans-serif;
   --font-grandview: "Grandview", "Inter", system-ui, -apple-system, sans-serif;
   --font-grandview-bold: "Grandview Bold", "Inter", system-ui, -apple-system, sans-serif;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
@@ -269,28 +269,6 @@ footer a:hover span,
   --ring: hsl(195, 100%, 26%);
 }
 
-/* Font face declarations for placeholder fonts */
-@font-face {
-  font-family: "Ghost";
-  src: local("Inter"), local("system-ui");
-  font-weight: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Grandview";
-  src: local("Inter"), local("system-ui");
-  font-weight: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Grandview Bold";
-  src: local("Inter"), local("system-ui");
-  font-weight: bold;
-  font-display: swap;
-}
-
 @layer base {
   * {
     @apply border-border;
@@ -301,13 +279,14 @@ footer a:hover span,
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-ghost);
+    font-weight: bold;
   }
 }
 
 @layer components {
   .font-ghost {
     font-family: var(--font-ghost);
+    font-style: italic;
   }
 
   .font-grandview {

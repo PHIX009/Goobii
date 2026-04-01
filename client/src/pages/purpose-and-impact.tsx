@@ -573,9 +573,9 @@ export default function PurposeAndImpact() {
         {/* Final CTA Band Section */}
         <section id="pi-cta" className="py-16 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-ghost font-bold text-brand-primary mb-4">Join the purpose</h2>
-            <p className="text-xl text-brand-primary mb-4">Turn every wash into a small win for the planet. Book in Goobii Connect. Simple to start, rewarding to continue.</p>
-            <p className="text-lg text-brand-primary mb-8 font-grandview-bold">Join Goobii Connect today!</p>
+            <h2 className="text-3xl font-grandview-bold font-bold text-brand-primary mb-4">Join the purpose</h2>
+            <p className="text-xl text-brand-primary mb-4">Turn every wash into a small win for the planet. Book in the Goobii App. Simple to start, rewarding to continue.</p>
+            <p className="text-lg text-brand-primary mb-8 font-grandview-bold">Join the Goobii App today!</p>
             
             <div className="flex justify-center">
               <CTAGroup size="lg" className="flex-col sm:flex-row" />
