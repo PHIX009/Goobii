@@ -1,0 +1,45 @@
+name: Goobii Infrastructure Control
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action to perform'
+        required: true
+        type: choice
+        options:
+          - restart-bot
+          - restart-nginx
+          - deploy
+          - status
+          - restart-all
+
+jobs:
+  control:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH and execute action
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            ACTION="${{ github.event.inputs.action }}"
+            case $ACTION in
+              restart-bot)
+                pm2 restart jamal-bot && pm2 status jamal-bot
+                ;;
+              restart-nginx)
+                sudo systemctl restart nginx && sudo systemctl status nginx --no-pager | head -8
+                ;;
+              deploy)
+                cd /home/ubuntu/jamal-bot && bash ~/deploy.sh
+                ;;
+              status)
+                pm2 status && sudo systemctl status nginx --no-pager | head -8
+                ;;
+              restart-all)
+                pm2 restart jamal-bot && sudo systemctl restart nginx && echo "All services restarted"
+                ;;
+            esac
